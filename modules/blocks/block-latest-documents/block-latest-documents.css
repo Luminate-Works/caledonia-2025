@@ -1,0 +1,46 @@
+.latest-documents {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.latest-documents li {
+  margin: 0 0 var(--wp--preset--spacing--normal) 0;
+  padding: 0;
+}
+.latest-documents a {
+  display: block;
+  min-height: 46px;
+  padding: 0 0 0 65px;
+  position: relative;
+}
+.latest-documents a svg {
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+.latest-documents a svg path {
+  transition: fill 0.25s ease-in-out;
+}
+.latest-documents a:hover, .latest-documents a:active, .latest-documents a:focus {
+  text-decoration: none;
+}
+.latest-documents a:hover h3, .latest-documents a:active h3, .latest-documents a:focus h3 {
+  color: #010035;
+}
+.latest-documents a:hover svg path.rect, .latest-documents a:active svg path.rect, .latest-documents a:focus svg path.rect {
+  fill: #F0D8B2;
+}
+.latest-documents .meta {
+  display: block;
+  font-size: var(--wp--preset--font-size--font-16);
+  margin: 0 0 0.3ch 0;
+  color: #010035;
+}
+.latest-documents h3 {
+  font-size: var(--wp--preset--font-size--font-20);
+  font-weight: 500;
+  margin: 0;
+  color: #F0D8B2;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+}/*# sourceMappingURL=block-latest-documents.css.map */

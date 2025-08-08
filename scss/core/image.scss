@@ -1,0 +1,7 @@
+@import "../abstracts/vars";
+
+.wp-block-image {
+    + .wp-block-heading {
+        margin-top: 2.5ch;
+    }
+}

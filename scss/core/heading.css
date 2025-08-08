@@ -1,0 +1,9 @@
+.wp-block-heading.is-style-large-heading {
+  font-size: var(--wp--preset--font-size--font-72);
+  line-height: 110%;
+}
+.wp-block-heading.is-style-large-heading em {
+  display: block;
+  font-style: normal;
+  opacity: 0.4;
+}/*# sourceMappingURL=heading.css.map */

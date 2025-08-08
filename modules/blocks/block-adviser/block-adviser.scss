@@ -1,0 +1,57 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.company-grid {
+
+    + * {
+        margin-top: $space-m;
+    }
+
+    &__company {
+        display: block;
+        margin: 0 0 2rem 0;
+        padding: 2rem;
+        background: rgba($purple, .1);
+        border: 1px solid transparent;
+        transition: background $speed $cb, border $speed $cb;
+
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: $font-16;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: $purple;
+        }
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    
+        &:hover,
+        &:active,
+        &:focus {
+            background: rgba($purple, .05);
+            border: 1px solid rgba($purple, .25);
+        }
+        
+    }
+
+    @media (min-width: 600px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        
+        &__company {
+            width: calc(50% - 1rem);
+            margin: 0;
+        }
+    }
+    
+}

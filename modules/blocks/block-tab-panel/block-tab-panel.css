@@ -1,0 +1,105 @@
+@media (max-width: 749px) {
+  .tab-panel > div {
+    overflow-x: hidden;
+  }
+  .tab-group.acc {
+    padding: 0;
+  }
+  .tab-group.acc .tab-panel {
+    display: block !important;
+    width: 100%;
+    padding: 0;
+  }
+  .tab-group.acc .tab-panel > input {
+    display: none;
+  }
+  .tab-group.acc .tab-panel > input + .acc-title {
+    display: block;
+    font-weight: 500;
+    line-height: 1.25;
+    padding: 0.9ch 40px 0.9ch 1.4rem;
+    margin: 0;
+    color: #8559D7;
+    border: 1px solid #8559D7;
+    border-radius: 4px;
+    position: relative;
+    transition: color 0.25s ease-in-out;
+  }
+  .tab-group.acc .tab-panel > input + .acc-title:after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #8559D7;
+    -webkit-mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
+            mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 1ch;
+  }
+  .tab-group.acc .tab-panel > input + .acc-title:hover {
+    color: #8559D7;
+    cursor: pointer;
+  }
+  .tab-group.acc .tab-panel > input + .acc-title span {
+    display: block;
+    width: calc(100% - 40px);
+  }
+  .tab-group.acc .tab-panel > input + .acc-title + .acc-panel {
+    height: 0;
+    visibility: hidden;
+    padding: 0;
+    border: 1px solid transparent;
+    transition: visibility 0.35s cubic-bezier(0.25, 0.5, 0.5, 1) 0.05s, height 0.35s cubic-bezier(0.25, 0.5, 0.5, 1) 0.05s, padding 0.35s cubic-bezier(0.25, 0.5, 0.5, 1) 0.05s;
+  }
+  .tab-group.acc .tab-panel > input + .acc-title + .acc-panel > * {
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.82, -0.04, 1, 1);
+  }
+  .tab-group.acc .tab-panel > input + .acc-title + .acc-panel .wp-block-columns:first-child {
+    margin-top: 0;
+  }
+  .tab-group.acc .tab-panel > input + .acc-title + .acc-panel .wp-block-columns:last-child {
+    margin-bottom: 0;
+  }
+  .tab-group.acc .tab-panel > input:checked + .acc-title {
+    color: #8559D7;
+  }
+  .tab-group.acc .tab-panel > input:checked + .acc-title:after {
+    background-color: #8559D7;
+    -webkit-mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
+            mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
+  }
+  .tab-group.acc .tab-panel > input:checked + .acc-title + .acc-panel {
+    height: auto;
+    visibility: visible;
+    padding: 20px 0;
+  }
+  .tab-group.acc .tab-panel > input:checked + .acc-title + .acc-panel > * {
+    opacity: 1;
+  }
+  .tab-group.tabs .tab-panel > input,
+  .tab-group.tabs .tab-panel > label {
+    display: none;
+  }
+  .tab-group.tabs .tab-panel > div {
+    opacity: 0;
+    animation: fadeIn 0.45s forwards 0.15s;
+  }
+  .tab-group.tabs .tab-panel.active {
+    display: block;
+  }
+}
+@media (min-width: 750px) {
+  .tab-panel > input,
+  .tab-panel > label {
+    display: none;
+  }
+  .tab-panel > div {
+    animation: fadeIn 0.45s forwards 0.15s;
+    opacity: 0;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+}/*# sourceMappingURL=block-tab-panel.css.map */

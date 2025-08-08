@@ -1,0 +1,53 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.aim {
+    margin: 0!important;
+    padding: 2rem;
+    
+    &:nth-child(even) {
+        background: rgba($purple, .2);
+    }
+
+    + * {
+        &:not(.aim) {
+            margin-top: $space-n;
+        }
+    }
+
+	h3 {
+        font-family: $ff-body;
+        font-size: $font-20;
+        font-weight: 500;
+	}
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__btn {
+        @include button;
+    }
+
+    @media (min-width: 782px) {
+        display: flex;
+		flex-wrap: wrap;
+        gap: 40px;
+
+        > div {
+			width: calc(50% - 20px);
+		}
+
+		h3 {
+			margin: 0;
+		}
+    }
+} // aim
+
+h2 {
+    + .aim {
+        margin-top: 2.5rem!important;
+    }
+}

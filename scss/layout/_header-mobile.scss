@@ -1,0 +1,172 @@
+
+@include burger-menu;
+
+header {
+
+    &.sticky {
+        &:not(.menu-open) {
+            #nav-expander {
+                .bar {
+                    background: $purple;
+        
+                    &:before,
+                    &:after {
+                        background: $purple;
+                    }
+                }
+            }
+        }
+    }
+
+    .wrap {
+        position: relative;
+    }
+
+    #sitenav {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        padding: 60px 7vw 30px 7vw;
+        background: radial-gradient(circle at 0% 0%, $primary, transparent 75%), $purple;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .35s $cb, padding .35s $cb;
+        pointer-events: none;
+        z-index: -1;
+
+        .menu {
+            .wrap {
+                width: 100%;
+            }
+
+            li {
+                margin: 0;
+
+                a {
+                    display: block;
+                    color: #fff;
+                }
+
+                &.current-menu-item,
+                &.current-menu-parent {
+                    a {
+                        color: $secondary;
+                    }
+                }
+            }
+
+            .sub-toggle {
+                display: none;
+            }
+
+            > li {
+                padding: 1ch 0;
+                border-bottom: 1px solid rgba(255,255,255, .15);
+
+                &.menu-item-has-children {
+                    display: flex; 
+                    flex-wrap: wrap;
+
+                    > a {
+                        width: calc(100% - 20px);
+                        padding-right: 20px;
+                    }
+
+                    //> .sub-menu {
+                    > .child-menu {
+                        width: 100%;
+                        max-height: 0;
+                        z-index: -1;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: opacity .35s cubic-bezier(0.4, 0, 0.2, 1), max-height .35s cubic-bezier(0.4, 0, 0.2, 1);
+
+                        .mm-featured-image, 
+                        .mm-description {
+                            display: none;
+                        }
+
+                        li {
+                            margin: .7ch 0;
+
+                            &.current-menu-item {
+                                a {
+                                    color: $secondary;
+                                }
+                            }
+
+                            a {
+                                color: rgba(255,255,255, .75);
+
+                                &:before {
+                                    content: "- ";
+                                    color: rgba(255,255,255, .15);
+                                    padding-right: .4ch
+                                }
+                            }
+                        
+                        }
+                    }
+                    
+                    > .sub-toggle {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.918' height='9.159' viewBox='0 0 16.918 9.159'%3E%3Cpath id='Path_9723' data-name='Path 9723' d='M5291.5,4113l7.382,7.469,7.555-7.469' transform='translate(-5290.51 -4112.009)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.4'/%3E%3C/svg%3E%0A");
+                        background-position: 75% 50%;
+                        background-repeat: no-repeat;
+                        background-size: 14px;
+                        transition: transform .25s ease-in-out;
+
+                        &.open {
+                            transform: scaleY(-1);
+
+                            + .child-menu {
+                                z-index: 1;
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                   
+                } // parent
+            } // 1st level
+        } // menu
+
+    } // sitenav
+
+// sitenav open
+    &.menu-open {
+        .branding {
+            z-index: 9;
+        }
+
+        > .wrap {
+            &:before {
+                content: "";
+                display: block;
+                background: rgba(0, 0, 0, .015);
+                backdrop-filter: blur(20px);
+                position: absolute;
+                top: -16px;
+                bottom: -10px;
+                left: -15px;
+                right: -15px;
+            }
+        }
+
+        #sitenav {
+            padding-top: 70px;
+            visibility: visible;
+            opacity: 1;
+            pointer-events: all;
+            overflow-y: scroll;
+        }
+    }    
+}

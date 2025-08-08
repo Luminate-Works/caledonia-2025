@@ -1,0 +1,43 @@
+#moove_gdpr_cookie_info_bar.gdpr_infobar_postion_bottom_left:not(.gdpr-full-screen-infobar) {
+    background: lighten($purple, 5%)!important;
+    border: 1px solid $purple!important;
+    border-radius: 6px!important;
+    box-shadow: 0 10px 10px -5px rgba(0,0,0, .2);
+
+    .change-settings-button {
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none!important;
+        }
+    }
+
+    p {
+        color: $primary!important;
+    }
+
+    @media (min-width: 768px) {
+        .moove-gdpr-info-bar-container {
+            padding: 5px 15px!important;
+        }
+    }
+    
+}   
+
+#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton {
+    font-weight: 500!important;
+    color: $purple!important;
+    background-color: transparent!important;
+    border: 1px solid $purple!important;
+
+    &:hover {
+        color: #fff!important;
+        background-color: $purple!important;
+    }
+}
+
+#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-company-logo-holder img {
+    display: block;
+    width: 112px;
+    height: 75px;
+}

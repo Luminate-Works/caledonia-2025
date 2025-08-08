@@ -1,0 +1,72 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.statistics {
+	display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+	&.aligncenter {
+		text-align: center;
+
+		p {
+			&.statistics__number-small {
+				margin-left: auto!important;
+			}
+		}
+	}
+
+	+ * {
+		margin-top: $space-xl;
+	}
+
+	p {
+		margin: 0;
+
+		&.statistics__number {
+			font-size: $font-40;
+			font-weight: 100;
+			color: $primary;
+			margin-top: 0!important;
+
+			> span {
+				display: inline-block;
+
+				span {
+					display: inline-block;
+					opacity: 0;
+					transform: translateX(-.15ch);
+				}
+			}
+		}
+
+		&.statistics__title {
+			font-size: $font-20;
+			color: rgba($primary, .4);
+		}
+
+		&.statistics__number-small {
+			font-size: $font-20;
+			color: rgba($primary, .6);
+		}
+	}
+
+// smaller numbers
+	&.is-style-small {
+		p {
+			&.statistics__number {
+				font-size: $font-28;
+			}
+
+			&.statistics__title {
+				font-size: $font-18;
+				color: rgba($primary, .4);
+			}
+
+			&.statistics__number-small {
+				font-size: $font-18;
+			}
+		}
+	}
+
+}

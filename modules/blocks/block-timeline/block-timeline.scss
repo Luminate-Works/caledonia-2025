@@ -1,0 +1,154 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.timeline {
+
+    .event {
+        margin-bottom: 3rem;
+        padding: var(--spacer-xs);
+        color: $primary;
+        background: $grey;
+        border: 1px solid $secondary;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        > * {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__event-block {
+        padding-bottom: 5rem;
+        position: relative;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border: 1px solid $grey;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            transition: background calc($speed * 2) $cb;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 100%;
+            background: $grey;
+            position: absolute;
+            top: 0;
+            left: 12px;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: $font-28;
+            font-weight: 200;
+            transition: all calc($speed * 1.5) $cb;
+        }
+
+        &.active {
+
+            h2 {
+                font-weight: 500;
+                color: $purple;
+            }
+
+            &:before {
+                background: $grey;
+            }
+        }
+
+        .divider {
+            display: block;
+            width: 1px;
+            background: $primary;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+        }
+        
+        @media (max-width: 599px) {
+            padding-left: 45px;
+
+            .divider {
+                left: 12px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            &:before {
+                left: calc(50% - 12px);
+            }
+
+            &:after {
+                left: 50%;
+            }
+
+            .divider {
+                left: 50%;
+            }
+        }
+
+        @media (min-width: 782px) {
+            &:before {
+                top: 0;
+                left: calc(270px - 12px);
+            }
+
+            &:after {
+                left: 270px;
+            }
+
+            .divider {
+                left: 270px;
+            }
+        }
+
+    }
+
+    @media (min-width: 600px) {
+
+        &__event-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8rem;
+
+            > div {
+                flex: 1;
+            }
+        }
+    }
+
+    @media (min-width: 782px) {
+        &__event-block {
+            gap: 8rem;
+
+            > div {
+                flex: unset;
+
+                &.timeline__date {
+                    width: 250px;
+                }
+
+                &.timeline__events {
+                    width: calc(100% - 330px);
+                }
+            }
+        }
+    }
+}

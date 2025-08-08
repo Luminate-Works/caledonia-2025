@@ -1,0 +1,126 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+ul.tabs {
+	display: flex;
+    flex-wrap: wrap;
+	list-style: none;
+	margin: 0 0 2.5rem 0;
+	padding: 0;
+	background: rgba($purple, .2);
+	position: relative;
+
+	li {
+		margin: 0;
+		padding: 0 .5rem 0 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	a {
+		@include button;
+		text-decoration: none!important;
+		color: $purple!important;
+		background: transparent;
+		border-color: transparent;
+		cursor: pointer;
+		transition: color $speed $ease, background $speed $ease!important;
+
+		&:after {
+			display: none;
+		}
+
+		&.active,
+		&:hover,
+		&:active,
+		&:focus {
+			color: #fff!important;
+			background: $purple;
+			outline: none;
+		}
+	} // a
+
+// fixed width buttons 
+	&.fw {
+		li {
+			display: flex;
+			align-items: stretch;
+			flex-grow: 1;
+			flex-basis: 0;
+
+			a {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+		}
+	}
+} // tabs
+
+// side tabs
+.vert {
+	ul.tabs {
+		display: flex;
+		flex-direction: column;
+		width: calc(35% - 30px);
+		margin: 0 30px 0 0;
+		padding: 0;
+		background: transparent;
+		border: none;
+		border-radius: 0;
+
+		li {
+			width: 100%;
+			margin: 0 0 1rem 0;
+			padding: 0;
+		}
+
+		a {
+			display: block;
+			height: auto;
+			padding: .9ch 1.4rem;
+			color: $primary!important;
+			background: transparent;
+			border: 1px solid $purple;
+            border-radius: 4px;
+
+			&:hover,
+			&:active,
+			&:focus,
+			&.active {
+				background: rgba($purple, .05);
+				color: $purple!important;
+                cursor: pointer;
+			}
+
+		}
+	}
+
+	@media (min-width: 750px) {
+		.tab-panel {
+			width: 65%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		ul.tabs {
+			width: 180px;
+		}
+		.tab-panel {
+			width: calc(100% - 215px);
+		}	
+	}
+}
+
+
+
+// tab > accordion on mobile
+@media (max-width: 749px) {
+	.acc {
+		ul.tabs {
+            display: none;
+        }
+	}
+}

@@ -1,0 +1,20 @@
+@import "../abstracts/vars";
+@import "../abstracts/mixins";
+
+.wp-block-button {
+	.wp-block-button__link {
+		@include button;
+	}
+}
+
+* + .wp-block-buttons {
+	margin-top: 3ch;
+}
+
+.wp-block-buttons {
+	+ .wp-block-group,
+	+ .wp-block-columns {
+		margin-top: $space-m;
+	}
+}
+

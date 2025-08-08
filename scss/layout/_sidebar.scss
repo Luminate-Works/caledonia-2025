@@ -1,0 +1,130 @@
+#sidebar {
+
+    .widget-area {
+        margin-bottom: $space-n;
+
+        @media (min-width: 1024px) {
+            position: sticky;
+            top: 90px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+            padding: 0;
+            position: relative;
+
+            &:first-child {
+                a {
+                    font-size: $font-20;
+                    color: $primary;
+                }
+            }
+
+            &.current_page_item {
+                a {
+                    font-weight: 500;
+                    color: $purple;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            font-size: 1.6rem;
+            line-height: 1.375;
+            padding: 1ch 0;
+            transition: color $speed $ease;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $primary;
+            }
+        }
+    } // ul
+
+    .b2blog {
+        h5 {
+            font-size: $font-20;
+            font-weight: 600;
+            margin: 0 0 2ch 0;
+            padding: 1ch 0;
+            color: $primary;
+            position: relative;
+        }
+
+        .btn {
+            @include button;
+            width: 100%;
+            max-width: 200px;
+            justify-content: center;
+            padding: 1.1ch 1ch;
+        }
+    } // back to media
+
+    .post-navigation {
+
+        a {
+            display: block;
+            line-height: 1.375;
+            padding: 1ch 0;
+            position: relative;
+
+            span {
+                display: block;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                margin-bottom: .5ch;
+                color: green;
+            }
+
+            strong {
+                font-weight: 400;
+                transition: color $speed $ease;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                strong {
+                    color: $primary;
+                }
+            }
+        }
+
+        .nav-links {
+            > div {
+                &:first-child {
+                    a {
+                        &:before {
+                            content: "";
+                            display: block;
+                            width: 100%;
+                            height: 1px;
+                            background: rgba(0,0,0, 1);
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    } // post-navigation
+    
+}
+
+@media (min-width: 1024px) {
+    .page-id-658 #sidebar {
+        .widget-area {
+            position: relative;
+            top: 0;
+        }
+    }
+}

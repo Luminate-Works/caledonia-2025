@@ -1,0 +1,15 @@
+{
+  "name": "lmn/testimonial-carousel",
+  "title": "Testimonial Carousel",
+  "category": "luminate",
+  "icon": {
+    "src": "admin-users",
+    "foreground": "#09ca7f"
+  },
+  "apiVersion": 2,
+  "keywords": ["testimonial", "feedback", "carousel"],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "block-testimonial-carousel.php"
+  }
+}

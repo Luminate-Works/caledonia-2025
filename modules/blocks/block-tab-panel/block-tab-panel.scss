@@ -1,0 +1,150 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+@media (max-width: 749px) {
+    .tab-panel {
+        > div {
+            overflow-x: hidden;
+        }
+    }
+
+    .tab-group.acc {
+        padding: 0;
+
+        .tab-panel {
+			display: block!important;
+			width: 100%;
+            padding: 0;
+            
+            > input {
+                display: none;
+
+                + .acc-title {
+                    display: block;
+                    font-weight: 500;
+                    line-height: 1.25;
+                    padding: .9ch 40px .9ch 1.4rem;
+                    margin: 0;
+                    color: $purple;
+                    border: 1px solid $purple;
+                    border-radius: 4px;
+                    position: relative;
+                    transition: color $speed $ease;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 15px;
+                        height: 15px;
+                        background-color: $purple;
+                        mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center / contain;
+                        position: absolute;
+                        top: calc(50% - 8px);
+                        right: 1ch;
+                    }
+
+                    &:hover {
+                        color: $purple;
+                        cursor: pointer;
+                    }
+
+                    span {
+                        display: block;
+                        width: calc(100% - 40px);
+                    }
+
+                    + .acc-panel {
+                        height: 0;
+                        visibility: hidden;
+                        padding: 0;
+                        border: 1px solid transparent;
+                        transition: visibility .35s cubic-bezier(.25,.5,.5,1) .05s, height .35s cubic-bezier(.25,.5,.5,1) .05s, padding .35s cubic-bezier(.25,.5,.5,1) .05s;
+
+                        > * {
+                            opacity: 0;
+                            transition: opacity .25s cubic-bezier(.82, -.04, 1, 1);
+                        }
+
+                        .wp-block-columns {
+                            &:first-child {
+                                margin-top: 0;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    } //panel
+                    
+                } // title
+
+                &:checked {
+                    + .acc-title {
+                        color: $purple;
+
+                        &:after {
+                            background-color: $purple;
+                            mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center / contain;
+                        }
+
+                        + .acc-panel {
+                            height: auto;
+                            visibility: visible;
+                            padding: 20px 0;
+
+                            > * {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                } // active/checked
+        
+            } //input
+
+        } // tab-panel
+    } // acc
+
+    .tab-group.tabs {
+        .tab-panel {
+            > input,
+            >  label {
+                display: none;
+            }
+    
+            > div {
+                opacity: 0;
+                animation: fadeIn .45s forwards .15s;
+            }
+    
+            &.active {
+                display: block;
+        
+                > div {
+                   // animation: fadeIn .45s forwards .15s;
+                }
+            }
+        } // tab-panel
+    } // tabs view
+}
+
+@media (min-width: 750px) {
+	.tab-panel {
+		> input,
+		>  label {
+			display: none;
+		}
+
+        > div {
+            animation: fadeIn .45s forwards .15s;
+            opacity: 0;
+        }
+
+        &.active {
+            display: block;
+    
+            > div {
+                //animation: fadeIn .45s forwards .15s;
+            }
+        }
+	} // tab-panel
+}

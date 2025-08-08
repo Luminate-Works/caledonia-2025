@@ -1,0 +1,91 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+// filters
+.block-posts-grid {
+	margin-bottom: var(--spacer);
+
+	.category-filter {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		margin: 0 0 var(--spacer) 0;
+		padding: $space-s;
+		background: $grey;
+
+		button,
+		select {
+			font-size: 1.6rem;
+			cursor: pointer;
+			-webkit-appearance: none;
+		}
+
+		select {
+			padding: 1ch 7rem 1ch 2rem;
+			background: #fff url(../../../assets/images/theme/icon-dropdown-sq.svg) center right no-repeat;
+			background-size: contain;
+			border: 1px solid #fff;
+		}
+
+		button {
+			@include button;
+		}
+
+		@media (max-width: 499px) {
+			select {
+				width: 100%;
+			}
+
+			.inactive {
+				display: none;
+			}
+		}
+
+		@media (min-width: 700px) {
+			select {
+				padding-right: 10rem;
+			}
+		}
+	}
+
+	#loadmore {
+		@include button;
+		margin-top: 5rem;
+		cursor: pointer;
+
+		&.inactive {
+			display: none;
+		}
+	}
+}
+
+.block-posts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5rem;
+
+	.excerpt {
+		width: 100%;
+	}
+
+	@media (min-width: 782px) {
+		.excerpt {
+			width: calc(50% - 2.5rem);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.excerpt {
+			.btn {
+				width: 80px;
+				height: 80px;
+			}
+		}
+	}
+}
+
+
+
+

@@ -1,0 +1,35 @@
+@import "../abstracts/vars";
+
+figure.wp-block-gallery {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.5%;
+    margin-top: $space-n;
+    margin-bottom: $space-n;
+
+    .wp-block-image {
+        flex: 1;
+    }
+
+    img {
+        border-radius: 10px;
+    }
+
+    @media (max-width: 399px) {
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .wp-block-image {
+            width: 100%!important;
+        }
+    }
+
+    &.columns-2 {
+        gap: 1rem;
+
+        .wp-block-image {
+            width: calc(50% - .5rem)!important;
+            flex: unset;
+        }
+    }
+}

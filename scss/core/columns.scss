@@ -1,0 +1,76 @@
+@import "../abstracts/vars";
+
+// column
+.wp-block-column {
+  &.has-background,
+  &.has-border-color {
+    padding: $space-m;
+  }
+
+  &.is-style-border-left {
+    border-left: 1px solid rgba($primary, 0.1);
+    padding-left: 4rem;
+  }
+
+  @media (min-width: 782px) {
+    &.reorder {
+      order: -1;
+    }
+
+    &.is-style-btn-bottom {
+      display: flex;
+      flex-direction: column;
+
+      .wp-block-buttons {
+        margin-top: auto;
+        padding-top: 2rem;
+      }
+    }
+  }
+}
+
+// columns
+.wp-block-columns {
+  &.is-style-border-bottom {
+    border-bottom: 1px solid rgba($primary, 0.1);
+    padding-bottom: 5.5rem;
+  }
+
+  &.is-style-no-gap {
+    gap: 0;
+  }
+
+  &.is-style-sm-gap {
+    gap: $space-s;
+
+    + .is-style-sm-gap {
+      margin-top: $space-s;
+    }
+  }
+
+  &.has-background {
+    padding: $space-s;
+  }
+
+  @media (min-width: 782px) and (max-width: 1023px) {
+    &.col-1-md {
+      flex-direction: column;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    &.col-1-lg {
+      flex-direction: column;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &.is-style-lg-gap {
+      gap: $space-m;
+    }
+  }
+
+  + .wp-block-quote {
+    margin-top: $space-n;
+  }
+}

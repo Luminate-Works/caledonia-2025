@@ -1,0 +1,45 @@
+.link-group.investors-landing {
+  padding: 0 var(--wp--preset--spacing--small) var(--wp--preset--spacing--small) var(--wp--preset--spacing--small);
+}
+.link-group__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.link-group__item {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(154, 194, 117, 0.3);
+}
+.link-group__item:last-child {
+  border-bottom: none;
+}
+.link-group svg {
+  width: 24px;
+  height: 12px;
+}
+.link-group path {
+  transition: stroke 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-group a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--wp--preset--font-size--font-20);
+  font-weight: 500;
+  padding: 1ch 0;
+  color: #010035;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-group a:hover, .link-group a:active, .link-group a:focus {
+  color: #8559D7;
+}
+.link-group a:hover path, .link-group a:active path, .link-group a:focus path {
+  stroke: #8559D7;
+}
+@media (min-width: 782px) {
+  .link-group.investors-landing {
+    padding: var(--wp--preset--spacing--small) var(--wp--preset--spacing--small) var(--wp--preset--spacing--small) 0;
+  }
+}/*# sourceMappingURL=block-quicklinks.css.map */

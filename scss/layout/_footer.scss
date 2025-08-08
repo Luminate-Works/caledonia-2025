@@ -1,0 +1,55 @@
+footer {
+    // margin: $space-xl 0 0 0;
+    padding: $space-xl 0;
+    background: $primary;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-s;
+
+        &__link {
+            display: block;
+        }
+
+        svg {
+            width: 30px;
+        }
+    }
+
+    @media (min-width: 782px) {
+        .columns {
+            .wrap {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2.5%;
+                justify-content: space-between;
+
+                .col {
+                    flex: 1;
+                }
+            }
+        }
+    } // 782
+} // footer
+
+// back to top button
+.b2t {
+    opacity: 0;
+    position: fixed;
+    bottom: -30px;
+    right: 20px;
+    z-index: 99;
+    transition: all $speed ease-in-out;
+
+    &.active {
+        opacity: 1;
+        bottom: -2px;
+    }
+}

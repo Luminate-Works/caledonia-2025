@@ -1,0 +1,81 @@
+.accordion {
+  margin-top: 0 !important;
+  overflow: hidden;
+}
+.accordion + .accordion {
+  margin-top: 1rem !important;
+}
+.accordion + *:not(.accordion) {
+  margin-top: 2.5ch !important;
+}
+*:not(.accordion):not(.page-title) + .accordion {
+  margin-top: 3rem !important;
+}
+.accordion > input {
+  display: none;
+}
+.accordion > input + .acc-title {
+  display: block;
+  font-weight: 500;
+  line-height: 1.25;
+  padding: 0.9ch 40px 0.9ch 1.4rem;
+  margin: 0;
+  color: #010035;
+  border: 1px solid #B2B2B2;
+  border-radius: 2px;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+}
+.accordion > input + .acc-title:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #F0D8B2;
+  -webkit-mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
+          mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 1ch;
+}
+.accordion > input + .acc-title:hover {
+  color: #F0D8B2;
+  cursor: pointer;
+}
+.accordion > input + .acc-title span {
+  display: block;
+  width: calc(100% - 40px);
+}
+.accordion > input + .acc-title + .acc-panel {
+  height: 0;
+  visibility: hidden;
+  padding: 0;
+  border: 1px solid transparent;
+  transition: visibility 0.35s cubic-bezier(0.25, 0.5, 0.5, 1) 0.05s, height 0.35s cubic-bezier(0.25, 0.5, 0.5, 1) 0.05s, padding 0.35s cubic-bezier(0.25, 0.5, 0.5, 1) 0.05s;
+}
+.accordion > input + .acc-title + .acc-panel > * {
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.82, -0.04, 1, 1);
+}
+.accordion > input + .acc-title + .acc-panel .wp-block-columns:first-child {
+  margin-top: 0;
+}
+.accordion > input + .acc-title + .acc-panel .wp-block-columns:last-child {
+  margin-bottom: 0;
+}
+.accordion > input:checked + .acc-title {
+  color: #F0D8B2;
+}
+.accordion > input:checked + .acc-title:after {
+  background-color: #F0D8B2;
+  -webkit-mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
+          mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
+}
+.accordion > input:checked + .acc-title + .acc-panel {
+  height: auto;
+  visibility: visible;
+  padding: 20px 0;
+}
+.accordion > input:checked + .acc-title + .acc-panel > * {
+  opacity: 1;
+}/*# sourceMappingURL=block-accordion.css.map */

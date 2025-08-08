@@ -1,0 +1,12 @@
+.lmn-iframe {
+  margin-block-start: var(--wp--preset--spacing--m) !important;
+}
+.lmn-iframe iframe {
+  border: 0;
+  width: 100%;
+  overflow: hidden !important;
+}
+.lmn-iframe.hp-shareprice {
+  padding: var(--wp--preset--spacing--small);
+  background: #fff;
+}/*# sourceMappingURL=block-iframe.css.map */

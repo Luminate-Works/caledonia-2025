@@ -1,0 +1,35 @@
+@mixin button {
+  display: inline-flex;
+  align-items: center;
+  font-family: $ff-body;
+  font-size: $font-18;
+  line-height: 1.05;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 16px;
+  color: $primary;
+  background: $secondary-2;
+  border-radius: 88px;
+  cursor: pointer;
+  transition: color $speed $cb, background $speed $cb;
+
+  &:before {
+    content: '';
+    mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    background-color: $orange;
+    margin-right: 16px;
+}
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:before {
+        mask-image:url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.5" r="16" fill="%23FF8A45"/><path d="M11.095 16.1836H20.4283" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.5176L20.4284 16.1842L15.7617 20.8509" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+
+    }
+  }
+}

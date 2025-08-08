@@ -1,0 +1,127 @@
+.block-posts-grid {
+  margin-bottom: var(--spacer);
+}
+.block-posts-grid .category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 0 var(--spacer) 0;
+  padding: var(--wp--preset--spacing--small);
+  background: #B2B2B2;
+}
+.block-posts-grid .category-filter button,
+.block-posts-grid .category-filter select {
+  font-size: 1.6rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.block-posts-grid .category-filter select {
+  padding: 1ch 7rem 1ch 2rem;
+  background: #fff url(../../../assets/images/theme/icon-dropdown-sq.svg) center right no-repeat;
+  background-size: contain;
+  border: 1px solid #fff;
+}
+.block-posts-grid .category-filter button {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--wp--preset--font-family--primary);
+  font-size: var(--wp--preset--font-size--font-18);
+  line-height: 1.05;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 16px;
+  color: #010035;
+  background: #F3E8D7;
+  border-radius: 88px;
+  cursor: pointer;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.block-posts-grid .category-filter button:before {
+  content: "";
+  -webkit-mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  background-color: #FF8A45;
+  margin-right: 16px;
+}
+.block-posts-grid .category-filter button:hover:before, .block-posts-grid .category-filter button:active:before, .block-posts-grid .category-filter button:focus:before {
+  -webkit-mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.5" r="16" fill="%23FF8A45"/><path d="M11.095 16.1836H20.4283" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.5176L20.4284 16.1842L15.7617 20.8509" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.5" r="16" fill="%23FF8A45"/><path d="M11.095 16.1836H20.4283" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.5176L20.4284 16.1842L15.7617 20.8509" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+@media (max-width: 499px) {
+  .block-posts-grid .category-filter select {
+    width: 100%;
+  }
+  .block-posts-grid .category-filter .inactive {
+    display: none;
+  }
+}
+@media (min-width: 700px) {
+  .block-posts-grid .category-filter select {
+    padding-right: 10rem;
+  }
+}
+.block-posts-grid #loadmore {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--wp--preset--font-family--primary);
+  font-size: var(--wp--preset--font-size--font-18);
+  line-height: 1.05;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 16px;
+  color: #010035;
+  background: #F3E8D7;
+  border-radius: 88px;
+  cursor: pointer;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 5rem;
+  cursor: pointer;
+}
+.block-posts-grid #loadmore:before {
+  content: "";
+  -webkit-mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  background-color: #FF8A45;
+  margin-right: 16px;
+}
+.block-posts-grid #loadmore:hover:before, .block-posts-grid #loadmore:active:before, .block-posts-grid #loadmore:focus:before {
+  -webkit-mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.5" r="16" fill="%23FF8A45"/><path d="M11.095 16.1836H20.4283" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.5176L20.4284 16.1842L15.7617 20.8509" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          mask-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.5" r="16" fill="%23FF8A45"/><path d="M11.095 16.1836H20.4283" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.5176L20.4284 16.1842L15.7617 20.8509" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+.block-posts-grid #loadmore.inactive {
+  display: none;
+}
+
+.block-posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+.block-posts .excerpt {
+  width: 100%;
+}
+@media (min-width: 782px) {
+  .block-posts .excerpt {
+    width: calc(50% - 2.5rem);
+  }
+}
+@media (min-width: 1024px) {
+  .block-posts .excerpt .btn {
+    width: 80px;
+    height: 80px;
+  }
+}/*# sourceMappingURL=block-posts-listing.css.map */

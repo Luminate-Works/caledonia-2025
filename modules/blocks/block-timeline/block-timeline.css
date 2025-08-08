@@ -1,0 +1,119 @@
+.timeline .event {
+  margin-bottom: 3rem;
+  padding: var(--spacer-xs);
+  color: #010035;
+  background: #B2B2B2;
+  border: 1px solid #F0D8B2;
+}
+.timeline .event:last-child {
+  margin-bottom: 0;
+}
+.timeline .event > *:last-child {
+  margin-bottom: 0;
+}
+.timeline__event-block {
+  padding-bottom: 5rem;
+  position: relative;
+}
+.timeline__event-block:last-child {
+  padding-bottom: 0;
+}
+.timeline__event-block:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid #B2B2B2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.timeline__event-block:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #B2B2B2;
+  position: absolute;
+  top: 0;
+  left: 12px;
+  z-index: 1;
+}
+.timeline__event-block h2 {
+  font-size: var(--wp--preset--font-size--font-28);
+  font-weight: 200;
+  transition: all 0.375s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.timeline__event-block.active h2 {
+  font-weight: 500;
+  color: #8559D7;
+}
+.timeline__event-block.active:before {
+  background: #B2B2B2;
+}
+.timeline__event-block .divider {
+  display: block;
+  width: 1px;
+  background: #010035;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+@media (max-width: 599px) {
+  .timeline__event-block {
+    padding-left: 45px;
+  }
+  .timeline__event-block .divider {
+    left: 12px;
+  }
+}
+@media (min-width: 600px) {
+  .timeline__event-block:before {
+    left: calc(50% - 12px);
+  }
+  .timeline__event-block:after {
+    left: 50%;
+  }
+  .timeline__event-block .divider {
+    left: 50%;
+  }
+}
+@media (min-width: 782px) {
+  .timeline__event-block:before {
+    top: 0;
+    left: 258px;
+  }
+  .timeline__event-block:after {
+    left: 270px;
+  }
+  .timeline__event-block .divider {
+    left: 270px;
+  }
+}
+@media (min-width: 600px) {
+  .timeline__event-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem;
+  }
+  .timeline__event-block > div {
+    flex: 1;
+  }
+}
+@media (min-width: 782px) {
+  .timeline__event-block {
+    gap: 8rem;
+  }
+  .timeline__event-block > div {
+    flex: unset;
+  }
+  .timeline__event-block > div.timeline__date {
+    width: 250px;
+  }
+  .timeline__event-block > div.timeline__events {
+    width: calc(100% - 330px);
+  }
+}/*# sourceMappingURL=block-timeline.css.map */

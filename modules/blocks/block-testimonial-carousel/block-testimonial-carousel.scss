@@ -1,0 +1,145 @@
+@import "../../../scss/abstracts/vars";
+
+h2,
+h3,
+h4 {
+  + .testimonial-carousel {
+    margin-top: $space-l;
+  }
+}
+
+.wp-block-columns {
+  + .testimonial-carousel {
+    margin-top: 5.5rem;
+  }
+}
+
+.testimonial-carousel {
+  position: relative;
+
+  .swiper-slide {
+    display: flex;
+    gap: 4rem;
+
+    .image {
+      width: 50%;
+      img {
+        border-radius: 8px;
+      }
+    }
+
+    .testimonial-quote {
+      position: relative;
+      margin-top: 5rem;
+      width: 50%;
+      padding-left: 4rem;
+      border-left: 1px solid rgba($primary, 0.1);
+      height: fit-content;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        left: 0;
+        height: 1px;
+        background: rgba(1, 0, 53, 0.1);
+        position: absolute;
+        bottom: -4rem;
+      }
+
+      svg {
+        width: 47px;
+        margin-bottom: 2.4rem;
+      }
+
+      h2 {
+        margin-bottom: 2.4rem;
+      }
+
+      p {
+        font-size: $font-20;
+      }
+
+      cite {
+        display: block;
+        margin-top: $space-n;
+
+        strong {
+          display: block;
+          font-size: $font-15;
+          line-height: 130%;
+          font-weight: 400;
+          margin: 0;
+          color: $primary;
+        }
+
+        .position {
+          font-size: $font-15;
+          margin: 0;
+          color: rgba($primary, 0.6);
+        }
+      }
+    }
+  }
+
+  .swiper-slide-counter {
+    font-size: $font-18;
+    color: $orange;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: none;
+
+    .current-slide {
+      font-weight: 500;
+      color: $primary;
+    }
+  }
+
+  .swiper-pagination {
+    width: auto !important;
+    left: calc(50% + 2rem) !important;
+
+    &-bullet-active {
+      width: 34px;
+      background: $primary;
+      border-radius: 30px;
+    }
+  }
+
+  .swiper-nav {
+    width: 41px;
+    height: 41px;
+    top: calc(100% - 19px);
+
+    &:after {
+      display: none;
+    }
+
+    &.swiper-button-next {
+      right: -1px;
+
+      &.swiper-button-disabled {
+        opacity: 0.2;
+      }
+    }
+
+    &.swiper-button-prev {
+      left: calc(100% - 90px);
+
+      &.swiper-button-disabled {
+        opacity: 0.2;
+      }
+    }
+
+    .rect {
+      transition: stroke $speed $ease;
+    }
+
+    &:hover {
+      .rect {
+        stroke: $orange;
+      }
+    }
+  }
+}

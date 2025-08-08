@@ -1,0 +1,105 @@
+@import "../../../scss/abstracts/vars";
+
+.accordion {
+    margin-top: 0!important;
+    overflow: hidden;
+
+    + .accordion {
+        margin-top: 1rem!important;
+    }
+
+    + *:not(.accordion) {
+        margin-top: 2.5ch!important;
+    }
+
+    *:not(.accordion):not(.page-title) + & {
+        margin-top: 3rem!important;
+    } 
+
+    > input {
+        display: none;
+
+        + .acc-title {
+            display: block;
+            font-weight: 500;
+            line-height: 1.25;
+            padding: .9ch 40px .9ch 1.4rem;
+            margin: 0;
+            color: $primary;
+            border: 1px solid $grey;
+            border-radius: 2px;
+            position: relative;
+            transition: color $speed $ease;
+
+            &:after {
+                content: "";
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-color: $secondary;
+                mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center / contain;
+                position: absolute;
+                top: calc(50% - 8px);
+                right: 1ch;
+            }
+
+            &:hover {
+                color: $secondary;
+                cursor: pointer;
+            }
+
+            span {
+                display: block;
+                width: calc(100% - 40px);
+            }
+
+            + .acc-panel {
+                height: 0;
+                visibility: hidden;
+                padding: 0;
+                border: 1px solid transparent;
+                transition: visibility .35s cubic-bezier(.25,.5,.5,1) .05s, height .35s cubic-bezier(.25,.5,.5,1) .05s, padding .35s cubic-bezier(.25,.5,.5,1) .05s;
+
+                > * {
+                    opacity: 0;
+                   transition: opacity .25s cubic-bezier(.82, -.04, 1, 1);
+                }
+
+                .wp-block-columns {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            } //panel
+            
+        } // title
+
+        &:checked {
+            + .acc-title {
+                color: $secondary;
+
+                &:after {
+                    background-color: $secondary;
+                    mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center / contain;
+                }
+
+                + .acc-panel {
+                    height: auto;
+                    visibility: visible;
+                    padding: 20px 0;
+
+                    > * {
+                        opacity: 1;
+                    }
+                }
+            }
+        } // active/checked
+
+    } //input
+
+}
+

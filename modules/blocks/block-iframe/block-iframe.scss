@@ -1,0 +1,18 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.lmn-iframe {
+	margin-block-start: $space-m!important;
+
+	iframe {
+		border: 0;
+		width: 100%;
+		overflow: hidden !important;
+	}
+
+	&.hp-shareprice {
+		padding: $space-s;
+		background: #fff;
+	}
+}
+

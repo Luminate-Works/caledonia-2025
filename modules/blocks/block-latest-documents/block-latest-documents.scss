@@ -1,0 +1,64 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.latest-documents {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		margin: 0 0 $space-n 0;
+		padding: 0;
+	}
+
+	a {
+		display: block;
+		min-height: 46px;
+		padding: 0 0 0 65px;
+		position: relative;
+
+		svg {
+			position: absolute;
+			top: 2px;
+			left: 0;
+
+			path {
+				transition: fill $speed $ease;
+			}
+		}
+	
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+
+			h3 {
+				color: $primary;
+			}
+
+			svg {
+				path {
+					&.rect {
+						fill: $secondary;
+					}
+				}
+			}
+		}
+	}
+
+	.meta {
+		display: block;
+		font-size: $font-16;
+		margin: 0 0 .3ch 0;
+		color: $primary;
+	}
+
+	h3 {
+		font-size: $font-20;
+		font-weight: 500;
+		margin: 0;
+		color: $secondary;
+		position: relative;
+		transition: color $speed $ease;
+	}
+}

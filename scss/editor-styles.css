@@ -1,0 +1,19 @@
+html.interface-interface-skeleton__html-container {
+  min-height: 100%;
+  font-size: 62.5%;
+}
+
+.editor-styles-wrapper {
+  padding: 0 2rem !important;
+}
+.editor-styles-wrapper .wp-block-group {
+  padding: 15px !important;
+  border: 1px dashed #e0e0e0;
+}
+.editor-styles-wrapper .wp-block-column {
+  border: 1px dashed #e0e0e0;
+}
+
+.editor-visual-editor__post-title-wrapper {
+  padding-left: 0 !important;
+}/*# sourceMappingURL=editor-styles.css.map */

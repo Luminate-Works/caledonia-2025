@@ -1,0 +1,174 @@
+.financial-calendar + * {
+  margin-top: 2.5ch;
+}
+.financial-calendar p {
+  margin: 0;
+}
+.financial-calendar .event {
+  padding: 1ch 0;
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+}
+.financial-calendar .event:first-child {
+  border-top: 1px solid rgba(1, 0, 53, 0.1);
+}
+.financial-calendar .event__title > span {
+  display: block;
+  margin: 0 0 1rem 0;
+}
+.financial-calendar .event__title > span:last-child {
+  margin: 0;
+}
+.financial-calendar .event__title .meta {
+  font-size: var(--wp--preset--font-size--font-16);
+  color: #F0D8B2;
+}
+.financial-calendar .event__title .title {
+  font-size: var(--wp--preset--font-size--font-18);
+  font-weight: 600;
+  color: #010035;
+}
+.financial-calendar .event__title .location,
+.financial-calendar .event__title .info {
+  color: rgba(1, 0, 53, 0.8);
+}
+.financial-calendar .event__title .location + .info {
+  margin-top: -0.5ch;
+}
+.financial-calendar .event__actions {
+  padding-top: 1ch;
+  position: relative;
+}
+.financial-calendar .event__actions .btn-add-to-calendar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--wp--preset--font-size--font-16);
+  font-weight: 500;
+  border: none;
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.financial-calendar .event__actions .btn-add-to-calendar:before {
+  content: "+";
+  display: block;
+  width: 26px;
+  height: 26px;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 22px;
+  text-align: center;
+  color: #F0D8B2;
+  border: 1px solid #F0D8B2;
+  border-radius: 4px;
+  transition: all 0.25s ease-in-out;
+}
+.financial-calendar .event__actions .btn-add-to-calendar:hover:before {
+  color: #fff;
+  background: #F0D8B2;
+}
+.financial-calendar .event__documents {
+  list-style: none;
+  margin: 1ch 0 0 0;
+  padding: 0;
+}
+.financial-calendar .event__documents li:last-child {
+  margin: 0;
+}
+.financial-calendar .event__documents .file {
+  display: inline-block;
+  font-size: var(--wp--preset--font-size--font-16);
+  font-weight: 500;
+  padding-left: 20px;
+  color: #F0D8B2;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+}
+.financial-calendar .event__documents .file:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0247 9.55859C15.2669 9.80078 15.2669 10.1992 15.0247 10.4414L7.52472 17.9414C7.28253 18.1836 6.88409 18.1836 6.64191 17.9414C6.39972 17.6992 6.39972 17.3008 6.64191 17.0586L13.7005 10L6.64191 2.94141C6.39972 2.69922 6.39972 2.30078 6.64191 2.05859C6.88409 1.81641 7.28253 1.81641 7.52472 2.05859L15.0247 9.55859Z' fill='%23000000'/%3E%3C/svg%3E");
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0247 9.55859C15.2669 9.80078 15.2669 10.1992 15.0247 10.4414L7.52472 17.9414C7.28253 18.1836 6.88409 18.1836 6.64191 17.9414C6.39972 17.6992 6.39972 17.3008 6.64191 17.0586L13.7005 10L6.64191 2.94141C6.39972 2.69922 6.39972 2.30078 6.64191 2.05859C6.88409 1.81641 7.28253 1.81641 7.52472 2.05859L15.0247 9.55859Z' fill='%23000000'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 1px;
+  left: -3px;
+  transition: background-color 0.25s ease-in-out;
+}
+.financial-calendar .event__documents .file:hover {
+  color: #010035;
+}
+.financial-calendar .event__documents .file:hover:before {
+  background-color: #F0D8B2;
+}
+.financial-calendar .calendar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  transform: translateY(-5px);
+}
+.financial-calendar .calendar-links.show {
+  display: block;
+  z-index: 1000;
+}
+.financial-calendar .calendar-links li {
+  margin: 0;
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+}
+.financial-calendar .calendar-links li:last-child {
+  border-bottom: none;
+}
+.financial-calendar .calendar-links a {
+  display: block;
+  font-size: var(--wp--preset--font-size--font-18);
+  padding: 0.8ch 7rem 0.8ch 0;
+  color: #010035;
+  transition: color 0.25s ease-in-out;
+}
+.financial-calendar .calendar-links a:hover {
+  color: #8559D7;
+}
+@media (min-width: 782px) {
+  .financial-calendar .event {
+    position: relative;
+  }
+  .financial-calendar.upcoming .event {
+    padding-right: 180px;
+  }
+  .financial-calendar.upcoming .event__actions {
+    padding: 0;
+    position: absolute;
+    top: 42px;
+    right: 0;
+  }
+}
+@media (min-width: 1100px) {
+  .financial-calendar .event {
+    padding-left: 220px;
+  }
+  .financial-calendar .event .meta {
+    position: absolute;
+    top: 14px;
+    left: 0;
+  }
+  .financial-calendar.upcoming .event__actions {
+    top: 11px;
+  }
+}
+@media (min-width: 1400px) {
+  .financial-calendar .event {
+    padding-left: 250px;
+  }
+}/*# sourceMappingURL=block-events.css.map */

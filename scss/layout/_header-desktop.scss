@@ -1,0 +1,249 @@
+// desktop header styles
+#nav-expander,
+.sub-toggle {
+    display: none;
+}
+
+header {
+    padding: 2.5rem 0 0 0;
+
+    &.sticky {
+        padding: 1.8rem 0 0 0;
+
+        #sitenav {
+            .menu {
+                > li {
+                    padding-bottom: 3rem;
+
+                    a {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        .menu-item-search {
+            .search-toggle {
+                > svg path {
+                    stroke: $primary;
+                    display: block;
+                }
+            }
+        }
+
+
+
+    } // sticky header
+
+    > .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5%;
+        justify-content: space-between;
+    }
+
+    .branding {
+        width: 170px;
+        z-index: 9;
+
+        @media (min-width: 1250px) {
+            width: 196px;
+        }
+    }
+
+    .menu {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        gap: $space-xl;
+
+        li {
+            margin: 0
+        }
+
+        > li {
+            padding: 1rem 0 3.5rem 0;
+            position: relative;
+            transition: padding $speed $ease;
+
+            > a {
+                position: relative;
+            }
+
+            &.current-menu-item,
+            &.current-menu-ancestor {
+                > a {
+                    &:before {
+                        border-color: $secondary;
+                    }
+                }
+            }
+
+            &:hover,
+            &:active,
+            &:focus,
+            &:focus-visible,
+            &.in-focus {
+
+                > a {
+                    &:before {
+                        border-color: $secondary;
+                    }
+                }
+
+                & > .child-menu {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: all;
+                    
+                }
+            }
+        } // 1st level
+    } // menu
+
+    //.sub-menu { 
+    .child-menu { 
+        min-width: 280px;
+        background: $lightgrey;
+        box-shadow: 0 2px 2px 0 rgba(#000, .05), 0 3px 1px -2px rgba(#000, .05), 0 1px 5px 0 rgba(#000, .1);
+        transform: translateY(1rem);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: .25s ease-in-out;
+
+        li {
+            margin: 0;
+            padding: .2ch 1.2ch;
+        }
+
+        a {
+            padding: .2ch 0;
+            transition: color $speed $ease;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $purple;
+            }
+        }
+
+        li {
+
+            &.current-menu-item {
+                a {
+                    font-weight: 500!important;
+                    color: $purple;
+                }
+            }
+
+            &:first-child {
+                margin-top: .5rem;
+            }
+
+            &:last-child {
+                margin-bottom: .5rem;
+            }	
+        }        
+         
+    } // submenu
+
+
+// mega menu    
+    &.megamenu-open {
+        background: $lightgrey;
+        box-shadow: none;
+
+        #sitenav .menu > li > a {
+            color: $primary;
+        }
+        
+        // svg {
+        //     > path {
+        //         fill: $darkgreen;
+        //     };
+        // }
+    }
+
+    .has-megamenu {
+        gap: 0;
+
+        > li {
+            padding-right: 2.8rem;
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &.menu-item-has-children {
+                position: static;
+            }
+        }
+
+        .child-menu { 
+            &.megamenu {
+                width: 100vw;
+                margin-left: -50vw;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                left: 50%;
+                border-top: 1px solid $grey;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0, .15);
+                transform: translateY(0);
+            }
+
+            .wrap {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+
+            .mm-featured-image {
+                flex: 1;
+
+                img {
+                    max-height: 200px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .sub-menu {
+                flex: 2;
+
+                &.col2 {
+                    columns: 2;
+                    column-gap: 50px;
+
+                    li {
+                        max-width: 100%;
+
+                        &.first-in-col2 {
+                            border-top: 1px solid $grey;
+                        }
+                    }
+                }
+
+                li {
+                    max-width: 50%;
+                    margin: 0;
+                    padding: 0;
+                    border-bottom: 1px solid $grey;
+
+                    &:first-child {
+                        border-top: 1px solid $grey;
+                    }
+
+                    a {
+                        padding: .8ch 0;
+                    }
+                }
+            }
+        }
+    }
+}
