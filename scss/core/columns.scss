@@ -42,6 +42,11 @@
     width: 55%;
   }
 
+  &.is-style-max-width,
+  &.is-style-maxwidth {
+    max-width: 890px;
+  }
+
   &.is-style-no-gap {
     gap: 0;
   }

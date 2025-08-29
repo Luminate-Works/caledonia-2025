@@ -57,6 +57,7 @@ wp.blocks.registerBlockStyle('core/heading', {
 	label: 'Border Bottom',
 });
 
+
 // columns
 wp.blocks.registerBlockStyle('core/columns', {
 	name: 'border-bottom',
@@ -73,6 +74,11 @@ wp.blocks.registerBlockStyle('core/columns', {
 wp.blocks.registerBlockStyle('core/columns', {
 	name: 'sm-gap',
 	label: 'Small Gap',
+});
+
+wp.blocks.registerBlockStyle("core/columns", {
+	name: "max-width", 
+	label: "Max Width",
 });
 
 

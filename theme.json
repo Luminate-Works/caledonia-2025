@@ -230,25 +230,25 @@
 					"name": "Font 48"
 				},
                 {
-					"size": "clamp(2.8rem, 2.221rem + 3.088vw, 5rem)",
-					"slug": "font-50",
-					"name": "Font 50"
-				},
+                    "size": "clamp(2.917rem, 2.317rem + 3.2vw, 5rem)",
+                    "slug": "font-50",
+                    "name": "Font 50"
+                },
                 {
-					"size": "clamp(2.8rem, 2rem + 4vw, 5.6rem)",
-					"slug": "font-56",
-					"name": "Font 56"
-				},
+                    "size": "clamp(3.267rem, 2.575rem + 3.69vw, 5.6rem)",
+                    "slug": "font-56",
+                    "name": "Font 56"
+                },
                 {
-					"size": "clamp(2.8rem, 2rem + 4vw, 7.2rem)",
-					"slug": "font-72",
-					"name": "Font 72"
-				},
+                    "size": "clamp(4.2rem, 3.229rem + 5.179vw, 7.2rem)",
+                    "slug": "font-72",
+                    "name": "Font 72"
+                },
                 {
-					"size": "clamp(2.8rem, 2rem + 4vw, 10rem)",
-					"slug": "font-100",
-					"name": "Font 100"
-				}
+                    "size": "clamp(5.833rem, 4.292rem + 8.222vw, 10rem)",
+                    "slug": "font-100",
+                    "name": "Font 100"
+                }
 			],
 
 			"fontFamilies": [
