@@ -1,0 +1,74 @@
+.hover-boxes {
+  display: flex;
+  gap: 0;
+}
+.wp-block-heading + .hover-boxes {
+  margin-top: 5.5rem;
+}
+.hover-boxes + .wp-block-buttons {
+  margin-top: 5.5rem !important;
+}
+.hover-boxes .box {
+  width: 50%;
+  aspect-ratio: 1/1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.hover-boxes .box .box-bg {
+  background-size: cover;
+  background-position: center 0%;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 1;
+  top: -40px;
+  left: -40px;
+  right: -40px;
+  bottom: -40px;
+  filter: blur(40px);
+  transition: filter 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-boxes .box .box-bg:after {
+  content: "";
+  background: rgba(24, 18, 105, 0.9);
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-boxes .box .box-content {
+  position: relative;
+  z-index: 2;
+}
+.hover-boxes .box .box-content h3 {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.hover-boxes .box .box-content p {
+  display: none;
+  color: rgba(255, 255, 255, 0.8);
+  left: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+.hover-boxes .box .box-content p.sub-heading {
+  color: white;
+  font-size: var(--wp--preset--font-size--font-24);
+}
+.hover-boxes .box:hover {
+  cursor: pointer;
+}
+.hover-boxes .box:hover .box-bg {
+  filter: blur(0);
+}
+.hover-boxes .box:hover .box-bg:after {
+  background: rgba(24, 18, 105, 0.8);
+}
+.hover-boxes .box:hover .box-content h3 {
+  color: white;
+}/*# sourceMappingURL=block-hover-boxes.css.map */

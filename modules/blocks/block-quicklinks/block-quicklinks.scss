@@ -2,61 +2,108 @@
 @import "../../../scss/abstracts/mixins";
 
 .link-group {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba($primary, 0.1);
+  margin-top: 4rem;
+  padding-bottom: 2.4rem;
+  gap: 2rem;
 
-    &.investors-landing {
-        padding: 0 $space-s $space-s $space-s;
-    }
+  &.is-style-simple {
+    flex-direction: column;
+    border-bottom: 0;
+    border-top: 1px solid rgba($primary, 0.1);
+    padding-bottom: 0;
+    padding-top: 2.4rem;
+    margin-bottom: 0;
 
-    &__list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    &__item {
-        margin: 0;
-        padding: 0;
-        border-bottom: 1px solid rgba(154,194,117, .3);
-
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-
-    svg {
-        width: 24px;
-        height: 12px;
-    }
-
-    path {
-        transition: stroke $speed $cb;
-    }
-
-    a {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        font-size: $font-20;
-        font-weight: 500;
-        padding: 1ch 0;
+    .link-group__title {
+      p {
         color: $primary;
-        transition: color $speed $cb;
-
-        &:hover,
-        &:active,
-        &:focus {
-            color: $purple;
-            
-            path {
-                stroke: $purple;
-            }
-        }
+        font-size: $font-20;
+      }
     }
 
-    @media (min-width: 782px) {
-        &.investors-landing {
-            padding: $space-s $space-s $space-s 0;
+    .link-group__list {
+      padding: 0;
+      .link-group__item {
+        &:first-child {
+          padding-left: 0;
+          border-left: 0;
         }
+        a {
+          font-size: $font-16;
+        }
+      }
     }
+  }
+
+  &__title {
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-bottom: 0;
+      font-size: $font-18;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding-left: 4rem;
+  }
+
+  &__item {
+    margin: 0;
+    padding: 0;
+    padding-left: 2.4rem;
+    border-left: 1px solid rgba($primary, 0.1);
+    flex-grow: 1;
+    gap: 4rem;
+    display: flex;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  path,
+  circle {
+    transition: stroke $speed $cb;
+  }
+
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    font-size: $font-20;
+    font-weight: 400;
+    color: $primary;
+    transition: color $speed $cb;
+    font-size: $font-18;
+
+    &:hover,
+    &:active,
+    &:focus {
+      //color: $purple;
+
+      circle {
+        fill: $orange;
+      }
+
+      path {
+        stroke: white;
+      }
+    }
+  }
 }

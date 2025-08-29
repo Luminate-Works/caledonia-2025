@@ -1,0 +1,19 @@
+{
+  "name": "lmn/testimonial-card",
+  "title": "Testimonial Card",
+  "category": "luminate",
+  "icon": {
+    "src": "format-status",
+    "foreground": "#09ca7f"
+  },
+  "apiVersion": 2,
+  "keywords": ["testimonial", "card"],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "block-testimonial-card.php"
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "overlay", "label": "Overlay" }
+  ]
+}

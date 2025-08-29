@@ -5,10 +5,16 @@
 	.wp-block-button__link {
 		@include button;
 	}
+
+	&.is-style-bg-white {
+		.wp-block-button__link {
+			background-color: white;
+		}
+	}
 }
 
 * + .wp-block-buttons {
-	margin-top: 3ch;
+	margin-top: 4rem !important;
 }
 
 .wp-block-buttons {

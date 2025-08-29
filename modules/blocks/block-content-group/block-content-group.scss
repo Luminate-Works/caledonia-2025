@@ -1,0 +1,25 @@
+@import "../../../scss/abstracts/vars";
+
+.content-group {
+	margin-bottom: $space-n!important;
+
+	* + & {
+		margin-top: $space-n!important;
+	}
+
+	+ .btn {
+		margin-top: -2rem!important;
+	}
+
+	+ div,
+	+ .content-group,
+	+ p,
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6 {
+		margin-top: $space-n!important;
+	}
+
+}

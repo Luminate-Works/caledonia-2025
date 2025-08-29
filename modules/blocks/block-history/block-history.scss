@@ -1,0 +1,212 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.history-timeline {
+  position: relative;
+  color: #ffffff;
+  overflow: hidden;
+  background: $primary;
+
+  .history-year-item {
+    position: relative;
+    background: $primary;
+
+    .wrap {
+      display: flex;
+      min-height: 900px;
+      padding: 12rem 0 8rem 0;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+      border-bottom: 1px solid rgba(white, 0.2);
+
+      .year-overlay {
+        position: absolute;
+        font-size: 50rem;
+        line-height: 0.8;
+        color: rgba(white, 0.05);
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        font-family: $ff-title;
+      }
+
+      .history-left {
+        width: 40%;
+        position: relative;
+
+        &:before {
+          content: "";
+          border-left: 1px solid rgba(#d9d9d9, 0.2);
+          height: 150%;
+          display: block;
+          position: absolute;
+          top: -12rem;
+        }
+
+        h2 {
+          font-size: 140px;
+          font-weight: 300;
+          line-height: 110%;
+          color: #ffffff;
+          margin: 0;
+          margin-bottom: 4rem;
+          padding-left: 10rem;
+          position: relative;
+
+          &:before {
+            content: "";
+            background-image: url('data:image/svg+xml,<svg width="56" height="17" viewBox="0 0 56 17" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="48" cy="8.26379" r="8" fill="white"/><rect y="8.26379" width="40" height="1" fill="white"/></svg>');
+            width: 56px;
+            height: 17px;
+            display: block;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+          }
+        }
+
+        .history-content {
+          max-width: 400px;
+          border-left: solid 1px rgba(white, 0.2);
+          padding-left: 4rem;
+          margin-left: 10rem;
+
+          p.title {
+            color: $orange;
+            margin-bottom: 0.8rem;
+          }
+
+          p:not(.title) {
+            opacity: 0.7;
+            font-size: $font-18;
+            margin-top: 0 !important;
+          }
+        }
+
+        .history-quote {
+          border-left: solid 1px rgba(white, 0.2);
+          padding-left: 4rem;
+          margin-top: 4rem;
+          margin-left: 10rem;
+          max-width: 450px;
+
+          blockquote {
+            font-size: 24px;
+            line-height: 140%;
+            color: #ffffff;
+            font-family: $ff-title;
+          }
+
+          .quote-attribution {
+            font-size: $font-18;
+            margin-top: 1rem;
+
+            .quote-name {
+              display: block;
+              font-weight: 400;
+              line-height: 160%;
+            }
+
+            .quote-position {
+              display: block;
+              color: rgba(white, 0.6);
+            }
+          }
+        }
+      }
+
+      .history-images {
+        margin-top: auto;
+
+        .main-image {
+          width: 550px;
+          display: block;
+          position: relative;
+
+          img {
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+
+          .image-caption {
+            position: absolute;
+            bottom: 4rem;
+            left: 4rem;
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(14px);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: calc(100% - 40px);
+
+            .caption-avatar {
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              overflow: hidden;
+              flex-shrink: 0;
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+
+            .caption-text {
+              p {
+                font-size: $font-16;
+                color: #ffffff;
+                margin: 0;
+                line-height: 1.4;
+                margin-bottom: 0;
+
+                &.sub {
+                  color: rgba(white, 0.7);
+                  margin-top: 0 !important;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.02);
+            }
+          }
+        }
+
+        .supporting-image {
+          width: 300px;
+          position: absolute;
+          bottom: -10%;
+          left: -10%;
+
+          img {
+            object-fit: cover;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  // Background Image
+  .history-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,38 @@
+.wp-block-cover.is-style-blue-cta {
+  background-color: #cbd8ff;
+  background-image: url(../assets/images/theme/blue-cta-mask.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 5.5rem;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__background {
+  background-color: transparent !important;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container {
+  max-width: 580px;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2 {
+  color: #010035;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p {
+  color: rgba(1, 0, 53, 0.8);
+  font-size: var(--wp--preset--font-size--font-18);
+}
+.wp-block-cover.is-style-blur > .wp-block-cover__image-background {
+  filter: blur(50px) !important;
+}
+.wp-block-cover.is-style-blur .wp-block-cover__background {
+  opacity: 0.6 !important;
+}
+.wp-block-cover.is-style-blur .wp-block-columns {
+  margin: 4rem;
+  padding: 8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.wp-block-cover.is-style-blur p {
+  color: rgba(255, 255, 255, 0.6);
+}/*# sourceMappingURL=cover.css.map */

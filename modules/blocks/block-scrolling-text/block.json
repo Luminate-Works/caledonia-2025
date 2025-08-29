@@ -1,0 +1,15 @@
+{
+	"name": "lmn/scrolling-text",
+	"title": "Scrolling Text",
+	"category": "luminate",
+	"icon": {
+		"src": "heading",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["scrolling", "text"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-scrolling-text.php"
+	}
+}

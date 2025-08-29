@@ -7,34 +7,79 @@
   position: relative;
   min-height: 900px;
   height: calc(100vh - 100px);
+  overflow: hidden;
 
   .wrap {
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 12rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__video-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    .video-container {
+      position: absolute;
+      inset: 0;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        border: none;
+      }
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 2;
+      transition: opacity 1s ease;
+      pointer-events: none; // overlay is non-clickable
+      &:after {
+        content: "";
+        background: var(--after-bg, rgba(0, 0, 0, 0.25));
+        position: absolute;
+        inset: 0;
+      }
+
+      &.hidden {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__image,
+  &__heading,
+  &__content {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
   &__image {
     //aspect-ratio: 11/6;
     background-size: cover;
-    background-position: center;
+    background-position: center 0%;
     background-repeat: no-repeat;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     z-index: 1;
+    inset: 0;
+    height: 120%;
 
     &:after {
       content: "";
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-      );
+      background: var(--after-bg, rgba(0, 0, 0, 0.25));
       width: 100%;
       height: 100%;
       position: absolute;
@@ -44,6 +89,7 @@
   &__heading {
     z-index: 4;
     position: relative;
+    max-width: 900px;
 
     h2 {
       color: white;
@@ -69,7 +115,34 @@
     }
   }
 
-  .btn {
-    @include button;
+  &.is-style-centered {
+    .wrap {
+      justify-content: center;
+
+      .large-cta__heading {
+        .wp-block-heading.is-style-large-heading {
+          text-align: center;
+        }
+      }
+      .large-cta__heading {
+        margin: 0 auto;
+      }
+      .large-cta__content {
+        padding: 0 4rem 4rem 4rem;
+        margin: 0 auto;
+        background: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: none;
+        max-width: 650px;
+
+        p {
+          opacity: 0.8;
+          font-size: 2rem;
+        }
+      }
+    }
   }
 }

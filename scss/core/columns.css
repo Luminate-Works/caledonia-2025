@@ -23,6 +23,10 @@
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);
   padding-bottom: 5.5rem;
 }
+.wp-block-columns.is-style-width-half {
+  max-width: 720px;
+  width: 55%;
+}
 .wp-block-columns.is-style-no-gap {
   gap: 0;
 }
@@ -31,6 +35,12 @@
 }
 .wp-block-columns.is-style-sm-gap + .is-style-sm-gap {
   margin-top: var(--wp--preset--spacing--small);
+}
+.wp-block-columns.is-style-md-gap {
+  gap: var(--wp--preset--spacing--normal);
+}
+.wp-block-columns.is-style-md-gap + .is-style-md-gap {
+  margin-top: var(--wp--preset--spacing--normal);
 }
 .wp-block-columns.has-background {
   padding: var(--wp--preset--spacing--small);

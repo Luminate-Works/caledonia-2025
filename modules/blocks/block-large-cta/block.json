@@ -3,13 +3,17 @@
   "title": "Large CTA",
   "category": "luminate",
   "icon": {
-		"src": "format-image",
-		"foreground": "#09ca7f"
-	},
+    "src": "format-image",
+    "foreground": "#09ca7f"
+  },
   "apiVersion": 2,
   "keywords": ["img", "image", "cta", "call to action"],
   "acf": {
     "mode": "auto",
     "renderTemplate": "block-large-cta.php"
-  }
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "centered", "label": "Centered" }
+  ]
 }

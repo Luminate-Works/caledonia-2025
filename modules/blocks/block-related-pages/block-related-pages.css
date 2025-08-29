@@ -1,61 +1,96 @@
 .related-pages {
+  position: relative;
+  padding: 12rem 0;
+  overflow: hidden;
+}
+.related-pages.is-style-darkmode .glass {
+  -webkit-backdrop-filter: blur(150px);
+          backdrop-filter: blur(150px);
+}
+.related-pages.is-style-darkmode h3 {
+  color: white;
+}
+.related-pages.is-style-darkmode li {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.related-pages.is-style-darkmode li:nth-child(even) a {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.related-pages.is-style-darkmode li a {
+  color: white;
+}
+.related-pages.is-style-darkmode li a svg circle, .related-pages.is-style-darkmode li a svg path {
+  stroke: white;
+}
+.related-pages.is-style-darkmode li a:hover {
+  color: white;
+}
+.related-pages.is-style-darkmode li a:hover svg circle {
+  stroke: #FF8A45;
+  fill: #FF8A45;
+}
+.related-pages .bg {
+  background-size: cover;
+  background-position: center 0%;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+.related-pages .glass {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+}
+.related-pages .title {
+  position: relative;
+  z-index: 3;
+}
+.related-pages ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  row-gap: 4rem;
   list-style: none;
-  margin: var(--wp--preset--spacing--l) 0 0 0;
-  padding: 20px;
-  background: #B2B2B2;
-}
-.related-pages li {
-  margin: 0;
-}
-.related-pages li a {
-  display: block;
-  padding: 20px 20px 70px 20px;
-  background: radial-gradient(circle at 0% 0%, #8559D7, transparent 75%), #8559D7;
   position: relative;
-}
-.related-pages li a:hover .btn, .related-pages li a:active .btn, .related-pages li a:focus .btn {
-  background: #fff;
-}
-.related-pages li.title {
-  flex: 1;
-  width: 100%;
-  padding: 20px 0 0 0;
-}
-.related-pages h3 {
-  font-size: var(--wp--preset--font-size--font-20);
+  z-index: 3;
+  padding: 0;
   margin: 0;
 }
-.related-pages h4 {
-  font-size: var(--wp--preset--font-size--font-20);
+.related-pages ul li {
   margin: 0;
-  color: #fff;
+  width: 50%;
+  border-top: 1px solid rgba(1, 0, 53, 0.1);
+  padding-top: 4rem;
 }
-.related-pages .btn {
+.related-pages ul li:nth-child(even) a {
+  border-left: 1px solid rgba(1, 0, 53, 0.1);
+  padding-left: 4rem;
+}
+.related-pages ul li a {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #B2B2B2;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transition: background 0.25s ease-in-out;
+  position: relative;
 }
-.related-pages .btn svg {
-  width: 22px;
-  height: 13px;
+.related-pages ul li a p {
+  margin: 0;
 }
-@media (max-width: 599px) {
-  .related-pages li {
-    flex: 1 1 100%;
-  }
+.related-pages ul li a .btn {
+  margin-right: 3rem;
 }
-@media (min-width: 600px) {
-  .related-pages li {
-    flex: 1;
-  }
+.related-pages ul li a path {
+  transition: stroke 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.related-pages ul li a circle {
+  transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.related-pages ul li a:hover, .related-pages ul li a:active, .related-pages ul li a:focus {
+  color: #010035;
+}
+.related-pages ul li a:hover svg circle, .related-pages ul li a:active svg circle, .related-pages ul li a:focus svg circle {
+  fill: #FF8A45;
+}
+.related-pages ul li a:hover svg path, .related-pages ul li a:active svg path, .related-pages ul li a:focus svg path {
+  stroke: white;
 }/*# sourceMappingURL=block-related-pages.css.map */

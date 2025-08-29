@@ -57,14 +57,29 @@
 					"name": "Purple"
 				},
                 {
+					"slug": "purple-tint",
+					"color": "#EAE6F4",
+					"name": "Purple Tint"
+				},
+                {
 					"slug": "light-blue",
 					"color": "#5FAFD0",
 					"name": "Light Blue"
 				},
                 {
+					"slug": "lighter-blue",
+					"color": "#e6edf8",
+					"name": "Lighter Blue"
+				},
+                {
 					"slug": "jade",
 					"color": "#75C69B",
 					"name": "Jade"
+				},
+                {
+					"slug": "jade-tint",
+					"color": "#e3f2ea",
+					"name": "Jade Tint"
 				},
 				{
 					"slug": "grey",
@@ -97,7 +112,7 @@
 		},
 
 		"layout": {
-			"contentSize": "1300px",
+			"contentSize": "1360px",
 			"wideSize": "1400px"
 		},
 
@@ -228,6 +243,11 @@
 					"size": "clamp(2.8rem, 2rem + 4vw, 7.2rem)",
 					"slug": "font-72",
 					"name": "Font 72"
+				},
+                {
+					"size": "clamp(2.8rem, 2rem + 4vw, 10rem)",
+					"slug": "font-100",
+					"name": "Font 100"
 				}
 			],
 
@@ -301,27 +321,27 @@
             "core/group": {
                 "spacing": {
                     "padding": {
-                        "top": "var(--wp--preset--spacing--l)",
-                        "bottom": "var(--wp--preset--spacing--l)"
+                        "top": "12rem",
+                        "bottom": "12rem"
                     }
                 }
             },
 
             "core/columns": {
                 "spacing": {
-                    "blockGap": "var(--wp--preset--spacing--normal)"
+                    "blockGap": "10rem"
                 }
             },
 
             "core/paragraph": {
                 "typography": {
                     "lineHeight": "160%",
-                    "fontSize": "var(--wp--preset--font-size--font-18)",
+                    "fontSize": "var(--wp--preset--font-size--font-20)",
                     "fontWeight": "400"
                 },
                 "spacing": {
                     "margin": {
-                        "bottom": "1.5ch"
+                        "bottom": "16px"
                     }
                 }
             }
@@ -353,14 +373,14 @@
         "h2": {
             "typography": {
                 "fontFamily": "var(--wp--preset--font-family--secondary)",
-                "fontSize": "var(--wp--preset--font-size--font-48)",
+                "fontSize": "var(--wp--preset--font-size--font-56)",
                 "fontWeight": "300",
-                "lineHeight": "110%",
+                "lineHeight": "120%",
                 "textTransform": "none"
             },
             "spacing": {
                 "margin": {
-                    "bottom": "1.1ch"
+                    "bottom": "4rem"
                 }
             },
             "color": {
@@ -377,7 +397,7 @@
             },
             "spacing": {
                 "margin": {
-                    "bottom": "1.15ch"
+                    "bottom": "4rem"
                 }
             },
             "color": {
@@ -394,7 +414,7 @@
             },
             "spacing": {
                 "margin": {
-                    "bottom": "1.25ch"
+                    "bottom": "4rem"
                 }
             },
             "color": {
@@ -411,7 +431,7 @@
             },
             "spacing": {
                 "margin": {
-                    "bottom": "1.5ch"
+                    "bottom": "4rem"
                 }
             },
             "color": {
@@ -428,7 +448,7 @@
             },
             "spacing": {
                 "margin": {
-                    "bottom": "1.5ch"
+                    "bottom": "4rem"
                 }
             },
             "color": {
@@ -450,7 +470,7 @@
 
         "typography": {
             "fontFamily": "var(--wp--preset--font-family--primary)",
-            "fontSize": "var(--wp--preset--font-size--font-18)",
+            "fontSize": "var(--wp--preset--font-size--font-20)",
             "lineHeight": "160%"
         }
     }

@@ -158,10 +158,32 @@ if (class_exists('ACF')) {
             if (is_front_page()) {
                 $hero_class .= ' home';
             }
-            echo '<div class="' . $hero_class . '">';
+
+            // Get override background options from static_content
+            $override_bg_colour = null;
+            $override_overlay_size = null;
+            if (class_exists('ACF')) {
+                $banner_content = get_field('static_content', get_the_ID());
+                $override_bg_colour = $banner_content['override_bg_colour'] ?? null;
+                $override_overlay_size = $banner_content['override_overlay_size'] ?? null;
+            }
+
+            // Build inline style for hero wrapper
+            $hero_style = '';
+            if ($override_bg_colour) {
+                $hero_style .= 'background-color:' . esc_attr($override_bg_colour) . ';';
+            }
+            if ($override_overlay_size) {
+                $hero_style .= 'background-size:' . esc_attr($override_overlay_size) . ';';
+            }
+
+            $hero_attr = $hero_style ? ' style="' . esc_attr($hero_style) . '"' : '';
+
+            echo '<div class="' . esc_attr($hero_class) . '"' . $hero_attr . '>';
             require get_template_directory() . '/' . $banner_template;
             echo '</div>';
         } else {
             echo '<!-- Banner template not found or no banner displayed -->';
         }
+
         ?>

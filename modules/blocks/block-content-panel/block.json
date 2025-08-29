@@ -1,0 +1,16 @@
+{
+  "name": "lmn/content-panel",
+  "title": "Contents Panel",
+  "category": "luminate",
+  "icon": {
+		"src": "editor-insertmore",
+		"foreground": "#BD0BBC"
+	},
+  "apiVersion": 2,
+  "keywords": ["contents", "group", "wrap"],
+  "parent" : ["lmn/content-group"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "./block-content-panel.php"
+  }
+}

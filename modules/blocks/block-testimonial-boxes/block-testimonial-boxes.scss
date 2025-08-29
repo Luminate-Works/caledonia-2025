@@ -1,0 +1,134 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.testimonial-boxes {
+  * + & {
+    margin-top: 5.5rem !important;
+  }
+  .box {
+    display: flex;
+    margin-bottom: 5.5rem;
+    border-radius: 8px;
+    overflow: auto;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .testimonial-content {
+      padding: 5.5rem;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        margin-bottom: 2.4rem;
+      }
+
+      p {
+        color: rgba($primary, 0.6);
+      }
+
+      .stats-wrapper {
+        margin-top: auto;
+
+        .date {
+          font-size: $font-16;
+          color: rgba($primary, 0.6);
+          padding-bottom: 2.4rem;
+          margin-bottom: 3.4rem;
+          border-bottom: 1px solid rgba($primary, 0.1);
+        }
+
+        .stats {
+          display: flex;
+          gap: 2.4rem;
+
+          .stat {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba($primary, 0.1);
+            padding-left: 2.4rem;
+
+            .value {
+              font-size: $font-48;
+              font-family: $ff-title;
+              color: $primary;
+              margin-bottom: 1rem;
+            }
+            .label {
+              font-size: $font-18;
+              color: rgba($primary, 0.6);
+            }
+          }
+        }
+
+        .wp-block-button {
+          margin-top: 4rem;
+        }
+      }
+    }
+
+    .testimonial-image {
+      width: 50%;
+      padding: 5.5rem;
+      aspect-ratio: 5 / 6;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      &:after {
+        content: "";
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0) 4.3%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        margin: auto;
+        inset: 0;
+      }
+
+      .quote-wrapper {
+        z-index: 2;
+        margin-top: auto;
+        padding-left: 2.4rem;
+        border-left: 1px solid rgba(white, 0.2);
+
+        blockquote {
+          color: white;
+          font-size: $font-32;
+          font-family: $ff-title;
+          margin-bottom: 2.4rem;
+          line-height: 130%;
+
+          .quote-mark {
+            margin-bottom: 2.4rem;
+            display: block;
+          }
+        }
+
+        cite {
+          display: flex;
+          flex-direction: column;
+          color: white;
+          font-size: $font-18;
+          line-height: 160%;
+
+          .role {
+            color: rgba(white, 0.6);
+          }
+        }
+      }
+    }
+  }
+}

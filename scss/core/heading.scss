@@ -2,14 +2,35 @@
 @import "../abstracts/mixins";
 
 .wp-block-heading {
-    &.is-style-large-heading {
-        font-size: $font-72;
-        line-height: 110%;
+  + p {
+    margin-top: 4rem !important;
+  }
 
-        em {
-            display: block;
-            font-style: normal;
-            opacity: 0.4;
-        }
+  &.is-style-large-heading {
+    font-size: $font-72;
+    line-height: 110%;
+
+    em {
+      display: block;
+      font-style: normal;
+      opacity: 0.4;
     }
+  }
+
+    &.is-style-xlarge-heading {
+    font-size: $font-100;
+    line-height: 110%;
+
+    em {
+      display: block;
+      font-style: normal;
+      opacity: 0.4;
+    }
+  }
+
+  &.is-style-border-bottom {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba($primary, 0.1);
+  }
+
 }

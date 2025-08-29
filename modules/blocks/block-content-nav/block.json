@@ -1,0 +1,16 @@
+{
+	"name": "lmn/content-nav",
+	"title": "Contents Navigation",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-insertmore",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["contents", "navigation"],
+	"parent" : ["lmn/content-group"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "./block-content-nav.php"
+	}
+}

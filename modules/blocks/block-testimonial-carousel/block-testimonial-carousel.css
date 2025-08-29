@@ -20,6 +20,9 @@ h4 + .testimonial-carousel {
 }
 .testimonial-carousel .swiper-slide .image img {
   border-radius: 8px;
+  min-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .testimonial-carousel .swiper-slide .testimonial-quote {
   position: relative;

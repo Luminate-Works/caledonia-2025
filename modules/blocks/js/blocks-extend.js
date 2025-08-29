@@ -13,15 +13,34 @@ wp.domReady(function () {
 	wp.blocks.unregisterBlockStyle( 'core/button', 'fill' );
 });
 
+// cover
+wp.blocks.registerBlockStyle('core/cover', {
+	name: 'blue-cta',
+	label: 'Blue CTA',
+});
+wp.blocks.registerBlockStyle('core/cover', {
+	name: 'blur',
+	label: 'Blur Bg',
+});
 
 // paragraphs
 wp.blocks.registerBlockStyle('core/paragraph', {
 	name: 'intro',
 	label: 'Intro',
 });
+wp.blocks.registerBlockStyle('core/paragraph', {
+	name: 'introborder',
+	label: 'Intro + Border Left',
+});
 wp.blocks.registerBlockStyle("core/paragraph", {
-	name: "footnote",
-	label: "Footnote",
+	name: "maxwidth",
+	label: "Max Width",
+});
+
+// image
+wp.blocks.registerBlockStyle('core/image', {
+	name: 'large-square-image',
+	label: 'Large Square Image',
 });
 
 // heading
@@ -29,12 +48,33 @@ wp.blocks.registerBlockStyle('core/heading', {
 	name: 'large-heading',
 	label: 'Large Heading',
 });
+wp.blocks.registerBlockStyle('core/heading', {
+	name: 'xlarge-heading',
+	label: 'Xtra Large Heading',
+});
+wp.blocks.registerBlockStyle('core/heading', {
+	name: 'border-bottom',
+	label: 'Border Bottom',
+});
 
 // columns
 wp.blocks.registerBlockStyle('core/columns', {
 	name: 'border-bottom',
 	label: 'Border Bottom',
 });
+wp.blocks.registerBlockStyle('core/columns', {
+	name: 'width-half',
+	label: 'Width Half',
+});
+wp.blocks.registerBlockStyle('core/columns', {
+	name: 'md-gap',
+	label: 'Mid Gap',
+});
+wp.blocks.registerBlockStyle('core/columns', {
+	name: 'sm-gap',
+	label: 'Small Gap',
+});
+
 
 // column
 wp.blocks.registerBlockStyle('core/column', {
@@ -65,4 +105,21 @@ wp.blocks.registerBlockStyle('core/button', {
 wp.blocks.registerBlockStyle('core/button', {
 	name: 'plain-white',
 	label: 'Plain White',
+});
+
+// quicklinks
+wp.blocks.registerBlockStyle('lmn/quicklinks', {
+	name: 'simple',
+	label: 'Simple',
+});
+
+// list
+wp.blocks.registerBlockStyle('core/list', {
+	name: 'styled',
+	label: 'Styled',
+});
+
+wp.blocks.registerBlockStyle('core/list', {
+	name: 'underline',
+	label: 'Underline',
 });

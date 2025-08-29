@@ -17,9 +17,10 @@
 }
 .statistics p.statistics__number {
   font-size: var(--wp--preset--font-size--font-40);
-  font-weight: 100;
+  font-family: var(--wp--preset--font-family--secondary);
   color: #010035;
   margin-top: 0 !important;
+  line-height: 130%;
 }
 .statistics p.statistics__number > span {
   display: inline-block;
@@ -30,8 +31,8 @@
   transform: translateX(-0.15ch);
 }
 .statistics p.statistics__title {
-  font-size: var(--wp--preset--font-size--font-20);
-  color: rgba(1, 0, 53, 0.4);
+  font-size: var(--wp--preset--font-size--font-14);
+  color: rgba(1, 0, 53, 0.5);
 }
 .statistics p.statistics__number-small {
   font-size: var(--wp--preset--font-size--font-20);

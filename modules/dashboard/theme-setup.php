@@ -21,7 +21,8 @@ if (function_exists('add_theme_support')) {
 
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Top menu', 'lmn')
+        'primary' => __('Top menu', 'lmn'),
+        'policies' => __('Footer Sub Menu', 'lmn')
     ));
 }
 // ------------------------------------------
@@ -170,11 +171,11 @@ add_action('wp_before_admin_bar_render', 'lmn_remove_admin_bar_links');
 // ------------------------------------------
 function lmn_dashboard_msg() {
     global $wp_meta_boxes;
-    wp_add_dashboard_widget('custom_help_widget', 'Luminate', 'lmn_admin_msg_text');
+    wp_add_dashboard_widget('custom_help_widget', '330', 'lmn_admin_msg_text');
 }
 
 function lmn_admin_msg_text() {
-    echo '<p>This custom theme was created by <a href="https://luminate.works">luminate</a>. If you need any support, please email us at <a href="mailto:hello@luminate.works" target="_blank">hello@luminate.works</a>.</p>';
+    echo '<p>This custom theme was created by <a href="https://threethirty.studio">330</a>. If you need any support, please email us at <a href="mailto:paulalexander@threethirty.studio" target="_blank">paulalexander@threethirty.studio</a>.</p>';
 }
 add_action('wp_dashboard_setup', 'lmn_dashboard_msg');
 
@@ -187,7 +188,7 @@ remove_action('welcome_panel', 'wp_welcome_panel');
 // CHANGE WP DASHBOARD FOOTER
 // ------------------------------------------
 function lmn_change_footer_admin() {
-    echo 'Powered by <a href="http://wordpress.org">WordPress</a> | designed &amp; built by <a href="https://luminate.works">luminate</a>';
+    echo 'Powered by <a href="http://wordpress.org">WordPress</a> | designed &amp; built by <a href="https://threethirty.studio">330</a>';
 }
 add_filter('admin_footer_text', 'lmn_change_footer_admin');
 

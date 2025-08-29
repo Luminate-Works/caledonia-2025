@@ -53,7 +53,7 @@
 		display: flex;
 		width: 100%;
 		margin: 0;
-		border-bottom: 1px solid rgba($grey, .35);
+		border-bottom: 1px solid rgba($jade-tint, .35);
 		transition: border .18s ease-in-out;
 
 		.title {
@@ -65,14 +65,14 @@
 			font-size: $font-22;
 			font-weight: 400;
 			margin-bottom: .15ch;
-			color: $purple;
+			color: $primary;
 			transition: color .18s ease-in-out, opacity .18s ease-in-out;
 		}
 
 		p {
 			font-size: $font-16;
 			margin: 0;
-			color: $purple;
+			color: $primary;
 			transition: color .18s ease-in-out, font-weight .18s ease-in-out, opacity .18s ease-in-out;
 		}
 	} // team-details
@@ -80,7 +80,7 @@
 	&.open,
 	&:hover {
 		.team-details {
-			border-bottom-color: $purple;
+			border-bottom-color: $primary;
 
 			h3, p {
 				//color: $gold;
@@ -120,7 +120,7 @@
 	.wp-block-column {
 		&:nth-child(2) {
 			padding: var(--spacer);
-			background: rgba($purple, .3);
+			background: rgba($primary, .3);
 			border-radius: 5px;
 		}
 	}

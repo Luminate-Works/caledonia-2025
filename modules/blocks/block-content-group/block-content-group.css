@@ -1,0 +1,19 @@
+.content-group {
+  margin-bottom: var(--wp--preset--spacing--normal) !important;
+}
+* + .content-group {
+  margin-top: var(--wp--preset--spacing--normal) !important;
+}
+.content-group + .btn {
+  margin-top: -2rem !important;
+}
+.content-group + div,
+.content-group + .content-group,
+.content-group + p,
+.content-group + h2,
+.content-group + h3,
+.content-group + h4,
+.content-group + h5,
+.content-group + h6 {
+  margin-top: var(--wp--preset--spacing--normal) !important;
+}/*# sourceMappingURL=block-content-group.css.map */

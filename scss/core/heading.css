@@ -1,3 +1,6 @@
+.wp-block-heading + p {
+  margin-top: 4rem !important;
+}
 .wp-block-heading.is-style-large-heading {
   font-size: var(--wp--preset--font-size--font-72);
   line-height: 110%;
@@ -6,4 +9,17 @@
   display: block;
   font-style: normal;
   opacity: 0.4;
+}
+.wp-block-heading.is-style-xlarge-heading {
+  font-size: var(--wp--preset--font-size--font-100);
+  line-height: 110%;
+}
+.wp-block-heading.is-style-xlarge-heading em {
+  display: block;
+  font-style: normal;
+  opacity: 0.4;
+}
+.wp-block-heading.is-style-border-bottom {
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
 }/*# sourceMappingURL=heading.css.map */

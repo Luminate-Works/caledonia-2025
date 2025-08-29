@@ -16,6 +16,8 @@
     &.fw {
         padding-left: 0!important;
         padding-right: 0!important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
 
         > div {
             width: 100vw;
@@ -59,8 +61,7 @@
         } 
     }
 
-    + .wp-block-columns,
-    + .wp-block-group {
+    + .wp-block-columns {
         margin-top: $space-m;
     }
 

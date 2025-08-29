@@ -1,9 +1,11 @@
 .accordion {
   margin-top: 0 !important;
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 .accordion + .accordion {
-  margin-top: 1rem !important;
+  margin-top: 1.6rem !important;
 }
 .accordion + *:not(.accordion) {
   margin-top: 2.5ch !important;
@@ -16,31 +18,41 @@
 }
 .accordion > input + .acc-title {
   display: block;
-  font-weight: 500;
-  line-height: 1.25;
-  padding: 0.9ch 40px 0.9ch 1.4rem;
+  line-height: 160%;
+  padding: 3rem 4rem;
   margin: 0;
   color: #010035;
-  border: 1px solid #B2B2B2;
-  border-radius: 2px;
   position: relative;
   transition: color 0.25s ease-in-out;
 }
-.accordion > input + .acc-title:after {
+.accordion > input + .acc-title:before, .accordion > input + .acc-title:after {
   content: "";
   display: block;
-  width: 15px;
-  height: 15px;
-  background-color: #F0D8B2;
-  -webkit-mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
-          mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
+  width: 40px;
+  height: 40px;
   position: absolute;
-  top: calc(50% - 8px);
-  right: 1ch;
+  top: 0;
+  bottom: 0;
+  right: 4rem;
+  margin: auto;
+  transition: opacity 0.25s ease-in-out;
+}
+.accordion > input + .acc-title:before {
+  background: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/cover;
+  opacity: 1;
+}
+.accordion > input + .acc-title:after {
+  background: url(../../../assets/images/theme/acc-plus-fill.svg) no-repeat center/cover;
+  opacity: 0;
 }
 .accordion > input + .acc-title:hover {
-  color: #F0D8B2;
   cursor: pointer;
+}
+.accordion > input + .acc-title:hover:before {
+  opacity: 0;
+}
+.accordion > input + .acc-title:hover:after {
+  opacity: 1;
 }
 .accordion > input + .acc-title span {
   display: block;
@@ -63,19 +75,22 @@
 .accordion > input + .acc-title + .acc-panel .wp-block-columns:last-child {
   margin-bottom: 0;
 }
-.accordion > input:checked + .acc-title {
-  color: #F0D8B2;
-}
 .accordion > input:checked + .acc-title:after {
-  background-color: #F0D8B2;
-  -webkit-mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
-          mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
+  background: url(../../../assets/images/theme/acc-minus-fill.svg) no-repeat center/contain;
+  opacity: 1;
 }
 .accordion > input:checked + .acc-title + .acc-panel {
   height: auto;
   visibility: visible;
-  padding: 20px 0;
+  padding: 0 4rem 3rem 4rem;
 }
 .accordion > input:checked + .acc-title + .acc-panel > * {
   opacity: 1;
+}
+.accordion > input:checked + .acc-title + .acc-panel p {
+  max-width: 1000px;
+  font-size: var(--wp--preset--font-size--font-18);
+}
+.accordion > input:checked + .acc-title + .acc-panel p:last-child {
+  margin-bottom: 0;
 }/*# sourceMappingURL=block-accordion.css.map */

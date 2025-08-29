@@ -1,0 +1,16 @@
+{
+  "name": "lmn/content-group",
+  "title": "Content",
+  "category": "luminate",
+  "icon": {
+		"src": "editor-insertmore",
+		"foreground": "#09ca7f"
+	},
+  "apiVersion": 2,
+  "keywords": ["tabs", "group", "content"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "./block-content-group.php"
+  },
+  "script": "block-content"
+}

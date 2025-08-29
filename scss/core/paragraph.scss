@@ -1,7 +1,8 @@
 @import "../abstracts/vars";
 @import "../abstracts/mixins";
 
-.is-style-intro.in-view span {
+.is-style-intro.in-view span,
+.is-style-introborder.in-view span {
   animation: waveColor 0.6s forwards;
 }
 
@@ -11,22 +12,29 @@ p {
 		display: none;
 	}
 
-	&.is-style-footnote {
-		font-size: $font-16;
-		color: lighten($primary, 20%);
+	&.is-style-maxwidth {
+		max-width: 800px;
+		text-align: center;
 	}
 
-	&.is-style-intro {
+	&.is-style-intro,
+	&.is-style-introborder {
 		font-size: $font-40;
-		line-height: 1.35;
+		line-height: 130%;
 		font-family: $ff-title;
 		color: $primary;
+		max-width: 890px;
 
 		&.has-text-align-center {
 			width: 96%;
 			max-width: 96rem;
 		}
 
+	}
+
+	&.is-style-introborder {
+		padding-left: 4rem;
+		border-left: 1px solid rgba($primary, 0.1);
 	}
 
 	&.is-style-section-intro {

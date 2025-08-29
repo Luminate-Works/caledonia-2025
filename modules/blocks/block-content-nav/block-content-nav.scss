@@ -1,0 +1,96 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.content-group {
+  margin: 0 !important;
+
+  & > .acf-innerblocks-container {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    column-gap: 10rem;
+    row-gap: 12rem;
+  }
+
+  ul.contents {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    position: sticky;
+    top: 14rem;
+    align-self: start; /* ensures it sticks properly */
+
+    li {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      border-bottom: 1px solid rgba($primary, 0.1);
+
+      &:first-child {
+        border-top: 1px solid rgba($primary, 0.1);
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    a {
+      text-decoration: none !important;
+      background: white;
+      color: rgba($primary, 0.5);
+      cursor: pointer;
+      transition: color $speed $ease, background $speed $ease;
+      padding: 2.4rem 4rem;
+      font-size: $font-18;
+      display: block;
+      width: 100%;
+      position: relative;
+
+      &:after {
+        content: "";
+        border-left: 1px solid rgba($primary, 0.1);
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        display: block;
+        height: 3rem;
+        margin: auto;
+        transition: border-left-color $speed $ease;
+      }
+
+      &.active,
+      &:hover,
+      &:active,
+      &:focus {
+        outline: none;
+        opacity: 1;
+        color: $primary;
+      }
+
+      &.active {
+        background: $secondary-3;
+        color: $primary;
+
+
+        &:after {
+          border-left-color: $orange;
+        }
+      }
+    } // a
+  } // contents
+
+  // content > accordion on mobile
+  @media (max-width: 749px) {
+    .acc {
+      ul.contents {
+        display: none;
+      }
+    }
+  }
+}

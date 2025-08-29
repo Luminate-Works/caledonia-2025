@@ -1,0 +1,61 @@
+ul.wp-block-list {
+  margin-top: 2.4rem;
+}
+ul.wp-block-list li::marker {
+  color: rgba(1, 0, 53, 0.6);
+}
+ul.wp-block-list.is-style-styled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.wp-block-list.is-style-styled li {
+  position: relative;
+  font-size: var(--wp--preset--font-size--font-16);
+  padding-left: 2rem;
+  margin: 2.4rem 0;
+  border-left: 1px solid rgba(1, 0, 53, 0.1);
+  padding-left: 4rem;
+  padding-bottom: 0;
+  line-height: 160%;
+}
+ul.wp-block-list.is-style-styled li:before {
+  content: "";
+  background: url('data:image/svg+xml,<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.332 11.8279V12.7479C22.3308 14.9043 21.6325 17.0026 20.3414 18.7297C19.0502 20.4569 17.2353 21.7204 15.1674 22.3318C13.0995 22.9432 10.8893 22.8698 8.8665 22.1225C6.84371 21.3752 5.11669 19.994 3.94299 18.185C2.7693 16.3759 2.21182 14.236 2.35371 12.0842C2.49559 9.93248 3.32924 7.88424 4.73031 6.24498C6.13138 4.60573 8.02482 3.46329 10.1282 2.98806C12.2316 2.51282 14.4323 2.73025 16.402 3.60791" stroke="%23010035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.332 4.74609L12.332 14.7561L9.33203 11.7561" stroke="%23010035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+ul.wp-block-list.is-style-styled li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+ul.wp-block-list.is-style-underline li {
+  margin-bottom: 2.4rem;
+  padding-bottom: 2.4rem;
+  position: relative;
+}
+ul.wp-block-list.is-style-underline li:after {
+  content: "";
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+  display: block;
+  width: calc(100% + 24px);
+  left: -24px;
+  bottom: 0;
+  position: absolute;
+}
+ul.wp-block-list.is-style-underline li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+ul.wp-block-list.is-style-underline li:last-child:after {
+  content: none;
+}/*# sourceMappingURL=list.css.map */

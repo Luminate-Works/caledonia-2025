@@ -26,6 +26,7 @@ $wrapper_attributes = $link
     <div class="image-cta__content">
         <div class="inner">
             <h2><?= esc_html($title) ?></h2>
+            <?php echo $subtitle; ?>
             <?= $subtitle ?>
         </div>
 

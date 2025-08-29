@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
@@ -11,7 +11,8 @@ if (!class_exists('ACF')) {
 $modules = get_field('modules', 'option') ?? [];
 
 // Helper function to register post types
-function register_custom_post_type($type, $name, $singular_name, $menu_position, $icon, $supports = ['title'], $publicly_queryable = false, $has_archive = false, $show_in_nav_menus = true, $exclude_from_search = true) {
+function register_custom_post_type($type, $name, $singular_name, $menu_position, $icon, $supports = ['title'], $publicly_queryable = false, $has_archive = false, $show_in_nav_menus = true, $exclude_from_search = true)
+{
     $labels = [
         'name'                  => _x($name, 'post type general name'),
         'singular_name'         => _x($singular_name, 'post type singular name'),
@@ -31,7 +32,7 @@ function register_custom_post_type($type, $name, $singular_name, $menu_position,
         'labels'             => $labels,
         'public'             => true,
         'publicly_queryable' => $publicly_queryable,
-        'exclude_from_search'=> true,
+        'exclude_from_search' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
@@ -50,7 +51,8 @@ function register_custom_post_type($type, $name, $singular_name, $menu_position,
 }
 
 // Helper function to register taxonomies
-function register_custom_taxonomy($type, $name, $object_type) {
+function register_custom_taxonomy($type, $name, $object_type)
+{
     $labels = [
         'name'              => _x($name, 'taxonomy general name'),
         'singular_name'     => _x($name, 'taxonomy singular name'),
@@ -83,7 +85,7 @@ foreach ($modules as $module => $enabled) {
     if ($enabled) {
         switch ($module) {
             case 'documents':
-                add_action('init', function() {
+                add_action('init', function () {
                     register_custom_post_type('documents', 'Documents', 'Document', 5, 'dashicons-media-document', ['title'], true, false, false, false);
                     register_custom_taxonomy('document-type', 'Document Types', ['documents']);
                 });
@@ -92,26 +94,27 @@ foreach ($modules as $module => $enabled) {
                 add_action('init', function() {
                     register_custom_post_type('team', 'Team', 'Person', 10, 'dashicons-groups', ['title', 'editor', 'thumbnail'], false, false, false, false);
                     register_custom_taxonomy('team-category', 'Team Categories', ['team']);
+                    register_custom_taxonomy('team-type', 'Team', ['team']);
                 });
                 break;
             case 'careers':
-                add_action('init', function() {
+                add_action('init', function () {
                     register_custom_post_type('careers', 'Careers', 'Vacancy', 20, 'dashicons-id', ['title', 'editor'], false, false, false, true);
                 });
                 break;
             case 'case_studies':
-                add_action('init', function() {
+                add_action('init', function () {
                     register_custom_post_type('case-studies', 'Case Studies', 'Case Study', 20, 'dashicons-portfolio', ['title', 'editor', 'thumbnail'], true, true, false, true);
                     register_custom_taxonomy('case-study-category', 'Case Study Categories', ['case-studies']);
                 });
                 break;
             case 'testimonials':
-                add_action('init', function() {
+                add_action('init', function () {
                     register_custom_post_type('testimonials', 'Testimonials', 'Testimonial', 29, 'dashicons-format-quote', ['title', 'editor', 'thumbnail'], false, false, false, true);
                 });
                 break;
             case 'calendar':
-                add_action('init', function() {
+                add_action('init', function () {
                     register_custom_post_type('calendar', 'Calendar', 'Event', 5, 'dashicons-calendar', ['title'], false, false, false, true);
                 });
                 break;
@@ -121,16 +124,17 @@ foreach ($modules as $module => $enabled) {
 
 
 // for facets
-add_filter( 'register_post_type_args', function( $args, $post_type ) {
-    if ( 'documents' === $post_type ) { 
-      $args['exclude_from_search'] = false;
+add_filter('register_post_type_args', function ($args, $post_type) {
+    if ('documents' === $post_type) {
+        $args['exclude_from_search'] = false;
     }
     return $args;
-  }, 10, 2 );
+}, 10, 2);
 
 
 // use CPT title for documents file name and url
-function handle_document_requests() {
+function handle_document_requests()
+{
     if (trim($_SERVER['REQUEST_URI'], '/') === 'documents') {
         wp_redirect(home_url(), 301);
         exit;

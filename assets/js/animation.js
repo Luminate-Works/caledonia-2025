@@ -113,12 +113,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Refresh ScrollTrigger once everything is set up
-  ScrollTrigger.refresh();
-
+  // *
+  // Intro Text animation
+  //  is-style-intro
+  // */
 
   // Intro text
-  let split = SplitText.create(".is-style-intro", { type: "words, chars" });
+  let split = SplitText.create(".is-style-intro, .is-style-introborder", {
+    type: "words, chars",
+  });
 
   gsap.from(split.chars, {
     duration: 1,
@@ -126,11 +129,169 @@ document.addEventListener("DOMContentLoaded", function () {
     stagger: 0.05,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".is-style-intro",
+      trigger: ".is-style-intro, .is-style-introborder",
       start: "top 80%",
       toggleActions: "play none none none",
     },
   });
 
+  // *
+  // Large CTA animation
+  //  large-cta block
+  // */
 
+  // function initMultiLayerParallax() {
+  //   gsap.utils.toArray(".large-cta").forEach((section) => {
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         start: "top bottom",
+  //         end: "bottom top",
+  //         scrub: 1.5,
+  //       },
+  //     });
+
+  //     // Background image moves slower (classic parallax)
+  //     tl.to(
+  //       ".large-cta__image",
+  //       {
+  //         yPercent: -30,
+  //         ease: "none",
+  //       },
+  //       0
+  //     );
+
+  //     // Heading moves at medium speed
+  //     tl.to(
+  //       ".large-cta__heading",
+  //       {
+  //         yPercent: -20,
+  //         ease: "none",
+  //       },
+  //       0
+  //     );
+
+  //     // Content box moves faster (closest to viewer)
+  //     tl.to(
+  //       ".large-cta__content",
+  //       {
+  //         yPercent: -40,
+  //         ease: "none",
+  //       },
+  //       0
+  //     );
+  //   });
+  // }
+
+  initRevealAnimation();
+
+  function initRevealAnimation() {
+    // Loop through each CTA section
+    gsap.utils.toArray(".large-cta").forEach((section, index) => {
+      // Find elements within this specific section
+      const image = section.querySelector(".large-cta__image");
+      const heading = section.querySelector(".large-cta__heading h2");
+      const content = section.querySelector(".large-cta__content");
+
+      // Set initial states for elements in this section
+      if (image) {
+        gsap.set(image, {
+          scale: 1.3,
+          filter: "blur(10px)",
+        });
+      }
+
+      if (heading) {
+        gsap.set(heading, {
+          yPercent: 100,
+          opacity: 0,
+        });
+      }
+
+      if (content) {
+        gsap.set(content, {
+          yPercent: 50,
+          opacity: 0,
+          scale: 0.8,
+        });
+      }
+
+      // Create timeline for this specific section
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section, // Use the specific section as trigger
+          start: "top 80%",
+          end: "center center",
+          scrub: 1,
+          id: `reveal-${index}`, // Unique ID for debugging
+        },
+      });
+
+      // Animate elements in this section
+      if (image) {
+        tl.to(image, {
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 1,
+        });
+      }
+
+      if (heading) {
+        tl.to(
+          heading,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.8,
+          },
+          0.2
+        );
+      }
+
+      if (content) {
+        tl.to(
+          content,
+          {
+            yPercent: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+          },
+          0.4
+        );
+      }
+    });
+  }
+
+  // *
+  // Inner banner title animation
+  //  inner panner text
+  // */
+
+  //animateInnerBannerTitle();
+
+  function animateInnerBannerTitle() {
+    const spans = document.querySelectorAll(".page-title span");
+
+    gsap.to(spans, {
+      duration: 0.8,
+      opacity: 1,
+      x: 0,
+      ease: "power2.out",
+      stagger: 5,
+    });
+  }
+
+  // PERFORMANCE TIP: Throttle animations for mobile
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) {
+    // Use simpler animations or disable some effects
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      syncInterval: 150, // Reduce frequency on mobile
+    });
+  }
+
+  // Refresh ScrollTrigger once everything is set up
+  ScrollTrigger.refresh();
 });

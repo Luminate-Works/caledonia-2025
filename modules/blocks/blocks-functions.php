@@ -24,7 +24,7 @@ function lmn_block_category( $block_categories, $block_editor_context ) {
 		array(
 			array(
 				'slug'  => 'luminate',
-				'title' => __( 'luminate', 'lmn' ),
+				'title' => __( '330', 'lmn' ),
 			),
 		)
 	);

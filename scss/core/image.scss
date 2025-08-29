@@ -1,7 +1,20 @@
 @import "../abstracts/vars";
 
 .wp-block-image {
-    + .wp-block-heading {
-        margin-top: 2.5ch;
+  + .wp-block-heading {
+    margin-top: 2.5ch;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+
+  &.is-style-large-square-image {
+
+    img {
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      width: 660px;
     }
+  }
 }

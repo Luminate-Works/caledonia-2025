@@ -4,7 +4,7 @@
   "category": "luminate",
   "icon": {
 		"src": "editor-insertmore",
-		"foreground": "#BD0BBC"
+		"foreground": "#09ca7f"
 	},
   "apiVersion": 2,
   "keywords": ["tabs", "group", "wrap"],

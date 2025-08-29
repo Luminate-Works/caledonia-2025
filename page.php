@@ -1,10 +1,10 @@
 <?php 
     get_header(); 
-    $sidebar = get_field('sidebar', 'option');
-    $sidebar_position = $sidebar['sidebar_position'];
+    // $sidebar = get_field('sidebar', 'option');
+    // $sidebar_position = $sidebar['sidebar_position'];
 ?>
 
-<div class="wrap has-sidebar sidebar-<?= esc_attr($sidebar_position); ?>">
+<div class="wrap full-width">
 
     <div id="content">
         <?php 
@@ -21,7 +21,7 @@
         ?>
     </div>
 
-    <?php get_sidebar(); ?>
+    <?php //get_sidebar(); ?>
 
 </div>
 

@@ -25,9 +25,10 @@
 
 		&.statistics__number {
 			font-size: $font-40;
-			font-weight: 100;
+			font-family: $ff-title;
 			color: $primary;
 			margin-top: 0!important;
+			line-height: 130%;
 
 			> span {
 				display: inline-block;
@@ -41,8 +42,8 @@
 		}
 
 		&.statistics__title {
-			font-size: $font-20;
-			color: rgba($primary, .4);
+			font-size: $font-14;
+			color: rgba($primary, .5);
 		}
 
 		&.statistics__number-small {
