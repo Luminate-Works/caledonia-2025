@@ -72,7 +72,11 @@ body {
 	}
 
 	.pb#{$i} {
-		padding-bottom: #{$i}rem !important;
+		padding-bottom: #{$i}rem !important;  
+	}
+ 
+	.pl#{$i} {
+		padding-left: #{$i}rem !important;
 	}
 
 	.p#{$i} {

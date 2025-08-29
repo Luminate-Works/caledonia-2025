@@ -39,7 +39,7 @@
 
   &.is-style-width-half {
     max-width: 720px;
-    width: 55%;
+    width: 55%;  
   }
 
   &.is-style-max-width,
@@ -54,6 +54,15 @@
 
   &.is-style-no-gap { 
     gap: 0;
+  }
+
+  &.max-width-40 {
+    max-width: 40rem;
+    margin: 0 !important;
+  }
+
+  &.justify-right {
+     justify-self: flex-end;
   }
 
   &.is-style-sm-gap {

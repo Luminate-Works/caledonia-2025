@@ -38,6 +38,13 @@
 .wp-block-columns.is-style-no-gap {
   gap: 0;
 }
+.wp-block-columns.max-width-40 {
+  max-width: 40rem;
+  margin: 0 !important;
+}
+.wp-block-columns.justify-right {
+  justify-self: flex-end;
+}
 .wp-block-columns.is-style-sm-gap {
   gap: var(--wp--preset--spacing--small);
 }
