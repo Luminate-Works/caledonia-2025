@@ -1,6 +1,7 @@
 // links
 a {
 	text-decoration: none;
+	transition: color $speed $ease;
 }
 
 // lists

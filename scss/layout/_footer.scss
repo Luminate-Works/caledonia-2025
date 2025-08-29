@@ -43,10 +43,88 @@ footer {
         }
       }
 
+      &.col-2 {
+        .menu {
+          li {
+            margin-bottom: 16px;
+
+            &.icon {
+              a {
+                background-repeat: no-repeat;
+                background-size: 32px;
+                background-position: left center;
+                padding-left: 48px;
+                display: block;
+                position: relative;
+              }
+            }
+
+            &.btn a,
+            &.linkedin a {
+              &::before,
+              &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 32px;
+                height: 32px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                transition: opacity 0.3s ease;
+              }
+
+              &::before {
+                opacity: 1;
+              }
+
+              &::after {
+                opacity: 0;
+              }
+
+              &:hover::before {
+                opacity: 0;
+              }
+
+              &:hover::after {
+                opacity: 1;
+              }
+            }
+
+            &.btn a {
+              &::before {
+                background-image: url(../assets/images/theme/icon-arrow-right.svg);
+              }
+              &::after {
+                background-image: url(../assets/images/theme/icon-arrow-right-fill.svg);
+              }
+            }
+
+            &.linkedin a {
+              &::before {
+                background-image: url(../assets/images/theme/icon-linkedin.svg);
+              }
+              &::after {
+                background-image: url(../assets/images/theme/icon-linkedin-fill.svg);
+              }
+            }
+          }
+        }
+      }
+
       &.col-3 {
         p {
           color: rgba(white, 0.7);
           line-height: 160%;
+        }
+
+        a {
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none"><path d="M9 7.43555V10.4355C9 10.7008 8.89464 10.9551 8.70711 11.1427C8.51957 11.3302 8.26522 11.4355 8 11.4355H2.5C2.23478 11.4355 1.98043 11.3302 1.79289 11.1427C1.60536 10.9551 1.5 10.7008 1.5 10.4355V4.93555C1.5 4.67033 1.60536 4.41598 1.79289 4.22844C1.98043 4.0409 2.23478 3.93555 2.5 3.93555H5.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 2.43555H10.5V5.43555" stroke="white" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 7.93555L10.5 2.43555" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          background-repeat: no-repeat;
+          background-size: 14px;
+          background-position: left center;
+          padding-left: 20px;
         }
       }
     }

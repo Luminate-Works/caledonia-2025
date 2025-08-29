@@ -221,14 +221,14 @@ header {
           li {
             max-width: 100%;
 
-            &.first-in-col2 {
-              border-top: 1px solid $grey;
-            }
+            // &.first-in-col2 {
+            //   border-top: 1px solid $grey;
+            // }
           }
         }
 
         li {
-          max-width: 50%;
+          //max-width: 50%;
           margin: 0;
           padding: 0;
           //border-bottom: 1px solid $grey;
@@ -238,8 +238,17 @@ header {
           }
 
           a {
-            padding: 0.8ch 0;
+            padding: 8px 0;
           }
+        }
+      }
+
+      .mega-menu-footer {
+        display: flex;
+        font-size: $font-14 !important;
+
+        .mm-external {
+          margin-left: auto;
         }
       }
     }
