@@ -462,7 +462,7 @@
             },
             ":hover": {
 				"color": {
-					"text": "var(--wp--preset--color--purple)"
+					"text": "var(--wp--preset--color--orange)"
 				}
             }
         }

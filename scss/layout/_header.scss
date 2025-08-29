@@ -76,7 +76,7 @@ header {
 
       a {
         display: block;
-        font-size: $font-18;
+        font-size: $font-16;
       }
     }
   }
@@ -93,7 +93,7 @@ header {
       line-height: 40px;
 
       border-radius: 30px;
-      border: 1px solid rgba(163, 163, 163, 0.3);
+      border: 1px solid white;
       cursor: pointer;
 
       svg {
