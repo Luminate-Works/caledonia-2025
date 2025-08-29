@@ -88,26 +88,7 @@ if (backToTopButton) {
     });
 })();
 
-function alignMegaMenus() {
-  if (window.innerWidth >= 1024) {
-    document.querySelectorAll('#sitenav .menu > li.menu-item-has-children')
-      .forEach(item => {
-        const menuWrap = item.querySelector('.child-menu.megamenu .wrap .sub-menu');
-        if (menuWrap) {
-          const rect = item.getBoundingClientRect();
-          menuWrap.style.paddingLeft = rect.left + "px";
-        }
-      });
-  } else {
-    // reset on mobile
-    document.querySelectorAll('.child-menu.megamenu .wrap')
-      .forEach(menuWrap => menuWrap.style.paddingLeft = "");
-  }
-}
 
-// run on load + resize
-window.addEventListener('load', alignMegaMenus);
-window.addEventListener('resize', alignMegaMenus);
 
 // event listener for scroll
 // ------------------------------

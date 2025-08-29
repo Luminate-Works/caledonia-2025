@@ -91,6 +91,11 @@
 					"color": "#fafafa",
 					"name": "Light Grey"
 				},
+                {   
+					"slug": "off-white",
+					"color": "#ffffff99",
+					"name": "Off White"
+				},
 				{
 					"slug": "white",
 					"color": "#fff",

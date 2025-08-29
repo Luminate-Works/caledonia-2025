@@ -1726,6 +1726,9 @@ header .menu-item-search .search-toggle svg {
     justify-content: center;
     gap: var(--wp--preset--spacing--xl);
   }
+  header .menu:hover > li > a {
+    opacity: 0.5;
+  }
   header .menu li {
     margin: 0;
   }
@@ -1736,14 +1739,10 @@ header .menu-item-search .search-toggle svg {
   }
   header .menu > li > a {
     position: relative;
+    transition: opacity 0.3s ease;
   }
-  header .menu > li.current-menu-item > a:after, header .menu > li.current-menu-ancestor > a:after {
-    content: "";
-    border-bottom: 1px solid #FF8A45;
-    display: block;
-    bottom: -5px;
-    position: absolute;
-    width: 100%;
+  header .menu > li:hover > a, header .menu > li:active > a, header .menu > li:focus > a, header .menu > li:focus-visible > a, header .menu > li.in-focus > a {
+    opacity: 1;
   }
   header .menu > li:hover > a:before, header .menu > li:active > a:before, header .menu > li:focus > a:before, header .menu > li:focus-visible > a:before, header .menu > li.in-focus > a:before {
     border-color: #F0D8B2;
@@ -1821,9 +1820,12 @@ header .menu-item-search .search-toggle svg {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    min-height: 480px;
   }
   header .has-megamenu .child-menu .mm-menu {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   header .has-megamenu .child-menu .mm-featured-image {
     flex: 1;
@@ -1853,10 +1855,14 @@ header .menu-item-search .search-toggle svg {
   }
   header .has-megamenu .child-menu .sub-menu li a {
     padding: 4px 0;
+    transition: -webkit-text-decoration ease-in-out 0.25s;
+    transition: text-decoration ease-in-out 0.25s;
+    transition: text-decoration ease-in-out 0.25s, -webkit-text-decoration ease-in-out 0.25s;
   }
   header .has-megamenu .child-menu .sub-menu li a:hover {
     color: #010035;
     text-decoration: underline;
+    text-underline-offset: 8px;
   }
   header .has-megamenu .child-menu .mega-menu-footer {
     display: flex;
@@ -2259,6 +2265,23 @@ footer .social-links svg {
 .pagination .page-numbers.current, .pagination .page-numbers:hover, .pagination .page-numbers:active, .pagination .page-numbers:focus {
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
+}
+
+.home-boxes .wp-block-column {
+  padding: 4rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+}
+.home-boxes .wp-block-column h4 {
+  margin: 0;
+}
+.home-boxes .wp-block-column .statistics__number {
+  color: white;
+}
+.home-boxes .wp-block-column:nth-child(1) {
+  border-top: 4px solid #75C69B;
 }
 
 .gform_wrapper :focus-visible {

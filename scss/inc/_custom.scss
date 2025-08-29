@@ -1,0 +1,20 @@
+.home-boxes {
+  .wp-block-column {
+    padding: 4rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+
+    h4 {
+        margin: 0;
+    }
+
+    .statistics__number {
+        color: white;
+    }
+
+    &:nth-child(1) {
+      border-top: 4px solid $jade;
+    }
+  }
+}

@@ -50,6 +50,13 @@
 .wp-block-button.is-style-bg-white .wp-block-button__link {
   background-color: white;
 }
+.wp-block-button.is-style-plain-white .wp-block-button__link {
+  background: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+  color: white;
+}
 
 * + .wp-block-buttons {
   margin-top: 4rem !important;
