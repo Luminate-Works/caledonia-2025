@@ -49,7 +49,7 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
             $output .= '</ul>';
             //$output .= dynamic_sidebar("mm-tool");
             $output .= '<div class="mega-menu-footer">';
-            $output .= '<p class="mm-tools">Share Price <iframe src="https://irtools.co.uk/tools/share_price/593aef1d-9aca-4401-9c50-93082eef8e6b"></iframe></p>'; 
+            $output .= '<p class="mm-tools"><em>Share Price</em> <iframe src="https://irtools.co.uk/tools/share_price/593aef1d-9aca-4401-9c50-93082eef8e6b"></iframe></p>'; 
             $output .= '<p class="mm-external"><a href="https://www.linkedin.com/company/caledonia-investments/" target="_blank">LinkedIn</p>'; 
             $output .= '<p class="mm-external"><a href="https://caledoniaprivatecapital.com/" target="_blank">Caledonia Private Capital</p>'; 
             $output .= '</div>'; // Close .mm-menu
