@@ -25,6 +25,9 @@ p.is-style-introborder {
   padding-left: 4rem;
   border-left: 1px solid rgba(1, 0, 53, 0.1);
 }
+p.is-style-transparent {
+  opacity: 0.6;
+}
 p.is-style-section-intro {
   font-size: var(--wp--preset--font-size--font-22);
   line-height: 1.45;

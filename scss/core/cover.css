@@ -1,3 +1,7 @@
+.wp-block-cover {
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
 .wp-block-cover.is-style-blue-cta {
   background-color: #cbd8ff;
   background-image: url(../assets/images/theme/blue-cta-mask.png);

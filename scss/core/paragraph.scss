@@ -37,6 +37,10 @@ p {
 		border-left: 1px solid rgba($primary, 0.1);
 	}
 
+	&.is-style-transparent {
+		opacity:0.6;
+	}
+
 	&.is-style-section-intro {
 		font-size: $font-22;
 		line-height: 1.45;

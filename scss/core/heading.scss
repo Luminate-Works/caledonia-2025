@@ -6,6 +6,10 @@
     margin-top: 4rem !important;
   }
 
+  + p.is-style-no-margin {
+    margin: 0rem !important;
+  }
+
   &.is-style-large-heading {
     font-size: $font-72;
     line-height: 110%;

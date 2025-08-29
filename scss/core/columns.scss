@@ -52,7 +52,7 @@
     backdrop-filter: blur(40px);
   }
 
-  &.is-style-no-gap {
+  &.is-style-no-gap { 
     gap: 0;
   }
 
@@ -124,7 +124,7 @@
     }
 
     &.number2::before {
-      content: "02";
+      content: "02"; 
     }
 
     &.number3::before {

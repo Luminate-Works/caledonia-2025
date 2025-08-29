@@ -59,6 +59,14 @@ body {
 		margin-bottom: #{$i}rem !important;
 	}
 
+	.ml#{$i} { 
+		margin-left: #{$i}rem !important;
+	}
+
+	.mr#{$i} {
+		margin-right: #{$i}rem !important;
+	}
+
 	.pt#{$i} {
 		padding-top: #{$i}rem !important;
 	}

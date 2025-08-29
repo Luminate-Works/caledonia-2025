@@ -2,6 +2,9 @@
 @import "../abstracts/mixins";
 
 .wp-block-cover {
+  padding-left: 6vw;
+  padding-right: 6vw;
+
   &.is-style-blue-cta {
     background-color: #cbd8ff;
     background-image: url(../assets/images/theme/blue-cta-mask.png);
@@ -11,6 +14,7 @@
     justify-content: flex-start;
     border-radius: 8px;
     padding: 5.5rem;
+   
     .wp-block-cover__background {
       background-color: transparent !important;
     }

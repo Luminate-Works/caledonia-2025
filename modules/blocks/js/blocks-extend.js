@@ -36,6 +36,10 @@ wp.blocks.registerBlockStyle("core/paragraph", {
 	name: "maxwidth",
 	label: "Max Width",
 });
+wp.blocks.registerBlockStyle("core/paragraph", {
+	name: "transparent",
+	label: "Transparent",
+});
 
 // image
 wp.blocks.registerBlockStyle('core/image', {
