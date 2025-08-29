@@ -97,4 +97,26 @@
   + .wp-block-quote {
     margin-top: $space-n;
   }
+
+  @media (min-width: 600px) {
+    &.large-number {
+      position: relative;
+
+      &::before {
+        content:"01";
+        display: block;
+        color: #CBD8FF;
+        text-align: right;
+        font-family: $ff-title;
+        font-size: $font-200;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 110%; 
+        position: absolute;
+        right: 3.2rem;
+        top: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
 }

@@ -70,4 +70,24 @@
 }
 .wp-block-columns + .wp-block-quote {
   margin-top: var(--wp--preset--spacing--normal);
+}
+@media (min-width: 600px) {
+  .wp-block-columns.large-number {
+    position: relative;
+  }
+  .wp-block-columns.large-number::before {
+    content: "01";
+    display: block;
+    color: #CBD8FF;
+    text-align: right;
+    font-family: var(--wp--preset--font-family--secondary);
+    font-size: var(--wp--preset--font-size--font-200);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 110%;
+    position: absolute;
+    right: 3.2rem;
+    top: 0;
+    transform: translateY(-50%);
+  }
 }/*# sourceMappingURL=columns.css.map */

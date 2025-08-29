@@ -248,6 +248,11 @@
                     "size": "clamp(5.833rem, 4.292rem + 8.222vw, 10rem)",
                     "slug": "font-100",
                     "name": "Font 100"
+                },
+                 {
+                    "size": "clamp(11.667rem, 8.583rem + 16.444vw, 20rem)",
+                    "slug": "font-200",
+                    "name": "Font 200"
                 }
 			],
 
