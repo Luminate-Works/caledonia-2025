@@ -30,6 +30,11 @@
 .wp-block-columns.is-style-max-width, .wp-block-columns.is-style-maxwidth {
   max-width: 890px;
 }
+.wp-block-columns.is-style-bg-blur {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+}
 .wp-block-columns.is-style-no-gap {
   gap: 0;
 }

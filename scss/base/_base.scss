@@ -67,6 +67,10 @@ body {
 		padding-bottom: #{$i}rem !important;
 	}
 
+	.p#{$i} {
+		padding: #{$i}rem !important;
+	}
+
 	@media (max-width: 781px) {
 		.mt#{$i}-sm {
 			margin-top: #{$i}rem !important;

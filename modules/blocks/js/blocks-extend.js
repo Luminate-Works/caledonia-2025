@@ -81,6 +81,11 @@ wp.blocks.registerBlockStyle("core/columns", {
 	label: "Max Width",
 });
 
+wp.blocks.registerBlockStyle("core/columns", {
+	name: "bg-blur", 
+	label: "BG Blur",
+});
+
 
 // column
 wp.blocks.registerBlockStyle('core/column', {
