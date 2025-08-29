@@ -98,12 +98,12 @@
     margin-top: $space-n;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 1025px) {
     &.large-number {
       position: relative;
-
+ 
       &::before {
-        content:"01";
+        content:"";
         display: block;
         color: #CBD8FF;
         text-align: right;
@@ -117,6 +117,18 @@
         top: 0;
         transform: translateY(-50%);
       }
+    }
+
+    &.number1::before {
+      content: "01";
+    }
+
+    &.number2::before {
+      content: "02";
+    }
+
+    &.number3::before {
+      content: "03";
     }
   }
 }

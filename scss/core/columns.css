@@ -71,12 +71,12 @@
 .wp-block-columns + .wp-block-quote {
   margin-top: var(--wp--preset--spacing--normal);
 }
-@media (min-width: 600px) {
+@media (min-width: 1025px) {
   .wp-block-columns.large-number {
     position: relative;
   }
   .wp-block-columns.large-number::before {
-    content: "01";
+    content: "";
     display: block;
     color: #CBD8FF;
     text-align: right;
@@ -89,5 +89,14 @@
     right: 3.2rem;
     top: 0;
     transform: translateY(-50%);
+  }
+  .wp-block-columns.number1::before {
+    content: "01";
+  }
+  .wp-block-columns.number2::before {
+    content: "02";
+  }
+  .wp-block-columns.number3::before {
+    content: "03";
   }
 }/*# sourceMappingURL=columns.css.map */
