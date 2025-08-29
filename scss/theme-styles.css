@@ -1362,7 +1362,7 @@ header #sitenav .menu > li > a {
 }
 header #sitenav .menu a {
   display: block;
-  font-size: var(--wp--preset--font-size--font-18);
+  font-size: var(--wp--preset--font-size--font-16);
 }
 @media (min-width: 1024px) {
   header .menu-item-search {
@@ -1374,7 +1374,7 @@ header .menu-item-search .search-toggle {
   height: 4rem;
   line-height: 40px;
   border-radius: 30px;
-  border: 1px solid rgba(163, 163, 163, 0.3);
+  border: 1px solid white;
   cursor: pointer;
 }
 header .menu-item-search .search-toggle svg {
@@ -1681,11 +1681,8 @@ header .menu-item-search .search-toggle svg {
   }
   header .has-megamenu .child-menu.megamenu {
     width: 100vw;
-    margin-left: -50vw;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    left: 50%;
-    border-top: 1px solid #B2B2B2;
+    padding-top: 40px;
+    padding-bottom: 40px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
     background-image: url(../assets/images/theme/mega-menu-overlay.png);
     background-size: contain;
@@ -1742,8 +1739,31 @@ header .menu-item-search .search-toggle svg {
     align-items: center;
     gap: 5rem;
   }
-  header .has-megamenu .child-menu .mega-menu-footer .mm-external {
-    margin-left: auto;
+  header .has-megamenu .child-menu .mega-menu-footer p {
+    margin: 0 !important;
+  }
+  header .has-megamenu .child-menu .mega-menu-footer a {
+    font-size: var(--wp--preset--font-size--font-14) !important;
+  }
+  header .has-megamenu .child-menu .mega-menu-footer .mm-tools {
+    display: flex;
+    align-items: center;
+    font-size: var(--wp--preset--font-size--font-14) !important;
+    color: #010035;
+  }
+  header .has-megamenu .child-menu .mega-menu-footer .mm-tools iframe {
+    height: 20px;
+    width: 200px;
+  }
+  header .has-megamenu .child-menu .mega-menu-footer .mm-external:last-of-type {
+    margin-left: auto !important;
+  }
+  header .has-megamenu .child-menu .mega-menu-footer .mm-external a {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none"><path d="M9 7.43555V10.4355C9 10.7008 8.89464 10.9551 8.70711 11.1427C8.51957 11.3302 8.26522 11.4355 8 11.4355H2.5C2.23478 11.4355 1.98043 11.3302 1.79289 11.1427C1.60536 10.9551 1.5 10.7008 1.5 10.4355V4.93555C1.5 4.67033 1.60536 4.41598 1.79289 4.22844C1.98043 4.0409 2.23478 3.93555 2.5 3.93555H5.5" stroke="%23010035" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 2.43555H10.5V5.43555" stroke="%23010035" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 7.93555L10.5 2.43555" stroke="%23010035" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: left center;
+    padding-left: 20px;
   }
 }
 footer {

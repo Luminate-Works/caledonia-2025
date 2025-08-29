@@ -186,16 +186,8 @@ header {
     .child-menu {
       &.megamenu {
         width: 100vw;
-<<<<<<< Updated upstream
         padding-top: 40px;
         padding-bottom: 40px;
-=======
-        margin-left: -50vw;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        left: 50%;
-        border-top: 1px solid $grey;
->>>>>>> Stashed changes
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
         background-image: url(../assets/images/theme/mega-menu-overlay.png);
         background-size: contain;
@@ -280,11 +272,8 @@ header {
         .mm-tools {
           display: flex;
           align-items: center;
-<<<<<<< Updated upstream
           font-size: $font-14 !important;
           color: $primary;
-=======
->>>>>>> Stashed changes
 
           iframe {
             height: 20px;
