@@ -1,20 +1,57 @@
 .home-boxes {
+  margin-top: 8rem;
   .wp-block-column {
     padding: 4rem;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(40px);
 
+    .wp-block-image {
+        margin-bottom: 4rem;
+    }
+
     h4 {
-        margin: 0;
+      margin: 0;
+    }
+
+    p {
+        margin-top: 8px !important;
+        font-size: $font-18;
+    }
+
+    .statistics {
+        padding-left: 2.4rem;
+        border-left: 1px solid rgba(white, 0.1);
+    }
+
+    .statistics__number,
+    .statistics__number-small {
+      color: white;
     }
 
     .statistics__number {
-        color: white;
+        font-size: $font-56;
+    }
+
+    .statistics__title  {
+        color: $off-white;
+        font-size: $font-14;
+        margin-top: 0 !important;
+    }
+
+    .statistics__number-small {
+        margin-top: 8px;
+        font-size: $font-16;
     }
 
     &:nth-child(1) {
       border-top: 4px solid $jade;
+    }
+    &:nth-child(2) {
+      border-top: 4px solid $purple;
+    }
+    &:nth-child(3) {
+      border-top: 4px solid $light-blue;
     }
   }
 }

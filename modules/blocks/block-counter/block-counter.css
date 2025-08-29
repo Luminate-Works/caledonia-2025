@@ -3,6 +3,9 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
+.statistics.is-style-label-under p.statistics__title {
+  order: 3;
+}
 .statistics.aligncenter {
   text-align: center;
 }
