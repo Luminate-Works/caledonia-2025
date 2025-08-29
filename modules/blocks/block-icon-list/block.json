@@ -1,0 +1,15 @@
+{
+	"name": "lmn/icon-list",
+	"title": "Icon List",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-code",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["list", "icon"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-icon-list.php"
+	}
+}
