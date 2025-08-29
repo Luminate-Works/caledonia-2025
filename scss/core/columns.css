@@ -18,6 +18,10 @@
     padding-top: 2rem;
   }
 }
+.wp-block-column.is-style-bg-blur {
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+}
 
 .wp-block-columns.is-style-border-bottom {
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);
@@ -31,7 +35,6 @@
   max-width: 890px;
 }
 .wp-block-columns.is-style-bg-blur {
-  background: rgba(255, 255, 255, 0.05);
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
 }

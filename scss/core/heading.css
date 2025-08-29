@@ -4,6 +4,12 @@
 .wp-block-heading + p.is-style-no-margin {
   margin: 0rem !important;
 }
+.wp-block-heading + p.mt-24 {
+  margin-top: 2.4rem !important;
+}
+.wp-block-heading + p.mt-16 {
+  margin-top: 1.6rem !important;
+}
 .wp-block-heading.is-style-large-heading {
   font-size: var(--wp--preset--font-size--font-72);
   line-height: 110%;

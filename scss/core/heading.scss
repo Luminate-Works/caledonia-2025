@@ -10,6 +10,14 @@
     margin: 0rem !important;
   }
 
+  + p.mt-24 {
+    margin-top: 2.4rem !important;
+  }
+
+  + p.mt-16 {
+    margin-top: 1.6rem !important;
+  }
+
   &.is-style-large-heading {
     font-size: $font-72;
     line-height: 110%;

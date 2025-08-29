@@ -29,6 +29,9 @@
   stroke: #FF8A45;
   fill: #FF8A45;
 }
+.related-pages.no-blur .glass {
+  display: none !important;
+}
 .related-pages .bg {
   background-size: cover;
   background-position: center 0%;

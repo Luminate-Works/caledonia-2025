@@ -47,6 +47,12 @@
     }
   }
 
+  &.no-blur { 
+    .glass {
+      display: none !important;
+    }
+  }
+
   .bg {
     background-size: cover;
     background-position: center 0%;
@@ -128,6 +134,8 @@
         }
       }
     }
+
+    
 
     @media (max-width: 599px) {
     }

@@ -27,6 +27,10 @@
       }
     }
   }
+
+  &.is-style-bg-blur { 
+    backdrop-filter: blur(40px);
+  }
 }
 
 // columns
@@ -48,7 +52,6 @@
   }
 
   &.is-style-bg-blur { 
-    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(40px);
   }
 
