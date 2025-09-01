@@ -60,6 +60,9 @@
 .wp-block-columns.is-style-md-gap + .is-style-md-gap {
   margin-top: var(--wp--preset--spacing--normal);
 }
+.wp-block-columns.is-style-xl-gap {
+  gap: 15.7rem;
+}
 .wp-block-columns.has-background {
   padding: var(--wp--preset--spacing--small);
 }

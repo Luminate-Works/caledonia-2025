@@ -57,5 +57,39 @@
 			margin: 0;
 		}
 	}
+
+
+	&.row_layout {
+		flex-direction: column;  
+
+		.list-item {
+			width: 100%;
+			padding-left: 0 !important;
+			gap:0;
+			border-top: 1px solid #0100351a;
+
+			&:before {
+				display: none !important;
+			}
+
+			img {
+				width: 24px;
+				height: 24px;
+				margin-right: 4rem;
+			}
+
+			p {
+				padding-left: 4rem;
+				border-left:1px solid #0100351a
+			}
+		}
+	}
+
+	&.dark_text {
+		p {
+			color:$primary !important;
+		}
+
+	}
 }
 

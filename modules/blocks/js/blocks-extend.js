@@ -80,6 +80,11 @@ wp.blocks.registerBlockStyle('core/columns', {
 	label: 'Small Gap',
 });
 
+wp.blocks.registerBlockStyle('core/columns', {
+	name: 'xl-gap',
+	label: 'XL Gap',
+});
+
 wp.blocks.registerBlockStyle("core/columns", {
 	name: "max-width", 
 	label: "Max Width",

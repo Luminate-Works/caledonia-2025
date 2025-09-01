@@ -5,6 +5,15 @@
         . (!empty($block['className']) ? ' ' . $block['className'] : '') 
         . (!empty($block['align']) ? ' align' . $block['align'] : '');
         $cleanedClassName = trim(str_replace('lmn-icon-list', '', $className));
+    
+    if(get_field('dark_text')) {
+        $className .= ' dark_text';
+    }
+
+    if(get_field('row_layout')) {
+        $className .= ' row_layout';
+    }
+
 ?>
 
 <div class="<?= esc_attr($className); ?>">

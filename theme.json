@@ -140,10 +140,25 @@
 					"slug": "small",
 					"name": "Space S 2rem"
                 },
+                {
+					"size": "clamp(1.4rem, 1.221rem + 0.956vw, 2.4rem)",
+					"slug": "small",
+					"name": "Space S 2.4rem"
+                },
+                {
+					"size": "clamp(1.871rem, 1.478rem + 2.102vw, 3.2rem)",
+					"slug": "normal",
+					"name": "Space N 3.2rem"
+                },
 				{
 					"size": "clamp(3.5rem, 2.737rem + 1.404vw, 4rem)",
 					"slug": "normal",
 					"name": "Space N 4rem"
+                },
+                {
+					"size": "clamp(3.267rem, 2.575rem + 3.69vw, 5.6rem)",
+					"slug": "56",
+					"name": "Space 5.6rem"
                 },
                 {
 					"size": "clamp(4rem, 1.5rem + 5vw, 6rem)",
