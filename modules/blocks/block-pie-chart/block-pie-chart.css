@@ -50,7 +50,7 @@
   cursor: pointer;
   transition: color 0.25s ease-in-out;
   position: relative;
-  border-top: 1px solid #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 .pie-chart .pie-legend li:before {
   display: none;
