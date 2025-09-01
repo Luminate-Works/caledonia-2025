@@ -22,6 +22,9 @@
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
 }
+.wp-block-column.br8 {
+  border-radius: 8px;
+}
 
 .wp-block-columns.is-style-border-bottom {
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);

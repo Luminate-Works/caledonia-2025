@@ -31,6 +31,10 @@
   &.is-style-bg-blur { 
     backdrop-filter: blur(40px);
   }
+
+   &.br8 {
+    border-radius: 8px;
+  }
 }
 
 // columns
