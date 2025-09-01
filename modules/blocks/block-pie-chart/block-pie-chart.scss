@@ -1,0 +1,122 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.pie-chart {
+	text-align: center;
+	position: relative;
+
+// chart	
+	.doughnut {
+		margin: 0 0 3rem 0;
+		padding: 0 7.5%;
+  
+		&.is-active {
+			svg {
+				circle {
+					&:not(.active) {
+						opacity: .25;
+					}
+				}
+			}
+		}
+	}
+
+	svg {
+		display: block;
+		width: 100%;
+		height: auto;
+
+		circle {
+			paint-order: fill;
+			transition: all .25s ease-in-out;
+
+			&.active {
+				//stroke: $maroon;
+				stroke-width: 24px;
+			}
+
+		}
+
+		text {
+			font-family: $ff-body;  
+
+			&.center-text {
+				font-size: 1rem;
+				font-weight: 300;
+				fill: #fff;
+			}
+
+			&.fill-text {
+				font-size: .35rem;
+				font-weight: 400;
+				fill: #fff;
+			}
+			
+		}
+
+	} // svg
+
+// legend
+	.pie-legend {
+		display: inline-block;
+		width: 90%;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			gap: 2.4rem;
+			padding: 1.6rem 0;
+			cursor: pointer;
+			transition: color .25s ease-in-out;
+			position: relative;
+			border-top: 1px solid $border;
+
+			&:before {
+				display: none;
+			}
+
+			.color {
+				width: 50px;
+				height: 20px;
+				border:1px solid #fff;
+			}
+
+			.name {
+				width: calc(100% - 70px);
+				text-align: left;
+				color:#fff;
+				font-style: normal;
+				font-size: $font-16;
+				font-weight: 400;
+				line-height: 160%; 
+			}
+
+			.data {
+				margin: 0 0 0 auto;
+				width: 60px;
+				text-align: right;
+				transition: font-weight .25s ease-in-out;
+				color:#fff;
+				font-style: normal;
+				font-size: $font-16;
+				font-weight: 400;
+				line-height: 160%; 
+			}
+
+			&:hover,
+			&.active {
+				color: red;
+
+				.data {
+					font-weight: 500;
+				}
+			}
+		}
+	} // legend
+
+	
+}
