@@ -35,6 +35,25 @@
    &.br8 {
     border-radius: 8px;
   }
+
+  @media screen and (min-width: 782px) {
+    &.custom-border-left {
+      position: relative;
+
+      &::before {
+        content:"";
+        display: block;
+        height: 100%;
+        width: 1px;
+        background-color: $border;
+        background-color: red;
+        position: absolute;
+        left: -2rem;
+        top:0;
+      }
+    }
+  }
+  
 }
 
 // columns

@@ -25,6 +25,22 @@
 .wp-block-column.br8 {
   border-radius: 8px;
 }
+@media screen and (min-width: 782px) {
+  .wp-block-column.custom-border-left {
+    position: relative;
+  }
+  .wp-block-column.custom-border-left::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-color: red;
+    position: absolute;
+    left: -2rem;
+    top: 0;
+  }
+}
 
 .wp-block-columns.is-style-border-bottom {
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);

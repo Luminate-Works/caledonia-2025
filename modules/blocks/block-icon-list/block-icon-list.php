@@ -29,11 +29,3 @@
     <?php endwhile; ?>
 <?php endif; ?>
 </div>
-
-<?php if (is_admin()) { ?>
-    <style>
-        .lmn-iframe iframe {
-            pointer-events: none;
-        }
-    </style>
-<?php } ?>
