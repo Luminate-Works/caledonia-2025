@@ -3,8 +3,9 @@
   position: relative;
 }
 .pie-chart .doughnut {
-  margin: 0 0 3rem 0;
-  padding: 0 7.5%;
+  margin: 0 auto 4rem auto;
+  padding: 0;
+  max-width: 37.5rem;
 }
 .pie-chart .doughnut.is-active svg circle:not(.active) {
   opacity: 0.25;
@@ -17,9 +18,11 @@
 .pie-chart svg circle {
   paint-order: fill;
   transition: all 0.25s ease-in-out;
+  stroke-width: 12px;
+  cursor: pointer;
 }
 .pie-chart svg circle.active {
-  stroke-width: 24px;
+  stroke-width: 15px;
 }
 .pie-chart svg text {
   font-family: var(--wp--preset--font-family--primary);
@@ -46,11 +49,12 @@
   flex-wrap: nowrap;
   align-items: center;
   gap: 2.4rem;
-  padding: 1.6rem 0;
+  padding: 1.6rem 2.4rem 1.6rem 0;
   cursor: pointer;
   transition: color 0.25s ease-in-out;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0;
 }
 .pie-chart .pie-legend li:before {
   display: none;
@@ -79,6 +83,7 @@
   font-size: var(--wp--preset--font-size--font-16);
   font-weight: 400;
   line-height: 160%;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .pie-chart .pie-legend li:hover, .pie-chart .pie-legend li.active {
   color: red;
