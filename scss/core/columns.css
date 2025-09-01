@@ -25,6 +25,9 @@
 .wp-block-column.br8 {
   border-radius: 8px;
 }
+.wp-block-column.br4 {
+  border-radius: 4px;
+}
 @media screen and (min-width: 782px) {
   .wp-block-column.custom-border-left {
     position: relative;

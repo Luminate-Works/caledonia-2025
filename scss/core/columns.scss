@@ -36,6 +36,10 @@
     border-radius: 8px;
   }
 
+  &.br4 {
+    border-radius: 4px;
+  }
+
   @media screen and (min-width: 782px) {
     &.custom-border-left {
       position: relative;
