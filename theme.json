@@ -190,6 +190,11 @@
             "defaultFontSizes": false,
 			"fontSizes": [
                 {
+					"size": "clamp(0.7rem, 0.611rem + 0.478vw, 1.2rem)",
+					"slug": "font-12",
+					"name": "Font 12"
+				},
+                {
 					"size": "clamp(1.3rem, 1.474rem + 0.14vw, 1.4rem)",
 					"slug": "font-14",
 					"name": "Font 14"
