@@ -1,1 +1,45 @@
-/*# sourceMappingURL=block-portfolio-table.css.map */
+.portfolio-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.portfolio-table .list-item {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  border-top: 1px solid rgba(0, 6, 53, 0.2);
+}
+.portfolio-table .list-item img {
+  width: 10rem;
+  height: 10rem;
+}
+.portfolio-table .list-item p {
+  margin: 0 !important;
+}
+.portfolio-table .list-item p.company {
+  width: 65%;
+}
+.portfolio-table .list-item p.first_invested {
+  font-size: var(--wp--preset--font-size--font-14);
+}
+.portfolio-table .list-item p.value {
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-24);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+}
+.portfolio-table .list-item p span {
+  display: block;
+  font-size: var(--wp--preset--font-size--font-14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: #010035;
+  opacity: 0.5;
+  font-family: var(--wp--preset--font-family--primary);
+}/*# sourceMappingURL=block-portfolio-table.css.map */
