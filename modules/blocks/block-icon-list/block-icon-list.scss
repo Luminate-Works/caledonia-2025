@@ -2,7 +2,7 @@
 @import "../../../scss/abstracts/mixins";
 
 .lmn-icon-list {
-    display: flex;
+    display: flex; 
     flex-direction: row;
 	gap: 0;
     flex-wrap: wrap;
@@ -87,7 +87,7 @@
 
 	&.dark_text {
 		p {
-			color:$primary !important;
+			color:$primary !important; 
 		}
 
 	}

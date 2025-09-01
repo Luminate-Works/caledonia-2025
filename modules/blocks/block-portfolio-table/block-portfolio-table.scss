@@ -11,25 +11,84 @@
 		display: flex;
 		gap: 40px;
    		align-items: center;
-		padding: 1.6rem 0;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 1.6rem 1rem 1.6rem 0;
 		position:relative;
-		border-top:1px solid $boder-dark;
+		border-top:1px solid $boder-dark;  
 
-		img {
+		&:hover {
+			img {
+				opacity: 0;
+			}
+
+			.hover-link {
+				opacity: 1;
+			}
+
+			.icon-wrapper p.company-hover {
+				opacity: 0.3;
+			}
+		}
+
+		
+
+		.icon-wrapper {
+			position: relative;
 			width: 10rem;
 			height: 10rem;
+
+			img {
+				width: 10rem;
+				height: 10rem;
+				transition: opacity $ease $speed;
+			}
+
+			p.company-hover {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: $primary;
+				text-align: center;
+				font-size: $font-14;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 160%;
+				letter-spacing: -0.28px;
+				opacity: 0;
+				transition: opacity $ease $speed;
+			}
 		}
+		
 
 		p {
 			margin:0 !important;
+			color:$primary;
 
 			&.company {
 				width: 65%;
+
+				&.no-icon {
+					padding-left: 4rem;
+					width: calc(65% + 3rem);
+				}
 			}
 
 			&.first_invested{
 				font-size: $font-14;  
+				padding-left: 4rem;
+   				border-left: 1px solid $boder-dark;  
+				min-height: 6.7rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				min-width: 12rem;
+
+				.no-value {
+					display: block;
+					width: 3rem;
+					height: 1px;
+					background: $primary;
+				}
 			}
 
 			&.value {
@@ -38,6 +97,8 @@
 				font-style: normal;
 				font-weight: 300;
 				line-height: 140%;
+				padding-left: 4rem;
+				border-left: 1px solid $boder-dark;  
 			}
 
 			span {
@@ -50,6 +111,19 @@
 				opacity: 0.5;
 				font-family: $ff-body;
 			}
+		}
+
+		.hover-link {
+			display: block;
+			width:3.2rem;
+			height: 3.2rem;
+			padding-right: 2rem;
+			background-image: url("data:image/svg+xml;utf8, <svg width='32' height='33' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='16' cy='16.314' r='16' fill='%23FF8A45'/><path d='M20 16.981v4a1.333 1.333 0 0 1-1.333 1.333h-7.334A1.333 1.333 0 0 1 10 20.982v-7.333a1.333 1.333 0 0 1 1.333-1.333h4M18 10.315h4v4M14.666 17.648l7.333-7.333' stroke='%23fff' stroke-width='1.333' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+			background-repeat: no-repeat;
+			background-size: 3.2rem;
+			background-position: left;
+			opacity: 0;
+			transition: opacity $ease $speed;
 		}
 	}
 }
