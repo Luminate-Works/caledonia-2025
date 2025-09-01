@@ -56,13 +56,13 @@
 }
 .block-posts-grid .category-filter button:before {
   content: "";
-  background-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-image: url(../assets/images/theme/icon-arrow-right.svg);
   opacity: 1;
   z-index: 1;
 }
 .block-posts-grid .category-filter button:after {
   content: "";
-  background-image: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="%23FF8A45"/><path d="M11.0947 15.6836H20.4281" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.0166L20.4284 15.6833L15.7617 20.3499" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-image: url(../assets/images/theme/icon-arrow-right-fill.svg);
   opacity: 0;
   z-index: 2;
 }
@@ -120,13 +120,13 @@
 }
 .block-posts-grid #loadmore:before {
   content: "";
-  background-image: url('data:image/svg+xml,<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16.9355" r="15.2" stroke="%23FF8A45" stroke-width="1.6"/><path d="M11.0957 16.6191H20.429" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.9521L20.4284 16.6188L15.7617 21.2855" stroke="%23FF8A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-image: url(../assets/images/theme/icon-arrow-right.svg);
   opacity: 1;
   z-index: 1;
 }
 .block-posts-grid #loadmore:after {
   content: "";
-  background-image: url('data:image/svg+xml,<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="%23FF8A45"/><path d="M11.0947 15.6836H20.4281" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.7617 11.0166L20.4284 15.6833L15.7617 20.3499" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-image: url(../assets/images/theme/icon-arrow-right-fill.svg);
   opacity: 0;
   z-index: 2;
 }

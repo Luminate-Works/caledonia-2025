@@ -14,5 +14,9 @@
 	},
 	"supports": {
 		"align": true
-	}
+	},
+	"styles": [
+		{ "name": "default", "label": "Default", "isDefault": true },
+		{ "name": "fancy-borders", "label": "Fancy borders" }
+	]
 }

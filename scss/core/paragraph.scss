@@ -41,6 +41,14 @@ p {
 		opacity:0.6;
 	}
 
+	&.is-style-mt16 {
+
+		.wp-block-heading + & {
+			margin-top: 1.6rem !important;
+		}
+
+	}
+
 	&.is-style-section-intro {
 		font-size: $font-22;
 		line-height: 1.45;

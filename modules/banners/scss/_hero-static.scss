@@ -128,7 +128,7 @@ body.page-child {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
-    min-height: 520px;
+    min-height: 530px;
 
     .hero-static__image {
       min-height: 600px;
@@ -158,6 +158,10 @@ body.page-child {
         span.sub {
           padding-left: 8rem;
         }
+      }
+
+      &.no-image {
+        margin-bottom: 8rem;
       }
     }
   }

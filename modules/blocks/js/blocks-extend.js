@@ -40,6 +40,10 @@ wp.blocks.registerBlockStyle("core/paragraph", {
 	name: "transparent",
 	label: "Transparent",
 });
+wp.blocks.registerBlockStyle("core/paragraph", {
+	name: "mt16",
+label: "Margin Top 16px",
+});
 
 // image
 wp.blocks.registerBlockStyle('core/image', {

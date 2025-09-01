@@ -85,7 +85,7 @@
   position: relative;
   width: 100%;
   height: 4.2rem;
-  font-size: var(--wp--preset--font-size--font-16);
+  font-size: var(--wp--preset--font-size--font-14);
   padding: 1.2rem 1.6rem;
   border-radius: 88px;
   color: #010035;
@@ -100,6 +100,7 @@
   text-overflow: ellipsis;
   padding-right: 20px;
   overflow: hidden;
+  font-size: var(--wp--preset--font-size--font-14);
 }
 .documents-filter-controls .dropdown button:after {
   content: "";
@@ -244,6 +245,19 @@
   }
 }
 
+.is-style-fancy-borders .documents-list .document-item:first-of-type .file {
+  border-top: 1px solid rgba(1, 0, 53, 0.1);
+}
+.is-style-fancy-borders .documents-list .document-item .file .date {
+  padding: 0 4rem;
+  border-left: 1px solid rgba(1, 0, 53, 0.1);
+}
+.is-style-fancy-borders .documents-list .document-item .file .icon {
+  padding: 0 4rem;
+  border-right: 1px solid rgba(1, 0, 53, 0.1);
+  color: #010035;
+}
+
 .documents-list .file {
   display: flex;
   flex-wrap: wrap;
@@ -265,6 +279,7 @@
   color: #010035;
   cursor: pointer;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: var(--wp--preset--font-size--font-18);
 }
 .documents-list .file span.name:hover, .documents-list .file span.name:active .documents-list .file span.name:focus {
   color: #010035;
