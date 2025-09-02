@@ -169,7 +169,6 @@ function load_team_members_callback() {
     wp_send_json(['members' => $members]);
 }
 
-
 add_action('wp_ajax_load_documents', 'load_documents_callback');
 add_action('wp_ajax_nopriv_load_documents', 'load_documents_callback');
 // ------------------------------------------

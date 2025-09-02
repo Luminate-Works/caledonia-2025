@@ -54,17 +54,17 @@ if (is_admin()) {
 						<div class="slide-content">
 							<?php if (has_post_thumbnail()) : ?>
 								<div class="slide-image">
-									<?php the_post_thumbnail('medium'); ?>
+									<?php the_post_thumbnail('full'); ?>
 								</div>
 							<?php endif; ?>
 							
 							<div class="slide-text">
-								<h3><?php the_title(); ?></h3>
+								<h4><?php the_title(); ?></h4>
 								<div class="slide-excerpt">
 									<?php the_excerpt(); ?>
 								</div>
-								<button class="slide-button" @click.stop="openModal(<?php echo $index; ?>)">
-									View Details
+								<button class="slide-button" @click.stop="openModal(<?= $index; ?>)">
+									Read More
 								</button>
 							</div>
 						</div>
@@ -78,12 +78,11 @@ if (is_admin()) {
 				</div>
 			<?php endif; ?>
 		</div>
-		<div class="swiper-pagination"></div>
+		<div id="investment-pagination" class="swiper-pagination"></div>
 
 		<!-- Modal -->
 		<div id="investment__modal" 
 			 class="modal" 
-			 x-show="isModalOpen" 
 			 x-transition
 			 x-ref="modal" 
 			 :class="{ 'active': isModalOpen }"
@@ -101,7 +100,6 @@ if (is_admin()) {
 								<circle cx="21" cy="21" r="20.5" stroke="#292927" />
 							</svg>
 						</button>
-						<span class="modal-counter" x-text="(modalIndex + 1) + ' of ' + projects.length"></span>
 						<button class="next" :disabled="modalIndex === projects.length - 1" @click="next()" type="button">
 							<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="none">
 								<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m17.07 14.99 6.104 5.984-6.104 6.036" />
@@ -133,8 +131,8 @@ if (is_admin()) {
 document.addEventListener('DOMContentLoaded', function() {
 	var swiper = new Swiper(".investment-slider", {
 		slidesPerView: 3,
-		spaceBetween: 30,
-		freeMode: true,
+		spaceBetween: 80,
+		loop: true,
 		pagination: {
 			el: ".swiper-pagination",
 			clickable: true,
@@ -150,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			},
 			1024: {
 				slidesPerView: 3,
-				spaceBetween: 30
+				spaceBetween: 80
 			}
 		}
 	});
@@ -184,8 +182,8 @@ function projectModal() {
             
             this.modalIndex = index;
             
-            // Add active class and prevent body scrolling with proper animation timing
-            requestAnimationFrame(() => {
+            // Add active class and prevent body scrolling
+            this.$nextTick(() => {
                 const modal = document.getElementById('investment__modal');
                 if (modal) {
                     modal.classList.add('active');
