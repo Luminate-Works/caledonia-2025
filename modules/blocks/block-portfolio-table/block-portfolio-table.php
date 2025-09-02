@@ -50,4 +50,11 @@
        
     <?php endwhile; ?>
 <?php endif; ?>
+
+<?php if(get_field('total_row')) : ?>
+    <div class="list-item total-row <?= (get_field('white_background')) ? "white-bg" : ""; ?>">
+        <p class="company no-icon">Total</p>
+        <p class="value"><span>Value</span><?php echo esc_html(get_field('total_value')); ?></p>
+    </div>
+<?php endif; ?>
 </div>

@@ -8,9 +8,21 @@
   display: flex;
   gap: 40px;
   align-items: center;
-  padding: 1.6rem 1rem 1.6rem 0;
+  justify-content: flex-end;
+  padding: 1.6rem 5rem 1.6rem 0;
   position: relative;
-  border-top: 1px solid #e6e6eb;
+  border-top: 1px solid rgb(203, 209, 227);
+}
+.portfolio-table .list-item.total-row {
+  background: #E1E8F6;
+  justify-content: space-between;
+  border: none;
+}
+.portfolio-table .list-item.total-row.white-bg {
+  background: #fff;
+}
+.portfolio-table .list-item.total-row p.value {
+  font-size: var(--wp--preset--font-size--font-40);
 }
 .portfolio-table .list-item:hover img {
   opacity: 0;
@@ -25,6 +37,7 @@
   position: relative;
   width: 10rem;
   height: 10rem;
+  min-width: 10rem;
 }
 .portfolio-table .list-item .icon-wrapper img {
   width: 10rem;
@@ -51,16 +64,17 @@
   color: #010035;
 }
 .portfolio-table .list-item p.company {
-  width: 65%;
+  width: 100%;
 }
 .portfolio-table .list-item p.company.no-icon {
   padding-left: 4rem;
-  width: calc(65% + 3rem);
+  border-left: 1px solid rgb(203, 209, 227);
+  line-height: 4.4rem;
 }
 .portfolio-table .list-item p.first_invested {
   font-size: var(--wp--preset--font-size--font-14);
   padding-left: 4rem;
-  border-left: 1px solid #e6e6eb;
+  border-left: 1px solid rgb(203, 209, 227);
   min-height: 6.7rem;
   display: flex;
   flex-direction: column;
@@ -80,7 +94,8 @@
   font-weight: 300;
   line-height: 140%;
   padding-left: 4rem;
-  border-left: 1px solid #e6e6eb;
+  border-left: 1px solid rgb(203, 209, 227);
+  min-width: 19rem;
 }
 .portfolio-table .list-item p span {
   display: block;
@@ -103,4 +118,8 @@
   background-position: left;
   opacity: 0;
   transition: opacity ease-in-out 0.25s;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
 }/*# sourceMappingURL=block-portfolio-table.css.map */
