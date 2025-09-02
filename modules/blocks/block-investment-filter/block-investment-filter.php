@@ -43,11 +43,31 @@ if (is_admin()) {
 					// Store post data for Alpine.js
 					$post_data = array(
 						'title' => get_the_title(),
-						'excerpt' => get_the_excerpt(),
 						'content' => get_the_content(),
 						'image' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
-						'permalink' => get_the_permalink()
+						
 					);
+					//custom fields
+					$caledonian_equity = get_field('caledonian_equity', get_the_ID());
+					if($caledonian_equity) {
+						$post_data['caledonian_equity'] = $caledonian_equity;
+					}
+					$investment_date = get_field('investment_date', get_the_ID());
+					if($investment_date) {
+						$post_data['investment_date'] = $investment_date;
+					}	
+					$investment_type = get_field('investment_type', get_the_ID());
+					if($investment_type) {
+						$post_data['investment_type'] = $investment_type;
+					}
+					$realised_status = get_field('realised_status', get_the_ID());
+					if($realised_status) {
+						$post_data['realised_status'] = $realised_status;
+					}
+					$url = get_field('url', get_the_ID());
+					if($url) {
+						$post_data['url'] = $url;
+					}
 					$posts_data[] = $post_data;
 					?>
 					<div class="swiper-slide" @click="openModal(<?php echo $index; ?>)" style="cursor: pointer;">
@@ -78,8 +98,9 @@ if (is_admin()) {
 				</div>
 			<?php endif; ?>
 		</div>
-		<div id="investment-pagination" class="swiper-pagination"></div>
-
+	
+		
+		
 		<!-- Modal -->
 		<div id="investment__modal" 
 			 class="modal" 
@@ -90,7 +111,8 @@ if (is_admin()) {
 			 @keydown.window="handleKeyNavigation"
 			 @click.self="closeModal()">
 			<div class="modal-inner">
-				<div class="investment-controls">
+
+				<!-- <div class="investment-controls">
 					<button id="close" class="modal-close" @click="closeModal()">×</button>
 					<div class="modal-nav" x-show="hasMultipleProjects">
 						<button class="prev" :disabled="modalIndex === 0" @click="prev()" type="button">
@@ -108,23 +130,62 @@ if (is_admin()) {
 							</svg>
 						</button>
 					</div>
-				</div>
+				</div> -->
+
+				<template x-if="currentProject.image">
+					<img id="investment-modal-img" :src="currentProject.image" :alt="currentProject.title" />
+				</template>
 				<div class="modal-content">
-					<template x-if="currentProject.image">
-						<img id="investment-modal-img" :src="currentProject.image" :alt="currentProject.title" />
-					</template>
-					<div id="title">
+				
+					<div class="modal-heading">
 						<h3 x-text="currentProject.title"></h3>
-						<p x-text="currentProject.excerpt"></p>
+						<p x-html="currentProject.content"></p>
 					</div>
-					<div id="bio" x-html="currentProject.content"></div>
-					<a :href="currentProject.permalink" class="modal-link" target="_blank">
-						View Full Project
-					</a>
+
+					<div class="investment-details">
+						<!-- Show p tags only if the data exists -->
+						<div class="wrapper top">
+							<p x-show="currentProject.caledonian_equity">
+								<span class="heading">Caledonia equity</span>
+								<span  class="data equity" x-text="currentProject.caledonian_equity"></span>
+							</p>
+							<p x-show="currentProject.investment_date">
+								<span class="heading">Investment date</span>
+								<span  class="data" x-text="currentProject.investment_date"></span>
+							</p>
+						</div>
+						<div class="wrapper bottom">
+							<p x-show="currentProject.investment_type">
+								<span class="heading">Investment type</span>				
+								<span  class="data" x-text="currentProject.investment_type"></span>
+							</p>
+							<p x-show="currentProject.realised_status">
+								<span class="heading">Realised Status</span>				
+								<span  class="data" x-text="currentProject.realised_status"></span>
+							</p>
+						</div>
+						
+					</div>
+
+					<div x-show="currentProject.url"  class="wp-block-button">
+						<a :href="currentProject.url"  target="_blank" class="modal-link wp-block-button__link wp-element-button">Visit Site</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div class="investment-slider-navigation">
+		<div id="investment-pagination" class="swiper-pagination"></div>
+		<div class="investment-slider-arrows">
+			<div id="investment-slider-prev" class="swiper-button-prev"></div>
+			<div id="investment-slider-next"  class="swiper-button-next"></div>
+		</div>
+	</div>
+		
+
+
+
 </div>
 
 <script>
@@ -136,6 +197,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		pagination: {
 			el: ".swiper-pagination",
 			clickable: true,
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
 		},
 		breakpoints: {
 			320: {
@@ -167,6 +232,7 @@ function projectModal() {
         },
         
         get currentProject() {
+			console.log(this.projects[this.modalIndex]);
             return this.projects[this.modalIndex] || {};
         },
         
