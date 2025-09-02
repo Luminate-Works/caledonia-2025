@@ -42,6 +42,19 @@
     left: -2rem;
     top: 0;
   }
+  .wp-block-column.custom-border-dark-left {
+    position: relative;
+  }
+  .wp-block-column.custom-border-dark-left::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 1px;
+    background-color: rgb(203, 209, 227);
+    position: absolute;
+    left: -2rem;
+    top: 0;
+  }
 }
 
 .wp-block-columns.is-style-border-bottom {

@@ -31,11 +31,11 @@
 		circle {
 			paint-order: fill;
 			transition: all .25s ease-in-out;
-			stroke-width: 12px;
+			stroke-width: 10px;
 			cursor: pointer;
 
 			&.active {
-				stroke-width: 15px;
+				stroke-width: 13px;
 			}
 
 		}
@@ -122,6 +122,23 @@
 			}
 		}
 	} // legend
+
+	&.dark-text {
+		text {
+			&.center-text,
+			&.fill-text {
+				fill: $primary;
+			}
+		}
+
+		.pie-legend li{
+			border-top: 1px solid $border-dark;
+			.name, .data {
+				color: $primary;
+			}
+		}
+
+	}
 
 	
 }

@@ -18,11 +18,11 @@
 .pie-chart svg circle {
   paint-order: fill;
   transition: all 0.25s ease-in-out;
-  stroke-width: 12px;
+  stroke-width: 10px;
   cursor: pointer;
 }
 .pie-chart svg circle.active {
-  stroke-width: 15px;
+  stroke-width: 13px;
 }
 .pie-chart svg text {
   font-family: var(--wp--preset--font-family--primary);
@@ -90,4 +90,13 @@
 }
 .pie-chart .pie-legend li:hover .data, .pie-chart .pie-legend li.active .data {
   font-weight: 500;
+}
+.pie-chart.dark-text text.center-text, .pie-chart.dark-text text.fill-text {
+  fill: #010035;
+}
+.pie-chart.dark-text .pie-legend li {
+  border-top: 1px solid rgb(203, 209, 227);
+}
+.pie-chart.dark-text .pie-legend li .name, .pie-chart.dark-text .pie-legend li .data {
+  color: #010035;
 }/*# sourceMappingURL=block-pie-chart.css.map */

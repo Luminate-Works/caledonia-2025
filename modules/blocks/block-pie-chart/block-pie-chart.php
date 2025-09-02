@@ -25,7 +25,7 @@ if (have_rows('sectors')) {
 ?>
 
 <?php if (have_rows('sectors')): ?>
-<div class="<?= $className; ?>" id="<?= $chartId; ?>">
+<div class="<?= $className; ?> <?= (get_field('dark_text')) ? 'dark-text' : '';?>" id="<?= $chartId; ?>">
     <div id="<?= $doughnutId; ?>" class="doughnut"></div>
 
     <ul class="pie-legend">

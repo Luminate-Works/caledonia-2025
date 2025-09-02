@@ -14,7 +14,7 @@
 		justify-content: flex-end;
 		padding: 1.6rem 5rem 1.6rem 0;
 		position:relative;
-		border-top:1px solid $boder-dark;  
+		border-top:1px solid $border-dark;  
 
 		&.total-row {
 			background: #E1E8F6;
@@ -85,7 +85,7 @@
 
 				&.no-icon {
 					padding-left: 4rem;
-					border-left: 1px solid $boder-dark;
+					border-left: 1px solid $border-dark;
 					line-height: 4.4rem;  
 				}
 			}
@@ -93,7 +93,7 @@
 			&.first_invested{
 				font-size: $font-14;  
 				padding-left: 4rem;
-   				border-left: 1px solid $boder-dark;  
+   				border-left: 1px solid $border-dark;  
 				min-height: 6.7rem;
 				display: flex;
 				flex-direction: column;
@@ -115,7 +115,7 @@
 				font-weight: 300;
 				line-height: 140%;
 				padding-left: 4rem;
-				border-left: 1px solid $boder-dark;  
+				border-left: 1px solid $border-dark;  
 				min-width: 19rem;
 			}
 

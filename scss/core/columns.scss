@@ -55,6 +55,21 @@
         top:0;
       }
     }
+
+    &.custom-border-dark-left {
+      position: relative;
+
+      &::before {
+        content:"";
+        display: block;
+        height: 100%;
+        width: 1px;
+        background-color: $border-dark;
+        position: absolute;
+        left: -2rem;
+        top:0;
+      }
+    }
   }
   
 }
