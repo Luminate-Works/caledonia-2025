@@ -45,7 +45,11 @@ $className .= $calendar === 'upcoming' ? ' upcoming' : ' historical';
                 $event_info = get_field('additional_information', $post);
 
                 $calDate = date_i18n('Ymd', strtotime($event_date));
-                $calDateFront = date_i18n('d M Y', strtotime($event_date));
+                $dayOfWeek = date_i18n('l', strtotime($event_date));
+                $dayNum    = date_i18n('d', strtotime($event_date)); 
+                $monthYear = date_i18n('M Y', strtotime($event_date));
+
+                $calDateFront = '<span class="day">' . $dayOfWeek . ' ' . $dayNum . '</span> ' . $monthYear;
 
                 if ($event_time) {
                     $calDateFront .= ' ' . date_i18n('g:i a', strtotime($event_time));
@@ -54,8 +58,14 @@ $className .= $calendar === 'upcoming' ? ' upcoming' : ' historical';
                 $calDateEnd = $event_end_date ? date_i18n('Ymd', strtotime($event_end_date)) : $calDate;
                 $calDateFrontEnd = $event_end_date ? date_i18n('d M Y', strtotime($event_end_date)) : '';
 
-                if ($event_end_time) {
-                    $calDateFrontEnd .= ' ' . date_i18n('g:i a', strtotime($event_end_time));
+                if ($event_end_date) {
+                    $endDayOfWeek = date_i18n('l', strtotime($event_end_date)); // Monday
+                    $endDayNum    = date_i18n('d', strtotime($event_end_date)); // 02
+                    $endMonthYear = date_i18n('M Y', strtotime($event_end_date)); // Sep 2025
+
+                    $calDateFrontEnd = '<span class="day">' . $endDayOfWeek . ' ' . $endDayNum . '</span> ' . $endMonthYear;
+                } else {
+                    $calDateFrontEnd = '';
                 }
 
                 $isFullDayEvent = empty($event_time);
@@ -96,7 +106,24 @@ $className .= $calendar === 'upcoming' ? ' upcoming' : ' historical';
                         !get_field('remove_add_to_calendar')
                     ): ?>
                         <div class="event__actions">
-                            <button class="btn-add-to-calendar" type="button">Add to Calendar</button>
+                            <button class="btn-add-to-calendar" type="button">
+
+                                <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="16" cy="16.3164" r="15.25" stroke="#FF8A45" stroke-width="1.5" />
+                                    <g clip-path="url(#clip0_1669_212)">
+                                        <path d="M20.6667 10.9824H11.3333C10.597 10.9824 10 11.5794 10 12.3158V21.6491C10 22.3855 10.597 22.9824 11.3333 22.9824H20.6667C21.403 22.9824 22 22.3855 22 21.6491V12.3158C22 11.5794 21.403 10.9824 20.6667 10.9824Z" stroke="#FF8A45" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M18.668 9.65039V12.3171" stroke="#FF8A45" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M13.332 9.65039V12.3171" stroke="#FF8A45" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M10 14.9824H22" stroke="#FF8A45" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1669_212">
+                                            <rect width="16" height="16" fill="white" transform="translate(8 8.31641)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                                Add to Calendar</button>
                             <ul class="calendar-links">
                                 <li>
                                     <a href="<?= get_feed_link('icalevents'); ?>?id=<?= get_the_ID(); ?>">iCal</a>

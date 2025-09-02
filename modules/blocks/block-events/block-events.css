@@ -5,11 +5,8 @@
   margin: 0;
 }
 .financial-calendar .event {
-  padding: 1ch 0;
+  padding: 5rem 0;
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);
-}
-.financial-calendar .event:first-child {
-  border-top: 1px solid rgba(1, 0, 53, 0.1);
 }
 .financial-calendar .event__title > span {
   display: block;
@@ -19,13 +16,21 @@
   margin: 0;
 }
 .financial-calendar .event__title .meta {
-  font-size: var(--wp--preset--font-size--font-16);
-  color: #F0D8B2;
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: var(--wp--preset--font-size--font-24);
+  color: #010035;
+  font-family: var(--wp--preset--font-family--secondary);
+  align-items: center;
+}
+.financial-calendar .event__title .meta .day {
+  font-family: var(--wp--preset--font-family--primary);
+  font-size: var(--wp--preset--font-size--font-14);
 }
 .financial-calendar .event__title .title {
-  font-size: var(--wp--preset--font-size--font-18);
-  font-weight: 600;
+  font-size: var(--wp--preset--font-size--font-24);
   color: #010035;
+  font-family: var(--wp--preset--font-family--secondary);
 }
 .financial-calendar .event__title .location,
 .financial-calendar .event__title .info {
@@ -42,32 +47,24 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   font-size: var(--wp--preset--font-size--font-16);
-  font-weight: 500;
+  color: #010035;
   border: none;
   border-radius: 0;
   position: relative;
   cursor: pointer;
   -webkit-appearance: none;
 }
-.financial-calendar .event__actions .btn-add-to-calendar:before {
-  content: "+";
-  display: block;
-  width: 26px;
-  height: 26px;
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 22px;
-  text-align: center;
-  color: #F0D8B2;
-  border: 1px solid #F0D8B2;
-  border-radius: 4px;
-  transition: all 0.25s ease-in-out;
+.financial-calendar .event__actions .btn-add-to-calendar svg circle,
+.financial-calendar .event__actions .btn-add-to-calendar svg path {
+  transition: fill ease-in-out 0.25s, stroke ease-in-out 0.25s;
 }
-.financial-calendar .event__actions .btn-add-to-calendar:hover:before {
-  color: #fff;
-  background: #F0D8B2;
+.financial-calendar .event__actions .btn-add-to-calendar:hover svg circle {
+  fill: #FF8A45;
+}
+.financial-calendar .event__actions .btn-add-to-calendar:hover svg path {
+  stroke: white;
 }
 .financial-calendar .event__documents {
   list-style: none;
@@ -138,7 +135,7 @@
   transition: color 0.25s ease-in-out;
 }
 .financial-calendar .calendar-links a:hover {
-  color: #8559D7;
+  color: #FF8A45;
 }
 @media (min-width: 782px) {
   .financial-calendar .event {
@@ -150,7 +147,7 @@
   .financial-calendar.upcoming .event__actions {
     padding: 0;
     position: absolute;
-    top: 42px;
+    top: 52px;
     right: 0;
   }
 }
@@ -160,11 +157,13 @@
   }
   .financial-calendar .event .meta {
     position: absolute;
-    top: 14px;
+    top: 35px;
     left: 0;
+    border-right: 1px solid rgba(1, 0, 53, 0.1);
+    padding-right: 4rem;
   }
   .financial-calendar.upcoming .event__actions {
-    top: 11px;
+    top: 50px;
   }
 }
 @media (min-width: 1400px) {

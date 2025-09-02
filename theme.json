@@ -32,6 +32,11 @@
 					"name": "Primary"
 				},
                 {
+					"slug": "off-primary",
+					"color": "#010035cc",
+					"name": "Off Primary"
+				},
+                {
 					"slug": "secondary",
 					"color": "#F0D8B2",
 					"name": "Secondary"

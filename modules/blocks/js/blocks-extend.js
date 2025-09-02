@@ -105,6 +105,19 @@ wp.blocks.registerBlockStyle('core/column', {
 	name: 'border-left',
 	label: 'Border Left',
 });
+wp.blocks.registerBlockStyle('core/column', {
+	name: 'border-left',
+	label: 'Border Left',
+});
+wp.blocks.registerBlockStyle('core/column', {
+	name: 'radius-4',
+	label: 'Radius 4',
+});
+wp.blocks.registerBlockStyle('core/column', {
+	name: 'radius-8',
+	label: 'Radius 8',
+});
+
 
 // table
 wp.blocks.registerBlockStyle('core/table', {
@@ -129,6 +142,14 @@ wp.blocks.registerBlockStyle('core/button', {
 wp.blocks.registerBlockStyle('core/button', {
 	name: 'plain-white',
 	label: 'Plain White',
+});
+wp.blocks.registerBlockStyle('core/button', {
+	name: 'download',
+	label: 'Download',
+});
+wp.blocks.registerBlockStyle('core/button', {
+	name: 'download-white',
+	label: 'Download White',
 });
 
 // quicklinks

@@ -63,6 +63,21 @@
 .wp-block-button.is-style-plain-white .wp-block-button__link:after {
   background-image: url(../assets/images/theme/icon-arrow-right-white-fill.svg);
 }
+.wp-block-button.is-style-download .wp-block-button__link:before {
+  background-image: url(../assets/images/theme/icon-download.svg);
+}
+.wp-block-button.is-style-download .wp-block-button__link:after {
+  background-image: url(../assets/images/theme/icon-download-fill.svg);
+}
+.wp-block-button.is-style-download-white .wp-block-button__link {
+  background: white;
+}
+.wp-block-button.is-style-download-white .wp-block-button__link:before {
+  background-image: url(../assets/images/theme/icon-download.svg);
+}
+.wp-block-button.is-style-download-white .wp-block-button__link:after {
+  background-image: url(../assets/images/theme/icon-download-fill.svg);
+}
 
 * + .wp-block-buttons {
   margin-top: 4rem !important;

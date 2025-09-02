@@ -29,6 +29,33 @@
       }
     }
   }
+
+    &.is-style-download {
+    .wp-block-button__link {
+
+      &:before {
+        background-image: url(../assets/images/theme/icon-download.svg);
+      }
+
+      &:after {
+        background-image: url(../assets/images/theme/icon-download-fill.svg);
+      }
+    }
+  }
+
+  &.is-style-download-white {
+    .wp-block-button__link {
+      background: white;
+
+      &:before {
+        background-image: url(../assets/images/theme/icon-download.svg);
+      }
+
+      &:after {
+        background-image: url(../assets/images/theme/icon-download-fill.svg);
+      }
+    }
+  }
 }
 
 * + .wp-block-buttons {

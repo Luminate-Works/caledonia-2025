@@ -28,11 +28,11 @@
     }
   }
 
-  &.is-style-bg-blur { 
+  &.is-style-bg-blur {
     backdrop-filter: blur(40px);
   }
 
-   &.br8 {
+  &.br8 {
     border-radius: 8px;
   }
 
@@ -45,14 +45,14 @@
       position: relative;
 
       &::before {
-        content:"";
+        content: "";
         display: block;
         height: 100%;
         width: 1px;
         background-color: $border;
         position: absolute;
         left: -2rem;
-        top:0;
+        top: 0;
       }
     }
 
@@ -60,23 +60,29 @@
       position: relative;
 
       &::before {
-        content:"";
+        content: "";
         display: block;
         height: 100%;
         width: 1px;
         background-color: $border-dark;
         position: absolute;
         left: -2rem;
-        top:0;
+        top: 0;
       }
     }
   }
-  
+
+  &.is-style-radius-4 {
+    border-radius: 4px;
+  }
+
+  &.is-style-radius-8 {
+    border-radius: 8px;
+  }
 }
 
 // columns
 .wp-block-columns {
-
   &.is-style-border-bottom {
     border-bottom: 1px solid rgba($primary, 0.1);
     padding-bottom: 5.5rem;
@@ -84,7 +90,7 @@
 
   &.is-style-width-half {
     max-width: 720px;
-    width: 55%;  
+    width: 55%;
   }
 
   &.is-style-max-width,
@@ -92,11 +98,11 @@
     max-width: 890px;
   }
 
-  &.is-style-bg-blur { 
+  &.is-style-bg-blur {
     backdrop-filter: blur(40px);
   }
 
-  &.is-style-no-gap { 
+  &.is-style-no-gap {
     gap: 0;
   }
 
@@ -106,7 +112,7 @@
   }
 
   &.justify-right {
-     justify-self: flex-end;
+    justify-self: flex-end;
   }
 
   &.is-style-sm-gap {
@@ -117,7 +123,7 @@
     }
   }
 
-    &.is-style-md-gap {
+  &.is-style-md-gap {
     gap: $space-n;
 
     + .is-style-md-gap {
@@ -158,17 +164,17 @@
   @media (min-width: 1025px) {
     &.large-number {
       position: relative;
- 
+
       &::before {
-        content:"";
+        content: "";
         display: block;
-        color: #CBD8FF;
+        color: #cbd8ff;
         text-align: right;
         font-family: $ff-title;
         font-size: $font-200;
         font-style: normal;
         font-weight: 300;
-        line-height: 110%; 
+        line-height: 110%;
         position: absolute;
         right: 3.2rem;
         top: 0;
@@ -181,7 +187,7 @@
     }
 
     &.number2::before {
-      content: "02"; 
+      content: "02";
     }
 
     &.number3::before {

@@ -62,3 +62,30 @@
     }
   }
 }
+
+.wp-block-cover.risk-management {
+  .wp-block-cover__image-background {
+    filter: none !important;
+    opacity: 1 !important;
+    backdrop-filter: blur(50px);
+  }
+  .wp-block-cover__background {
+    background-color: transparent !important;
+  }
+
+  .wp-block-columns:first-of-type {
+    background: none;
+
+    .wp-block-column {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      padding-left: 4rem;
+    }
+  }
+
+  .wp-block-columns:last-of-type {
+    padding: 11.5rem 3rem 4.5rem 3rem;
+    .wp-block-column:first-child {
+      border-left: 1px solid rgba(255, 255, 255, 0.10) !important;
+    }
+  }
+}

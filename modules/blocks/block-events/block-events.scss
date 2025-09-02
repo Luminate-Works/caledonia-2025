@@ -2,228 +2,223 @@
 @import "../../../scss/abstracts/mixins";
 
 .financial-calendar {
+  + * {
+    margin-top: 2.5ch;
+  }
 
-	+ * {
-		margin-top: 2.5ch;
-	}
+  p {
+    margin: 0;
+  }
 
-	p {
-		margin: 0;
-	}
+  .event {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba($primary, 0.1);
 
-	.event {
-		padding: 1ch 0;
-		border-bottom: 1px solid rgba($primary, .1);
+    &__title {
+      > span {
+        display: block;
+        margin: 0 0 1rem 0;
 
-		&:first-child {
-			border-top: 1px solid rgba($primary, .1);
-		}
+        &:last-child {
+          margin: 0;
+        }
+      }
 
-		&__title {
-			> span {
-				display: block;
-				margin: 0 0 1rem 0;
+      .meta {
+        display: flex;
+        flex-direction: column-reverse;
+        font-size: $font-24;
+        color: $primary;
+        font-family: $ff-title;
+        align-items: center;
 
-				&:last-child {
-					margin: 0;
-				}
-			}
+        .day {
+          font-family: $ff-body;
+          font-size: $font-14;
+        }
+      }
 
-			.meta {
-				font-size: $font-16;
-				color: $secondary;
-			}
+      .title {
+        //display: block;
+        font-size: $font-24;
+        color: $primary;
+        font-family: $ff-title;
+      }
 
-			.title {
-				//display: block;
-				font-size: $font-18;
-				font-weight: 600;
-				color: $primary;
-			}
+      .location,
+      .info {
+        color: rgba($primary, 0.8);
+      }
 
-			.location,
-			.info {
-				color: rgba($primary, .8);
-			}
+      .location + .info {
+        margin-top: -0.5ch;
+      }
+    } // title
 
-			.location + .info {
-				margin-top: -.5ch;
-			}
-		} // title
+    &__actions {
+      padding-top: 1ch;
+      position: relative;
 
-		&__actions {
-			padding-top: 1ch;
-			position: relative;
+      .btn-add-to-calendar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        font-size: $font-16;
+        color: $primary;
+        border: none;
+        border-radius: 0;
+        position: relative;
+        cursor: pointer;
+        -webkit-appearance: none;
 
-			.btn-add-to-calendar {
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				gap: 10px;
-				font-size: $font-16;
-				font-weight: 500;
-				border: none;
-				border-radius: 0;
-				position: relative;
-				cursor: pointer;
-				-webkit-appearance: none;
+        svg {
+          circle,
+          path {
+            transition: fill $ease $speed, stroke $ease $speed;
+          }
+        }
 
-				&:before {
-					content: "+";
-					display: block;
-					width: 26px;
-					height: 26px;
-					font-size: 24px;
-					font-weight: 200;
-					line-height: 22px;
-					text-align: center;
-					color: $secondary;
-					border: 1px solid $secondary;
-					border-radius: 4px;
-					transition: all $speed $ease;
-				}
+        &:hover {
+          svg {
+            circle {
+              fill: $orange;
+            }
 
-				&:hover {
-					&:before {
-						color: #fff;
-						background: $secondary;
-					}
-				}
-			} // button
+            path {
+              stroke: white;
+            }
+          }
+        }
+      } // button
+    } // actions
 
-		} // actions
+    &__documents {
+      list-style: none;
+      margin: 1ch 0 0 0;
+      padding: 0;
 
-		&__documents {
-			list-style: none;
-			margin: 1ch 0 0 0;
-			padding: 0;
+      li {
+        &:last-child {
+          margin: 0;
+        }
+      }
 
-			li {
-				&:last-child {
-					margin: 0;
-				}
-			}
+      .file {
+        display: inline-block;
+        font-size: $font-16;
+        font-weight: 500;
+        padding-left: 20px;
+        color: $secondary;
+        position: relative;
+        transition: color $speed $ease;
 
-			.file {
-				display: inline-block;
-				font-size: $font-16;
-				font-weight: 500;
-				padding-left: 20px;
-				color: $secondary;
-				position: relative;
-				transition: color $speed $ease;
+        &:before {
+          content: "";
+          display: block;
+          width: 18px;
+          height: 18px;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0247 9.55859C15.2669 9.80078 15.2669 10.1992 15.0247 10.4414L7.52472 17.9414C7.28253 18.1836 6.88409 18.1836 6.64191 17.9414C6.39972 17.6992 6.39972 17.3008 6.64191 17.0586L13.7005 10L6.64191 2.94141C6.39972 2.69922 6.39972 2.30078 6.64191 2.05859C6.88409 1.81641 7.28253 1.81641 7.52472 2.05859L15.0247 9.55859Z' fill='%23000000'/%3E%3C/svg%3E");
+          background-color: currentColor;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          top: 1px;
+          left: -3px;
+          transition: background-color $speed $ease;
+        }
 
-				&:before {
-					content: '';
-					display: block;
-					width: 18px;
-					height: 18px;
-					mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0247 9.55859C15.2669 9.80078 15.2669 10.1992 15.0247 10.4414L7.52472 17.9414C7.28253 18.1836 6.88409 18.1836 6.64191 17.9414C6.39972 17.6992 6.39972 17.3008 6.64191 17.0586L13.7005 10L6.64191 2.94141C6.39972 2.69922 6.39972 2.30078 6.64191 2.05859C6.88409 1.81641 7.28253 1.81641 7.52472 2.05859L15.0247 9.55859Z' fill='%23000000'/%3E%3C/svg%3E");
-					background-color: currentColor;
-					background-position: center;
-					background-repeat: no-repeat;
-					background-size: cover;
-					position: absolute;
-					top: 1px;
-					left: -3px;
-					transition: background-color $speed $ease;
-				}
+        &:hover {
+          color: $primary;
 
-				&:hover {
-					color: $primary;
+          &:before {
+            background-color: $secondary;
+          }
+        }
+      }
+    }
+  } // event
 
-					&:before {
-						background-color: $secondary;
-					}
-				}
-			}
-		}
-	} // event
+  .calendar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+    background: #fff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transform: translateY(-5px);
 
-	.calendar-links {
-		list-style: none;
-		margin: 0;
-		padding: .5rem 1.5rem;
-		background: #fff;
-		box-shadow: 0 0 4px 0 rgba(0,0,0, .1);
-		opacity: 0;
-		position: absolute;
-		z-index: -1; 
-		transform: translateY(-5px); 
+    &.show {
+      display: block;
+      z-index: 1000;
+    }
 
-		&.show {
-			display: block;
-			z-index: 1000; 
-		}
+    li {
+      margin: 0;
+      border-bottom: 1px solid rgba($primary, 0.1);
 
-		li {
-			margin: 0;
-			border-bottom: 1px solid rgba($primary, .1);
+      &:last-child {
+        border-bottom: none;
+      }
+    }
 
-			&:last-child {
-				border-bottom: none;
-			}
-		}
+    a {
+      display: block;
+      font-size: $font-18;
+      padding: 0.8ch 7rem 0.8ch 0;
+      color: $primary;
+      transition: color $speed $ease;
 
-		a {
-			display: block;
-			font-size: $font-18;
-			padding: .8ch 7rem .8ch 0;
-			color: $primary;
-			transition: color $speed $ease;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
 
-			&:hover {
-				color: $purple;
-			}
-		}
-	}
+  @media (min-width: 782px) {
+    .event {
+      position: relative;
+    }
 
-	@media (min-width: 782px) {
-		
-		.event {
-			position: relative;
-		}
+    &.upcoming {
+      .event {
+        padding-right: 180px;
+      }
 
-		&.upcoming {
-			.event {
-				padding-right: 180px;
-			}
+      .event__actions {
+        padding: 0;
+        position: absolute;
+        top: 52px;
+        right: 0;
+      }
+    }
+  } // 782
 
-			.event__actions {
-				padding: 0;
-				position: absolute;
-				top: 42px;
-				right: 0;
-			}
-		}
-	} // 782
+  @media (min-width: 1100px) {
+    .event {
+      padding-left: 220px;
 
-	@media (min-width: 1100px) {
-		.event {
-			padding-left: 220px;
+      .meta {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        border-right: 1px solid rgba($primary, 0.1);
+        padding-right: 4rem;
+      }
+    }
+    &.upcoming {
+      .event__actions {
+        top: 50px;
+      }
+    }
+  }
 
-			.meta {
-				position: absolute;
-				top: 14px;
-				left: 0;
-			}
-		}	
-		&.upcoming {
-			.event__actions {
-				top: 11px;
-			}
-		}
-	}
-
-	@media (min-width: 1400px) {
-		.event {
-			padding-left: 250px;
-		}
-	}
+  @media (min-width: 1400px) {
+    .event {
+      padding-left: 250px;
+    }
+  }
 }
-
-
-
-
-
-  

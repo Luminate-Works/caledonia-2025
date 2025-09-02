@@ -56,6 +56,12 @@
     top: 0;
   }
 }
+.wp-block-column.is-style-radius-4 {
+  border-radius: 4px;
+}
+.wp-block-column.is-style-radius-8 {
+  border-radius: 8px;
+}
 
 .wp-block-columns.is-style-border-bottom {
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);
@@ -125,7 +131,7 @@
   .wp-block-columns.large-number::before {
     content: "";
     display: block;
-    color: #CBD8FF;
+    color: #cbd8ff;
     text-align: right;
     font-family: var(--wp--preset--font-family--secondary);
     font-size: var(--wp--preset--font-size--font-200);
