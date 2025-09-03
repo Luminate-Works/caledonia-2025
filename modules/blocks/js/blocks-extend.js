@@ -42,7 +42,11 @@ wp.blocks.registerBlockStyle("core/paragraph", {
 });
 wp.blocks.registerBlockStyle("core/paragraph", {
 	name: "mt16",
-label: "Margin Top 16px",
+	label: "Margin Top 16px",
+});
+wp.blocks.registerBlockStyle("core/paragraph", {
+	name: "mt24",
+	label: "Margin Top 24px",
 });
 
 // image
@@ -167,4 +171,15 @@ wp.blocks.registerBlockStyle('core/list', {
 wp.blocks.registerBlockStyle('core/list', {
 	name: 'underline',
 	label: 'Underline',
+});
+
+// table
+wp.blocks.registerBlockStyle('core/table', {
+	name: 'border',
+	label: 'Border',
+});
+
+wp.blocks.registerBlockStyle('core/table', {
+	name: 'bg',
+	label: 'Background',
 });

@@ -3186,6 +3186,9 @@ body.page-child .hero-static {
   background-position: top right;
   min-height: 530px;
 }
+body.page-child .hero-static.overlay-yellow {
+  background-image: url(../assets/images/theme/inner-banner-mask-yellow.png);
+}
 body.page-child .hero-static .hero-static__image {
   min-height: 600px;
 }

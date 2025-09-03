@@ -7,78 +7,80 @@
 }
 
 p {
+  &:empty {
+    display: none;
+  }
 
-	&:empty {
-		display: none;
-	}
+  &.is-style-maxwidth {
+    max-width: 800px;
+    text-align: center;
+  }
 
-	&.is-style-maxwidth {
-		max-width: 800px;
-		text-align: center;
-	}
+  &.is-style-intro,
+  &.is-style-introborder {
+    font-size: $font-40;
+    line-height: 130%;
+    font-family: $ff-title;
+    color: $primary;
+    max-width: 890px;
 
-	&.is-style-intro,
-	&.is-style-introborder {
-		font-size: $font-40;
-		line-height: 130%;
-		font-family: $ff-title;
-		color: $primary;
-		max-width: 890px;
+    &.has-text-align-center {
+      width: 96%;
+      max-width: 96rem;
+    }
+  }
 
-		&.has-text-align-center {
-			width: 96%;
-			max-width: 96rem;
-		}
+  &.is-style-introborder {
+    padding-left: 4rem;
+    border-left: 1px solid rgba($primary, 0.1);
+  }
 
-	}
+  &.is-style-transparent {
+    opacity: 0.6;
+  }
 
-	&.is-style-introborder {
-		padding-left: 4rem;
-		border-left: 1px solid rgba($primary, 0.1);
-	}
+  &.is-style-mt16 {
+    .wp-block-heading + & {
+      margin-top: 1.6rem !important;
+    }
+  }
 
-	&.is-style-transparent {
-		opacity:0.6;
-	}
+  &.is-style-mt24 {
+    .wp-block-heading + & {
+      margin-top: 2.4rem !important;
+    }
+  }
 
-	&.is-style-mt16 {
+  &.is-style-section-intro {
+    font-size: $font-22;
+    line-height: 1.45;
 
-		.wp-block-heading + & {
-			margin-top: 1.6rem !important;
-		}
+    &.has-text-align-center {
+      width: 96%;
+      max-width: 70rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 
-	}
+  @media (min-width: 1024px) {
+    &.maxwidth {
+      padding-right: 20%;
+    }
+  }
 
-	&.is-style-section-intro {
-		font-size: $font-22;
-		line-height: 1.45;
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6,
+  + p,
+  + .wp-block-image {
+    margin-top: 2ch !important;
+  }
 
-		&.has-text-align-center {
-			width: 96%;
-			max-width: 70rem;
-			margin-left: auto;
-			margin-right: auto;
-		}
-	}
-
-	@media (min-width: 1024px) {
-		&.maxwidth {
-			padding-right: 20%;
-		}
-	}
-
-	+ h2,
-	+ h3,
-	+ h4,
-	+ h5,
-	+ h6,
-	+ p,
-	+ .wp-block-image {
-		margin-top: 2ch!important;
-	}
-
-	+ .wp-block-group,
-	+ .wp-block-columns {
-		margin-top: $space-m;
-	}
+  + .wp-block-group,
+  + .wp-block-columns {
+    margin-top: $space-m;
+  }
 }

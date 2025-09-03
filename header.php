@@ -162,10 +162,16 @@ if (class_exists('ACF')) {
             // Get override background options from static_content
             $override_bg_colour = null;
             $override_overlay_size = null;
+            $override_overlay = null;
             if (class_exists('ACF')) {
                 $banner_content = get_field('static_content', get_the_ID());
                 $override_bg_colour = $banner_content['override_bg_colour'] ?? null;
                 $override_overlay_size = $banner_content['override_overlay_size'] ?? null;
+                $override_overlay = $banner_content['override_overlay'] ?? null;
+            }
+
+            if ($override_overlay) {
+                $hero_class .= ' overlay-' . sanitize_html_class($override_overlay);
             }
 
             // Build inline style for hero wrapper

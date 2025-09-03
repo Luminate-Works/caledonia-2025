@@ -50,12 +50,26 @@
 .wp-block-button.is-style-bg-white .wp-block-button__link {
   background-color: white;
 }
+.wp-block-button.is-style-plain .wp-block-button__link {
+  background: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+  padding-left: 50px;
+}
+.wp-block-button.is-style-plain .wp-block-button__link:before, .wp-block-button.is-style-plain .wp-block-button__link:after {
+  left: 0;
+}
 .wp-block-button.is-style-plain-white .wp-block-button__link {
   background: none;
   padding-top: 0;
   padding-bottom: 0;
   border-radius: 0;
   color: white;
+  padding-left: 50px;
+}
+.wp-block-button.is-style-plain-white .wp-block-button__link:before, .wp-block-button.is-style-plain-white .wp-block-button__link:after {
+  left: 0;
 }
 .wp-block-button.is-style-plain-white .wp-block-button__link:before {
   background-image: url(../assets/images/theme/icon-arrow-right-white.svg);

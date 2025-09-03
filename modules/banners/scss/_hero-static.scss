@@ -135,6 +135,10 @@ body.page-child {
     background-position: top right;
     min-height: 530px;
 
+    &.overlay-yellow {
+          background-image: url(../assets/images/theme/inner-banner-mask-yellow.png);
+    }
+
     .hero-static__image {
       min-height: 600px;
 

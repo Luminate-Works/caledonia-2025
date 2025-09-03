@@ -31,6 +31,9 @@ p.is-style-transparent {
 .wp-block-heading + p.is-style-mt16 {
   margin-top: 1.6rem !important;
 }
+.wp-block-heading + p.is-style-mt24 {
+  margin-top: 2.4rem !important;
+}
 p.is-style-section-intro {
   font-size: var(--wp--preset--font-size--font-22);
   line-height: 1.45;
