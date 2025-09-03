@@ -3,6 +3,55 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.top-investment-table table thead {
+  border: none !important;
+}
+.top-investment-table table thead tr th p {
+  font-size: var(--wp--preset--font-size--font-14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: #010035;
+  opacity: 0.5;
+  border-left: 1px solid rgb(203, 209, 227) !important;
+  padding: 0 2.4rem !important;
+  margin: 0;
+}
+.top-investment-table table tbody {
+  border: none !important;
+}
+.top-investment-table table tbody tr {
+  border-top: 1px solid rgb(203, 209, 227);
+}
+.top-investment-table table tbody tr td {
+  padding: 5rem 0 !important;
+  position: relative;
+}
+.top-investment-table table tbody tr td p {
+  border-left: 1px solid rgb(203, 209, 227) !important;
+  padding: 0 2.4rem !important;
+  color: #010035;
+  font-size: var(--wp--preset--font-size--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  margin: 0;
+}
+.top-investment-table table tbody tr td::before {
+  display: none;
+}
+.top-investment-table table tbody tr td.name {
+  padding-left: 12.4rem !important;
+}
+.top-investment-table table tbody tr td img {
+  width: 10rem;
+  height: 10rem;
+  transition: opacity ease-in-out 0.25s;
+  margin-right: 2.4rem;
+  position: absolute;
+  top: 1.6rem;
+  left: 0;
+}
 .top-investment-table .list-item {
   width: 100%;
   display: flex;
@@ -12,6 +61,14 @@
   padding: 1.6rem 0;
   position: relative;
   border-top: 1px solid rgb(203, 209, 227);
+}
+.top-investment-table .list-item th {
+  font-size: var(--wp--preset--font-size--font-14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: #010035;
+  opacity: 0.5;
 }
 .top-investment-table .list-item.heading {
   border-top: none;

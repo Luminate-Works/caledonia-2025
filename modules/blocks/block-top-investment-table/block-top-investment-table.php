@@ -7,36 +7,43 @@
 
 <div class="<?= esc_attr($className); ?>">
   <?php if( have_rows('list') ): ?>
-    <div class="list-item heading">
-     <p class="name">Name</p>
-     <p class="pool">Pool</p>
-     <p class="geography">Geography<sup>1</sup></p>
-     <p class="business">Business</p>
-     <p class="value">Value (£m)</p>
-     <p class="net_assets">Net assets (%)</p>
-    </div>
-    <?php while( have_rows('list') ) : the_row(); 
-        $icon = get_sub_field('icon');
-        $name = get_sub_field('name');
-        $pool = get_sub_field('pool');
-        $geography = get_sub_field('geography');
-        $business = get_sub_field('business');
-        $value = get_sub_field('value');
-        $net_assets = get_sub_field('net_assets');
-    ?>
-        <div class="list-item">
-            <div class="icon-wrapper">
-                <img class="icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($text); ?>">
-                <p class="name"><?php echo esc_html($name); ?></p>
-            </div>
-            <p class="pool"><?php echo esc_html($pool); ?></p>
-            <p class="geography"><?php echo esc_html($geography); ?></p>
-            <p class="business"><?php echo esc_html($business); ?></p>
-            <p class="value"><?php echo esc_html($value); ?></p>
-            <p class="net_assets"><?php echo esc_html($net_assets); ?></p>
-        </div>
-   
-       
-    <?php endwhile; ?>
-<?php endif; ?>
+    <table>
+      <thead>
+        <tr>
+          <th class="name">Name</th>
+          <th class="pool"><p>Pool</p></th>
+          <th class="geography"><p>Geography<sup>1</sup></p></th>
+          <th class="business"><p>Business</p></th>
+          <th class="value"><p>Value (£m)</p></th>
+          <th class="net_assets"><p>Net assets (%)</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php while( have_rows('list') ) : the_row(); 
+            $icon = get_sub_field('icon');
+            $name = get_sub_field('name');
+            $pool = get_sub_field('pool');
+            $geography = get_sub_field('geography');
+            $business = get_sub_field('business');
+            $value = get_sub_field('value');
+            $net_assets = get_sub_field('net_assets');
+            $border_color = get_sub_field('border_color');
+        ?>
+          <tr>
+            <td class="name">
+              <div class="icon-wrapper">
+                <img class="icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($name); ?>">
+                <?php echo esc_html($name); ?>
+              </div>
+            </td>
+            <td class="pool"><p style="border-color:<?= $border_color?>  !important;"><?php echo esc_html($pool); ?></p></td>
+            <td class="geography"><p><?php echo esc_html($geography); ?></p></td>
+            <td class="business"><p><?php echo esc_html($business); ?></p></td>
+            <td class="value"><p><?php echo esc_html($value); ?></p></td>
+            <td class="net_assets"><p><?php echo esc_html($net_assets); ?></p></td>
+          </tr>
+        <?php endwhile; ?>
+      </tbody>
+    </table>
+  <?php endif; ?>
 </div>
