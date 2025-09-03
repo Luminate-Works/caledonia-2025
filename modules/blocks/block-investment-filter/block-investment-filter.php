@@ -232,7 +232,6 @@ function projectModal() {
         },
         
         get currentProject() {
-			console.log(this.projects[this.modalIndex]);
             return this.projects[this.modalIndex] || {};
         },
         
