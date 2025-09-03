@@ -1,0 +1,51 @@
+.top-investment-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.top-investment-table .list-item {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 0;
+  position: relative;
+  border-top: 1px solid rgb(203, 209, 227);
+}
+.top-investment-table .list-item.heading {
+  border-top: none;
+}
+.top-investment-table .list-item.heading p {
+  font-size: var(--wp--preset--font-size--font-14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: #010035;
+  opacity: 0.5;
+}
+.top-investment-table .list-item.heading p.name {
+  min-width: 30rem;
+  padding-left: 2.4rem;
+}
+.top-investment-table .list-item .icon-wrapper {
+  position: relative;
+  height: 10rem;
+  min-width: 30rem;
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+}
+.top-investment-table .list-item .icon-wrapper img {
+  width: 10rem;
+  height: 10rem;
+  transition: opacity ease-in-out 0.25s;
+}
+.top-investment-table .list-item p {
+  margin: 0 !important;
+  color: #010035;
+  font-size: var(--wp--preset--font-size--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}/*# sourceMappingURL=block-top-investment-table.css.map */
