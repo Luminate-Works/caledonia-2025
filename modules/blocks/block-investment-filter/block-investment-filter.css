@@ -1,3 +1,6 @@
+.investment {
+  margin-top: 0;
+}
 .investment .fade-transition {
   transition: opacity 200ms ease;
 }
@@ -37,6 +40,17 @@
 }
 .investment .investment-list .swiper-wrapper .swiper-slide {
   margin-bottom: 4rem;
+  position: relative;
+}
+.investment .investment-list .swiper-wrapper .swiper-slide::before {
+  content: "";
+  display: block;
+  height: calc(100% - 4rem);
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  left: -4rem;
+  top: 0;
 }
 .investment .investment-list .slide-content .slide-image {
   margin-bottom: 2.4rem;
@@ -242,6 +256,10 @@
 #investment__modal .modal-content .investment-details .wrapper p:nth-child(2) {
   padding-left: 4rem;
   border-left: 1px solid rgb(203, 209, 227);
+}
+#investment__modal .modal-content .investment-details .wrapper p.no-border {
+  border: none !important;
+  padding-left: 0rem;
 }
 #investment__modal .modal-content .investment-details .wrapper p .heading {
   display: block;

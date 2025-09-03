@@ -142,14 +142,14 @@ if (is_admin()) {
 						<p x-html="currentProject.content"></p>
 					</div>
 
-					<div class="investment-details">
+					<div class="investment-details"  x-show="currentProject.caledonian_equity || currentProject.investment_date || currentProject.investment_type || currentProject.realised_status">
 						<!-- Show p tags only if the data exists -->
-						<div class="wrapper top">
+						<div class="wrapper top"> 
 							<p x-show="currentProject.caledonian_equity">
 								<span class="heading">Caledonia equity</span>
-								<span  class="data equity" x-text="currentProject.caledonian_equity"></span>
+								<span class="data equity" x-text="currentProject.caledonian_equity"></span>
 							</p>
-							<p x-show="currentProject.investment_date">
+							<p :class="{ 'no-border': !currentProject.caledonian_equity }" x-show="currentProject.investment_date">
 								<span class="heading">Investment date</span>
 								<span  class="data" x-text="currentProject.investment_date"></span>
 							</p>
@@ -159,7 +159,7 @@ if (is_admin()) {
 								<span class="heading">Investment type</span>				
 								<span  class="data" x-text="currentProject.investment_type"></span>
 							</p>
-							<p x-show="currentProject.realised_status">
+							<p  :class="{ 'no-border': !currentProject.investment_type }"  x-show="currentProject.realised_status">
 								<span class="heading">Realised Status</span>				
 								<span  class="data" x-text="currentProject.realised_status"></span>
 							</p>

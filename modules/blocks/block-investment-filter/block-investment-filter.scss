@@ -1,6 +1,8 @@
 @import "../../../scss/abstracts/vars";
 
 .investment {
+	margin-top:0;
+	
 	.fade-transition {
         transition: opacity 200ms ease;
     }
@@ -39,9 +41,21 @@
 		}
 
 		.swiper-wrapper {
-			
 			.swiper-slide {
 				margin-bottom: 4rem;
+				position: relative;
+
+				&::before {
+					content: "";
+					display: block;
+					height: calc(100% - 4rem);
+					width: 1px;
+					background: $border;
+					position: absolute;
+					left: -4rem;
+					top: 0;
+				}
+
 			}
 		}
 		
@@ -296,6 +310,11 @@
 					&:nth-child(2){
 						padding-left: 4rem;
 						border-left: 1px solid $border-dark;
+					}
+
+					&.no-border {
+						border: none !important;
+						padding-left: 0rem;
 					}
 				
 

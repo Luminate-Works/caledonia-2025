@@ -3171,6 +3171,10 @@ body.interim-login h1 a {
   display: block;
   opacity: 1;
 }
+.hero-static:not(.home) .hero-static__content .page-title span.no-sub {
+  opacity: 1;
+  padding-left: 8rem;
+}
 
 body.page-child .hero-static {
   display: flex;

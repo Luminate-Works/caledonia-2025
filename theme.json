@@ -157,7 +157,7 @@
                 },
 				{
 					"size": "clamp(3.5rem, 2.737rem + 1.404vw, 4rem)",
-					"slug": "normal",
+					"slug": "40",
 					"name": "Space N 4rem"
                 },
                 {
