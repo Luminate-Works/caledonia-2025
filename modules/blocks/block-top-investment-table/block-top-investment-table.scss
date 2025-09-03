@@ -2,10 +2,6 @@
 @import "../../../scss/abstracts/mixins";
 
 .top-investment-table {
-	display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
 	table {
 		thead {
 			border: none !important; 
@@ -68,74 +64,5 @@
 				}
 			}
 		}
-	}
-	
-
-	
- 
-	.list-item {
-		width: 100%;
-		display: flex;
-		gap: 40px;
-   		align-items: center;
-		justify-content: space-between;
-		padding: 1.6rem 0;
-		position:relative;
-		border-top:1px solid $border-dark;  
-		
-		// Heading
-		th {
-			font-size: $font-14;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 160%;
-			color: $primary;
-			opacity: 0.5;
-
-		}
-		&.heading {
-			border-top: none;
-
-			p {
-				font-size: $font-14;
-				font-style: normal;
-				font-weight: 400;
-				line-height: 160%;
-				color: $primary;
-				opacity: 0.5;
-
-				&.name {
-					min-width: 30rem;
-					padding-left: 2.4rem;
-				}
-			}
-		}
-
-		.icon-wrapper {
-			position: relative;
-			height: 10rem;
-			min-width: 30rem;
-			display: flex;
-			gap: 2.4rem;
-			align-items: center;
-
-			img {
-				width: 10rem;
-				height: 10rem;
-				transition: opacity $ease $speed;
-			}
-		}
-		
-
-		p {
-			margin:0 !important;
-			color:$primary;
-			font-size: $font-16;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 160%;
-		}
-
-		
 	}
 }
