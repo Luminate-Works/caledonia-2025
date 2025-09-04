@@ -12,6 +12,21 @@
   display: block;
   width: 100%;
   height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 670px;
+}
+
+.swiper-slide {
+  width: 80% !important;
+}
+
+.swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 40%;
 }
 
 .swiper-button-next,

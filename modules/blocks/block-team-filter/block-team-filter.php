@@ -1,233 +1,305 @@
 <?php
 $id            = $block['anchor'] ?? 'team-block-' . $block['id'];
-$category = get_field('investment_type') ?: '';
+$team_category = get_field('team_category') ?: '';
 
-$className = 'investment'
+$category_slug = '';
+
+$filter = get_field('filter');
+
+if ($team_category) {
+	$term = get_term($team_category, 'team-category');
+	if (!is_wp_error($term)) {
+		$category_slug = ' team-cat-' . sanitize_title($term->slug);
+	}
+}
+
+$className = 'team'
 	. (!empty($block['className']) ? " {$block['className']}" : '')
-	. (!empty($block['align']) ? " align{$block['align']}" : '');
+	. (!empty($block['align']) ? " align{$block['align']}" : '')
+	. $category_slug;
 
 if (is_admin()) {
-	echo '<p><strong>Investment Slider</strong> – interactive on front end.</p>';
+	echo '<p><strong>Team Members</strong> – interactive on front end.</p>';
 	return;
 }
 ?>
 
-<div class="<?= esc_attr($className) ?>">
-	<?php
-		$args = [
-			'post_type'      => 'investment',
-			'posts_per_page' => -1,
-			'order'          => 'ASC',
-			'orderby'        => 'menu_order',
-		];
+<div
+	class="<?= esc_attr($className) ?>"
+	x-data="teamApp({ category: <?= json_encode($team_category) ?> })"
+	x-init="init()"
+	x-cloak>
+	<?php if ($filter) { ?>
+		<div class="team-controls">
+			<!--
+		<input type="text" class="search-bar" x-model="searchQuery" placeholder="Search team members…" autocomplete="off" />
+		-->
 
-		if ($category) {
-			$args['tax_query'] = [[
-				'taxonomy' => 'investment-type',
-				'field'    => 'term_id',
-				'terms'    => $category,
-			]];
-		}
+			<!-- Filter by team -->
+			<div class="type-tabs">
+				<button
+					class="tab"
+					:class="{ 'active': typeFilter === '' }"
+					@click="selectType('')">
+					All
+				</button>
+				<template x-for="type in uniqueTypes" :key="type">
+					<button
+						class="tab"
+						:class="{ 'active': typeFilter === type }"
+						@click="selectType(type)"
+						x-text="type"></button>
+				</template>
+			</div>
 
-		$query = new WP_Query($args);
-		
-		// Initialize posts data array
-		$posts_data = array();
-	?>
-	<div class="investment-list investment-slider" x-data="projectModal()">
-		<div class="swiper-wrapper">
-			<?php if ($query->have_posts()) : ?>
-				<?php $index = 0; ?>
-				<?php while ($query->have_posts()) : $query->the_post(); ?>
-					<?php 
-					// Store post data for Alpine.js
-					$post_data = array(
-						'title' => get_the_title(),
-						'excerpt' => get_the_excerpt(),
-						'content' => get_the_content(),
-						'image' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
-						'permalink' => get_the_permalink()
-					);
-					$posts_data[] = $post_data;
-					?>
-					<div class="swiper-slide" @click="openModal(<?php echo $index; ?>)" style="cursor: pointer;">
-						<div class="slide-content">
-							<?php if (has_post_thumbnail()) : ?>
-								<div class="slide-image">
-									<?php the_post_thumbnail('medium'); ?>
-								</div>
-							<?php endif; ?>
-							
-							<div class="slide-text">
-								<h3><?php the_title(); ?></h3>
-								<div class="slide-excerpt">
-									<?php the_excerpt(); ?>
-								</div>
-								<button class="slide-button" @click.stop="openModal(<?php echo $index; ?>)">
-									View Details
-								</button>
-							</div>
-						</div>
-					</div>
-					<?php $index++; ?>
-				<?php endwhile; ?>
-				<?php wp_reset_postdata(); ?>
-			<?php else : ?>
-				<div class="swiper-slide">
-					<div class="no-posts">No posts found</div>
-				</div>
-			<?php endif; ?>
+			<!-- Filter by Role 
+		<div class="dropdown role-dropdown">
+			<button type="button" class="dropdown-toggle" @click="toggleRoleDropdown()">
+				<span x-text="roleDropdownText"></span>
+			</button>
+			<ul class="dropdown-menu" x-show="roleDropdownOpen" @click.away="roleDropdownOpen = false">
+				<li class="dropdown-item" @click="selectRole('')">All Roles</li>
+				<template x-for="role in uniqueRoles" :key="role">
+					<li class="dropdown-item" @click="selectRole(role)" x-text="role"></li>
+				</template>
+			</ul>
 		</div>
-		<div class="swiper-pagination"></div>
+		-->
 
-		<!-- Modal -->
-		<div id="investment__modal" 
-			 class="modal" 
-			 x-show="isModalOpen" 
-			 x-transition
-			 x-ref="modal" 
-			 :class="{ 'active': isModalOpen }"
-			 @keydown.escape.window="closeModal()" 
-			 @keydown.window="handleKeyNavigation"
-			 @click.self="closeModal()">
-			<div class="modal-inner">
-				<div class="investment-controls">
-					<button id="close" class="modal-close" @click="closeModal()">×</button>
-					<div class="modal-nav" x-show="hasMultipleProjects">
-						<button class="prev" :disabled="modalIndex === 0" @click="prev()" type="button">
-							<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="none">
-								<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m25.616 14.987-6.104 5.985 6.104 6.038" />
-								<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M20.806 14.988 14.7 20.973l6.105 6.038" />
-								<circle cx="21" cy="21" r="20.5" stroke="#292927" />
-							</svg>
-						</button>
-						<span class="modal-counter" x-text="(modalIndex + 1) + ' of ' + projects.length"></span>
-						<button class="next" :disabled="modalIndex === projects.length - 1" @click="next()" type="button">
-							<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="none">
-								<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m17.07 14.99 6.104 5.984-6.104 6.036" />
-								<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m21.879 14.99 6.103 5.983-6.103 6.037" />
-								<circle cx="21" cy="21" r="20.5" stroke="#292927" />
-							</svg>
-						</button>
-					</div>
+			<!-- Sorting
+		<div class="dropdown sort-dropdown">
+			<button type="button" class="dropdown-toggle" @click="toggleSortDropdown()">
+				<span x-text="sortDropdownText"></span>
+			</button>
+			<ul class="dropdown-menu" x-show="sortDropdownOpen" @click.away="sortDropdownOpen = false">
+				<li class="dropdown-item" @click="selectSort('default')">Default</li>
+				<li class="dropdown-item" @click="selectSort('first_name')">First Name</li>
+				<li class="dropdown-item" @click="selectSort('last_name')">Last Name</li>
+			</ul>
+		</div>
+		-->
+
+			<!-- Reset
+		<button type="button" class="btn reset-btn" @click="resetFilters()">
+			<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="30" fill="none"><path stroke="#92A097" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4.219 8.132c2.424-4.17 6.94-6.976 12.113-6.976 7.732 0 14 6.268 14 14s-6.268 14-14 14-14-6.268-14-14"/><path stroke="#92A097" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M11.082 8.156h-7v-7"/><path fill="#DF687B" d="m10.871 20.496 4.843-4.843-4.78-4.78.832-.831 4.78 4.779 4.736-4.737.854.854-4.737 4.736 4.78 4.78-.833.832-4.78-4.78-4.842 4.844-.854-.854h.001Z"/></svg>
+			Reset
+		</button>
+		-->
+		</div>
+	<?php } ?>
+
+	<div class="team-list">
+		<template x-for="(member, i) in displayed" :key="member.id">
+			<div class="team__member" x-html="member.html" @click="openModal(i)"></div>
+		</template>
+	</div>
+
+	<div x-show="loading" class="loading">Loading…</div>
+	<div x-show="!loading && displayed.length === 0" class="no-results">Sorry, nothing found.</div>
+
+	<div id="team__modal" class="modal" x-ref="modal" @keydown.escape.window="closeModal()" @keydown.window="handleKeyNavigation">
+		<div class="modal-inner">
+			<div class="modal-controls">
+				<button id="close" class="modal-close" @click="closeModal()">×</button>
+				<div class="modal-nav">
+					<button class="next" :disabled="modalIndex===displayed.length-1" @click="next()">
+						<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="none">
+							<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m17.07 14.99 6.104 5.984-6.104 6.036" />
+							<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m21.879 14.99 6.103 5.983-6.103 6.037" />
+							<circle cx="21" cy="21" r="20.5" stroke="#292927" />
+						</svg>
+					</button>
+					<button class="prev" :disabled="modalIndex===0" @click="prev()">
+						<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="none">
+							<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="m25.616 14.987-6.104 5.985 6.104 6.038" />
+							<path stroke="#DB3553" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M20.806 14.988 14.7 20.973l6.105 6.038" />
+							<circle cx="21" cy="21" r="20.5" stroke="#292927" />
+						</svg>
+					</button>
 				</div>
-				<div class="modal-content">
-					<template x-if="currentProject.image">
-						<img id="investment-modal-img" :src="currentProject.image" :alt="currentProject.title" />
-					</template>
-					<div id="title">
-						<h3 x-text="currentProject.title"></h3>
-						<p x-text="currentProject.excerpt"></p>
-					</div>
-					<div id="bio" x-html="currentProject.content"></div>
-					<a :href="currentProject.permalink" class="modal-link" target="_blank">
-						View Full Project
-					</a>
+			</div>
+			<div class="modal-content">
+				<img id="team-modal-img" src="" alt="" />
+				<div id="title">
+					<h3></h3>
+					<p></p>
 				</div>
+				<div id="bio"></div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-	var swiper = new Swiper(".investment-slider", {
-		slidesPerView: 3,
-		spaceBetween: 30,
-		freeMode: true,
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: true,
-		},
-		breakpoints: {
-			320: {
-				slidesPerView: 1,
-				spaceBetween: 20
-			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 25
-			},
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 30
-			}
-		}
-	});
-});
+	document.addEventListener('alpine:init', () => {
+		Alpine.data('teamApp', () => ({
+			category: null,
+			allMembers: [],
+			displayed: [],
+			searchQuery: '',
+			sortOption: 'default',
+			roleFilter: '',
+			typeFilter: '',
+			loading: false,
+			modalIndex: 0,
+			sortDropdownOpen: false,
+			roleDropdownOpen: false,
+			typeDropdownOpen: false,
+			debounceTimer: null,
 
-function projectModal() {
-    const projects = <?php echo json_encode($posts_data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
-    
-    return {
-        modalIndex: -1,
-        projects: projects,
-        hasMultipleProjects: false,
-        
-        init() {
-            this.hasMultipleProjects = this.projects.length > 1;
-        },
-        
-        get currentProject() {
-            return this.projects[this.modalIndex] || {};
-        },
-        
-        get isModalOpen() {
-            return this.modalIndex >= 0;
-        },
-        
-        openModal(index) {
-            // Validate the index exists
-            if (index < 0 || index >= this.projects.length || !this.projects[index]) {
-                return;
-            }
-            
-            this.modalIndex = index;
-            
-            // Add active class and prevent body scrolling with proper animation timing
-            requestAnimationFrame(() => {
-                const modal = document.getElementById('investment__modal');
-                if (modal) {
-                    modal.classList.add('active');
-                }
-                document.documentElement.classList.add('menu-opened');
-                document.body.style.overflow = 'hidden';
-            });
-        },
-        
-        closeModal() {
-            this.modalIndex = -1;
-            
-            // Remove active class and restore body scrolling
-            const modal = document.getElementById('investment__modal');
-            if (modal) {
-                modal.classList.remove('active');
-            }
-            document.documentElement.classList.remove('menu-opened');
-            document.body.style.overflow = '';
-        },
-        
-        next() {
-            if (this.modalIndex < this.projects.length - 1) {
-                this.modalIndex++;
-            }
-        },
-        
-        prev() {
-            if (this.modalIndex > 0) {
-                this.modalIndex--;
-            }
-        },
-        
-        handleKeyNavigation(event) {
-            if (!this.isModalOpen) return;
-            
-            if (event.key === 'ArrowRight') {
-                this.next();
-            } else if (event.key === 'ArrowLeft') {
-                this.prev();
-            }
-        }
-    }
-}
+			init() {
+				this.category = <?= json_encode($team_category) ?>;
+				this.fetchMembers();
+				this.$watch('searchQuery', () => {
+					clearTimeout(this.debounceTimer);
+					this.debounceTimer = setTimeout(() => this.applyFilters(), 200);
+				});
+			},
+
+			fetchMembers() {
+				this.loading = true;
+				const fd = new FormData();
+				fd.append('action', 'load_team_members');
+				fd.append('category', this.category);
+
+				fetch("<?= admin_url('admin-ajax.php') ?>", {
+						method: 'POST',
+						credentials: 'same-origin',
+						body: fd
+					})
+					.then(r => r.json())
+					.then(json => {
+						this.allMembers = json.members;
+						this.applyFilters();
+						this.loading = false;
+					})
+					.catch(() => {
+						this.loading = false;
+					});
+			},
+
+			applyFilters() {
+				let items = [...this.allMembers];
+				const q = this.searchQuery.trim().toLowerCase();
+
+				if (q) {
+					items = items.filter(i =>
+						i.title.toLowerCase().includes(q) ||
+						i.html.toLowerCase().includes(q)
+					);
+				}
+
+				if (this.roleFilter) {
+					items = items.filter(i => i.position === this.roleFilter);
+				}
+
+				if (this.typeFilter) {
+					items = items.filter(i => i.team_type === this.typeFilter);
+				}
+
+				if (this.sortOption === 'first_name') {
+					items.sort((a, b) => a.first_name.localeCompare(b.first_name));
+				} else if (this.sortOption === 'last_name') {
+					items.sort((a, b) => a.last_name.localeCompare(b.last_name));
+				}
+
+				this.displayed = items;
+			},
+
+			resetFilters() {
+				this.searchQuery = '';
+				this.roleFilter = '';
+				this.typeFilter = '';
+				this.selectSort('default');
+				this.applyFilters();
+			},
+
+			toggleSortDropdown() {
+				this.sortDropdownOpen = !this.sortDropdownOpen;
+			},
+			selectSort(value) {
+				this.sortOption = value;
+				this.sortDropdownOpen = false;
+				this.applyFilters();
+			},
+			get sortDropdownText() {
+				if (this.sortOption === 'first_name') return 'First Name';
+				if (this.sortOption === 'last_name') return 'Last Name';
+				return 'Sort by';
+			},
+
+			toggleRoleDropdown() {
+				this.roleDropdownOpen = !this.roleDropdownOpen;
+			},
+			selectRole(role) {
+				this.roleFilter = role;
+				this.roleDropdownOpen = false;
+				this.applyFilters();
+			},
+			get roleDropdownText() {
+				return this.roleFilter || 'Filter by Role';
+			},
+			get uniqueRoles() {
+				return [...new Set(this.allMembers.map(m => m.position).filter(Boolean))].sort();
+			},
+
+			toggleTypeDropdown() {
+				this.typeDropdownOpen = !this.typeDropdownOpen;
+			},
+			selectType(type) {
+				this.typeFilter = type;
+				this.typeDropdownOpen = false;
+				this.applyFilters();
+			},
+			get typeDropdownText() {
+				return this.typeFilter || 'Filter by team';
+			},
+			get uniqueTypes() {
+				return [...new Set(this.allMembers.map(m => m.team_type).filter(Boolean))].sort();
+			},
+
+			openModal(i) {
+				this.modalIndex = i;
+				this.populateModal();
+			},
+			populateModal() {
+				const m = this.displayed[this.modalIndex];
+				if (!m) return;
+
+				const tmp = document.createElement('div');
+				tmp.innerHTML = m.html;
+
+				document.querySelector('#team__modal #title h3').innerText = tmp.querySelector('.title h3')?.innerText || '';
+				document.querySelector('#team__modal #title p').innerText = tmp.querySelector('.title p')?.innerText || '';
+				document.querySelector('#team__modal #team-modal-img').src = tmp.querySelector('.profile img')?.src || '';
+				document.querySelector('#team__modal #bio').innerHTML = tmp.querySelector('.bio')?.innerHTML || '';
+
+				requestAnimationFrame(() => {
+					document.getElementById('team__modal')?.classList.add('active');
+					document.documentElement.classList.add('menu-opened');
+				});
+			},
+			handleKeyNavigation(e) {
+				if (!this.$refs.modal.classList.contains('active')) return;
+				if (e.key === 'ArrowRight') this.next();
+				if (e.key === 'ArrowLeft') this.prev();
+			},
+			closeModal() {
+				this.$refs.modal.classList.remove('active');
+				document.documentElement.classList.remove('menu-opened');
+			},
+			prev() {
+				if (this.modalIndex > 0) {
+					this.modalIndex--;
+					this.populateModal();
+				}
+			},
+			next() {
+				if (this.modalIndex < this.displayed.length - 1) {
+					this.modalIndex++;
+					this.populateModal();
+				}
+			}
+		}));
+	});
 </script>

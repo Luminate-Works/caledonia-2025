@@ -2,37 +2,51 @@
 @import "../../../scss/abstracts/mixins";
 
 .image-slider {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .image-slider .swiper-slide {
-    overflow: hidden;
-    border-radius: 8px;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .image-slider img {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+    max-height: 670px;
+}
+
+.swiper-slide {
+  width: 80% !important;
+}
+
+.swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 40%;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-    background: #fff;
-    color: #000;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background: #fff;
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .swiper-pagination-bullet {
-    background: #fff;
-    opacity: 0.6;
+  background: #fff;
+  opacity: 0.6;
 }
 
 .swiper-pagination-bullet-active {
-    background: #f26822;
-    opacity: 1;
+  background: #f26822;
+  opacity: 1;
 }
