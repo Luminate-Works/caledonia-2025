@@ -36,20 +36,17 @@ if (is_admin()) {
 		-->
 
 			<!-- Filter by team -->
-			<div class="type-tabs">
-				<button
-					class="tab"
-					:class="{ 'active': typeFilter === '' }"
-					@click="selectType('')">
-					All
-				</button>
-				<template x-for="type in uniqueTypes" :key="type">
-					<button
-						class="tab"
-						:class="{ 'active': typeFilter === type }"
-						@click="selectType(type)"
-						x-text="type"></button>
-				</template>
+			<div class="tabs type">
+				<ul>
+					<li :class="{ 'active': typeFilter === '' }" @click="selectType('')">All</li>
+					<template x-for="type in uniqueTypes" :key="type">
+						<li
+							:class="{ 'active': typeFilter === type }"
+							@click="selectType(type)"
+							x-text="type">
+						</li>
+					</template>
+				</ul>
 			</div>
 
 			<!-- Filter by Role 

@@ -28,6 +28,11 @@
 .wp-block-column.br4 {
   border-radius: 4px;
 }
+.wp-block-column.is-style-justify-between {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (min-width: 782px) {
   .wp-block-column.custom-border-left {
     position: relative;

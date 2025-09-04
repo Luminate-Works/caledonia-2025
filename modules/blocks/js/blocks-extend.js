@@ -121,6 +121,10 @@ wp.blocks.registerBlockStyle('core/column', {
 	name: 'radius-8',
 	label: 'Radius 8',
 });
+wp.blocks.registerBlockStyle('core/column', {
+	name: 'justify-between',
+	label: 'Justify Between',
+});
 
 
 // table

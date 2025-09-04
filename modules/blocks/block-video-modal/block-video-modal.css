@@ -1,0 +1,76 @@
+.video-modal {
+  position: relative;
+}
+.video-modal a {
+  display: block;
+}
+.video-modal a:hover .video-icon::before {
+  transform: scale(1.1);
+}
+.wp-block-heading + .video-modal {
+  margin-top: 4rem;
+}
+.video-modal img {
+  border-radius: 8px;
+  max-height: 720px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.video-modal .video-overlay {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  padding: 2.4rem;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+.video-modal .video-overlay p.video-title {
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-18);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  margin-bottom: 1.6rem;
+  color: white;
+}
+.video-modal .video-overlay .video-control {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.video-modal .video-overlay .video-control p {
+  margin: 0 !important;
+  font-size: var(--wp--preset--font-size--font-14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: white;
+}
+.video-modal .video-overlay .video-control p.video-duration {
+  opacity: 0.5;
+}
+.video-modal .video-overlay .video-control .video-icon {
+  font-size: var(--wp--preset--font-size--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: #fff;
+}
+.video-modal .video-overlay .video-control .video-icon::before {
+  content: "";
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  background-image: url("data:image/svg+xml;utf8,<svg width='60' height='60' fill='none' xmlns='http://www.w3.org/2000/svg'><foreignObject x='-6' y='-6.002' width='72' height='72'><div xmlns='http://www.w3.org/1999/xhtml' style='backdrop-filter:blur(3px);clip-path:url(%23a);height:100%;width:100%'/></foreignObject><circle data-figma-bg-blur-radius='6' cx='30' cy='29.998' r='29.25' stroke='%23fff' stroke-width='1.5'/><path d='m27.75 23.248 10.5 6.75-10.5 6.75v-13.5Z' fill='%23fff' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><defs><clipPath id='a' transform='translate(6 6.002)'><circle cx='30' cy='29.998' r='29.25'/></clipPath></defs></svg>");
+  background-repeat: no-repeat;
+  background-size: 6rem;
+  background-position: center;
+  transition: transform 0.4s;
+}/*# sourceMappingURL=block-video-modal.css.map */

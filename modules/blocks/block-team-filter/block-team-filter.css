@@ -45,6 +45,38 @@
   border: 1px solid #F0D8B2;
   outline: none;
 }
+.team .team-controls .tabs {
+  display: flex;
+  align-items: center;
+  color: #010035;
+  font-size: var(--wp--preset--font-size--font-14);
+  gap: 4rem;
+}
+.team .team-controls .tabs ul {
+  display: flex;
+  padding: 1.2rem 1.6rem;
+  border-radius: 88px;
+  margin: 0;
+  gap: 8px;
+  border: 1px solid rgba(1, 0, 53, 0.1);
+}
+.team .team-controls .tabs ul li {
+  list-style: none;
+  padding: 0 16px;
+  border-radius: 40px;
+  font-size: var(--wp--preset--font-size--font-14);
+  margin-bottom: 0;
+  text-align: center;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+.team .team-controls .tabs ul li.active {
+  background: #010035 !important;
+  color: white;
+}
+.team .team-controls .tabs ul li:hover {
+  cursor: pointer;
+  background: rgba(1, 0, 53, 0.1019607843);
+}
 .team .team-controls .dropdown {
   position: relative;
 }

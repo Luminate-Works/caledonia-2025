@@ -12,13 +12,18 @@
   height: 41px;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="43" viewBox="0 0 44 43" fill="none"><path d="M19.04 8.23591C10.24 10.1559 5.12 15.2759 4.48 25.0359H13.76V42.3159H0V26.9559C0 12.7159 6.08 4.07591 19.04 0.715912V8.23591ZM24 42.3159V26.9559C24 12.7159 30.08 4.07591 43.04 0.715912V8.23591C34.24 10.1559 29.12 15.2759 28.48 25.0359H37.76V42.3159H24Z" fill="%23010035"/></svg>');
   background-size: cover;
-  margin: 0 0 2rem 0;
+  margin: 0 0 2.4rem 0;
 }
 .wp-block-quote cite {
-  color: #F0D8B2;
+  color: #010035;
+  font-size: var(--wp--preset--font-size--font-18);
+  font-family: var(--wp--preset--font-family--primary);
+  line-height: 160%;
 }
 .wp-block-quote cite strong {
-  color: #010035;
+  font-weight: 400;
+  color: rgba(1, 0, 53, 0.6);
+  display: block;
 }
 @media (min-width: 1024px) {
   .wp-block-quote {
