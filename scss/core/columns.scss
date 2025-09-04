@@ -32,6 +32,17 @@
     backdrop-filter: blur(40px);
   }
 
+  &.is-style-text-center {
+    position: relative;
+
+    p {
+      position: absolute;
+      left: 4rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
   &.br8 {
     border-radius: 8px;
   }
@@ -135,6 +146,10 @@
     + .is-style-md-gap {
       margin-top: $space-n;
     }
+  }
+
+   &.is-style-gap-40 {
+    gap: 4rem;
   }
 
   &.is-style-xl-gap {

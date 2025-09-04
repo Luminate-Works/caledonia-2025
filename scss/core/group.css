@@ -18,6 +18,10 @@
   padding-left: 6vw;
   padding-right: 6vw;
 }
+.wp-block-group.is-style-bg-blur {
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+}
 .wp-block-group.has-background:not(.alignfull) {
   padding: var(--wp--preset--spacing--m);
 }

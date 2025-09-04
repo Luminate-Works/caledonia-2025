@@ -122,6 +122,11 @@
 }
 .spotlight-slider-navigation #spotlight-pagination .swiper-pagination-bullet {
   background: white !important;
+  transition: all 0.4s;
+}
+.spotlight-slider-navigation #spotlight-pagination .swiper-pagination-bullet-active {
+  width: 3.4rem;
+  border-radius: 4px;
 }
 .spotlight-slider-navigation .spotlight-slider-arrows {
   position: absolute;

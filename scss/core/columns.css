@@ -22,6 +22,15 @@
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
 }
+.wp-block-column.is-style-text-center {
+  position: relative;
+}
+.wp-block-column.is-style-text-center p {
+  position: absolute;
+  left: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .wp-block-column.br8 {
   border-radius: 8px;
 }
@@ -104,6 +113,9 @@
 }
 .wp-block-columns.is-style-md-gap + .is-style-md-gap {
   margin-top: var(--wp--preset--spacing--normal);
+}
+.wp-block-columns.is-style-gap-40 {
+  gap: 4rem;
 }
 .wp-block-columns.is-style-xl-gap {
   gap: 15.7rem;

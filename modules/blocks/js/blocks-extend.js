@@ -80,8 +80,12 @@ wp.blocks.registerBlockStyle('core/columns', {
 	label: 'Width Half',
 });
 wp.blocks.registerBlockStyle('core/columns', {
+	name: 'gap-40',
+	label: '4 Gap',
+});
+wp.blocks.registerBlockStyle('core/columns', {
 	name: 'md-gap',
-	label: 'Mid Gap',
+	label: '3.2 Gap',
 });
 wp.blocks.registerBlockStyle('core/columns', {
 	name: 'sm-gap',
