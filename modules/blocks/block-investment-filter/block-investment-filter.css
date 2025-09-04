@@ -1,5 +1,6 @@
 .investment {
   margin-top: 0;
+  margin-bottom: 10rem !important;
 }
 .investment .fade-transition {
   transition: opacity 200ms ease;

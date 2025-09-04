@@ -35,6 +35,11 @@ function enqueue_scripts_and_styles() {
     wp_enqueue_script('hero', get_template_directory_uri() . '/modules/banners/js/hero.js', array(), null, true);
     
     wp_enqueue_script('theme', get_template_directory_uri() . '/assets/js/theme.js', array(), null, true);
+
+    // glightbox
+    wp_enqueue_style('glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', [], null);
+    wp_enqueue_script('glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', [], null, true);
+    wp_add_inline_script('glightbox', 'document.addEventListener("DOMContentLoaded", function(){ GLightbox({ selector: ".glightbox" }); });');
 }
 
 // ------------------------------------------

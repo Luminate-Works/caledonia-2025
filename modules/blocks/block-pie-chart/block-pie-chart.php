@@ -35,11 +35,15 @@ if (have_rows('sectors')) {
             $bg = get_sub_field('sector_background');
             $bg = !empty($bg) ? $bg : '#D9D6DE'; // Default color
             $label = get_sub_field('label');
+          
             $value_raw = get_sub_field('value');
             $value = get_sub_field('value');
             $value = is_numeric($value) ? (int)$value : 0;
             $percentage = ($total_value > 0) ? ($value / $total_value * 100) : 0;
 
+            // Escape while allowing <sup>
+            $formatted_label = wp_kses($label, ['sup' => []]);
+            $label = strip_tags($label); 
             // Ensure the percentage does not exceed 100%
             if (($adjusted_total_value + $percentage) > 100) {
                 $percentage = 100 - $adjusted_total_value;
@@ -48,7 +52,7 @@ if (have_rows('sectors')) {
     ?>
         <li class="legend-item" data-label="<?= $label; ?>">
             <span class="color" style="background-color: <?= $bg; ?>;"></span>
-            <span class="name"><?= $label; ?></span>
+            <span class="name"><?= $formatted_label ?></span>
             <!-- Update here to ensure the displayed percentage matches -->
             <span class="data"><?= $value_raw; ?><? //= round($percentage, 2); ?>%</span>
         </li>
@@ -74,6 +78,7 @@ if (have_rows('sectors')) {
                     $bg = get_sub_field('sector_background');
                     $bg = !empty($bg) ? $bg : '#D9D6DE';
                     $label = get_sub_field('label');
+                    $label = strip_tags($label);
                     $value = get_sub_field('value');
                     $percentage = ($total_value > 0) ? ($value / $total_value * 100) : 0;
                     
