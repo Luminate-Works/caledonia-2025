@@ -32,6 +32,10 @@
         }
     }
 
+    &.is-style-bg-blur {
+        backdrop-filter: blur(40px);
+    }
+
 
     &.has-background {
         &:not(.alignfull) {
