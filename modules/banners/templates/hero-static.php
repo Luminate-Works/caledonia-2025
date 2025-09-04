@@ -67,6 +67,22 @@ if ($image_id) {
 
     if (in_array('page-child', $body_classes)) {
         echo '<div class="wrap">';
+        
+        // video overlay
+        if($banner_content['enable_video_overlay']) {
+         echo '<div class="banner-video-overlay">';
+         echo '<p class="video-title">'.$banner_content['video_title'].'</p>';
+         echo '<div class="video-control">';
+         echo '<a href="'.$banner_content['vimeo_url'].'" class="video-icon glightbox"></a>';
+         echo '<div>';
+         echo '<p class="video-play">Play video</p>';
+         echo '<p class="video-duration">'.$banner_content['duration'].'</p>';
+         echo  '</div>';
+         echo  '</div>';
+         echo  '</div>';
+        }
+
+       
     }
 
     echo wp_get_attachment_image($image_id, 'full', false, ['class' => 'banner-image']);
