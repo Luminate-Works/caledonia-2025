@@ -2,6 +2,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
+  margin-top: 4rem !important;
+}
+@media (max-width: 768px) {
+  .lmn-docuement-downloads {
+    grid-template-columns: 1fr;
+  }
 }
 .lmn-docuement-downloads .document-item {
   display: flex;
