@@ -36,6 +36,11 @@
 					"color": "#010035cc",
 					"name": "Off Primary"
 				},
+                {   
+					"slug": "off-primary-06",
+					"color": "#01003599",
+					"name": "Off Primary 0.6 Opacity"
+				},
                 {
 					"slug": "secondary",
 					"color": "#F0D8B2",

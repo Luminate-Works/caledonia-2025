@@ -310,31 +310,137 @@
     // @media (min-width: 1250px) {
     // 	grid-template-columns: repeat(4, 1fr);
     // }
-  }
 
-  &__member {
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background $speed $ease;
+    .team__member {
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background $speed $ease;
 
-    .bio-content {
-      display: none;
-    }
+      .bio-content {
+        display: none;
+      }
 
-    &:hover {
-      background: rgba($primary, 0.35);
+      &:hover {
+        background: rgba($primary, 0.35);
 
-      .profile {
-        h3 {
-          border-color: $secondary;
-        }
+        .profile {
+          h3 {
+            border-color: $secondary;
+          }
 
-        .title {
-          background: rgba($white, 1);
+          .title {
+            background: rgba($white, 1);
+          }
         }
       }
+    } // member
+
+
+    //grid view
+    &.grid-view {
+       gap:0;
+       align-items: stretch;
+       
+       @media (min-width: 880px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+       @media (min-width:  1024px) {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      
+       .team__member  {
+          padding:0;
+
+          &:hover {
+            background: none;
+          }
+         
+
+          &.team__member__outter {
+            padding: 2.4rem 0;
+            border-bottom: 1px solid $border-dark;
+            border-radius: 0;
+
+            @media (min-width: 550px) and (max-width:1023px) {
+                &:nth-of-type(-n+2) {
+                  border-top: 1px solid $border-dark;
+                }
+
+                &:nth-of-type(2n+1) {
+                  .title {
+                    padding-left: 0 !important;
+                    border-left: none;
+                  }
+                  
+                }
+            }
+
+            @media (min-width: 1024px) {
+                &:nth-of-type(-n+4) {
+                  border-top: 1px solid $border-dark;
+                }
+
+                &:nth-of-type(4n+1) {
+                  .title {
+                    padding-left: 0 !important;
+                    border-left: none;
+                  }
+                  
+                }
+            }
+          }
+          .image {
+            display: none;
+          }
+
+          .title {
+            width:100%;
+            background: none;
+            padding: 0 9rem 0 0;
+
+            @media (min-width: 550px){
+              padding: 0 9rem 0 4rem;
+              border-left: 1px solid rgb(203, 209, 227);
+            }
+
+            &::before {
+                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='33' height='33' fill='none'><circle cx='16.25' cy='16.316' r='15.25' stroke='%23FF8A45' stroke-width='1.5'/><path stroke='%23FF8A45' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M16.25 11.652v9.334M11.586 16.316h9.333'/></svg>");
+                top: 50%;
+                right: 4rem;
+                transform: translateY(-50%);
+                width: 32px;
+                 height: 32px;
+            }
+
+            &:hover:before {
+
+              background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='33' height='33' fill='none'><circle cx='16.25' cy='16.316' r='15.25' fill='%23FF8A45' stroke='%23FF8A45' stroke-width='1.5'/><path stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M16.25 11.652v9.334M11.586 16.316h9.333'/></svg>");
+              
+
+            }
+            
+            h3 {
+              color:$primary;
+              font-size: $font-20;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 110%;
+              border: none;
+              margin: 0;
+              padding: 0;
+            }
+
+            .meta {
+              opacity: 0.6;
+              margin: 0;
+            }
+          }
+       }
+        
     }
-  } // member
+  }
+
 
   .profile {
     position: relative;
