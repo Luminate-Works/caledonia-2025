@@ -1,0 +1,38 @@
+.lmn-docuement-downloads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+.lmn-docuement-downloads .document-item {
+  display: flex;
+  gap: 4.4rem;
+  align-items: center;
+}
+.lmn-docuement-downloads .document-item p {
+  margin: 0 !important;
+  color: #010035;
+}
+.lmn-docuement-downloads .document-item p.file {
+  opacity: 0.5;
+  font-size: var(--wp--preset--font-size--font-16);
+}
+.lmn-docuement-downloads .document-item a {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.lmn-docuement-downloads .document-item a::before {
+  content: "";
+  background-image: url(../../../assets/images/theme/icon-download.svg);
+  opacity: 1;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+}
+.lmn-docuement-downloads .document-item a:hover::before {
+  background-image: url(../../../assets/images/theme/icon-download-fill.svg);
+}
+.lmn-docuement-downloads.dark-mode .document-item a, .lmn-docuement-downloads.dark-mode .document-item p {
+  color: #fff;
+}/*# sourceMappingURL=block-downloads.css.map */

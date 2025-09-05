@@ -1,0 +1,55 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.lmn-docuement-downloads {
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+
+	.document-item {
+		display: flex;
+		gap: 4.4rem;
+		align-items: center;
+
+			p {
+				margin: 0 !important;
+				color:$primary;
+
+				&.file {
+					opacity: 0.5;
+					font-size: $font-16;
+				}
+			}
+			a {
+				display: block;
+				width: 32px;
+				height: 32px;
+
+				&::before {
+					content: "";
+					background-image: url(../../../assets/images/theme/icon-download.svg);
+					opacity: 1;
+					z-index: 1;
+					width: 32px;
+					height: 32px;
+					display: inline-block;
+				}
+
+				&:hover::before {
+					background-image: url(../../../assets/images/theme/icon-download-fill.svg);
+				}
+			}
+
+		
+	}
+
+	&.dark-mode {
+		.document-item {
+			a, p {
+				color:#fff;
+			}
+		}
+			
+		}
+}
+

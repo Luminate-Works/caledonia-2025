@@ -1,0 +1,15 @@
+{
+	"name": "lmn/downloads",
+	"title": "Document Downloads",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-code",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["downloads", "document", "pdf"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-downloads.php"
+	}
+}
