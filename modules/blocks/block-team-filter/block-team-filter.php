@@ -5,6 +5,8 @@ $team_category = get_field('team_category') ?: '';
 $category_slug = '';
 
 $filter = get_field('filter');
+$grid_view = get_field('grid_view');
+
 
 if ($team_category) {
 	$term = get_term($team_category, 'team-category');
@@ -85,9 +87,9 @@ if (is_admin()) {
 		</div>
 	<?php } ?>
 
-	<div class="team-list">
+	<div class="team-list <?= ($grid_view) ? 'grid-view' : ''; ?>">
 		<template x-for="(member, i) in displayed" :key="member.id">
-			<div class="team__member" x-html="member.html" @click="openModal(i)"></div>
+			<div class="team__member team__member__outter" x-html="member.html" @click="openModal(i)"></div>
 		</template>
 	</div>
 
