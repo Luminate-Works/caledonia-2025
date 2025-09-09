@@ -4,6 +4,8 @@ footer {
   background: $primary;
   color: white;
   font-size: $font-14;
+  z-index: 9999;
+  position: relative;
 
   h5 {
     color: white;

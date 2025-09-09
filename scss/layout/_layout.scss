@@ -1,42 +1,47 @@
 .wrap {
-    width: 86%;
-    max-width: $content-width; // use from theme.json var
-    margin: 0 auto;
+  width: 86%;
+  max-width: $content-width; // use from theme.json var
+  margin: 0 auto;
 
-   // bordeR: 1px solid grey;
+  // bordeR: 1px solid grey;
 
-	@media (min-width: 1024px) {
-		width: 94%;
-	}
+  @media (min-width: 1024px) {
+    width: 94%;
+  }
 }
 
+.parallax-up {
+  margin-top: 100vh;
+  background: white;
+  position: relative;
+  z-index: 4;
+}
 
 #content {
-    background-color: white;
+  background-color: white;
 }
 
 #sidebar {
-    margin-bottom: var(--spacer);
+  margin-bottom: var(--spacer);
 }
 
-
 @media (min-width: 1024px) {
-    .has-sidebar {
-        display: flex;
-        flex-wrap: wrap;
-        //flex-direction: row-reverse;
-        gap: 6rem;
+  .has-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    //flex-direction: row-reverse;
+    gap: 6rem;
 
-        #content {
-            width: calc(100% - 28rem);
-        }
+    #content {
+      width: calc(100% - 28rem);
+    }
 
-        #sidebar {
-            width: 22rem;
-        }
-        
-        &.sidebar-left {
-            flex-direction: row-reverse;
-        }
-    } // sidebar
+    #sidebar {
+      width: 22rem;
+    }
+
+    &.sidebar-left {
+      flex-direction: row-reverse;
+    }
+  } // sidebar
 } // 1024px

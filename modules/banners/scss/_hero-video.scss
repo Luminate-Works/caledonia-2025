@@ -1,5 +1,7 @@
 .hero-video {
-	position: relative;
+	position: fixed;
+	z-index: 2;
+	top: 0;
 
 	.hero-video__image {
 		position: relative;

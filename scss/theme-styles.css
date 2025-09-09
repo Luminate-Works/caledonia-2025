@@ -1467,6 +1467,13 @@ h6 + .is-style-introborder {
   }
 }
 
+.parallax-up {
+  margin-top: 100vh;
+  background: white;
+  position: relative;
+  z-index: 4;
+}
+
 #content {
   background-color: white;
 }
@@ -1969,6 +1976,8 @@ footer {
   background: #010035;
   color: white;
   font-size: var(--wp--preset--font-size--font-14);
+  z-index: 9999;
+  position: relative;
 }
 footer h5 {
   color: white;
@@ -3278,7 +3287,9 @@ body.page-child .hero-static .hero-static__content.no-image {
 }
 
 .hero-video {
-  position: relative;
+  position: fixed;
+  z-index: 2;
+  top: 0;
 }
 .hero-video .hero-video__image {
   position: relative;
