@@ -1,6 +1,7 @@
 .tab-panel {
   background: white;
-  padding: 8rem;
+  border-radius: 4px;
+  padding: 4rem;
 }
 .tab-panel .acc-panel .wp-block-heading + p {
   margin-top: 2.4rem !important;

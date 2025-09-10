@@ -160,3 +160,103 @@ body:not(.wp-admin) table {
     }
   }
 }
+
+body:not(.wp-admin) .performance {
+  table {
+    th {
+      font-size: $font-20;
+      color: $primary;
+
+      span.heading-light {
+        color: rgba(1, 0, 53, 0.6);
+      }
+
+      &:first-child::before {
+        border-left: none !important;
+      }
+    }
+    tbody {
+      tr {
+        position:relative;
+
+        &:not(:first-child) td:not(:first-child) {
+          font-size: $font-24;
+          font-family: $ff-title;
+        }
+        &:first-child td:not(:first-child) {
+          font-size: $font-48;
+          font-family: $ff-title;
+        }
+
+        &:first-child td:first-child {
+           transform: translateY(-13%);
+        }
+
+        td {
+          line-height: 1;
+          padding: 2.4rem 0 !important;
+
+          &:first-child {
+            opacity: 0.6;
+            transform: translateY(-5%);
+          }
+
+          &:first-child::before {
+            border-left: none !important;
+            padding-left: 0 !important;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+body:not(.wp-admin) .navtr {
+  table {
+    th {
+      font-size: $font-16;
+      color: $primary;
+      line-height: 1;
+
+      &:first-child::before {
+        border-left: none !important;
+      }
+    }
+    tbody {
+      tr {
+        &:not(:first-child) td:not(:first-child) {
+          font-size: $font-18;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+        }
+
+        td {
+          line-height: 1;
+          padding: 2.4rem 0 !important;
+
+          &:first-child {
+            opacity: 0.6;
+          }
+
+          &::before {
+            border-left: none !important;
+            padding-left: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: $primary;
+    opacity: 0.6;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; 
+    margin-top: 8px;
+  }
+}
