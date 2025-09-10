@@ -5,6 +5,10 @@
   border-left: 1px solid rgba(1, 0, 53, 0.1);
   padding-left: 4rem;
 }
+.wp-block-column.is-style-border-left-light {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 4rem;
+}
 @media (min-width: 782px) {
   .wp-block-column.reorder {
     order: -1;

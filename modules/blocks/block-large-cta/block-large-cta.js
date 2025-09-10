@@ -37,14 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Adjust the size on window resize
         window.addEventListener("resize", updateLargeCTAIframeSize);
-      }
 
-      largeCTAIframe.addEventListener("load", function () {
-        setTimeout(() => {
-          largeCTAImage.classList.add("hidden");
-        }, 800);
-      });
-      
+        largeCTAIframe.addEventListener("load", function () {
+          setTimeout(() => {
+            largeCTAImage.classList.add("hidden");
+          }, 800);
+        });
+      }
     });
   }
 });

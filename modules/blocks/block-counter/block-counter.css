@@ -6,6 +6,13 @@
 .statistics.is-style-label-under p.statistics__title {
   order: 3;
 }
+.statistics.is-style-label-under-white p.statistics__title {
+  order: 3;
+  color: rgba(255, 255, 255, 0.6);
+}
+.statistics.is-style-label-under-white p.statistics__number {
+  color: white;
+}
 .statistics.aligncenter {
   text-align: center;
 }

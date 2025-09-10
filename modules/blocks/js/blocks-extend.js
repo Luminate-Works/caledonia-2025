@@ -114,8 +114,8 @@ wp.blocks.registerBlockStyle('core/column', {
 	label: 'Border Left',
 });
 wp.blocks.registerBlockStyle('core/column', {
-	name: 'border-left',
-	label: 'Border Left',
+	name: 'border-left-light',
+	label: 'Border Left Light',
 });
 wp.blocks.registerBlockStyle('core/column', {
 	name: 'radius-4',

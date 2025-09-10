@@ -24,6 +24,7 @@ header {
 
     .menu-item-search {
       .search-toggle {
+        border-color: rgba($primary, 0.2);
         > svg path {
           stroke: $primary;
           display: block;

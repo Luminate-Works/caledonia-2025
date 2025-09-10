@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // General fade-in page animations
   createScrollTriggerAnimation(
     document.querySelectorAll(
-      "#sidebar, #content, .wp-block-group, #content > .wp-block-column, .wp-block-cover, .fade, .hero"
+      "#sidebar, #content > .wp-block-column, .wp-block-cover, .fade, .hero"
     ),
     {
       initial: { opacity: 0 },
@@ -262,6 +262,58 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // stagger fade
+  gsap.from(".home-boxes .wp-block-column", {
+    opacity: 0,
+    y: 30,
+    stagger: 0.5,
+    duration: 2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".home-boxes",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Video banner text fade in
+  gsap.from(".hero-video__content h2 span", {
+    opacity: 0,
+    y: 30,
+    stagger: 1,
+    duration: 3,
+    ease: "power2.out",
+  });
+
+  // Video banner text scroll up
+  gsap.to(".hero-video__content h2", {
+    y: -400,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero-video",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  const heroBg = document.querySelector(".hero-video.home");
+const megaMenu = document.querySelector(".mega-menu");
+
+if (heroBg && megaMenu) {
+  // Create a reusable tween
+  const fade = gsap.to(heroBg, {
+    opacity: 0.3, // dim background (0 = fully hidden, 1 = fully visible)
+    duration: 0.4,
+    paused: true,
+    ease: "power2.out"
+  });
+
+  megaMenu.addEventListener("mouseenter", () => fade.play());
+  megaMenu.addEventListener("mouseleave", () => fade.reverse());
+}
+
 
   // *
   // Inner banner title animation

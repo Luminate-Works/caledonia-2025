@@ -18,6 +18,7 @@
 	"styles": [
     { "name": "default", "label": "Default", "isDefault": true },
     { "name": "small", "label": "Small Numbers" },
-	{ "name": "label-under", "label": "Labels under" }
+	{ "name": "label-under", "label": "Labels under" },
+	{ "name": "label-under-white", "label": "Labels under + white" }
   ]
 }
