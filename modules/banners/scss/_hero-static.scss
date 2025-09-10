@@ -44,6 +44,12 @@
   p {
     font-size: $font-20;
     color: #fff;
+
+    &.hero-image__subtitle {
+        font-size: $font-18;
+        margin-top: 2.4rem;
+        margin-bottom: 0;
+      }
   }
 
   // homepage hero
@@ -186,6 +192,8 @@
           //padding-left: 8rem;
         }
       }
+
+      
     }
   }
 }

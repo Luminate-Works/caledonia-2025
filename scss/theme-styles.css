@@ -3127,6 +3127,11 @@ body.interim-login h1 a {
   font-size: var(--wp--preset--font-size--font-20);
   color: #fff;
 }
+.hero-static p.hero-image__subtitle {
+  font-size: var(--wp--preset--font-size--font-18);
+  margin-top: 2.4rem;
+  margin-bottom: 0;
+}
 .hero-static.home {
   margin-bottom: var(--wp--preset--spacing--xl);
 }
