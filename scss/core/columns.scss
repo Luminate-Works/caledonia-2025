@@ -22,12 +22,12 @@
       order: -1;
     }
 
-    &.is-style-btn-bottom {
+    &.is-style-button-bottom {
       display: flex;
       flex-direction: column;
 
       .wp-block-buttons {
-        margin-top: auto;
+        margin-top: auto !important;
         padding-top: 2rem;
       }
     }

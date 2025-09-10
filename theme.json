@@ -34,7 +34,7 @@
                 {
 					"slug": "off-primary",
 					"color": "#010035cc",
-					"name": "Off Primary"
+					"name": "Off Primary 0.8 Opacity"
 				},
                 {   
 					"slug": "off-primary-06",
@@ -102,9 +102,19 @@
 					"name": "Light Grey"
 				},
                 {   
+					"slug": "off-white-08",
+					"color": "#ffffffcc",
+					"name": "Off White 0.8 Opacity"
+				},
+                {   
 					"slug": "off-white",
 					"color": "#ffffff99",
-					"name": "Off White"
+					"name": "Off White 0.6 Opacity"
+				},
+                {   
+					"slug": "off-white-01",
+					"color": "#ffffff1a",
+					"name": "Off White 0.1 Opacity"
 				},
 				{
 					"slug": "white",
@@ -147,7 +157,7 @@
             "spacingSizes": [
                 {
 					"size": "clamp(1rem, 0.714rem + 1.429vw, 2rem)",
-					"slug": "small",
+					"slug": "xtra-small",
 					"name": "Space S 2rem"
                 },
                 {

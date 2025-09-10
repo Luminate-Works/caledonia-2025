@@ -63,6 +63,20 @@
   }
 }
 
+.home-results-bg {
+  background-image: url(../assets/images/theme/home-results-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-sustainability-bg {
+  background-image: url(../assets/images/theme/home-sustainability-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .wp-block-cover.risk-management {
   .wp-block-cover__image-background {
     filter: none !important;

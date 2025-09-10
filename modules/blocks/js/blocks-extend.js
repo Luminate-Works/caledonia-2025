@@ -129,6 +129,10 @@ wp.blocks.registerBlockStyle('core/column', {
 	name: 'justify-between',
 	label: 'Justify Between',
 });
+wp.blocks.registerBlockStyle('core/column', {
+	name: 'button-bottom',
+	label: 'Button Bottom',
+});
 
 
 // table
