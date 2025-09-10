@@ -1,5 +1,5 @@
 <?php if( have_rows('tabs_navigation') ): ?>
-    <ul class="tabs<?php if (get_field('fixed_width_buttons')) { echo " fw"; } ?>">
+    <ul class="tabs<?php if (get_field('fixed_width_buttons')) { echo " fw"; } if (get_field('filter_style')) { echo " filter-style"; } ?>">
     <?php while( have_rows('tabs_navigation') ): the_row(); ?>
         <li class="tab-label">
             <a href="#<?php the_sub_field('id'); ?>">
