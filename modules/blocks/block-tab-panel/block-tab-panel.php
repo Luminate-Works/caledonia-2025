@@ -1,4 +1,4 @@
-<div class="tab-panel" id="<?php the_field('id'); ?>">
+<div class="tab-panel <?php if (get_field('filter_style')) { echo " filter-style"; } ?>" id="<?php the_field('id'); ?>">
     
     <input id="p-<?php the_field('id'); ?>" type="checkbox" <?php if (is_admin()) { echo 'disabled'; } ?> />
 

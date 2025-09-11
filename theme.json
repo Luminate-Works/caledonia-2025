@@ -41,6 +41,11 @@
 					"color": "#01003599",
 					"name": "Off Primary 0.6 Opacity"
 				},
+                {   
+					"slug": "off-primary-01",
+					"color": "#0100351a",
+					"name": "Off Primary 0.1 Opacity"
+				},
                 {
 					"slug": "secondary",
 					"color": "#F0D8B2",
@@ -176,7 +181,12 @@
 					"name": "Space N 4rem"
                 },
                 {
-					"size": "clamp(3.267rem, 2.575rem + 3.69vw, 5.6rem)",
+					"size": "clamp(3.7rem, 2.737rem + 1.804vw, 4.8rem)",
+					"slug": "48",
+					"name": "Space N 4.8rem"
+                },
+                {
+					"size": "clamp(3.967rem, 2.575rem + 4.69vw, 5.6rem)",
 					"slug": "56",
 					"name": "Space 5.6rem"
                 },

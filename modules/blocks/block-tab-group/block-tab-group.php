@@ -9,6 +9,7 @@
     $layout = get_field('tabs_layout');
     $mob = get_field('tabs_layout_mob');
     $className .= get_field('first_panel_open') ? ' first-active' : '';
+    $className .= get_field('filter_style') ? ' filter-style' : '';
 ?>
 
 <div class="<?= $className; ?> <?= $layout; ?> <?= $mob; ?>">
