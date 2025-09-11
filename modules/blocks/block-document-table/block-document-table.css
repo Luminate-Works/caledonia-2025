@@ -38,12 +38,19 @@
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 12px 16px;
+  align-items: center;
+  gap: 8px;
   position: relative;
+  border-radius: 88px;
+  border: 1px solid rgba(1, 0, 53, 0.2);
+  background: #fff;
+  margin-bottom: 4rem;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .tab-group ul.tabs li {
   margin: 0;
-  padding: 0 1.7rem 0 0;
   position: relative;
   z-index: 2;
 }
@@ -52,20 +59,23 @@
 }
 .tab-group ul.tabs a {
   text-decoration: none !important;
-  background: white;
+  background: transparent;
   cursor: pointer;
-  transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out !important;
-  opacity: 0.6;
-  padding: 2.4rem 5rem;
+  transition: all 0.25s ease-in-out !important;
+  padding: 4px 16px;
   font-size: var(--wp--preset--font-size--font-18);
-  border-radius: 8px 8px 0 0;
+  border-radius: 40px;
+  color: #010035;
+  font-style: normal;
+  font-weight: 400;
 }
 .tab-group ul.tabs a:after {
   display: none;
 }
 .tab-group ul.tabs a.active, .tab-group ul.tabs a:hover, .tab-group ul.tabs a:active, .tab-group ul.tabs a:focus {
   outline: none;
-  opacity: 1;
+  background: #010035;
+  color: #fff;
 }
 .tab-group ul.tabs.fw li {
   display: flex;
@@ -133,7 +143,8 @@
 
 .tab-panel {
   background: white;
-  padding: 8rem;
+  border-radius: 4px;
+  padding: 4rem;
 }
 .tab-panel .acc-panel .wp-block-heading + p {
   margin-top: 2.4rem !important;

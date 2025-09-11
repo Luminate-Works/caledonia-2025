@@ -1,0 +1,32 @@
+document.addEventListener("DOMContentLoaded", function () {
+  new Swiper(".investment-slider", {
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    // loop: true,
+    // spaceBetween: 20,
+    // centeredSlides: true,
+    // slidesPerView: 1.5, // main slide + small preview
+    // navigation: {
+    //     nextEl: '.swiper-button-next',
+    //     prevEl: '.swiper-button-prev',
+    // },
+    // pagination: {
+    //     el: '.swiper-pagination',
+    //     clickable: true,
+    // },
+    // breakpoints: {
+    //     768: { // tablet and up
+    //         slidesPerView: 1.8 // bigger preview
+    //     },
+    //     1024: { // desktop
+    //         slidesPerView: 2.2 // wider previews
+    //     }
+    // }
+  });
+});

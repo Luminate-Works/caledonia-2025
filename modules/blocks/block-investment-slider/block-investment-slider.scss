@@ -1,0 +1,78 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.investment-slider {
+  .investment-slide {
+    display: flex;
+    .investment-content {
+      width: 50%;
+      background: #01003599;
+      padding: 4rem;
+
+      h3 {
+        color: white;
+        font-size: $font-24;
+        font-family: $ff-body;
+      }
+
+      p {
+        color: rgba(white, 0.6);
+      }
+
+      .controls {
+        position: relative;
+
+        .swiper-pagination {
+          width: auto !important;
+          left: calc(50% + 2rem) !important;
+
+          &-bullet-active {
+            width: 34px;
+            background: $primary;
+            border-radius: 30px;
+          }
+        }
+
+        .swiper-nav {
+          width: 41px;
+          height: 41px;
+          top: calc(100% - 19px);
+
+          &:after {
+            display: none;
+          }
+
+          &.swiper-button-next {
+            right: -1px;
+
+            &.swiper-button-disabled {
+              opacity: 0.2;
+            }
+          }
+
+          &.swiper-button-prev {
+            left: calc(100% - 90px);
+
+            &.swiper-button-disabled {
+              opacity: 0.2;
+            }
+          }
+
+          .rect {
+            transition: stroke $speed $ease;
+          }
+
+          &:hover {
+            .rect {
+              stroke: $orange;
+            }
+          }
+        }
+      }
+    }
+
+    .investment-meta {
+      width: 50%;
+    }
+  }
+}

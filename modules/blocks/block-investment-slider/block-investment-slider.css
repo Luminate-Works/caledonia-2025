@@ -1,0 +1,57 @@
+.investment-slider .investment-slide {
+  display: flex;
+}
+.investment-slider .investment-slide .investment-content {
+  width: 50%;
+  background: rgba(1, 0, 53, 0.6);
+  padding: 4rem;
+}
+.investment-slider .investment-slide .investment-content h3 {
+  color: white;
+  font-size: var(--wp--preset--font-size--font-24);
+  font-family: var(--wp--preset--font-family--primary);
+}
+.investment-slider .investment-slide .investment-content p {
+  color: rgba(255, 255, 255, 0.6);
+}
+.investment-slider .investment-slide .investment-content .controls {
+  position: relative;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-pagination {
+  width: auto !important;
+  left: calc(50% + 2rem) !important;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-pagination-bullet-active {
+  width: 34px;
+  background: #010035;
+  border-radius: 30px;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav {
+  width: 41px;
+  height: 41px;
+  top: calc(100% - 19px);
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav:after {
+  display: none;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav.swiper-button-next {
+  right: -1px;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav.swiper-button-next.swiper-button-disabled {
+  opacity: 0.2;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav.swiper-button-prev {
+  left: calc(100% - 90px);
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav.swiper-button-prev.swiper-button-disabled {
+  opacity: 0.2;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav .rect {
+  transition: stroke 0.25s ease-in-out;
+}
+.investment-slider .investment-slide .investment-content .controls .swiper-nav:hover .rect {
+  stroke: #FF8A45;
+}
+.investment-slider .investment-slide .investment-meta {
+  width: 50%;
+}/*# sourceMappingURL=block-investment-slider.css.map */
