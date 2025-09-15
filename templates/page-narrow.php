@@ -3,7 +3,7 @@
     get_header(); 
 ?>
 
-<div class="wrap full-width narrow">
+<div class="full-width narrow has-global-padding">
     <div id="content">
         <?php 
         $titles_in_banner = class_exists('ACF') ? get_field('titles_in_banner', 'option') : false;

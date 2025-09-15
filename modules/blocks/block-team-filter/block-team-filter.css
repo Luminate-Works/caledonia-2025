@@ -294,19 +294,19 @@
   border-radius: 0;
 }
 @media (min-width: 550px) and (max-width: 1023px) {
-  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(-n+2) {
+  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(-n + 2) {
     border-top: 1px solid rgb(203, 209, 227);
   }
-  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(2n+1) .title {
+  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(2n + 1) .title {
     padding-left: 0 !important;
     border-left: none;
   }
 }
 @media (min-width: 1024px) {
-  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(-n+4) {
+  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(-n + 4) {
     border-top: 1px solid rgb(203, 209, 227);
   }
-  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(4n+1) .title {
+  .team .team-list.grid-view .team__member.team__member__outter:nth-of-type(4n + 1) .title {
     padding-left: 0 !important;
     border-left: none;
   }

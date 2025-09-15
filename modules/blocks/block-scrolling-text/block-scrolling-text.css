@@ -35,8 +35,10 @@
   justify-content: flex-end;
 }
 .scrolling-text .half:last-child {
-  mask: linear-gradient(180deg, transparent 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, transparent 100%);
-  -webkit-mask: linear-gradient(180deg, transparent 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, transparent 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .scrolling-text .half h3 {
   color: white;
@@ -49,6 +51,7 @@
   overflow: hidden;
   position: relative;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,16 +63,24 @@
   font-family: var(--wp--preset--font-family--secondary);
   list-style: none;
   opacity: 0.3;
-  margin: 1rem 0;
-  white-space: nowrap;
+  margin: 0;
   transition: opacity 0.3s ease;
+  position: absolute;
+  left: 40px;
+  top: 0;
+}
+.scrolling-text .half ul li.center {
+  opacity: 1;
+  font-weight: 500;
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
   .scrolling-text .half {
     padding: 2rem;
   }
-  .scrolling-text .half h3, .scrolling-text .half ul li {
+  .scrolling-text .half h3,
+  .scrolling-text .half ul li {
     font-size: calc(var(--wp--preset--font-size--font-56) * 0.7);
   }
 }/*# sourceMappingURL=block-scrolling-text.css.map */

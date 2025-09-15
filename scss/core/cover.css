@@ -2,7 +2,7 @@
   padding-left: 6vw;
   padding-right: 6vw;
 }
-.wp-block-cover.is-style-blue-cta {
+.wp-block-cover.is-style-blue-cta, .wp-block-cover.is-style-blue-cta-slim {
   background-color: #cbd8ff;
   background-image: url(../assets/images/theme/blue-cta-mask.png);
   background-size: contain;
@@ -10,20 +10,33 @@
   background-position: right center;
   justify-content: flex-start;
   border-radius: 8px;
-  padding: 5.5rem;
+  padding: 5.6rem;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__background {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__background, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__background {
   background-color: transparent !important;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container {
   max-width: 580px;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2 {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2 {
   color: #010035;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p {
   color: rgba(1, 0, 53, 0.8);
   font-size: var(--wp--preset--font-size--font-18);
+}
+.wp-block-cover.is-style-blue-cta-slim {
+  min-height: 280px;
+}
+.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2 {
+  font-size: var(--wp--preset--font-size--font-40);
+  line-height: 130%;
+}
+.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p {
+  margin-top: 1.6rem !important;
+}
+.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container .wp-block-buttons {
+  margin-top: 3.2rem !important;
 }
 .wp-block-cover.is-style-blur > .wp-block-cover__image-background {
   filter: blur(50px) !important;

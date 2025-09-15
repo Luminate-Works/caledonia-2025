@@ -3,15 +3,38 @@ html.interface-interface-skeleton__html-container {
   font-size: 62.5%;
 }
 
-.editor-styles-wrapper {
+:where(.editor-styles-wrapper) {
   padding: 0 2rem !important;
 }
-.editor-styles-wrapper .wp-block-group {
+:where(.editor-styles-wrapper) .is-root-container {
+  overflow-x: hidden;
+}
+:where(.editor-styles-wrapper) .has-global-padding {
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
+}
+:where(.editor-styles-wrapper) .has-global-padding > .alignfull {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+:where(.editor-styles-wrapper) .wp-block-group {
   padding: 15px !important;
   border: 1px dashed #e0e0e0;
 }
-.editor-styles-wrapper .wp-block-column {
+:where(.editor-styles-wrapper) .wp-block-column {
   border: 1px dashed #e0e0e0;
+}
+:where(.editor-styles-wrapper) .accordion * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+:where(.editor-styles-wrapper) .accordion .acc-panel {
+  max-height: 10000000px;
+  opacity: 1;
+  visibility: visible;
+}
+:where(.editor-styles-wrapper) .accordion .acc-panel > * {
+  opacity: 1;
 }
 
 .editor-visual-editor__post-title-wrapper {

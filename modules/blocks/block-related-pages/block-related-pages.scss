@@ -28,7 +28,8 @@
         color: white;
 
         svg {
-          circle, path {
+          circle,
+          path {
             stroke: white;
           }
         }
@@ -47,7 +48,7 @@
     }
   }
 
-  &.no-blur { 
+  &.no-blur {
     .glass {
       display: none !important;
     }
@@ -86,16 +87,9 @@
 
     li {
       margin: 0;
-      width: 50%;
+      width: 100%;
       border-top: 1px solid rgba($primary, 0.1);
       padding-top: 4rem;
-
-      &:nth-child(even) {
-        a {
-          border-left: 1px solid rgba($primary, 0.1);
-          padding-left: 4rem;
-        }
-      }
 
       a {
         display: flex;
@@ -135,12 +129,20 @@
       }
     }
 
-    
-
     @media (max-width: 599px) {
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 768px) {
+      li {
+        width: 50%;
+
+        &:nth-child(even) {
+          a {
+            border-left: 1px solid rgba($primary, 0.1);
+            padding-left: 4rem;
+          }
+        }
+      }
     }
   }
 }

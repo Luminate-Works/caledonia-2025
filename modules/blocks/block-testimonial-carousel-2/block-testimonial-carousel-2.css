@@ -1,0 +1,112 @@
+h2 + .testimonial-carousel-2,
+h3 + .testimonial-carousel-2,
+h4 + .testimonial-carousel-2 {
+  margin-top: var(--wp--preset--spacing--l);
+}
+
+.wp-block-columns + .testimonial-carousel-2 {
+  margin-top: 5.5rem;
+}
+
+.testimonial-carousel-2 {
+  position: relative;
+  overflow: visible !important;
+  padding-bottom: 5.6rem !important;
+  margin-bottom: 10.6rem !important;
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+}
+.testimonial-carousel-2 .swiper-slide {
+  display: flex;
+  gap: 8rem;
+}
+.testimonial-carousel-2 .swiper-slide .image {
+  width: 50%;
+}
+.testimonial-carousel-2 .swiper-slide .image img {
+  border-radius: 8px;
+  min-height: 660px;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.testimonial-carousel-2 .swiper-slide .content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote {
+  position: relative;
+  margin-top: 5rem;
+  padding-left: 4rem;
+  border-left: 1px solid rgba(1, 0, 53, 0.1);
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote svg {
+  width: 43px;
+  margin-bottom: 2.4rem;
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote h2 {
+  margin-bottom: 2.4rem;
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote p {
+  font-size: var(--wp--preset--font-size--font-24);
+  font-family: var(--wp--preset--font-family--secondary);
+  color: #010035;
+  line-height: 140%;
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote cite {
+  display: block;
+  margin-top: var(--wp--preset--spacing--normal);
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote cite strong {
+  display: block;
+  font-size: var(--wp--preset--font-size--font-18);
+  line-height: 130%;
+  font-weight: 400;
+  margin: 0;
+  color: #010035;
+}
+.testimonial-carousel-2 .swiper-slide .content .testimonial-quote cite .position {
+  font-size: var(--wp--preset--font-size--font-18);
+  margin: 0;
+  color: rgba(1, 0, 53, 0.6);
+}
+.testimonial-carousel-2 .swiper-pagination {
+  width: auto !important;
+  left: 0 !important;
+  bottom: -10rem !important;
+}
+.testimonial-carousel-2 .swiper-pagination-bullet-active {
+  width: 34px;
+  background: #010035;
+  border-radius: 30px;
+}
+.testimonial-carousel-2 .swiper-nav {
+  width: 41px;
+  height: 41px;
+  bottom: -10rem;
+  top: auto;
+}
+.testimonial-carousel-2 .swiper-nav:after {
+  display: none;
+}
+.testimonial-carousel-2 .swiper-nav.swiper-button-next {
+  right: -1px;
+}
+.testimonial-carousel-2 .swiper-nav.swiper-button-next.swiper-button-disabled {
+  opacity: 0.2;
+}
+.testimonial-carousel-2 .swiper-nav.swiper-button-prev {
+  left: calc(100% - 90px);
+}
+.testimonial-carousel-2 .swiper-nav.swiper-button-prev.swiper-button-disabled {
+  opacity: 0.2;
+}
+.testimonial-carousel-2 .swiper-nav .rect {
+  transition: stroke 0.25s ease-in-out;
+}
+.testimonial-carousel-2 .swiper-nav:hover .rect {
+  stroke: #FF8A45;
+}/*# sourceMappingURL=block-testimonial-carousel-2.css.map */

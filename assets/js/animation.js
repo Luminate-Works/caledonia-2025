@@ -119,21 +119,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // */
 
   // Intro text
-  let split = SplitText.create(".is-style-intro, .is-style-introborder", {
-    type: "words, chars",
-  });
+  // let split = SplitText.create(".is-style-intro, .is-style-introborder", {
+  //   type: "words, chars",
+  // });
 
-  gsap.from(split.chars, {
-    duration: 1,
-    color: "#01003566",
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".is-style-intro, .is-style-introborder",
-      start: "top 80%",
-      toggleActions: "play none none none",
-    },
-  });
+  // gsap.from(split.chars, {
+  //   duration: 1,
+  //   color: "#01003566",
+  //   stagger: 0.05,
+  //   ease: "power2.out",
+  //   scrollTrigger: {
+  //     trigger: ".is-style-intro, .is-style-introborder",
+  //     start: "top 80%",
+  //     toggleActions: "play none none none",
+  //   },
+  // });
 
   // *
   // Large CTA animation

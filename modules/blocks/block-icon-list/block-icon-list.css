@@ -74,4 +74,9 @@
 }
 .lmn-icon-list.dark_text p {
   color: #010035 !important;
+}
+@media (min-width: 601px) {
+  .lmn-icon-list.border_bottom:nth-last-child(-n+2) {
+    border-bottom: 1px solid rgba(1, 0, 53, 0.1019607843);
+  }
 }/*# sourceMappingURL=block-icon-list.css.map */

@@ -4,7 +4,7 @@
     // $sidebar_position = $sidebar['sidebar_position'];
 ?>
 
-<div class="wrap full-width">
+<div class="full-width">
 
     <div id="content">
         <?php 

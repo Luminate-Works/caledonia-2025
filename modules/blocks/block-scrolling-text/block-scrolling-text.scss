@@ -43,17 +43,10 @@
     }
 
     &:last-child {
-      // Create a mask for the scrolling effect
-      mask: linear-gradient(180deg, 
-        transparent 0%, 
-        rgba(0,0,0,1) 20%, 
-        rgba(0,0,0,1) 80%, 
-        transparent 100%);
-      -webkit-mask: linear-gradient(180deg, 
-        transparent 0%, 
-        rgba(0,0,0,1) 20%, 
-        rgba(0,0,0,1) 80%, 
-        transparent 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
     }
 
     h3 {
@@ -68,6 +61,7 @@
       overflow: hidden;
       position: relative;
       height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -78,10 +72,18 @@
         line-height: 120%;
         font-family: $ff-title;
         list-style: none;
-        opacity: 0.3; // Start with low opacity
-        margin: 1rem 0; // Add some spacing between items
-        white-space: nowrap; // Prevent text wrapping
-        transition: opacity 0.3s ease; // Smooth opacity transitions
+        opacity: 0.3;
+        margin: 0;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        left: 40px;
+        top: 0;
+
+        &.center {
+          opacity: 1;
+          font-weight: 500;
+          transform: scale(1.05);
+        }
       }
     }
   }
@@ -92,8 +94,9 @@
   .scrolling-text {
     .half {
       padding: 2rem;
-      
-      h3, ul li {
+
+      h3,
+      ul li {
         font-size: calc(#{$font-56} * 0.7); // Smaller text on mobile
       }
     }

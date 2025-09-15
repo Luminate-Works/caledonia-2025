@@ -1,6 +1,16 @@
 <?php
 if (!class_exists('ACF')) return;
 
+session_start();
+
+// Set session start time if not already set
+if (!isset($_SESSION['start_time'])) {
+	$_SESSION['start_time'] = time();
+}
+
+// Pass PHP session start time to JavaScript
+$session_start = $_SESSION['start_time'];
+
 $options = get_field('footer', 'option');
 $footer_widgets = isset($options['footer_column_count']) ? $options['footer_column_count'] : 4;
 $copyright = isset($options['copyright_statement']) ? $options['copyright_statement'] : null;
@@ -11,7 +21,7 @@ $display_in = get_field('display_in', 'option');
 
 </main>
 
-<footer id="colophon">
+<footer id="colophon" class="has-global-padding">
 
 	<?php
 	echo '<div class="columns">';
@@ -39,8 +49,9 @@ $display_in = get_field('display_in', 'option');
 			]); ?>
 
 			<div class="time">
-				// time stuff
+				<span id="gmt-time">--:-- GMT</span> Time well spent: <span id="timer">00 minutes 00 seconds</span>
 			</div>
+
 
 		</div>
 
@@ -85,6 +96,38 @@ $display_in = get_field('display_in', 'option');
 	<?php endif; ?>
 
 </footer>
+
+<script>
+	// Get PHP session start time (in seconds)
+	const sessionStart = <?= $session_start ?> * 1000; // convert to ms
+	const timerEl = document.getElementById("timer");
+
+	function updateTimer() {
+		const now = Date.now();
+		const elapsed = Math.floor((now - sessionStart) / 1000);
+
+		const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+		const seconds = String(elapsed % 60).padStart(2, '0');
+
+		timerEl.textContent = `${minutes} minutes ${seconds} seconds`;
+	}
+
+	// Live GMT Clock
+	const gmtEl = document.getElementById("gmt-time");
+
+	function updateGMT() {
+		const now = new Date();
+		const hours = String(now.getUTCHours()).padStart(2, '0');
+		const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+		gmtEl.textContent = `${hours}:${minutes} GMT`;
+	}
+
+	// Update immediately, then every second
+	updateTimer();
+	updateGMT();
+	setInterval(updateTimer, 1000);
+	setInterval(updateGMT, 60000);
+</script>
 
 <?php wp_footer(); ?>
 

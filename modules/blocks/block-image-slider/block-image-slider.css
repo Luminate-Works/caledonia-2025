@@ -1,14 +1,17 @@
-.image-slider {
+.image-slides {
+  padding-bottom: 6.6rem;
+}
+.image-slides .image-slider {
   width: 100%;
   position: relative;
+  overflow: visible;
 }
-
-.image-slider .swiper-slide {
+.image-slides .image-slider .swiper-slide {
   overflow: hidden;
   border-radius: 8px;
+  width: 80% !important;
 }
-
-.image-slider img {
+.image-slides .image-slider .swiper-slide img {
   display: block;
   width: 100%;
   height: auto;
@@ -16,35 +19,45 @@
      object-fit: cover;
   max-height: 670px;
 }
-
-.swiper-slide {
-  width: 80% !important;
+.image-slides .image-slider .swiper-pagination {
+  width: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -6.6rem;
 }
-
-.swiper-slide:nth-child(2n) {
-  width: 60%;
+.image-slides .image-slider .swiper-pagination-bullet {
+  background-color: white;
 }
-
-.swiper-slide:nth-child(3n) {
-  width: 40%;
+.image-slides .image-slider .swiper-pagination-bullet-active {
+  width: 18px;
+  background: white;
+  border-radius: 30px;
 }
-
-.swiper-button-next,
-.swiper-button-prev {
-  background: #fff;
-  color: #000;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+.image-slides .image-slider .swiper-nav {
+  width: 56px;
+  height: 56px;
 }
-
-.swiper-pagination-bullet {
-  background: #fff;
-  opacity: 0.6;
+.image-slides .image-slider .swiper-nav:after {
+  display: none;
 }
-
-.swiper-pagination-bullet-active {
-  background: #f26822;
-  opacity: 1;
+.image-slides .image-slider .swiper-nav.swiper-button-next {
+  right: 12%;
+}
+.image-slides .image-slider .swiper-nav.swiper-button-next.swiper-button-disabled {
+  opacity: 0.2;
+}
+.image-slides .image-slider .swiper-nav.swiper-button-prev {
+  left: 2rem;
+}
+.image-slides .image-slider .swiper-nav.swiper-button-prev.swiper-button-disabled {
+  opacity: 0.2;
+}
+.image-slides .image-slider .swiper-nav path {
+  transition: stroke 0.25s ease-in-out;
+}
+.image-slides .image-slider .swiper-nav:hover path:first-child {
+  fill: #010035;
+}
+.image-slides .image-slider .swiper-nav:hover path:not(:first-child) {
+  stroke: white;
 }/*# sourceMappingURL=block-image-slider.css.map */

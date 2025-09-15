@@ -100,25 +100,25 @@ if (backToTopButton) {
 
 // Align full width
 // ------------------------------
-const alignFull = () => {
-    const viewportFullWidth = document.querySelectorAll(".alignfull");
+// const alignFull = () => {
+//     const viewportFullWidth = document.querySelectorAll(".alignfull");
   
-    if (!viewportFullWidth) return;
+//     if (!viewportFullWidth) return;
   
-    viewportFullWidth.forEach((item) => {
-      var rect = item.parentElement.getBoundingClientRect();
-      item.style.marginLeft = -rect.left + "px";
-      item.style.width = document.body.clientWidth + "px";
-    });
-};
+//     viewportFullWidth.forEach((item) => {
+//       var rect = item.parentElement.getBoundingClientRect();
+//       item.style.marginLeft = -rect.left + "px";
+//       item.style.width = document.body.clientWidth + "px";
+//     });
+// };
 
-document.addEventListener("DOMContentLoaded", () => {
-    alignFull();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     alignFull();
+// });
   
-window.addEventListener("resize", () => {
-    alignFull();
-});
+// window.addEventListener("resize", () => {
+//     alignFull();
+// });
 
 
 // ===============================================

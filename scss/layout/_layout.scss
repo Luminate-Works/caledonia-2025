@@ -1,13 +1,6 @@
 .wrap {
-  width: 86%;
   max-width: $content-width; // use from theme.json var
   margin: 0 auto;
-
-  // bordeR: 1px solid grey;
-
-  @media (min-width: 1024px) {
-    width: 94%;
-  }
 }
 
 .parallax-up {
@@ -15,6 +8,13 @@
   background: white;
   position: relative;
   z-index: 4;
+}
+
+.has-global-padding {
+    > .alignfull {
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
 }
 
 #content {

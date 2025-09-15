@@ -23,6 +23,7 @@ h4 + .testimonial-carousel {
   min-height: 500px;
   -o-object-fit: cover;
      object-fit: cover;
+  aspect-ratio: 3/1;
 }
 .testimonial-carousel .swiper-slide .testimonial-quote {
   position: relative;

@@ -106,6 +106,10 @@
 .large-cta.is-style-centered .wrap .large-cta__heading {
   margin: 0 auto;
 }
+.large-cta.is-style-centered .wrap .large-cta__heading h2 {
+  font-size: var(--wp--preset--font-size--font-56);
+  line-height: 120%;
+}
 .large-cta.is-style-centered .wrap .large-cta__content {
   padding: 0 4rem 4rem 4rem;
   margin: 0 auto;
@@ -116,7 +120,7 @@
   align-items: center;
   -webkit-backdrop-filter: none;
           backdrop-filter: none;
-  max-width: 650px;
+  max-width: 665px;
 }
 .large-cta.is-style-centered .wrap .large-cta__content p {
   opacity: 0.8;

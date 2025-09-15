@@ -2,10 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".image-slider", {
     loop: true,
     slidesPerView: "auto",
-    spaceBetween: 30,
+    spaceBetween: 32,
+    autoplay: {
+      delay: 3000,
+    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
 
     // loop: true,

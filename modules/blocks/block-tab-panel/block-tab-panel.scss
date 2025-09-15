@@ -7,7 +7,7 @@
   padding: 8rem;
 
   .acc-panel {
-    .wp-block-heading + p {
+    .wp-block-heading + p:not(.is-style-mt40) {
       margin-top: 2.4rem !important;
     }
   }

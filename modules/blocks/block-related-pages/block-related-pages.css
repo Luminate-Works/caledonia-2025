@@ -19,7 +19,8 @@
 .related-pages.is-style-darkmode li a {
   color: white;
 }
-.related-pages.is-style-darkmode li a svg circle, .related-pages.is-style-darkmode li a svg path {
+.related-pages.is-style-darkmode li a svg circle,
+.related-pages.is-style-darkmode li a svg path {
   stroke: white;
 }
 .related-pages.is-style-darkmode li a:hover {
@@ -63,13 +64,9 @@
 }
 .related-pages ul li {
   margin: 0;
-  width: 50%;
+  width: 100%;
   border-top: 1px solid rgba(1, 0, 53, 0.1);
   padding-top: 4rem;
-}
-.related-pages ul li:nth-child(even) a {
-  border-left: 1px solid rgba(1, 0, 53, 0.1);
-  padding-left: 4rem;
 }
 .related-pages ul li a {
   display: flex;
@@ -96,4 +93,13 @@
 }
 .related-pages ul li a:hover svg path, .related-pages ul li a:active svg path, .related-pages ul li a:focus svg path {
   stroke: white;
+}
+@media (min-width: 768px) {
+  .related-pages ul li {
+    width: 50%;
+  }
+  .related-pages ul li:nth-child(even) a {
+    border-left: 1px solid rgba(1, 0, 53, 0.1);
+    padding-left: 4rem;
+  }
 }/*# sourceMappingURL=block-related-pages.css.map */

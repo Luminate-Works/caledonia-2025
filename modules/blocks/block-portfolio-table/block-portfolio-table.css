@@ -24,14 +24,8 @@
 .portfolio-table .list-item.total-row p.value {
   font-size: var(--wp--preset--font-size--font-40);
 }
-.portfolio-table .list-item:hover img {
-  opacity: 0;
-}
 .portfolio-table .list-item:hover .hover-link {
   opacity: 1;
-}
-.portfolio-table .list-item:hover .icon-wrapper p.company-hover {
-  opacity: 0.3;
 }
 .portfolio-table .list-item .icon-wrapper {
   position: relative;
@@ -79,7 +73,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 12rem;
+  min-width: 14rem;
 }
 .portfolio-table .list-item p.first_invested .no-value {
   display: block;

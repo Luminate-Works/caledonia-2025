@@ -142,7 +142,7 @@
 		},
 
 		"layout": {
-			"contentSize": "1360px",
+			"contentSize": "1400px",
 			"wideSize": "1400px"
 		},
 
@@ -206,7 +206,7 @@
 					"name": "Space XL 9rem"
                 },
                 {
-					"size": "6vw",
+					"size": "0vw",
 					"slug": "contentgap",
 					"name": "Content Gap"
                 }
@@ -333,6 +333,13 @@
     },
 
 	"styles": {
+
+        "spacing": {
+            "padding": {
+                "left": "var(--wp--preset--spacing--contentgap)",
+                "right": "var(--wp--preset--spacing--contentgap)"
+            }
+        },
 
         "blocks": {
             "core/site-title": {

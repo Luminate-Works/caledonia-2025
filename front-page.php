@@ -1,6 +1,6 @@
 <?php  get_header(); ?>
 
-<div class="wrap full-width front parallax-up">
+<div class="full-width front parallax-up">
     <div id="content">
         <?php 
         if (have_posts()) : 

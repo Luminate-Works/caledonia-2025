@@ -3,7 +3,8 @@
 // ------------------------------------------
 // ADD EXTERNAL LINK METABOX
 // ------------------------------------------
-function add_external_link_meta_field() {
+function add_external_link_meta_field()
+{
     add_meta_box(
         'external_link_meta_box',
         'External Link',
@@ -13,73 +14,163 @@ function add_external_link_meta_field() {
         'high'
     );
 }
-add_action( 'add_meta_boxes', 'add_external_link_meta_field' );
+add_action('add_meta_boxes', 'add_external_link_meta_field');
 
-function external_link_meta_box_callback( $post ) {
-    $external_link = get_post_meta( $post->ID, 'external_link', true );
+function external_link_meta_box_callback($post)
+{
+    $external_link = get_post_meta($post->ID, 'external_link', true);
     echo '<label for="external_link" class="screen-reader-text">External Link: </label>';
-    echo '<input type="text" id="external_link" name="external_link" value="' . esc_url( $external_link ) . '" size="100" />';
+    echo '<input type="text" id="external_link" name="external_link" value="' . esc_url($external_link) . '" size="100" />';
 }
 
-function save_external_link_meta_field( $post_id ) {
-    if ( array_key_exists( 'external_link', $_POST ) ) {
+function save_external_link_meta_field($post_id)
+{
+    if (array_key_exists('external_link', $_POST)) {
         update_post_meta(
             $post_id,
             'external_link',
-            esc_url_raw( $_POST['external_link'] )
+            esc_url_raw($_POST['external_link'])
         );
     }
 }
-add_action( 'save_post', 'save_external_link_meta_field' );
+add_action('save_post', 'save_external_link_meta_field');
 
 
-// ---------------------------
-// ajax load more posts
-// ---------------------------
-add_action('wp_ajax_load_more_posts', 'load_more_posts');
-add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
-function load_more_posts() {
-    
-    $paged = intval($_POST['page']);
-    $posts_per_page = intval($_POST['posts_per_page']);
-    $post_type = $_POST['post_type'];
-    $category = sanitize_text_field($_POST['category']); // Get and sanitize the category
+// ------------------------------------------
+// AJAX callback: load WP posts with filters
+// ------------------------------------------
+add_action('wp_ajax_load_wp_posts', 'load_wp_posts_callback');
+add_action('wp_ajax_nopriv_load_wp_posts', 'load_wp_posts_callback');
 
-    $args = array(
-        'post_type' => $post_type,
-        'post_status' => 'publish',
-        'offset' => ($paged - 1) * $posts_per_page,
-        'posts_per_page' => $posts_per_page,
-        'category_name' => $category, // Include category in the query arguments
-    );
+function load_wp_posts_callback()
+{
+    $offset   = isset($_POST['offset'])         ? intval($_POST['offset']) : 0;
+    $per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 5;
+    $category = isset($_POST['category'])       ? sanitize_text_field($_POST['category']) : '';
+    $tag      = isset($_POST['tag'])            ? sanitize_text_field($_POST['tag']) : '';
+    $year     = isset($_POST['year'])           ? intval($_POST['year']) : '';
+    $search   = !empty($_POST['search'])        ? sanitize_text_field($_POST['search']) : '';
+    $limit_number = isset($_POST['limit_number']) ? intval($_POST['limit_number']) : 0;
 
-    $the_query = new WP_Query($args);
-    $output = '';
-    if ($the_query->have_posts()) : 
-        while ($the_query->have_posts()) : $the_query->the_post();
-            ob_start(); 
-            get_template_part('parts/part', 'excerpt');
-            $output .= ob_get_clean();
-        endwhile;
-    endif;
+    $tag_post_ids = [];
 
-    $data = array(
-        'posts' => $output,
-        'has_more' => $the_query->max_num_pages >= $paged + 1
-    );
+    // step 1: find posts with tag name matching search term
+    if ($search) {
+        $matching_tags = get_terms([
+            'taxonomy'   => 'post_tag',
+            'hide_empty' => false,
+            'name__like' => $search,
+        ]);
 
-    echo json_encode($data);
-    wp_die();
+        if (!is_wp_error($matching_tags) && $matching_tags) {
+            $tag_ids = wp_list_pluck($matching_tags, 'term_id');
+
+            $tag_posts = get_posts([
+                'post_type'   => 'post',
+                'post_status' => 'publish',
+                'fields'      => 'ids',
+                'numberposts' => -1,
+                'tax_query'   => [[
+                    'taxonomy' => 'post_tag',
+                    'field'    => 'term_id',
+                    'terms'    => $tag_ids,
+                ]],
+            ]);
+
+            $tag_post_ids = $tag_posts;
+        }
+    }
+
+    // step 2: build main query args
+    $args = [
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'posts_per_page' => $limit_number ? $limit_number : $per_page,
+        'offset'         => $limit_number ? 0 : $offset,
+    ];
+
+    if ($category) {
+        $args['category_name'] = $category;
+    }
+
+    if ($tag) {
+        $args['tag'] = $tag;
+    }
+
+    if ($year) {
+        $args['year'] = $year;
+    }
+
+    // step 3: combine post IDs from content match and tag name match
+    // if ($search) {
+    //     $content_ids = get_posts([
+    //         'post_type'   => 'post',
+    //         'post_status' => 'publish',
+    //         'fields'      => 'ids',
+    //         's'           => $search,
+    //         'numberposts' => -1,
+    //     ]);
+
+    //     $args['post__in'] = array_unique(array_merge($content_ids, $tag_post_ids));
+    // }
+
+    if ($search) {
+        $content_ids = get_posts([
+            'post_type'   => 'post',
+            'post_status' => 'publish',
+            'fields'      => 'ids',
+            's'           => $search,
+            'numberposts' => -1,
+        ]);
+
+        $merged_ids = array_unique(array_merge($content_ids, $tag_post_ids));
+
+        // If no matches, return immediately with 0 posts
+        if (empty($merged_ids)) {
+            wp_send_json([
+                'posts' => [],
+                'total' => 0,
+            ]);
+        }
+
+        $args['post__in'] = $merged_ids;
+    }
+
+    // step 4: run query and output posts
+    $query = new WP_Query($args);
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            ob_start();
+            get_template_part('/parts/part', 'excerpt'); // Adjust this to match your template
+            $posts[] = [
+                'id'      => get_the_ID(),
+                'content' => ob_get_clean(),
+            ];
+        }
+    }
+
+    wp_reset_postdata();
+
+    $total = $limit_number ? min($limit_number, $query->found_posts) : $query->found_posts;
+
+    wp_send_json([
+        'posts' => $posts,
+        'total' => $total,
+    ]);
 }
 
 
 // ------------------------------------------
 // AJAX callback: load all team members, with first_name + last_name + HTML
 // ------------------------------------------
-add_action('wp_ajax_load_team_members','load_team_members_callback');
-add_action('wp_ajax_nopriv_load_team_members','load_team_members_callback');
+add_action('wp_ajax_load_team_members', 'load_team_members_callback');
+add_action('wp_ajax_nopriv_load_team_members', 'load_team_members_callback');
 
-function load_team_members_callback() {
+function load_team_members_callback()
+{
 
     $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
     $args = [
@@ -98,7 +189,7 @@ function load_team_members_callback() {
     }
 
     $query = new WP_Query($args);
-    
+
     $members = [];
 
     while ($query->have_posts()) {
@@ -113,43 +204,43 @@ function load_team_members_callback() {
 
         ob_start(); ?>
         <div class="team__member">
-          <div class="profile">
-            <div class="image">
-              <?php if (has_post_thumbnail()): ?>
-                <?php the_post_thumbnail('team-member'); ?>
-              <?php else: ?>
-                <img src="<?= esc_url(get_template_directory_uri().'/assets/images/theme/profile.jpg'); ?>"
-                     alt="<?= esc_attr($title); ?>">
-              <?php endif; ?>
+            <div class="profile">
+                <div class="image">
+                    <?php if (has_post_thumbnail()): ?>
+                        <?php the_post_thumbnail('team-member'); ?>
+                    <?php else: ?>
+                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/theme/profile.jpg'); ?>"
+                            alt="<?= esc_attr($title); ?>">
+                    <?php endif; ?>
+                </div>
+                <div class="title">
+                    <h3><?= esc_html($title); ?></h3>
+                    <p class="meta"><?= esc_html(get_field('position')); ?></p>
+                </div>
             </div>
-            <div class="title">
-              <h3><?= esc_html($title); ?></h3>
-              <p class="meta"><?= esc_html(get_field('position')); ?></p>
+            <div class="bio">
+                <div class="bio-content">
+                    <?php
+                    $phone = get_field('contact_number');
+                    $linkedin = get_field('linkedin_profile');
+                    if ($phone || $linkedin):
+                    ?>
+                        <ul class="contact-details">
+                            <?php if ($phone):
+                                $tel_link = preg_replace('/[^0-9+]/', '', $phone); ?>
+                                <li><a class="phone" href="tel:<?= esc_attr($tel_link) ?>"
+                                        rel="noopener noreferrer">Call <?= esc_html($phone) ?></a></li>
+                            <?php endif; ?>
+                            <?php if ($linkedin): ?>
+                                <?php $fn = sanitize_text_field($first_name); ?>
+                                <li><a class="li" href="<?= esc_url($linkedin) ?>"
+                                        rel="noopener noreferrer">View <?= esc_html($fn) ?> on LinkedIn</a></li>
+                            <?php endif; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <?php the_content(); ?>
+                </div>
             </div>
-          </div>
-          <div class="bio">
-            <div class="bio-content">
-              <?php 
-                $phone = get_field('contact_number');
-                $linkedin = get_field('linkedin_profile');
-                if ($phone || $linkedin):
-              ?>
-                <ul class="contact-details">
-                  <?php if ($phone): 
-                    $tel_link = preg_replace('/[^0-9+]/','',$phone); ?>
-                    <li><a class="phone" href="tel:<?= esc_attr($tel_link) ?>"
-                           rel="noopener noreferrer">Call <?= esc_html($phone) ?></a></li>
-                  <?php endif; ?>
-                  <?php if ($linkedin): ?>
-                    <?php $fn = sanitize_text_field($first_name); ?>
-                    <li><a class="li" href="<?= esc_url($linkedin) ?>"
-                           rel="noopener noreferrer">View <?= esc_html($fn) ?> on LinkedIn</a></li>
-                  <?php endif; ?>
-                </ul>
-              <?php endif; ?>
-              <?php the_content(); ?>
-            </div>
-          </div>
         </div>
         <?php
         $html = ob_get_clean();
@@ -174,7 +265,8 @@ add_action('wp_ajax_nopriv_load_documents', 'load_documents_callback');
 // ------------------------------------------
 // AJAX callback: load document posts with category and year filter
 // ------------------------------------------
-function load_documents_callback() {
+function load_documents_callback()
+{
     $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
     $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 9;
     $filter = isset($_POST['filter']) ? sanitize_text_field($_POST['filter']) : '';
@@ -270,7 +362,7 @@ function load_documents_callback() {
                 <span class="format"><?= esc_html($file_format); ?></span>
                 <?php /*<span class="size"><?= esc_html($file_size); ?></span>*/ ?>
             </a>
-            <?php
+<?php
             $html = ob_get_clean();
             $posts[] = [
                 'id'      => get_the_ID(),

@@ -43,8 +43,6 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-basis: 0;
-  flex-grow: 1;
   padding-left: 4rem;
 }
 .link-group__item {
@@ -55,6 +53,10 @@
   flex-grow: 1;
   gap: 4rem;
   display: flex;
+  padding-right: 4rem;
+}
+.link-group__item:last-child {
+  padding-right: 0;
 }
 .link-group svg {
   width: 24px;

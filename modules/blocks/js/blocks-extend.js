@@ -19,6 +19,10 @@ wp.blocks.registerBlockStyle('core/cover', {
 	label: 'Blue CTA',
 });
 wp.blocks.registerBlockStyle('core/cover', {
+	name: 'blue-cta-slim',
+	label: 'Blue CTA Slim',
+});
+wp.blocks.registerBlockStyle('core/cover', {
 	name: 'blur',
 	label: 'Blur Bg',
 });
@@ -47,6 +51,14 @@ wp.blocks.registerBlockStyle("core/paragraph", {
 wp.blocks.registerBlockStyle("core/paragraph", {
 	name: "mt24",
 	label: "Margin Top 24px",
+});
+wp.blocks.registerBlockStyle("core/paragraph", {
+	name: "mt32",
+	label: "Margin Top 32px",
+});
+wp.blocks.registerBlockStyle("core/paragraph", {
+	name: "mt40",
+	label: "Margin Top 40px",
 });
 
 // image
@@ -101,7 +113,10 @@ wp.blocks.registerBlockStyle("core/columns", {
 	name: "max-width", 
 	label: "Max Width",
 });
-
+wp.blocks.registerBlockStyle("core/columns", {
+	name: "bigmaxwidth",
+	label: "Bigger Max Width",
+});
 wp.blocks.registerBlockStyle("core/columns", {
 	name: "bg-blur", 
 	label: "BG Blur",

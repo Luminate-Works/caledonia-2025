@@ -4,7 +4,7 @@ footer {
   background: $primary;
   color: white;
   font-size: $font-14;
-  z-index: 9999;
+  z-index: 999;
   position: relative;
 
   h5 {
@@ -36,9 +36,6 @@ footer {
       padding-bottom: 4rem;
     }
     .col {
-      padding-left: 4rem;
-      border-left: 1px solid rgba(white, 0.2);
-
       .menu {
         li {
           margin-bottom: 0;
@@ -130,6 +127,21 @@ footer {
         }
       }
     }
+
+    @media(max-width: 1023px) {
+      .col {
+        padding-bottom: 4rem;
+        margin-bottom: 4rem;
+        border-bottom: 1px solid rgba(white, 0.2);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .col {
+        padding-left: 4rem;
+        border-left: 1px solid rgba(white, 0.2);
+      }
+    }
   }
 
   .policy-footer {
@@ -142,6 +154,7 @@ footer {
       gap: 4rem;
       .menu {
         display: flex;
+        flex-wrap: wrap;
         gap: 4rem;
         li {
           margin-bottom: 0;
@@ -152,6 +165,13 @@ footer {
               padding-left: 4rem;
             }
           }
+        }
+      }
+
+      .time {
+        #gmt-time {
+          opacity: 0.5;
+          margin-right: 1.6rem;
         }
       }
     }

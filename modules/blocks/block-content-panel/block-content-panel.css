@@ -2,7 +2,7 @@
   background: white;
   grid-column: 2;
 }
-.content-panel .acc-panel .wp-block-heading + p {
+.content-panel .acc-panel .wp-block-heading + p:not(.is-style-mt40) {
   margin-top: 2.4rem !important;
 }
 .content-panel .acc-panel .wp-block-group.has-background {

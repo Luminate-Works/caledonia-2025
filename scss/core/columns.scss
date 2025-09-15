@@ -12,7 +12,7 @@
     padding-left: 4rem;
   }
 
-    &.is-style-border-left-light {
+  &.is-style-border-left-light {
     border-left: 1px solid rgba(white, 0.1);
     padding-left: 4rem;
   }
@@ -26,7 +26,8 @@
       display: flex;
       flex-direction: column;
 
-      .wp-block-buttons {
+      .wp-block-buttons,
+      .link-group {
         margin-top: auto !important;
         padding-top: 2rem;
       }
@@ -110,14 +111,20 @@
     padding-bottom: 5.5rem;
   }
 
-  &.is-style-width-half {
-    max-width: 720px;
-    width: 55%;
+  @media (min-width: 1024px) {
+    &.is-style-width-half {
+      max-width: 720px;
+      width: 55%;
+    }
   }
 
   &.is-style-max-width,
   &.is-style-maxwidth {
     max-width: 890px;
+  }
+
+  &.is-style-bigmaxwidth {
+    max-width: 1200px;
   }
 
   &.is-style-bg-blur {
@@ -153,7 +160,7 @@
     }
   }
 
-   &.is-style-gap-40 {
+  &.is-style-gap-40 {
     gap: 4rem;
   }
 

@@ -1,5 +1,5 @@
 body.interim-login {
-	background: linear-gradient(135deg, $primary 0%, $purple 100%); 
+	background: linear-gradient(135deg, $secondary 0%, $secondary-3 100%); 
 
 	h1 a {
 		display: none!important;
@@ -16,21 +16,22 @@ body.interim-login {
 	justify-content: center;
 	align-items: center;
 	color: $primary;
-	background: linear-gradient(135deg, $primary 0%, $purple 100%); 
+	background: linear-gradient(135deg, $secondary 0%, $secondary-3 100%); 
 
 
 	#login {
-		padding: 25px;
-		background: $lightgrey;
+		width: 420px;
+		padding: 50px 40px 50px 40px;
+		background: $primary;
 		border-radius: 3px;
-		box-shadow: 0 5px 5px 0 rgba(0,0,0, .15);
+		box-shadow: 0 5px 5px 0 rgba(255,255,255, .15);
 
 		h1 {
 
 			a {
 				width: 200px;
 				height: 55px;
-				margin-bottom: 15px;
+				margin-bottom: 65px;
 				padding-bottom: 0;
 				background-size: contain;
 			} // a
@@ -50,7 +51,7 @@ body.interim-login {
 		label {
             text-transform: none;
 			padding-bottom: 3px;
-			color: $primary;
+			color: white;
 		} // label
 
 		input {
@@ -60,7 +61,7 @@ body.interim-login {
 
 			&:active,
 			&:focus {
-				border-color: $purple;
+				border-color: $secondary;
 				outline: none!important;
 				box-shadow: none!important;
 			}
@@ -72,12 +73,17 @@ body.interim-login {
 				font-size: $font-16;
 				border: none;
 				border-radius: 0;
+
+				&:hover {
+					background: darken($secondary, 2%);
+					color: $primary;
+				}
 			} // button
 
 		} // input
 
 		.dashicons {
-			color: $purple;
+			color: $primary;
 			transition: color .2s ease-in-out;
 
 			&:hover,
@@ -91,19 +97,28 @@ body.interim-login {
             margin-top: 5px;
         }
 
+		p.submit {
+			margin-top: 3rem !important;
+
+			input[type="submit"] {
+				border-radius: 4px;
+				min-height: 45px;
+			}
+		}
+
 	} // form
 
 	#nav {
 		text-align: center;
-		margin-top: 20px;
+		margin-top: 40px;
 
 		a {
-			color: $primary;
+			color: white;
 
 			&:hover,
 			&:active,
 			&:focus {
-				color: $purple;
+				color: $secondary;
 				text-decoration: underline;
 			}
 		}

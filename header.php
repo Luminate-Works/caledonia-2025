@@ -43,7 +43,7 @@ if (class_exists('ACF')) {
         </div>
     <?php endif; ?>
 
-    <header class="header">
+    <header class="header has-global-padding">
         <div class="wrap">
             <?php if ($is_front): ?>
                 <h1 class="branding">

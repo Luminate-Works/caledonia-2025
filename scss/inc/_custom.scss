@@ -1,3 +1,19 @@
+.pl24 {
+  padding-left: 2.4rem !important;
+}
+
+.mt32 {
+  margin-top: 3.2rem !important;
+}
+
+.text300 {
+  max-width: 300px;
+}
+
+.text420 {
+  max-width: 420px;
+}
+
 .home-boxes-wrapper {
   background-image: url(../assets/images/theme/home-boxes-overlay.png);
   background-size: contain;
@@ -72,6 +88,13 @@
 
 .home-sustainability-bg {
   background-image: url(../assets/images/theme/home-sustainability-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.investors-bg {
+  background-image: url(../assets/images/theme/investors-results-bg.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

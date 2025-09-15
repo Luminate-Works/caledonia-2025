@@ -1399,6 +1399,57 @@ html.menu-opened body {
     margin-bottom: 15rem !important;
   }
 }
+.mt16 {
+  margin-top: 16rem !important;
+}
+
+.mb16 {
+  margin-bottom: 16rem !important;
+}
+
+.ml16 {
+  margin-left: 16rem !important;
+}
+
+.mr16 {
+  margin-right: 16rem !important;
+}
+
+.pt16 {
+  padding-top: 16rem !important;
+}
+
+.pb16 {
+  padding-bottom: 16rem !important;
+}
+
+.pl16 {
+  padding-left: 16rem !important;
+}
+
+.p16 {
+  padding: 16rem !important;
+}
+
+@media (max-width: 781px) {
+  .mt16-sm {
+    margin-top: 16rem !important;
+  }
+  .mb16-sm {
+    margin-bottom: 16rem !important;
+  }
+  .pt16-sm {
+    padding-top: 16rem !important;
+  }
+  .pb16-sm {
+    padding-bottom: 16rem !important;
+  }
+}
+@media (min-width: 782px) {
+  .mb16-lg {
+    margin-bottom: 16rem !important;
+  }
+}
 .hide {
   display: none !important;
 }
@@ -1455,14 +1506,8 @@ h6 + .is-style-introborder {
 }
 
 .wrap {
-  width: 86%;
   max-width: var(--wp--style--global--content-size);
   margin: 0 auto;
-}
-@media (min-width: 1024px) {
-  .wrap {
-    width: 94%;
-  }
 }
 
 .parallax-up {
@@ -1470,6 +1515,11 @@ h6 + .is-style-introborder {
   background: white;
   position: relative;
   z-index: 4;
+}
+
+.has-global-padding > .alignfull {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 #content {
@@ -1977,7 +2027,7 @@ footer {
   background: #010035;
   color: white;
   font-size: var(--wp--preset--font-size--font-14);
-  z-index: 9999;
+  z-index: 999;
   position: relative;
 }
 footer h5 {
@@ -2001,10 +2051,6 @@ footer ul {
 }
 footer .columns .wrap {
   padding-bottom: 4rem;
-}
-footer .columns .col {
-  padding-left: 4rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 footer .columns .col .menu li {
   margin-bottom: 0;
@@ -2067,6 +2113,19 @@ footer .columns .col.col-3 a {
   background-position: left center;
   padding-left: 20px;
 }
+@media (max-width: 1023px) {
+  footer .columns .col {
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+@media (min-width: 1024px) {
+  footer .columns .col {
+    padding-left: 4rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
 footer .policy-footer .wrap {
   padding: 2.4rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -2077,6 +2136,7 @@ footer .policy-footer .wrap {
 }
 footer .policy-footer .wrap .menu {
   display: flex;
+  flex-wrap: wrap;
   gap: 4rem;
 }
 footer .policy-footer .wrap .menu li {
@@ -2085,6 +2145,10 @@ footer .policy-footer .wrap .menu li {
 footer .policy-footer .wrap .menu li:first-child a {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   padding-left: 4rem;
+}
+footer .policy-footer .wrap .time #gmt-time {
+  opacity: 0.5;
+  margin-right: 1.6rem;
 }
 footer .subfooter {
   margin-top: 2.4rem;
@@ -2187,7 +2251,7 @@ footer .social-links svg {
   display: inline-flex;
   align-items: center;
   font-family: var(--wp--preset--font-family--primary);
-  font-size: var(--wp--preset--font-size--font-18);
+  font-size: var(--wp--preset--font-size--font-16);
   line-height: 1.05;
   text-align: center;
   text-decoration: none;
@@ -2277,7 +2341,7 @@ footer .social-links svg {
   display: inline-flex;
   align-items: center;
   font-family: var(--wp--preset--font-family--primary);
-  font-size: var(--wp--preset--font-size--font-18);
+  font-size: var(--wp--preset--font-size--font-16);
   line-height: 1.05;
   text-align: center;
   text-decoration: none;
@@ -2339,6 +2403,22 @@ footer .social-links svg {
 .pagination .page-numbers.current, .pagination .page-numbers:hover, .pagination .page-numbers:active, .pagination .page-numbers:focus {
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
+}
+
+.pl24 {
+  padding-left: 2.4rem !important;
+}
+
+.mt32 {
+  margin-top: 3.2rem !important;
+}
+
+.text300 {
+  max-width: 300px;
+}
+
+.text420 {
+  max-width: 420px;
 }
 
 .home-boxes-wrapper {
@@ -2406,6 +2486,13 @@ footer .social-links svg {
 
 .home-sustainability-bg {
   background-image: url(../assets/images/theme/home-sustainability-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.investors-bg {
+  background-image: url(../assets/images/theme/investors-results-bg.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2485,7 +2572,7 @@ form select[type=submit] {
   display: inline-flex;
   align-items: center;
   font-family: var(--wp--preset--font-family--primary);
-  font-size: var(--wp--preset--font-size--font-18);
+  font-size: var(--wp--preset--font-size--font-16);
   line-height: 1.05;
   text-align: center;
   text-decoration: none;
@@ -2820,7 +2907,7 @@ ul.search-results a:hover, ul.search-results a:active, ul.search-results a:focus
 }
 
 body.interim-login {
-  background: linear-gradient(135deg, #010035 0%, #8559D7 100%);
+  background: linear-gradient(135deg, #F0D8B2 0%, #F9F3EB 100%);
 }
 body.interim-login h1 a {
   display: none !important;
@@ -2836,16 +2923,17 @@ body.interim-login h1 a {
   justify-content: center;
   align-items: center;
   color: #010035;
-  background: linear-gradient(135deg, #010035 0%, #8559D7 100%);
+  background: linear-gradient(135deg, #F0D8B2 0%, #F9F3EB 100%);
 }
 .login-action-login #login,
 .login-action-lostpassword #login,
 .login-action-rp #login,
 .login-action-checkemail #login {
-  padding: 25px;
-  background: #fafafa;
+  width: 420px;
+  padding: 50px 40px 50px 40px;
+  background: #010035;
   border-radius: 3px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 5px 0 rgba(255, 255, 255, 0.15);
 }
 .login-action-login #login h1 a,
 .login-action-lostpassword #login h1 a,
@@ -2853,7 +2941,7 @@ body.interim-login h1 a {
 .login-action-checkemail #login h1 a {
   width: 200px;
   height: 55px;
-  margin-bottom: 15px;
+  margin-bottom: 65px;
   padding-bottom: 0;
   background-size: contain;
 }
@@ -2874,7 +2962,7 @@ body.interim-login h1 a {
 .login-action-checkemail form label {
   text-transform: none;
   padding-bottom: 3px;
-  color: #010035;
+  color: white;
 }
 .login-action-login form input,
 .login-action-lostpassword form input,
@@ -2891,7 +2979,7 @@ body.interim-login h1 a {
 .login-action-rp form input:focus,
 .login-action-checkemail form input:active,
 .login-action-checkemail form input:focus {
-  border-color: #8559D7;
+  border-color: #F0D8B2;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -2904,7 +2992,7 @@ body.interim-login h1 a {
   display: inline-flex;
   align-items: center;
   font-family: var(--wp--preset--font-family--primary);
-  font-size: var(--wp--preset--font-size--font-18);
+  font-size: var(--wp--preset--font-size--font-16);
   line-height: 1.05;
   text-align: center;
   text-decoration: none;
@@ -2982,11 +3070,18 @@ body.interim-login h1 a {
 .login-action-checkemail form input.button:focus:before {
   opacity: 0;
 }
+.login-action-login form input.button:hover,
+.login-action-lostpassword form input.button:hover,
+.login-action-rp form input.button:hover,
+.login-action-checkemail form input.button:hover {
+  background: rgb(238.3369565217, 211.6760869565, 169.4630434783);
+  color: #010035;
+}
 .login-action-login form .dashicons,
 .login-action-lostpassword form .dashicons,
 .login-action-rp form .dashicons,
 .login-action-checkemail form .dashicons {
-  color: #8559D7;
+  color: #010035;
   transition: color 0.2s ease-in-out;
 }
 .login-action-login form .dashicons:hover, .login-action-login form .dashicons:active, .login-action-login form .dashicons:focus,
@@ -3007,18 +3102,31 @@ body.interim-login h1 a {
 .login-action-checkemail form .forgetmenot {
   margin-top: 5px;
 }
+.login-action-login form p.submit,
+.login-action-lostpassword form p.submit,
+.login-action-rp form p.submit,
+.login-action-checkemail form p.submit {
+  margin-top: 3rem !important;
+}
+.login-action-login form p.submit input[type=submit],
+.login-action-lostpassword form p.submit input[type=submit],
+.login-action-rp form p.submit input[type=submit],
+.login-action-checkemail form p.submit input[type=submit] {
+  border-radius: 4px;
+  min-height: 45px;
+}
 .login-action-login #nav,
 .login-action-lostpassword #nav,
 .login-action-rp #nav,
 .login-action-checkemail #nav {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .login-action-login #nav a,
 .login-action-lostpassword #nav a,
 .login-action-rp #nav a,
 .login-action-checkemail #nav a {
-  color: #010035;
+  color: white;
 }
 .login-action-login #nav a:hover, .login-action-login #nav a:active, .login-action-login #nav a:focus,
 .login-action-lostpassword #nav a:hover,
@@ -3030,7 +3138,7 @@ body.interim-login h1 a {
 .login-action-checkemail #nav a:hover,
 .login-action-checkemail #nav a:active,
 .login-action-checkemail #nav a:focus {
-  color: #8559D7;
+  color: #F0D8B2;
   text-decoration: underline;
 }
 .login-action-login .privacy-policy-page-link,
@@ -3177,8 +3285,14 @@ body.interim-login h1 a {
 }
 .hero-static:not(.home) .hero-static__image .wrap {
   height: 45vh;
-  min-height: 700px;
+  min-height: 400px;
   position: relative;
+}
+@media (min-width: 1024px) {
+  .hero-static:not(.home) .hero-static__image .wrap {
+    height: 45vh;
+    min-height: 700px;
+  }
 }
 .hero-static:not(.home) .hero-static__image .wrap .banner-video-overlay {
   position: absolute;
@@ -3247,6 +3361,9 @@ body.interim-login h1 a {
   display: flex;
   align-items: center;
 }
+.hero-static:not(.home) .hero-static__content .wrap {
+  width: 100%;
+}
 .hero-static:not(.home) .hero-static__content .page-title {
   font-size: 12rem;
   line-height: 110%;
@@ -3277,7 +3394,12 @@ body.page-child .hero-static.overlay-yellow {
   background-image: url(../assets/images/theme/inner-banner-mask-yellow.png);
 }
 body.page-child .hero-static .hero-static__image {
-  min-height: 600px;
+  min-height: 300px;
+}
+@media (min-width: 1024px) {
+  body.page-child .hero-static .hero-static__image {
+    min-height: 600px;
+  }
 }
 body.page-child .hero-static .hero-static__image::before {
   content: none;
@@ -3303,6 +3425,10 @@ body.page-child .hero-static .hero-static__content .page-title span.sub {
 }
 body.page-child .hero-static .hero-static__content.no-image {
   margin-bottom: 8rem;
+}
+body.page-child.parent-pageid-2556 .hero-static__content .page-title span.sub {
+  display: inline-block;
+  padding-left: 3rem;
 }
 
 .hero-video {

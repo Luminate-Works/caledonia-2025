@@ -8,6 +8,24 @@ if (!class_exists('ACF')) {
     return;
 }
 
+// Rename posts to news
+function rename_posts_to_news()
+{
+    global $menu;
+    global $submenu;
+
+    // Change menu label
+    $menu[5][0] = 'News';
+
+    // Change submenu labels
+    $submenu['edit.php'][5][0] = 'All News';
+    $submenu['edit.php'][10][0] = 'Add News';
+    $submenu['edit.php'][15][0] = 'News Categories';
+    $submenu['edit.php'][16][0] = 'News Tags';
+}
+add_action('admin_menu', 'rename_posts_to_news');
+
+
 $modules = get_field('modules', 'option') ?? [];
 
 // Helper function to register post types
@@ -86,12 +104,12 @@ foreach ($modules as $module => $enabled) {
         switch ($module) {
             case 'documents':
                 add_action('init', function () {
-                    register_custom_post_type('documents', 'Documents', 'Document', 5, 'dashicons-media-document', ['title'], true, false, false, false);
+                    register_custom_post_type('documents', 'Documents', 'Document', 20, 'dashicons-media-document', ['title'], true, false, false, false);
                     register_custom_taxonomy('document-type', 'Document Types', ['documents']);
                 });
                 break;
             case 'team':
-                add_action('init', function() {
+                add_action('init', function () {
                     register_custom_post_type('team', 'Team', 'Person', 10, 'dashicons-groups', ['title', 'editor', 'thumbnail'], false, false, false, false);
                     register_custom_taxonomy('team-category', 'Team Categories', ['team']);
                     register_custom_taxonomy('team-type', 'Team', ['team']);
@@ -108,6 +126,24 @@ foreach ($modules as $module => $enabled) {
                     register_custom_taxonomy('case-study-category', 'Case Study Categories', ['case-studies']);
                 });
                 break;
+            case 'insights':
+                add_action('init', function () {
+                    register_custom_post_type('insights', 'Insights', 'Insight', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
+                    register_custom_taxonomy('insights-category', 'Insights Categories', ['insights']);
+                });
+                break;
+            case 'external_research':
+                add_action('init', function () {
+                    register_custom_post_type('external-research', 'External Research', 'Research', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
+                    register_custom_taxonomy('external-research-category', 'Research Categories', ['external_research']);
+                });
+                break;
+            case 'press_coverage':
+                add_action('init', function () {
+                    register_custom_post_type('press-coverage', 'Press Coverage', 'Press Coverage', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
+                    register_custom_taxonomy('press-coverage-category', 'Press Coverage Categories', ['press_coverage']);
+                });
+                break;
             case 'testimonials':
                 add_action('init', function () {
                     register_custom_post_type('testimonials', 'Testimonials', 'Testimonial', 29, 'dashicons-format-quote', ['title', 'editor', 'thumbnail'], false, false, false, true);
@@ -115,7 +151,7 @@ foreach ($modules as $module => $enabled) {
                 break;
             case 'calendar':
                 add_action('init', function () {
-                    register_custom_post_type('calendar', 'Calendar', 'Event', 5, 'dashicons-calendar', ['title'], false, false, false, true);
+                    register_custom_post_type('calendar', 'Calendar', 'Event', 20, 'dashicons-calendar', ['title'], false, false, false, true);
                 });
                 break;
         }
