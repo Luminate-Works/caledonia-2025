@@ -27,7 +27,7 @@
   transition: opacity 0.25s ease-in-out;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 .wp-block-button .wp-block-button__link:before {
   content: "";
@@ -92,6 +92,12 @@
 .wp-block-button.is-style-download-white .wp-block-button__link:after {
   background-image: url(../assets/images/theme/icon-download-fill.svg);
 }
+.wp-block-button.is-style-plus .wp-block-button__link:before {
+  background-image: url(../assets/images/theme/acc-plus.svg);
+}
+.wp-block-button.is-style-plus .wp-block-button__link:after {
+  background-image: url(../assets/images/theme/acc-plus-fill.svg);
+}
 
 * + .wp-block-buttons {
   margin-top: 4rem !important;
@@ -100,4 +106,13 @@
 .wp-block-buttons + .wp-block-group,
 .wp-block-buttons + .wp-block-columns {
   margin-top: var(--wp--preset--spacing--m);
+}
+.wp-block-buttons.is-style-mt24 {
+  margin-top: 2.4rem !important;
+}
+.wp-block-buttons.is-style-border-top {
+  border-top: 1px solid rgba(1, 0, 53, 0.1);
+}
+.wp-block-buttons.is-style-border-top-light {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }/*# sourceMappingURL=button.css.map */

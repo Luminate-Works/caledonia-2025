@@ -1,0 +1,45 @@
+.insights-list {
+  overflow: hidden;
+}
+* + .insights-list {
+  margin-top: 4rem !important;
+}
+.insights-list h5 {
+  text-transform: uppercase;
+  font-family: var(--wp--preset--font-family--primary);
+  font-size: 12px;
+  margin-bottom: 2.4rem;
+}
+.insights-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.insights-list ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+}
+.insights-list ul li:last-child {
+  border-bottom: 0;
+}
+.insights-list ul li span {
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-32);
+  color: #010035;
+  padding-right: 2rem;
+  margin-right: 1.6rem;
+  border-right: 1px solid rgba(1, 0, 53, 0.1);
+  min-width: 42px;
+}
+.insights-list ul li a {
+  text-decoration: underline;
+  font-size: var(--wp--preset--font-size--font-16);
+  color: rgba(1, 0, 53, 0.6);
+  line-height: 160%;
+}
+.insights-list ul li a:hover {
+  color: #FF8A45;
+}/*# sourceMappingURL=block-insights-list.css.map */

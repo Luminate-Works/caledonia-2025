@@ -122,12 +122,20 @@ if (class_exists('ACF')) {
     </div>
     </header>
 
+    <div class="curtain curtain-1"></div>
+    <div class="curtain-overlay curtain-2"></div>
+
     <main>
         <?php
         // Determine the banner type and template
-        if (is_404() || is_search() || is_archive() || is_single()) {
-            $banner_type = 'static';
+        if (is_404() || is_search() || is_archive()) {
+            // 404, search, and archive pages
+            $banner_type     = 'static';
             $banner_template = 'modules/banners/templates/hero-static.php';
+        } elseif (is_single()) {
+            // Single post/page has its own template
+            $banner_type     = 'single';
+            $banner_template = 'modules/banners/templates/hero-single.php';
         } else {
             // Only attempt to get the banner type if ACF is available
             if (class_exists('ACF')) {

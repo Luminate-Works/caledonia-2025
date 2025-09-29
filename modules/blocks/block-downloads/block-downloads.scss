@@ -2,59 +2,91 @@
 @import "../../../scss/abstracts/mixins";
 
 .lmn-docuement-downloads {
-	display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-	margin-top: 4rem !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 4rem !important;
 
-	@media (max-width: 768px) {
-        grid-template-columns: 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  &.is-style-fullwidth {
+    grid-template-columns: 1fr;
+  }
+
+  .document-item {
+    p {
+      margin: 0 !important;
+      color: $primary;
+
+      &.file {
+        opacity: 0.5;
+        font-size: $font-16;
+      }
     }
+    a {
+      display: flex;
+      gap: 4.4rem;
+      align-items: center;
 
-	.document-item {
-		display: flex;
-		gap: 4.4rem;
-		align-items: center;
+      &::before {
+        content: "";
+        background-image: url(../../../assets/images/theme/icon-download.svg);
+        opacity: 1;
+        z-index: 1;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        transition: all $ease $speed;
+      }
 
-			p {
-				margin: 0 !important;
-				color:$primary;
+      &:hover::before {
+        background-image: url(../../../assets/images/theme/icon-download-fill.svg);
+      }
+    }
+  }
 
-				&.file {
-					opacity: 0.5;
-					font-size: $font-16;
-				}
-			}
-			a {
-				display: block;
-				width: 32px;
-				height: 32px;
+  &.left_border {
+    gap: 1.6rem;
+    .document-item a {
+      gap: 0;
 
-				&::before {
-					content: "";
-					background-image: url(../../../assets/images/theme/icon-download.svg);
-					opacity: 1;
-					z-index: 1;
-					width: 32px;
-					height: 32px;
-					display: inline-block;
-				}
+      > div {
+        margin-left: 2.4rem;
+        padding-left: 2.4rem;
+        border-left: 1px solid rgba($primary, 0.1);
+      }
+    }
+  }
 
-				&:hover::before {
-					background-image: url(../../../assets/images/theme/icon-download-fill.svg);
-				}
-			}
+  &.left_border_light {
+    gap: 1.6rem;
+    .document-item a {
+      gap: 0;
 
-		
-	}
+      > div {
+        margin-left: 2.4rem;
+        padding-left: 2.4rem;
+        border-left: 1px solid rgba(white, 0.1);
+      }
+    }
+  }
 
-	&.dark-mode {
-		.document-item {
-			a, p {
-				color:#fff;
-			}
-		}
-			
-		}
+  &.dark-mode {
+    .document-item {
+      a,
+      p {
+        color: #fff;
+      }
+    }
+  }
+
+  &.gap16 {
+    .document-item {
+      a {
+        gap: 16px !important;
+      }
+    }
+  }
 }
-

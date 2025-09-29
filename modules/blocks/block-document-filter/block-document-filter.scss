@@ -6,13 +6,14 @@
 }
 
 .documents-filter {
-  .load-more {
-    display: flex;
-    justify-content: center;
-    margin: $space-m auto 0 auto;
+  .wp-block-button {
+    margin-top: 4rem;
 
-    &:after {
-      transform: rotate(90deg);
+    .wp-block-button__link {
+      &:before,
+      &:after {
+        transform: rotate(90deg);
+      }
     }
   }
 }
@@ -246,7 +247,7 @@
       }
 
       > div {
-        width: calc(50% - 0.8rem);
+        width: calc(80% - 0.8rem);
 
         &.search-bar {
           width: 100%;
@@ -313,6 +314,12 @@
         }
       }
 
+      &:last-of-type {
+        .file {
+          border-bottom: none;
+        }
+      }
+
       .file {
         .date {
           padding: 0 4rem;
@@ -330,6 +337,14 @@
 }
 
 .documents-list {
+  .document-item {
+    &:last-of-type {
+      .file {
+        border-bottom: none;
+      }
+    }
+  }
+
   .file {
     display: flex;
     flex-wrap: wrap;

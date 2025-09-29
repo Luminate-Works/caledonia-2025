@@ -40,6 +40,9 @@ function enqueue_scripts_and_styles() {
     wp_enqueue_style('glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', [], null);
     wp_enqueue_script('glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', [], null, true);
     wp_add_inline_script('glightbox', 'document.addEventListener("DOMContentLoaded", function(){ GLightbox({ selector: ".glightbox" }); });');
+
+    wp_enqueue_script('qa', 'https://www.bugherd.com/sidebarv2.js?apikey=gjnzoxyhct0k70d6fwfzlg', array(), null, true);
+
 }
 
 // ------------------------------------------

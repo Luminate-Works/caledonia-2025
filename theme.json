@@ -206,7 +206,7 @@
 					"name": "Space XL 9rem"
                 },
                 {
-					"size": "0vw",
+					"size": "clamp(2rem, 1.474rem + 2.807vw, 4rem)",
 					"slug": "contentgap",
 					"name": "Content Gap"
                 }

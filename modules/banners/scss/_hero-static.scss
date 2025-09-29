@@ -46,9 +46,10 @@
     color: #fff;
 
     &.hero-image__subtitle {
-      font-size: $font-18;
+      font-size: $font-20;
       margin-top: 2.4rem;
       margin-bottom: 0;
+      color: rgba($primary, 0.6);
     }
   }
 
@@ -112,6 +113,10 @@
           border-radius: 8px;
           overflow: hidden;
           z-index: 10;
+
+          @media (min-width: 1024px) {
+              min-width: 330px;
+          }
 
           p.video-title {
             font-family: $ff-title;
@@ -259,7 +264,7 @@ body.page-child {
     }
   }
 
-  &.parent-pageid-2556 {
+  &.parent-pageid-2556:not(.page-id-2585) {
     .hero-static__content {
       .page-title {
         span.sub {

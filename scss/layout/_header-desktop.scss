@@ -34,8 +34,8 @@ header {
   } // sticky header
 
   > .wrap {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 220px auto 220px;
     gap: 2.5%;
     justify-content: space-between;
     // border-bottom: 1px solid rgba(255, 255, 255, 0.20);
@@ -90,6 +90,23 @@ header {
         }
       }
 
+      > .child-menu {
+        transform: translateY(0px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      &.open {
+        > .child-menu {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+          pointer-events: all;
+        }
+      }
+
       &:hover,
       &:active,
       &:focus,
@@ -100,13 +117,6 @@ header {
           &:before {
             border-color: $secondary;
           }
-        }
-
-        & > .child-menu {
-          transform: translateY(0);
-          opacity: 1;
-          visibility: visible;
-          pointer-events: all;
         }
       }
     } // 1st level
@@ -230,10 +240,11 @@ header {
 
       .sub-menu {
         flex: 2;
+        width: fit-content;
 
         &.col2 {
           columns: 2;
-          column-gap: 50px;
+          column-gap: 55px;
 
           li {
             max-width: 100%;

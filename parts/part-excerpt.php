@@ -14,7 +14,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 <a class="excerpt" href="<?php the_permalink(); ?>" title="<?= esc_attr(get_the_title()); ?>" aria-label="Read more about <?= esc_attr(get_the_title()); ?>">
 
     <div class="meta-fields">
-        <p aria-label="Published date: <?= get_the_date('F, Y'); ?>"><?= get_the_date('F, Y'); ?></p>
+        <p aria-label="Published date: <?= get_the_date('F Y'); ?>"><?= get_the_date('F Y'); ?></p>
         <p class="meta">Reading time <?php echo $reading_time; ?> mins</p>
 
 

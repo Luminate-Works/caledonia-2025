@@ -29,8 +29,9 @@ html.interface-interface-skeleton__html-container {
   visibility: visible !important;
 }
 :where(.editor-styles-wrapper) .accordion .acc-panel {
-  max-height: 10000000px;
+  max-height: 10000000px !important;
   opacity: 1;
+  height: auto !important;
   visibility: visible;
 }
 :where(.editor-styles-wrapper) .accordion .acc-panel > * {

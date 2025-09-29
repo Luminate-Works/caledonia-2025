@@ -12,6 +12,11 @@
     padding-left: 4rem;
   }
 
+  &.is-style-border-top {
+    border-top: 1px solid rgba($primary, 0.1);
+    padding-top: 4rem;
+  }
+
   &.is-style-border-left-light {
     border-left: 1px solid rgba(white, 0.1);
     padding-left: 4rem;
@@ -109,6 +114,11 @@
   &.is-style-border-bottom {
     border-bottom: 1px solid rgba($primary, 0.1);
     padding-bottom: 5.5rem;
+  }
+
+  &.is-style-border-top {
+    border-top: 1px solid rgba($primary, 0.1);
+    padding-top: 5.5rem;
   }
 
   @media (min-width: 1024px) {

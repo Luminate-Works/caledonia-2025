@@ -45,7 +45,7 @@
   transition: opacity 0.25s ease-in-out;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 .aim__btn:before {
   content: "";

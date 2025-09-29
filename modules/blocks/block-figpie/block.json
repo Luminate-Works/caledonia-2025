@@ -1,0 +1,15 @@
+{
+	"name": "lmn/figpie",
+	"title": "Fig Pie",
+	"category": "luminate",
+	"icon": {
+		"src": "chart-pie",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["fig", "pie", "chart"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-figpie.php"
+	}
+}

@@ -183,9 +183,11 @@ body:not(.wp-admin) .navtr table tbody tr:last-child {
 }
 body:not(.wp-admin) .navtr table tbody tr td {
   line-height: 1;
-  padding: 2.4rem 0 !important;
+  padding: 1.4rem 0 !important;
+  font-size: var(--wp--preset--font-size--font-18);
 }
 body:not(.wp-admin) .navtr table tbody tr td:first-child {
+  font-size: var(--wp--preset--font-size--font-14);
   opacity: 0.6;
 }
 body:not(.wp-admin) .navtr table tbody tr td::before {

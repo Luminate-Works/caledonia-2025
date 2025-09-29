@@ -308,7 +308,6 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 4rem;
-  padding-bottom: 4rem;
 }
 .posts-filter .posts-listing .excerpt {
   width: 100%;
@@ -329,13 +328,21 @@
 .posts-filter .posts-listing .excerpt .meta-fields p {
   font-size: var(--wp--preset--font-size--font-14);
   margin: 0 !important;
-  border-right: 1px solid rgba(1, 0, 53, 0.1);
-  padding-right: 1.6rem;
+  border-left: 1px solid rgba(1, 0, 53, 0.1);
+  padding-left: 1.6rem;
   color: #010035;
   line-height: 110%;
 }
 .posts-filter .posts-listing .excerpt .meta-fields p.meta {
   color: rgba(1, 0, 53, 0.5);
+}
+.posts-filter .posts-listing .excerpt .meta-fields p:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.posts-filter .posts-listing .excerpt .meta-fields .icon {
+  border-left: 1px solid rgba(1, 0, 53, 0.1);
+  padding-left: 1.6rem;
 }
 .posts-filter .posts-listing .excerpt h3 {
   font-size: var(--wp--preset--font-size--font-32);

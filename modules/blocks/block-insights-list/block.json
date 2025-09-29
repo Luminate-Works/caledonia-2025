@@ -1,0 +1,15 @@
+{
+  "name": "lmn/insights-list",
+  "title": "Insights List",
+  "category": "luminate",
+  "icon": {
+    "src": "editor-ol",
+    "foreground": "#09ca7f"
+  },
+  "apiVersion": 2,
+  "keywords": ["insights", "list"],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "block-insights-list.php"
+  }
+}

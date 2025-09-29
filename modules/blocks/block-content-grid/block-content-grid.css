@@ -1,0 +1,75 @@
+.lmn-content-grid .content-grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item {
+  width: 100%;
+  position: relative;
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item .content-grid-image {
+  display: flex;
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item .content-grid-image img {
+  width: 100%;
+  aspect-ratio: 1.5/1;
+  border-radius: 10px;
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item h3 {
+  margin-top: 3rem;
+  font-size: var(--wp--preset--font-size--font-32);
+  line-height: 130%;
+  margin-bottom: 1.6rem;
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item p {
+  font-size: var(--wp--preset--font-size--font-18);
+  line-height: 160%;
+  margin-bottom: 4rem;
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item .wp-block-button__link[target=_blank]:before, .lmn-content-grid .content-grid-wrapper .content-grid-item .wp-block-button__link[target=_blank]:after {
+  transform: rotate(320deg);
+}
+.lmn-content-grid .content-grid-wrapper .content-grid-item:before, .lmn-content-grid .content-grid-wrapper .content-grid-item:after {
+  content: none;
+}
+@media (min-width: 768px) {
+  .lmn-content-grid .content-grid-wrapper {
+    gap: 5rem;
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item {
+    width: calc(50% - 2.5rem);
+  }
+}
+@media (min-width: 1024px) {
+  .lmn-content-grid .content-grid-wrapper {
+    gap: 11.2rem;
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item {
+    width: calc(50% - 5.6rem);
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item:before {
+    content: "";
+    border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+    position: absolute;
+    bottom: -5.6rem;
+    width: calc(100% + 11.2rem);
+    left: 0;
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item:nth-child(2n):before {
+    width: 100%;
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item:after {
+    content: "";
+    border-right: 1px solid rgba(1, 0, 53, 0.1);
+    position: absolute;
+    right: -5.6rem;
+    height: 100%;
+    top: 0;
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item:nth-child(2n):after {
+    content: none;
+  }
+  .lmn-content-grid .content-grid-wrapper .content-grid-item:nth-last-child(-n+2):before {
+    content: none;
+  }
+}/*# sourceMappingURL=block-content-grid.css.map */

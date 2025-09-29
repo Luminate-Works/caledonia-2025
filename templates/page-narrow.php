@@ -1,23 +1,30 @@
-<?php 
-/* Template Name: Narrow Page */ 
-    get_header(); 
+<?php
+/* Template Name: Narrow Page */
+get_header();
 ?>
 
-<div class="full-width narrow has-global-padding">
+<div class="has-global-padding">
     <div id="content">
-        <?php 
+        <?php
         $titles_in_banner = class_exists('ACF') ? get_field('titles_in_banner', 'option') : false;
-        if (! $titles_in_banner) : 
+        if (! $titles_in_banner) :
         ?>
             <h1 class="main-heading"><?php the_title(); ?></h1>
         <?php endif; ?>
 
-        <?php 
-        if (have_posts()) : 
-            while (have_posts()) : the_post(); 
-                the_content();
-            endwhile; 
-        endif; 
+        <?php
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+
+        ?>
+                <div class="narrow wrap">
+                    <?php the_content(); ?>
+
+                </div>
+
+        <?php
+            endwhile;
+        endif;
         ?>
     </div>
 </div>

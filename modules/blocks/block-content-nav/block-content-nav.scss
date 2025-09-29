@@ -9,6 +9,15 @@
     grid-template-columns: 340px 1fr;
     column-gap: 10rem;
     row-gap: 12rem;
+
+    a:not(.wp-block-button__link) {
+      color: rgba($primary, 0.6);
+      text-decoration: underline;
+
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 
   ul.contents {

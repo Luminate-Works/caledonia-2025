@@ -1,0 +1,15 @@
+{
+	"name": "lmn/logo-grid",
+	"title": "Logo Grid",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-code",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["logo", "grid"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-logo-grid.php"
+	}
+}

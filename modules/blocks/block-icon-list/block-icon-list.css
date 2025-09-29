@@ -75,8 +75,44 @@
 .lmn-icon-list.dark_text p {
   color: #010035 !important;
 }
+.lmn-icon-list.large_icons img {
+  width: 40px !important;
+  height: 40px !important;
+}
+.lmn-icon-list.no_border_top .list-item:first-child {
+  border-top: 0 !important;
+}
+.lmn-icon-list.body_text p {
+  font-size: var(--wp--preset--font-size--font-16);
+  line-height: 160%;
+}
+.lmn-icon-list.body_text.dark_text p {
+  color: rgba(1, 0, 53, 0.6) !important;
+}
 @media (min-width: 601px) {
   .lmn-icon-list.border_bottom:nth-last-child(-n+2) {
     border-bottom: 1px solid rgba(1, 0, 53, 0.1019607843);
   }
+}
+.lmn-icon-list.grid_boxes {
+  gap: 16px;
+}
+.lmn-icon-list.grid_boxes .list-item {
+  padding: 2.4rem;
+  border-radius: 4px;
+  background: #F9F3EB;
+  aspect-ratio: 2/1.25;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(50% - 8px);
+}
+.lmn-icon-list.grid_boxes .list-item img {
+  width: 24px;
+  height: 24px;
+}
+.lmn-icon-list.grid_boxes .list-item p {
+  font-size: var(--wp--preset--font-size--font-20);
+  color: rgba(1, 0, 53, 0.8);
+  line-height: 160%;
 }/*# sourceMappingURL=block-icon-list.css.map */

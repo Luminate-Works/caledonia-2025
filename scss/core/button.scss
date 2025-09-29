@@ -76,6 +76,19 @@
       }
     }
   }
+
+    &.is-style-plus {
+    .wp-block-button__link {
+
+      &:before {
+        background-image: url(../assets/images/theme/acc-plus.svg);
+      }
+
+      &:after {
+        background-image: url(../assets/images/theme/acc-plus-fill.svg);
+      }
+    }
+  }
 }
 
 * + .wp-block-buttons {
@@ -86,5 +99,17 @@
   + .wp-block-group,
   + .wp-block-columns {
     margin-top: $space-m;
+  }
+
+  &.is-style-mt24 {
+    margin-top: 2.4rem !important;
+  }
+
+  &.is-style-border-top {
+    border-top: 1px solid rgba($primary, 0.1);
+  }
+
+    &.is-style-border-top-light {
+    border-top: 1px solid rgba(white, 0.1);
   }
 }

@@ -130,18 +130,19 @@ foreach ($modules as $module => $enabled) {
                 add_action('init', function () {
                     register_custom_post_type('insights', 'Insights', 'Insight', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
                     register_custom_taxonomy('insights-category', 'Insights Categories', ['insights']);
+                    register_custom_taxonomy('insights-authors', 'Insights Authors', ['insights']);
                 });
                 break;
             case 'external_research':
                 add_action('init', function () {
                     register_custom_post_type('external-research', 'External Research', 'Research', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
-                    register_custom_taxonomy('external-research-category', 'Research Categories', ['external_research']);
+                    register_custom_taxonomy('external-research-category', 'Research Categories', ['external-research']);
                 });
                 break;
             case 'press_coverage':
                 add_action('init', function () {
                     register_custom_post_type('press-coverage', 'Press Coverage', 'Press Coverage', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
-                    register_custom_taxonomy('press-coverage-category', 'Press Coverage Categories', ['press_coverage']);
+                    register_custom_taxonomy('press-coverage-category', 'Press Coverage Categories', ['press-coverage']);
                 });
                 break;
             case 'testimonials':

@@ -1,0 +1,15 @@
+{
+	"name": "lmn/insights-filter",
+	"title": "Insights Filter",
+	"category": "luminate",
+	"icon": {
+		"src": "media-text",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["posts", "insights", "news", "blog", "articles", "press", "release"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-insights-filter.php"
+	}
+}

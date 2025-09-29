@@ -296,3 +296,17 @@ add_filter('post_date_column_time', 'custom_admin_post_date_time_format', 10, 4)
 function custom_admin_post_date_time_format($t_time, $post, $column_name, $mode) {
     return get_the_time('d M Y H:i', $post);
 }
+
+// ------------------------------------------
+// Add underline option
+// ------------------------------------------
+function add_underline() {
+    wp_enqueue_script(
+        'lm8-underline',
+        get_template_directory_uri() . '/assets/js/underline-format.js',
+        array( 'wp-rich-text', 'wp-editor', 'wp-element', 'wp-components', 'wp-block-editor' ),
+        filemtime( get_template_directory() . '/assets/js/underline-format.js' ), // cache-bust
+        true
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'add_underline' );

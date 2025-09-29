@@ -1,0 +1,44 @@
+body.single {
+  #content {
+    .narrow {
+      padding-top: 4rem;
+      border-top: 1px solid rgba($primary, 0.1);
+    }
+
+    .social-share {
+      padding-top: 4rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba($primary, 0.1);
+
+      p {
+        color: $primary;
+        font-size: $font-18;
+      }
+
+      .icons {
+        display: flex;
+        gap: 1.6rem;
+
+        svg {
+          path,
+          circle {
+            transition: fill ease $speed;
+          }
+        }
+
+        a:hover {
+          svg {
+            path {
+              fill: white;
+            }
+
+            circle {
+              fill: $primary;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

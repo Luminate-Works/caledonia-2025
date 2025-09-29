@@ -235,9 +235,11 @@ body:not(.wp-admin) .navtr {
 
         td {
           line-height: 1;
-          padding: 2.4rem 0 !important;
+          padding: 1.4rem 0 !important;
+          font-size: $font-18;
 
           &:first-child {
+            font-size: $font-14;
             opacity: 0.6;
           }
 

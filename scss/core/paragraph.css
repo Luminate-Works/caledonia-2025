@@ -14,8 +14,15 @@ p.is-style-intro, p.is-style-introborder {
   font-size: var(--wp--preset--font-size--font-40);
   line-height: 130%;
   font-family: var(--wp--preset--font-family--secondary);
-  color: #010035;
+  color: rgba(1, 0, 53, 0.4);
   max-width: 890px;
+}
+p.is-style-intro.has-white-color strong, p.is-style-introborder.has-white-color strong {
+  color: rgba(255, 255, 255, 0.4);
+}
+p.is-style-intro strong, p.is-style-introborder strong {
+  font-weight: normal;
+  color: #010035;
 }
 p.is-style-intro.has-text-align-center, p.is-style-introborder.has-text-align-center {
   width: 96%;
@@ -31,13 +38,25 @@ p.is-style-transparent {
 .wp-block-heading + p.is-style-mt16 {
   margin-top: 1.6rem !important;
 }
+p + p.is-style-mt16 {
+  margin-top: 1.6rem !important;
+}
 .wp-block-heading + p.is-style-mt24 {
+  margin-top: 2.4rem !important;
+}
+p + p.is-style-mt24 {
   margin-top: 2.4rem !important;
 }
 .wp-block-heading + p.is-style-mt32 {
   margin-top: 3.2rem !important;
 }
+p + p.is-style-mt32 {
+  margin-top: 3.2rem !important;
+}
 .wp-block-heading + p.is-style-mt40 {
+  margin-top: 4rem !important;
+}
+p + p.is-style-mt40 {
   margin-top: 4rem !important;
 }
 p.is-style-section-intro {

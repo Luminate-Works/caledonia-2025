@@ -88,6 +88,10 @@ wp.blocks.registerBlockStyle('core/columns', {
 	label: 'Border Bottom',
 });
 wp.blocks.registerBlockStyle('core/columns', {
+	name: 'border-top',
+	label: 'Border Top',
+});
+wp.blocks.registerBlockStyle('core/columns', {
 	name: 'width-half',
 	label: 'Width Half',
 });
@@ -129,6 +133,10 @@ wp.blocks.registerBlockStyle('core/column', {
 	label: 'Border Left',
 });
 wp.blocks.registerBlockStyle('core/column', {
+	name: 'border-top',
+	label: 'Border Top',
+});
+wp.blocks.registerBlockStyle('core/column', {
 	name: 'border-left-light',
 	label: 'Border Left Light',
 });
@@ -154,6 +162,25 @@ wp.blocks.registerBlockStyle('core/column', {
 wp.blocks.registerBlockStyle('core/table', {
 	name: 'swipe',
 	label: 'Swipe (mobile)',
+});
+
+// buttons
+wp.blocks.registerBlockStyle('core/buttons', {
+	name: 'mt24',
+	label: 'Margin Top 2.4rem',
+	isDefault: false
+});
+
+wp.blocks.registerBlockStyle('core/buttons', {
+	name: 'border-top',
+	label: 'Border Top',
+	isDefault: false
+});
+
+wp.blocks.registerBlockStyle('core/buttons', {
+	name: 'border-top-light',
+	label: 'Border Top Light',
+	isDefault: false
 });
 
 // button
@@ -182,6 +209,11 @@ wp.blocks.registerBlockStyle('core/button', {
 	name: 'download-white',
 	label: 'Download White',
 });
+wp.blocks.registerBlockStyle('core/button', {
+	name: 'plus',
+	label: 'Plus',
+});
+
 
 // quicklinks
 wp.blocks.registerBlockStyle('lmn/quicklinks', {
@@ -209,4 +241,15 @@ wp.blocks.registerBlockStyle('core/table', {
 wp.blocks.registerBlockStyle('core/table', {
 	name: 'bg',
 	label: 'Background',
+});
+
+// quote
+wp.blocks.registerBlockStyle('core/quote', {
+	name: 'center',
+	label: 'Center',
+});
+
+wp.blocks.registerBlockStyle('core/quote', {
+	name: 'dark-mode',
+	label: 'Dark Mode',
 });

@@ -8,6 +8,13 @@
        column-gap: 10rem;
   row-gap: 12rem;
 }
+.content-group > .acf-innerblocks-container a:not(.wp-block-button__link) {
+  color: rgba(1, 0, 53, 0.6);
+  text-decoration: underline;
+}
+.content-group > .acf-innerblocks-container a:not(.wp-block-button__link):hover {
+  color: #010035;
+}
 .content-group ul.contents {
   display: flex;
   flex-wrap: wrap;

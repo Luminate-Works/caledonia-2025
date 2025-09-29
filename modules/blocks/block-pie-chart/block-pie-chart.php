@@ -115,7 +115,7 @@ if (have_rows('sectors')) {
     var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.setAttribute("class", "center-text");
     text.setAttribute("x", "50%");
-    text.setAttribute("y", "44.6%");
+    text.setAttribute("y", "47.6%");
     text.setAttribute("text-anchor", "middle");
     text.setAttribute("dominant-baseline", "middle");
     var textNode = document.createTextNode("");
@@ -125,7 +125,7 @@ if (have_rows('sectors')) {
     var fillText = document.createElementNS("http://www.w3.org/2000/svg", "text");
     fillText.setAttribute("class", "fill-text");
     fillText.setAttribute("x", "50%");
-    fillText.setAttribute("y", "52.6%");
+    fillText.setAttribute("y", "55.6%");
     fillText.setAttribute("text-anchor", "middle");
     fillText.setAttribute("dominant-baseline", "middle");
     var labelNode = document.createTextNode("");

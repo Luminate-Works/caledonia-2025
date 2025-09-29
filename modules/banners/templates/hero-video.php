@@ -91,6 +91,48 @@ if (is_front_page()) {
                 <p class="hero-image__subtitle"><?= esc_html($subtitle); ?></p>
             <?php endif; ?>
 
+            <?php if ($banner_content && !empty($banner_content['banner_slider_overlay'])) : ?>
+                <div class="banner-slider-overlay">
+                    <?php foreach ($banner_content['banner_slider_overlay'] as $slide) :
+                        $img    = $slide['img'];
+                        $label  = $slide['label'];
+                        $title  = $slide['title'];
+                        $button = $slide['button']; // Link field
+                        $link   = !empty($button['url']) ? $button['url'] : '#';
+                        $target = !empty($button['target']) ? $button['target'] : '_self';
+                    ?>
+                        <a href="<?php echo esc_url($link); ?>"
+                            class="banner-slide"
+                            target="<?php echo esc_attr($target); ?>">
+
+                            <?php if (!empty($img)): ?>
+                                <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                            <?php endif; ?>
+
+                            <div class="content">
+                                <?php if ($label): ?>
+                                    <div class="label"><?php echo esc_html($label); ?></div>
+                                <?php endif; ?>
+
+                                <?php if ($title): ?>
+                                    <div class="title"><?php echo esc_html($title); ?></div>
+                                <?php endif; ?>
+
+                                <?php if ($button): ?>
+                                    <div class="wp-block-button is-style-plain-white">
+                                        <div class="wp-block-button__link">
+                                            <?php echo esc_html($button['title']); ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+
+
         </div>
     </div>
 <?php endif; ?>

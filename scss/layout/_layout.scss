@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+.narrow {
+  max-width: 770px;
+  margin: 12rem auto;
+}
+
 .parallax-up {
   margin-top: 100vh;
   background: white;
@@ -11,10 +16,10 @@
 }
 
 .has-global-padding {
-    > .alignfull {
-        margin-left: 0!important;
-        margin-right: 0!important;
-    }
+  > .alignfull {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 #content {

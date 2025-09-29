@@ -18,6 +18,22 @@ if (get_field('border_bottom')) {
     $className .= ' border_bottom';
 }
 
+if (get_field('no_border_top')) {
+    $className .= ' no_border_top';
+}
+
+if (get_field('large_icons')) {
+    $className .= ' large_icons';
+}
+
+if (get_field('body_text')) {
+    $className .= ' body_text';
+}
+
+if (get_field('grid_boxes')) {
+    $className .= ' grid_boxes';
+}
+
 ?>
 
 <div class="<?= esc_attr($className); ?>">

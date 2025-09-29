@@ -381,7 +381,6 @@
     flex-wrap: wrap;
     flex-direction: column;
     gap: 4rem;
-    padding-bottom: 4rem;
 
     .excerpt {
       width: 100%;
@@ -402,14 +401,24 @@
         p {
           font-size: $font-14;
           margin: 0 !important;
-          border-right: 1px solid rgba($primary, 0.1);
-          padding-right: 1.6rem;
+          border-left: 1px solid rgba($primary, 0.1);
+          padding-left: 1.6rem;
           color: $primary;
           line-height: 110%;
 
           &.meta {
             color: rgba($primary, 0.5);
           }
+
+          &:first-child {
+            padding-left: 0;
+            border-left: 0;
+          }
+        }
+
+        .icon {
+          border-left: 1px solid rgba($primary, 0.1);
+          padding-left: 1.6rem;
         }
       }
 
@@ -465,7 +474,6 @@
 
     // Limited mode overrides
     &.limited {
-
       > .row-separator {
         display: none;
       }

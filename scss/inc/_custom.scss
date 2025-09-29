@@ -2,16 +2,36 @@
   padding-left: 2.4rem !important;
 }
 
+.mt24 {
+  margin-top: 2.4rem !important;
+}
+
 .mt32 {
   margin-top: 3.2rem !important;
 }
 
 .text300 {
-  max-width: 300px;
+  max-width: 300px !important;
+}
+
+.text380 {
+  max-width: 380px !important;
 }
 
 .text420 {
-  max-width: 420px;
+  max-width: 420px !important;
+}
+
+.text620 {
+  max-width: 620px !important;
+}
+
+.text720 {
+  max-width: 720px !important;
+}
+
+.gap24 {
+  gap: 2.4rem !important;
 }
 
 .home-boxes-wrapper {
@@ -84,6 +104,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 8px;
 }
 
 .home-sustainability-bg {
@@ -91,6 +112,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 8px;
 }
 
 .investors-bg {
@@ -98,6 +120,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 8px;
 }
 
 .wp-block-cover.risk-management {
@@ -122,7 +145,64 @@
   .wp-block-columns:last-of-type {
     padding: 11.5rem 3rem 4.5rem 3rem;
     .wp-block-column:first-child {
-      border-left: 1px solid rgba(255, 255, 255, 0.10) !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+}
+
+.investor-stats {
+  .wp-block-column {
+    padding-left: 2.4rem;
+  }
+
+  .statistics {
+    .statistics__number {
+      font-size: $font-48;
+    }
+
+    p.statistics__number-small {
+      margin-top: 1rem !important;
+      color: $primary;
+    }
+  }
+}
+
+.accordion.shareholder {
+  > input + .acc-title {
+    span {
+      font-size: $font-32;
+      font-family: $ff-title;
+    }
+  }
+
+  > input:checked + .acc-title + .acc-panel .acf-innerblocks-container {
+    border-top: 1px solid rgba($primary, 0.1) !important;
+    padding-top: 2.4rem;
+  }
+}
+
+.contact-box {
+
+  .wp-block-button__link {
+    color: rgba(white, 0.8);
+
+    &:before,
+    &:after {
+      transform: rotate(320deg);
+    }
+  }
+
+  p.tfl {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    &:before {
+      content: "";
+      background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.2008 7.008H13.9208C13.4408 4.16 10.9768 2 8.00078 2C5.02478 2 2.56078 4.16 2.08078 7.008H0.800781V9.008H2.08078C2.56078 11.84 5.02478 14 8.00078 14C10.9768 14 13.4408 11.84 13.9208 8.992H15.2008V7.008ZM8.00078 4C9.85678 4 11.4248 5.28 11.8728 7.008H4.12878C4.57678 5.28 6.14478 4 8.00078 4ZM8.00078 12C6.14478 12 4.57678 10.72 4.12878 8.992H11.8728C11.4248 10.72 9.85678 12 8.00078 12Z" fill="white"/></svg>');
+      width: 16px;
+      height: 16px;
+      display: block;
+      float: left;
     }
   }
 }

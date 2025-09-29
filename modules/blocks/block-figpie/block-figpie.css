@@ -1,0 +1,238 @@
+.lmn-figpie .figpie-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  padding-top: 10rem;
+  margin-top: 8rem;
+  position: relative;
+}
+.lmn-figpie .figpie-wrapper:before {
+  content: "";
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 70%;
+  top: 0;
+}
+.lmn-figpie .col {
+  width: 33.3%;
+  position: relative;
+}
+.lmn-figpie .col:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -25%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 40%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.lmn-figpie .col:nth-child(2):before {
+  height: 50%;
+  top: -35%;
+}
+.lmn-figpie .col svg {
+  margin: auto;
+}
+.lmn-figpie .col svg .button .circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.lmn-figpie .col svg .button:hover {
+  cursor: pointer;
+}
+.lmn-figpie .legend {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--wp--preset--font-size--font-18);
+  gap: 16px;
+  justify-content: center;
+}
+
+#figpie__modal {
+  background: rgba(0, 0, 0, 0.568627451);
+  opacity: 0;
+  visibility: hidden;
+  inset: 0;
+  position: fixed;
+  z-index: 99999999;
+  transition: 0.5s ease 0.2s;
+  pointer-events: all;
+}
+#figpie__modal .modal-inner {
+  max-width: 60rem;
+  width: 520px;
+  height: 100%;
+  padding: 0;
+  background: rgb(227, 242, 234);
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+  transition: 0.5s ease;
+  pointer-events: all;
+  overflow: auto;
+  overflow-y: scroll;
+}
+#figpie__modal .modal-inner::-webkit-scrollbar {
+  width: 10px;
+}
+#figpie__modal .modal-inner::-webkit-scrollbar-thumb {
+  background: rgba(240, 216, 178, 0.3);
+  border-radius: 8px;
+  border: none;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  opacity: 0;
+}
+#figpie__modal .modal-inner::-webkit-scrollbar-track {
+  background: rgba(1, 0, 53, 0.3);
+}
+#figpie__modal .modal-inner:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+#figpie__modal .modal-inner img {
+  width: 100%;
+  max-height: 360px;
+  height: auto;
+  line-height: 0;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: rgba(1, 0, 53, 0.5);
+  border-radius: 3px;
+}
+#figpie__modal .modal-close-wrapper {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+}
+#figpie__modal .modal-content {
+  padding: 2rem;
+}
+@media (min-width: 1024px) {
+  #figpie__modal .modal-content {
+    padding: 4rem;
+  }
+}
+#figpie__modal .modal-content .modal-heading {
+  margin-bottom: 4rem;
+}
+#figpie__modal .modal-content .modal-heading h3 {
+  font-size: var(--wp--preset--font-size--font-32);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  margin-bottom: 1.6rem;
+}
+#figpie__modal .modal-content .modal-heading p {
+  font-size: var(--wp--preset--font-size--font-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: rgba(1, 0, 53, 0.6);
+  margin: 0;
+}
+#figpie__modal .modal-content .modal-stats .stat {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+}
+#figpie__modal .modal-content .modal-stats .stat h3 {
+  margin-bottom: 0;
+}
+#figpie__modal .modal-content .modal-stats .stat span {
+  font-size: var(--wp--preset--font-size--font-14);
+}
+#figpie__modal .modal-content .modal-stats .stat:last-child {
+  border-bottom: 0;
+}
+#figpie__modal.active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0;
+}
+#figpie__modal.active .modal-inner {
+  transform: translateX(0);
+  transition-delay: 0.2s;
+  opacity: 1;
+}
+#figpie__modal #close {
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  font-weight: 100;
+  line-height: 0;
+  text-align: center;
+  color: #FF8A45;
+  background: transparent;
+  border: 1px solid #FF8A45;
+  border-radius: 100%;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+#figpie__modal #close:hover {
+  color: white;
+  border-color: #FF8A45;
+  background-color: #FF8A45;
+}
+#figpie__modal .next,
+#figpie__modal .prev {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  cursor: pointer;
+}
+#figpie__modal .next.disabled,
+#figpie__modal .prev.disabled {
+  opacity: 0.3;
+  cursor: text;
+}
+#figpie__modal .next svg circle,
+#figpie__modal .next svg path,
+#figpie__modal .prev svg circle,
+#figpie__modal .prev svg path {
+  transition: stroke 0.25s ease-in-out;
+}
+#figpie__modal .next:hover svg circle,
+#figpie__modal .prev:hover svg circle {
+  stroke: #010035;
+}
+#figpie__modal .next:hover svg path,
+#figpie__modal .prev:hover svg path {
+  stroke: black;
+}
+#figpie__modal .next[disabled=disabled],
+#figpie__modal .prev[disabled=disabled] {
+  opacity: 0.2;
+  pointer-events: none;
+}
+#figpie__modal .next {
+  top: 49px;
+  right: 0;
+  margin: 10px 0;
+}
+#figpie__modal .prev {
+  top: 98px;
+  left: 0;
+}
+
+html.menu-opened #figpie__modal {
+  pointer-events: all;
+}
+html .modal-opened {
+  overflow: hidden;
+}/*# sourceMappingURL=block-figpie.css.map */

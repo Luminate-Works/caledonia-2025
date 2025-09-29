@@ -1,119 +1,153 @@
 html {
-	min-height: 100%;
-	font-size: 62.5%;
-	overscroll-behavior-y: none;
-	scroll-behavior: smooth;
-	scroll-padding-top: 100px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+  min-height: 100%;
+  font-size: 62.5%;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
-	&.has-nav-expanded {
-		scroll-behavior: auto;
-		overflow: hidden;
-	}
+  &.has-nav-expanded {
+    scroll-behavior: auto;
+    overflow: hidden;
+  }
 
-	@media (min-width: 1024px) {
-		scroll-padding-top: 130px;
-	}
+  @media (min-width: 1024px) {
+    scroll-padding-top: 130px;
+  }
 }
 
-
 body {
-	min-height: 100vh;
-	min-height: 100dvh;
-	font-family: $ff-body;
-	font-variant-ligatures: no-common-ligatures;
-	overflow-x: hidden;
-	overscroll-behavior-y: none;
-	position: relative;
-	-webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: $ff-body;
+  font-variant-ligatures: no-common-ligatures;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
 
-	// Prevent scrolling when menu is open
-	html.menu-opened & {
-		overflow: hidden;
-	}
-
+  html.menu-opened & {
+    overflow: hidden;
+  }
 }
 
 ::-moz-selection {
-	background: rgba($secondary, .35);
+  background: rgba($secondary, 0.35);
 }
-  
+
 ::selection {
-	background: rgba($secondary, .35);
+  background: rgba($secondary, 0.35);
 }
 
 @media screen and (max-width: 600px) {
-	#wpadminbar {
-		position: fixed;
-	}
+  #wpadminbar {
+    position: fixed;
+  }
 }
 
 @for $i from 0 through 16 {
-	.mt#{$i} {
-		margin-top: #{$i}rem !important;
-	}
+  .mt#{$i} {
+    margin-top: #{$i}rem !important;
+  }
 
-	.mb#{$i} {
-		margin-bottom: #{$i}rem !important;
-	}
+  .mb#{$i} {
+    margin-bottom: #{$i}rem !important;
+  }
 
-	.ml#{$i} { 
-		margin-left: #{$i}rem !important;
-	}
+  .ml#{$i} {
+    margin-left: #{$i}rem !important;
+  }
 
-	.mr#{$i} {
-		margin-right: #{$i}rem !important;
-	}
+  .mr#{$i} {
+    margin-right: #{$i}rem !important;
+  }
 
-	.pt#{$i} {
-		padding-top: #{$i}rem !important;
-	}
+  .pt#{$i} {
+    padding-top: #{$i}rem !important;
+  }
 
-	.pb#{$i} {
-		padding-bottom: #{$i}rem !important;  
-	}
- 
-	.pl#{$i} {
-		padding-left: #{$i}rem !important;
-	}
+  .pb#{$i} {
+    padding-bottom: #{$i}rem !important;
+  }
 
-	.p#{$i} {
-		padding: #{$i}rem !important;
-	}
+  .pl#{$i} {
+    padding-left: #{$i}rem !important;
+  }
 
-	@media (max-width: 781px) {
-		.mt#{$i}-sm {
-			margin-top: #{$i}rem !important;
-		}
+  .p#{$i} {
+    padding: #{$i}rem !important;
+  }
 
-		.mb#{$i}-sm {
-			margin-bottom: #{$i}rem !important;
-		}
+  @media (max-width: 781px) {
+    .mt#{$i}-sm {
+      margin-top: #{$i}rem !important;
+    }
 
-		.pt#{$i}-sm {
-			padding-top: #{$i}rem !important;
-		}
+    .mb#{$i}-sm {
+      margin-bottom: #{$i}rem !important;
+    }
 
-		.pb#{$i}-sm {
-			padding-bottom: #{$i}rem !important;
-		}
-	}
+    .pt#{$i}-sm {
+      padding-top: #{$i}rem !important;
+    }
 
-	@media (min-width: 782px) {
-		.mb#{$i}-lg {
-			margin-bottom: #{$i}rem !important;
-		}
-	}
+    .pb#{$i}-sm {
+      padding-bottom: #{$i}rem !important;
+    }
+  }
+
+  @media (min-width: 782px) {
+    .mb#{$i}-lg {
+      margin-bottom: #{$i}rem !important;
+    }
+  }
 }
 
 .hide {
-	display: none!important;
+  display: none !important;
 }
 
 @media (max-width: 781px) {
-	.hide-sm {
-		display: none!important;
-	}
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+.has-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+// Initial styles for the curtains
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9998;
+  transform: translateY(-100%);
+}
+
+.curtain-1 {
+  background-color: $primary;
+}
+
+.curtain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary;
+  opacity: 0;
+  z-index: -1;
+}
+
+.curtain-hidden {
+  opacity: 0;
+  z-index: -1;
+  transform: translateY(100%);
 }

@@ -81,7 +81,6 @@ if ($image_id) {
          echo  '</div>';
          echo  '</div>';
         }
-
        
     }
 
@@ -103,7 +102,7 @@ if ($banner_title && !is_front_page()) {
     echo '<span class="sub">' . esc_html($title_pt2) . '</span>';
     echo '</h1>';
     if ($subtitle) {
-        echo '<p style="' . esc_attr($text_style) . '" class="hero-image__subtitle">' . esc_html($subtitle) . '</p>';
+        echo '<p class="hero-image__subtitle">' . esc_html($subtitle) . '</p>';
     }
     echo '</div></div>';
 }

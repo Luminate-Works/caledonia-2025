@@ -111,8 +111,11 @@ if (is_admin()) {
 
 	<div x-show="noResults && !loading">No documents found.</div>
 
-	<button class="btn load-more" type="button" @click="loadMore" x-show="!allLoaded" x-text="loading ? 'Loading...' : 'Load More'"><span class="screen-reader-text">Load more</span></button>
-
+	<div class="wp-block-button">
+		<button class="wp-block-button__link"
+			@click="loadMore()"
+			x-text="loading ? 'Loading...' : 'Load more'"></button>
+	</div>
 </div>
 
 <script>

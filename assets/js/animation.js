@@ -119,21 +119,30 @@ document.addEventListener("DOMContentLoaded", function () {
   // */
 
   // Intro text
-  // let split = SplitText.create(".is-style-intro, .is-style-introborder", {
-  //   type: "words, chars",
-  // });
+  // check if any target element has the .has-white-color class
+  const isWhite = document.querySelector(
+    ".is-style-intro.has-white-color strong, .is-style-introborder.has-white-color strong"
+  );
 
-  // gsap.from(split.chars, {
-  //   duration: 1,
-  //   color: "#01003566",
-  //   stagger: 0.05,
-  //   ease: "power2.out",
-  //   scrollTrigger: {
-  //     trigger: ".is-style-intro, .is-style-introborder",
-  //     start: "top 80%",
-  //     toggleActions: "play none none none",
-  //   },
-  // });
+  let split = SplitText.create(
+    ".is-style-intro strong, .is-style-introborder strong",
+    { type: "words, chars" }
+  );
+
+  // choose the color based on the presence of the class
+  const startColor = isWhite ? "#ffffff66" : "#01003566";
+
+  gsap.from(split.chars, {
+    duration: 1,
+    color: startColor,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".is-style-intro, .is-style-introborder",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
 
   // *
   // Large CTA animation
@@ -264,18 +273,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // stagger fade
-  gsap.from(".home-boxes .wp-block-column", {
-    opacity: 0,
-    y: 30,
-    stagger: 0.5,
-    duration: 2,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".home-boxes",
-      start: "top 80%",
-      toggleActions: "play none none none",
-    },
-  });
+  if (document.querySelector(".home-boxes")) {
+    gsap.from(".home-boxes .wp-block-column", {
+      opacity: 0,
+      y: 30,
+      stagger: 0.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".home-boxes",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  }
 
   // Video banner text fade in
   gsap.from(".hero-video__content h2 span", {
@@ -298,22 +309,32 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  const heroBg = document.querySelector(".hero-video.home");
-const megaMenu = document.querySelector(".mega-menu");
-
-if (heroBg && megaMenu) {
-  // Create a reusable tween
-  const fade = gsap.to(heroBg, {
-    opacity: 0.3, // dim background (0 = fully hidden, 1 = fully visible)
-    duration: 0.4,
-    paused: true,
-    ease: "power2.out"
+  gsap.to(".banner-slider-overlay", {
+    y: -400,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero-video",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
   });
 
-  megaMenu.addEventListener("mouseenter", () => fade.play());
-  megaMenu.addEventListener("mouseleave", () => fade.reverse());
-}
+  const heroBg = document.querySelector(".hero-video.home");
+  const megaMenu = document.querySelector(".mega-menu");
 
+  if (heroBg && megaMenu) {
+    // Create a reusable tween
+    const fade = gsap.to(heroBg, {
+      opacity: 0.3, // dim background (0 = fully hidden, 1 = fully visible)
+      duration: 0.4,
+      paused: true,
+      ease: "power2.out",
+    });
+
+    megaMenu.addEventListener("mouseenter", () => fade.play());
+    megaMenu.addEventListener("mouseleave", () => fade.reverse());
+  }
 
   // *
   // Inner banner title animation
@@ -333,6 +354,109 @@ if (heroBg && megaMenu) {
       stagger: 5,
     });
   }
+
+  const links = document.querySelectorAll(
+    "a:not(#wpadminbar a):not(.menu-item-has-children > a)"
+  );
+  const mm = gsap.matchMedia();
+
+  // Curtain animation only on screens above 782px
+  mm.add("(min-width: 782px)", () => {
+    const curtainOverlay = document.querySelector(".curtain-overlay");
+    const curtain1 = document.querySelector(".curtain-1");
+    const curtain2 = document.querySelector(".curtain-2");
+
+    // Initial hidden state to avoid flashing on load
+    curtainOverlay.classList.add("curtain-hidden");
+
+    // Set starting position (bottom of screen)
+    gsap.set([curtain1, curtain2], { y: "100%" });
+
+    // --- timeline (no permanent onComplete) ---
+    const curtainTimeline = gsap.timeline({ paused: true });
+    curtainTimeline
+      .to(curtain1, {
+        y: "0%",
+        duration: 0.8,
+        ease: "power2.inOut",
+        onStart: () => {
+          curtainOverlay.classList.remove("curtain-hidden");
+          curtainOverlay.style.zIndex = 9999;
+        },
+      })
+      .to(
+        curtainOverlay,
+        {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power1.out",
+        },
+        "-=0.4"
+      );
+
+    // Play curtain and then navigate (one-time callback)
+    function playCurtainAndNavigate(href) {
+      curtainTimeline.eventCallback("onComplete", () => {
+        curtainOverlay.classList.add("curtain-hidden");
+        curtainOverlay.style.zIndex = -1;
+        curtainTimeline.eventCallback("onComplete", null); // clear callback
+        window.location.href = href;
+      });
+      curtainTimeline.restart(true);
+    }
+
+    // --- improved link handling ---
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        if (e.defaultPrevented) return;
+        if (e.button && e.button !== 0) return; // only left click
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // ignore modifier clicks
+        if (this.target && this.target !== "_self") return; // new tab/window
+        if (this.hasAttribute("download")) return;
+
+        const hrefAttr = this.getAttribute("href");
+        if (!hrefAttr) return;
+
+        let url;
+        try {
+          url = new URL(hrefAttr, window.location.href);
+        } catch {
+          return; // malformed href, let browser handle
+        }
+
+        // Skip any link that contains a hash (anchor) – same page or cross page
+        if (url.hash) return;
+
+        // Only animate same-origin internal links without hashes
+        if (url.origin !== location.origin) return;
+
+        e.preventDefault();
+        playCurtainAndNavigate(url.href);
+      });
+    });
+
+    // Reset curtains on back/forward navigation
+    window.addEventListener("popstate", () => {
+      curtainOverlay.classList.add("curtain-hidden");
+      curtainOverlay.style.zIndex = -1;
+      curtainOverlay.style.opacity = 0;
+      curtain1.style.transform = "translateY(100%)";
+      curtain2.style.transform = "translateY(100%)";
+
+      // Optional: reload if you need a full reset
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 10);
+    });
+
+    // Cleanup for screens below 782px
+    return () => {
+      links.forEach((link) => {
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+      });
+    };
+  });
 
   // PERFORMANCE TIP: Throttle animations for mobile
   const isMobile = window.innerWidth < 768;

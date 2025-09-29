@@ -1,0 +1,15 @@
+{
+	"name": "lmn/content-grid",
+	"title": "Content Grid",
+	"category": "luminate",
+	"icon": {
+		"src": "grid-view",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["logo", "grid", "content"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-content-grid.php"
+	}
+}

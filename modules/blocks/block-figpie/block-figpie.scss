@@ -1,0 +1,288 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.lmn-figpie {
+  .figpie-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    padding-top: 10rem;
+    margin-top: 8rem;
+    position: relative;
+
+    &:before {
+      content: "";
+      border-top: 1px solid rgba(white, 0.3);
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 70%;
+      top: 0;
+    }
+  }
+
+  .col {
+    width: 33.3%;
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -25%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: 40%;
+      width: 1px;
+      background: rgba(white, 0.3);
+    }
+
+    &:nth-child(2) {
+      &:before {
+        height: 50%;
+        top: -35%;
+      }
+    }
+
+    svg {
+      margin: auto;
+
+      .button {
+        .circle {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .legend {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    color: rgba(white, 0.6);
+    font-size: $font-18;
+    gap: 16px;
+    justify-content: center;
+  }
+}
+
+// team bio modal
+#figpie__modal {
+  background: #00000091;
+  opacity: 0;
+  visibility: hidden;
+  inset: 0;
+  position: fixed;
+  z-index: 99999999;
+  transition: 0.5s ease 0.2s;
+  pointer-events: all;
+
+  .modal-inner {
+    max-width: 60rem;
+    width: 520px;
+    height: 100%;
+    padding: 0;
+    background: rgba(227, 242, 234, 1);
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    transition: 0.5s ease;
+    pointer-events: all;
+    overflow: auto;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($secondary, 0.3);
+      border-radius: 8px;
+      border: none;
+      transition: 0.2s ease;
+      opacity: 0;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($primary, 0.3);
+    }
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 100%;
+      max-height: 360px;
+      height: auto;
+      line-height: 0;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: rgba($primary, 0.5);
+      border-radius: 3px;
+    }
+  } // modal-inner
+
+  .modal-close-wrapper {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+  }
+
+  .modal-content {
+    padding: 2rem;
+
+    @media (min-width: 1024px) {
+      padding: 4rem;
+    }
+
+    .modal-heading {
+      margin-bottom: 4rem;
+
+      h3 {
+        font-size: $font-32;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 130%;
+        margin-bottom: 1.6rem;
+      }
+
+      p {
+        font-size: $font-16;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        color: $off-off-primary;
+        margin: 0;
+      }
+    }
+
+    .modal-stats {
+      .stat {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid rgba($primary, 0.1);
+
+        h3 {
+          margin-bottom: 0;
+        }
+
+        span {
+          font-size: $font-14;
+        }
+
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  } // modal-content
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0;
+
+    .modal-inner {
+      transform: translateX(0);
+      transition-delay: 0.2s;
+      opacity: 1;
+    }
+  } // active
+
+  #close {
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    font-weight: 100;
+    line-height: 0;
+    text-align: center;
+    color: $orange;
+    background: transparent;
+    border: 1px solid $orange;
+    border-radius: 100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: color $speed $ease, border-color $speed $ease;
+
+    &:hover {
+      color: white;
+      border-color: $orange;
+      background-color: $orange;
+    }
+  }
+
+  .next,
+  .prev {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0.3;
+      cursor: text;
+    }
+
+    svg {
+      circle,
+      path {
+        transition: stroke $speed $ease;
+      }
+    }
+
+    &:hover {
+      svg {
+        circle {
+          stroke: $primary;
+        }
+
+        path {
+          stroke: black;
+        }
+      }
+    }
+
+    &[disabled="disabled"] {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
+
+  .next {
+    top: 49px;
+    right: 0;
+    margin: 10px 0;
+  }
+
+  .prev {
+    top: 98px;
+    left: 0;
+  }
+}
+
+html {
+  &.menu-opened {
+    #figpie__modal {
+      pointer-events: all;
+    }
+  }
+
+  .modal-opened {
+    overflow: hidden;
+  }
+}

@@ -10,8 +10,11 @@
   display: block;
   width: 43px;
   height: 41px;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="43" viewBox="0 0 44 43" fill="none"><path d="M19.04 8.23591C10.24 10.1559 5.12 15.2759 4.48 25.0359H13.76V42.3159H0V26.9559C0 12.7159 6.08 4.07591 19.04 0.715912V8.23591ZM24 42.3159V26.9559C24 12.7159 30.08 4.07591 43.04 0.715912V8.23591C34.24 10.1559 29.12 15.2759 28.48 25.0359H37.76V42.3159H24Z" fill="%23010035"/></svg>');
-  background-size: cover;
+  background: #010035;
+  -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="43" viewBox="0 0 44 43" fill="none"><path d="M19.04 8.23591C10.24 10.1559 5.12 15.2759 4.48 25.0359H13.76V42.3159H0V26.9559C0 12.7159 6.08 4.07591 19.04 0.715912V8.23591ZM24 42.3159V26.9559C24 12.7159 30.08 4.07591 43.04 0.715912V8.23591C34.24 10.1559 29.12 15.2759 28.48 25.0359H37.76V42.3159H24Z" fill="%23010035"/></svg>');
+          mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="43" viewBox="0 0 44 43" fill="none"><path d="M19.04 8.23591C10.24 10.1559 5.12 15.2759 4.48 25.0359H13.76V42.3159H0V26.9559C0 12.7159 6.08 4.07591 19.04 0.715912V8.23591ZM24 42.3159V26.9559C24 12.7159 30.08 4.07591 43.04 0.715912V8.23591C34.24 10.1559 29.12 15.2759 28.48 25.0359H37.76V42.3159H24Z" fill="%23010035"/></svg>');
+  -webkit-mask-size: cover;
+          mask-size: cover;
   margin: 0 0 2.4rem 0;
 }
 .wp-block-quote cite {
@@ -24,6 +27,45 @@
   font-weight: 400;
   color: rgba(1, 0, 53, 0.6);
   display: block;
+}
+.wp-block-quote.has-background {
+  padding: 4rem;
+}
+.wp-block-quote.is-style-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 0;
+  text-align: center;
+}
+.wp-block-quote.is-style-center:before {
+  width: 30px;
+  height: 29px;
+}
+.wp-block-quote.is-style-center p {
+  font-size: var(--wp--preset--font-size--font-40);
+  line-height: 130%;
+  max-width: 500px;
+  text-align: center;
+}
+.wp-block-quote.is-style-center cite {
+  font-size: var(--wp--preset--font-size--font-20);
+}
+.wp-block-quote.is-style-dark-mode {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.wp-block-quote.is-style-dark-mode .wp-block-heading {
+  color: white;
+}
+.wp-block-quote.is-style-dark-mode:before {
+  background: white;
+}
+.wp-block-quote.is-style-dark-mode cite {
+  color: white;
+}
+.wp-block-quote.is-style-dark-mode cite strong {
+  opacity: 0.6;
+  color: white;
 }
 @media (min-width: 1024px) {
   .wp-block-quote {

@@ -1,0 +1,95 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.lmn-content-grid {
+  .content-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem; // default gap for mobile
+
+    .content-grid-item {
+      width: 100%;
+      position: relative;
+
+      .content-grid-image {
+        display: flex;
+        img {
+          width: 100%;
+          aspect-ratio: 1.5 / 1;
+          border-radius: 10px;
+        }
+      }
+
+      h3 {
+        margin-top: 3rem;
+        font-size: $font-32;
+        line-height: 130%;
+        margin-bottom: 1.6rem;
+      }
+
+      p {
+        font-size: $font-18;
+        line-height: 160%;
+        margin-bottom: 4rem;
+      }
+
+      .wp-block-button__link[target="_blank"] {
+        &:before,
+        &:after {
+          transform: rotate(320deg);
+        }
+      }
+
+      &:before,
+      &:after {
+        content: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      gap: 5rem;
+
+      .content-grid-item {
+        width: calc(50% - 2.5rem);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      gap: 11.2rem;
+
+      .content-grid-item {
+        width: calc(50% - 5.6rem);
+
+        &:before {
+          content: "";
+          border-bottom: 1px solid rgba(1, 0, 53, 0.1);
+          position: absolute;
+          bottom: -5.6rem;
+          width: calc(100% + 11.2rem);
+          left: 0;
+        }
+
+        &:nth-child(2n):before {
+          width: 100%;
+        }
+
+        &:after {
+          content: "";
+          border-right: 1px solid rgba(1, 0, 53, 0.1);
+          position: absolute;
+          right: -5.6rem;
+          height: 100%;
+          top: 0;
+        }
+
+        &:nth-child(2n):after {
+          content: none;
+        }
+
+        &:nth-last-child(-n + 2):before {
+          content: none;
+        }
+      }
+    }
+  }
+}

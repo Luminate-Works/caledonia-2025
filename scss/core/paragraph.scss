@@ -21,8 +21,19 @@ p {
     font-size: $font-40;
     line-height: 130%;
     font-family: $ff-title;
-    color: $primary;
+    color: rgba($primary, 0.4);
     max-width: 890px;
+
+    &.has-white-color {
+      strong {
+        color: rgba(white, 0.4);
+      }
+    }
+
+    strong {
+      font-weight: normal;
+      color: $primary;
+    }
 
     &.has-text-align-center {
       width: 96%;
@@ -43,10 +54,18 @@ p {
     .wp-block-heading + & {
       margin-top: 1.6rem !important;
     }
+
+    p + & {
+      margin-top: 1.6rem !important;
+    }
   }
 
   &.is-style-mt24 {
     .wp-block-heading + & {
+      margin-top: 2.4rem !important;
+    }
+
+    p + & {
       margin-top: 2.4rem !important;
     }
   }
@@ -55,10 +74,18 @@ p {
     .wp-block-heading + & {
       margin-top: 3.2rem !important;
     }
+
+    p + & {
+      margin-top: 3.2rem !important;
+    }
   }
 
   &.is-style-mt40 {
     .wp-block-heading + & {
+      margin-top: 4rem !important;
+    }
+
+    p + & {
       margin-top: 4rem !important;
     }
   }

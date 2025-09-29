@@ -243,7 +243,7 @@ if (is_admin()) {
                 this.dropdownOpen[type] = false;
                 this.offset = 0;
                 this.allLoaded = false;
-                this.loadPosts(true, 5);
+                this.loadPosts(true, 6);
                 this.updateUrl();
             },
 
@@ -257,7 +257,7 @@ if (is_admin()) {
                 Object.keys(this.dropdownOpen).forEach(k => this.dropdownOpen[k] = false);
                 this.offset = 0;
                 this.allLoaded = false;
-                this.loadPosts(true, 5);
+                this.loadPosts(true, 6);
                 this.updateUrl();
             },
 
@@ -280,7 +280,7 @@ if (is_admin()) {
                     this.postsPerPage = this.limitNumber;
                 }
 
-                this.loadPosts(true, 5);
+                this.loadPosts(true, 6);
 
                 if (!this.limitNumber) {
                     this.$watch('searchQuery', val => {
@@ -288,7 +288,7 @@ if (is_admin()) {
                         this.debounceTimeout = setTimeout(() => {
                             this.offset = 0;
                             this.allLoaded = false;
-                            this.loadPosts(true, 5);
+                            this.loadPosts(true, 6);
                         }, 500);
                     });
                 };

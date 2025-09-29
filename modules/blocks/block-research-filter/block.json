@@ -1,0 +1,15 @@
+{
+	"name": "lmn/research-filter",
+	"title": "Research Filter",
+	"category": "luminate",
+	"icon": {
+		"src": "media-text",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["posts", "research", "news", "blog", "articles", "press", "release"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-research-filter.php"
+	}
+}

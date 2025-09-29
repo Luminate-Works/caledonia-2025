@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="wrap full-width">
+<div class="wrap has-global-padding full-width">
     <div id="content">
         <?php 
         $titles_in_banner = class_exists('ACF') ? get_field('titles_in_banner', 'option') : false;

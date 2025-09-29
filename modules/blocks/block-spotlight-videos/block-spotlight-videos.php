@@ -37,11 +37,11 @@ if (is_admin()) {
 			<?php if ($query->have_posts()) : ?>
 				<?php $index = 0; ?>
 				<?php while ($query->have_posts()) : $query->the_post(); ?>
-					<div class="swiper-slide">
+					<a class="swiper-slide glightbox" href="<?= get_field('url', get_the_ID()) ?>">
 						<div class="slide-content">
 								<div class="slide-image">
 									<div class="video-controls">
-										<a href="<?= get_field('url', get_the_ID()) ?>" class="video-icon glightbox">Play video</a>
+										<div class="video-icon">Play video</div>
 										
 										<p><?= get_field('duration', get_the_ID()) ?></p>
 									</div>
@@ -55,11 +55,11 @@ if (is_admin()) {
 							
 							
 							<div class="slide-text">
-								<p class="post-date"><?php echo get_the_date('F, Y'); ?></p>
+								<p class="post-date"><?php echo get_the_date('F Y'); ?></p>
 								<h4><?php the_title(); ?></h4>
 							</div>
 						</div>
-					</div>
+								</a>
 					<?php $index++; ?>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
