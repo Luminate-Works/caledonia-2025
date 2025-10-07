@@ -1,0 +1,81 @@
+.lmn-investment-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.lmn-investment-boxes .box {
+  padding: 4rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  transition: background ease-in-out 0.25s;
+}
+.lmn-investment-boxes .box:nth-child(1) {
+  border-top: 4px solid #75C69B;
+}
+.lmn-investment-boxes .box:nth-child(2) {
+  border-top: 4px solid #8559D7;
+}
+.lmn-investment-boxes .box:nth-child(3) {
+  border-top: 4px solid #5FAFD0;
+}
+.lmn-investment-boxes .box .icon {
+  margin-bottom: 4rem;
+}
+.lmn-investment-boxes .box h4 {
+  margin: 0;
+  color: white;
+}
+.lmn-investment-boxes .box .content {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px !important;
+  font-size: var(--wp--preset--font-size--font-18);
+}
+.lmn-investment-boxes .box .bottom {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+.lmn-investment-boxes .box .bottom .statistics {
+  padding-left: 2.4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.lmn-investment-boxes .box .bottom .statistics .value {
+  color: white;
+  font-size: var(--wp--preset--font-size--font-56);
+  font-family: var(--wp--preset--font-family--secondary);
+}
+.lmn-investment-boxes .box .bottom .statistics .title {
+  color: white;
+  font-size: var(--wp--preset--font-size--font-16);
+  margin-top: 0 !important;
+}
+.lmn-investment-boxes .box .bottom .statistics .sub-title {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--wp--preset--font-size--font-14);
+  margin-top: 0 !important;
+}
+.lmn-investment-boxes .box:hover:nth-child(1) {
+  background: rgba(117, 198, 155, 0.3);
+}
+.lmn-investment-boxes .box:hover:nth-child(2) {
+  background: rgba(133, 89, 215, 0.3);
+}
+.lmn-investment-boxes .box:hover:nth-child(3) {
+  background: rgba(95, 175, 208, 0.3);
+}
+.lmn-investment-boxes .box:hover .wp-block-button .wp-block-button__link:before {
+  opacity: 0;
+}
+.lmn-investment-boxes .box:hover .wp-block-button .wp-block-button__link:after {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .lmn-investment-boxes .box {
+    width: calc(33% - 3rem);
+  }
+}/*# sourceMappingURL=block-investment-boxes.css.map */

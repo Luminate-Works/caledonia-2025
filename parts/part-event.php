@@ -117,7 +117,7 @@ $googleCalEnd     = $isFullDayEvent ? $calDate : $calDateEnd . 'T' . date('His',
         <?php endif; ?>
 
         <?php if (
-            $calendar === 'historical' &&
+            $calendar !== 'upcoming' &&
             $event_past_url
         ): ?>
 

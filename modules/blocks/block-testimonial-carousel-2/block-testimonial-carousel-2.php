@@ -22,7 +22,7 @@ if ($total === 1) {
             <?php foreach ($testimonials as $post): 
                 setup_postdata($post);
 
-                $title    = esc_html(get_the_title());
+                $title    = esc_html(get_the_title($post->ID));
                 $position = esc_html(get_field('subtitle', $post->ID));
                 $image_id = get_post_thumbnail_id($post->ID);
                 $image_url = wp_get_attachment_image_url($image_id, 'full');

@@ -9,7 +9,7 @@
 .image-slides .image-slider .swiper-slide {
   overflow: hidden;
   border-radius: 8px;
-  width: 80% !important;
+  width: 100% !important;
 }
 .image-slides .image-slider .swiper-slide img {
   display: block;
@@ -17,7 +17,8 @@
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-  max-height: 670px;
+  max-height: 700px;
+  aspect-ratio: 2/3;
 }
 .image-slides .image-slider .swiper-pagination {
   width: auto !important;
@@ -41,7 +42,7 @@
   display: none;
 }
 .image-slides .image-slider .swiper-nav.swiper-button-next {
-  right: 12%;
+  right: 0;
 }
 .image-slides .image-slider .swiper-nav.swiper-button-next.swiper-button-disabled {
   opacity: 0.2;

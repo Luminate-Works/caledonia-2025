@@ -10,13 +10,15 @@ h4 + .testimonial-carousel {
 
 .testimonial-carousel {
   position: relative;
+  overflow: visible !important;
 }
 .testimonial-carousel .swiper-slide {
   display: flex;
+  flex-wrap: wrap;
   gap: 4rem;
 }
 .testimonial-carousel .swiper-slide .image {
-  width: 50%;
+  width: calc(50% - 2rem);
 }
 .testimonial-carousel .swiper-slide .image img {
   border-radius: 8px;
@@ -27,8 +29,9 @@ h4 + .testimonial-carousel {
 }
 .testimonial-carousel .swiper-slide .testimonial-quote {
   position: relative;
-  margin-top: 5rem;
-  width: 50%;
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+  width: calc(50% - 2rem);
   padding-left: 4rem;
   border-left: 1px solid rgba(1, 0, 53, 0.1);
   height: -moz-fit-content;
@@ -71,6 +74,14 @@ h4 + .testimonial-carousel {
   margin: 0;
   color: rgba(1, 0, 53, 0.6);
 }
+@media (max-width: 767px) {
+  .testimonial-carousel .swiper-slide .image {
+    width: 100%;
+  }
+  .testimonial-carousel .swiper-slide .testimonial-quote {
+    width: 100%;
+  }
+}
 .testimonial-carousel .swiper-slide-counter {
   font-size: var(--wp--preset--font-size--font-18);
   color: #FF8A45;
@@ -86,6 +97,7 @@ h4 + .testimonial-carousel {
 .testimonial-carousel .swiper-pagination {
   width: auto !important;
   left: calc(50% + 2rem) !important;
+  bottom: 0 !important;
 }
 .testimonial-carousel .swiper-pagination-bullet-active {
   width: 34px;
@@ -95,7 +107,7 @@ h4 + .testimonial-carousel {
 .testimonial-carousel .swiper-nav {
   width: 41px;
   height: 41px;
-  top: calc(100% - 19px);
+  top: calc(100% - 10px);
 }
 .testimonial-carousel .swiper-nav:after {
   display: none;

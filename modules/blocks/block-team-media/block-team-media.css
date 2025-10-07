@@ -306,7 +306,7 @@
   width: 100%;
   height: auto;
   line-height: 0;
-  aspect-ratio: 1.75/1;
+  aspect-ratio: 1.5/1;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 4px;

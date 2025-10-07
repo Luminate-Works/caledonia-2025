@@ -100,21 +100,6 @@
         border-top: 1px solid rgba(white, 0.1);
         padding-top: 7rem;
 
-        .swiper-pagination {
-          width: auto !important;
-          left: 0 !important;
-
-          &-bullet {
-            background-color: white;
-          }
-
-          &-bullet-active {
-            width: 34px;
-            background: white;
-            border-radius: 30px;
-          }
-        }
-
         .swiper-nav {
           width: 41px;
           height: 41px;
@@ -218,6 +203,22 @@
       @media (max-width: 768px) {
         width: 100%;
       }
+    }
+  }
+
+  .swiper-pagination {
+    width: auto !important;
+    bottom: 4rem !important;
+    left: 4rem !important;
+
+    &-bullet {
+      background-color: white;
+    }
+
+    &-bullet-active {
+      width: 34px;
+      background: white;
+      border-radius: 30px;
     }
   }
 }

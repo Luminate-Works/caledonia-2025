@@ -21,7 +21,9 @@ footer {
     color: white;
 
     &:hover {
-      color: $orange;
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 8px;
     }
   }
 
@@ -55,6 +57,11 @@ footer {
                 padding-left: 48px;
                 display: block;
                 position: relative;
+
+                &:hover {
+                  color: inherit;
+                  text-decoration: none;
+                }
               }
             }
 
@@ -128,7 +135,7 @@ footer {
       }
     }
 
-    @media(max-width: 1023px) {
+    @media (max-width: 1023px) {
       .col {
         padding-bottom: 4rem;
         margin-bottom: 4rem;

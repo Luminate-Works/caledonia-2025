@@ -39,5 +39,30 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("resize", updateIframeSize);
       }
     });
+
+    const swiper = new Swiper(".banner-slider-overlay", {
+      loop: true,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      slidesPerView: 1,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+
+      pagination: {
+        el: ".banner-slider-overlay .swiper-pagination",
+        clickable: true,
+        renderBullet: function (i, className) {
+          return `
+   <button class="${className}">
+  <svg class="progress" width="24" height="24"><circle class="circle-origin" r="11.7" cx="12" cy="12"></circle></svg><span></span>
+</button>
+      `;
+        },
+      },
+    });
   }
 });

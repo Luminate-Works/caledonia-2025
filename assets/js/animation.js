@@ -77,11 +77,22 @@ document.addEventListener("DOMContentLoaded", function () {
   // General fade-in page animations
   createScrollTriggerAnimation(
     document.querySelectorAll(
-      "#sidebar, #content > .wp-block-column, .wp-block-cover, .fade, .hero"
+      "#sidebar, #content .wp-block-column, #content .wp-block-cover, .fade, .hero"
     ),
     {
       initial: { opacity: 0 },
-      onEnter: { opacity: 1, duration: 1.5, ease: "power2.out" },
+      onEnter: { opacity: 1, duration: 1, ease: "power2.out" },
+    }
+  );
+
+  // General fade-in-up page animations
+  createScrollTriggerAnimation(
+    document.querySelectorAll(
+      ".fade-in-up, #content blockquote, #content h2, #content h3, #content h4, #content h5, #content h6, #content p, #content ul, #content .wp-block-buttons"
+    ),
+    {
+      initial: { opacity: 0, y: 10 }, // start 30px below
+      onEnter: { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, // fade in and move up
     }
   );
 
@@ -148,49 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Large CTA animation
   //  large-cta block
   // */
-
-  // function initMultiLayerParallax() {
-  //   gsap.utils.toArray(".large-cta").forEach((section) => {
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: section,
-  //         start: "top bottom",
-  //         end: "bottom top",
-  //         scrub: 1.5,
-  //       },
-  //     });
-
-  //     // Background image moves slower (classic parallax)
-  //     tl.to(
-  //       ".large-cta__image",
-  //       {
-  //         yPercent: -30,
-  //         ease: "none",
-  //       },
-  //       0
-  //     );
-
-  //     // Heading moves at medium speed
-  //     tl.to(
-  //       ".large-cta__heading",
-  //       {
-  //         yPercent: -20,
-  //         ease: "none",
-  //       },
-  //       0
-  //     );
-
-  //     // Content box moves faster (closest to viewer)
-  //     tl.to(
-  //       ".large-cta__content",
-  //       {
-  //         yPercent: -40,
-  //         ease: "none",
-  //       },
-  //       0
-  //     );
-  //   });
-  // }
 
   initRevealAnimation();
 
@@ -272,22 +240,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // stagger fade
-  if (document.querySelector(".home-boxes")) {
-    gsap.from(".home-boxes .wp-block-column", {
-      opacity: 0,
-      y: 30,
-      stagger: 0.5,
-      duration: 2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".home-boxes",
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-  }
-
   // Video banner text fade in
   gsap.from(".hero-video__content h2 span", {
     opacity: 0,
@@ -341,20 +293,28 @@ document.addEventListener("DOMContentLoaded", function () {
   //  inner panner text
   // */
 
-  //animateInnerBannerTitle();
+  animateInnerBannerTitle();
 
   function animateInnerBannerTitle() {
     const spans = document.querySelectorAll(".page-title span");
 
-    gsap.to(spans, {
-      duration: 0.8,
-      opacity: 1,
-      x: 0,
+    if (!spans.length) return;
+
+    gsap.from(spans, {
+      opacity: 0,
+      y: 30, // start 30px lower and move up
+      stagger: 1, // delay between each span
+      duration: 3, // slow fade-up
       ease: "power2.out",
-      stagger: 5,
+      scrollTrigger: {
+        trigger: ".page-title",
+        start: "top 80%", // when the title enters viewport
+        toggleActions: "play none none none",
+      },
     });
   }
 
+  // Curtain
   const links = document.querySelectorAll(
     "a:not(#wpadminbar a):not(.menu-item-has-children > a)"
   );

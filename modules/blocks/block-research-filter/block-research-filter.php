@@ -141,9 +141,9 @@ if (is_admin()) {
         <p>We update our news & views regularly, so be sure to check back again soon.</p>
     </div>
     <?php if (!$limit_number): ?>
-        <template x-if="!allLoaded && posts.length > 0">
+        <template x-if="!allLoaded">
             <div class="wp-block-button">
-                <button class="wp-block-button__link"
+                <button class="wp-block-button__link load-more"
                     @click="loadMore()"
                     x-text="loading ? 'Loading...' : 'Load more'"></button>
             </div>
@@ -330,7 +330,7 @@ if (is_admin()) {
 
                         this.noResults = this.posts.length === 0;
 
-                        if (data.posts.length < (customLimit ?? this.postsPerPage)) {
+                        if (data.posts.length < (customLimit ?? data.total)) {
                             this.allLoaded = true;
                         }
 
@@ -342,8 +342,8 @@ if (is_admin()) {
                                     selector: '.glightbox'
                                 });
                             }
-                            if (typeof equalizeHeights === 'function') {
-                                setTimeout(equalizeHeights, 50);
+                            if (typeof applyEqualHeights === 'function') {
+                                setTimeout(applyEqualHeights, 50);
                             }
                         });
                     })

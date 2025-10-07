@@ -92,7 +92,8 @@ if (is_front_page()) {
             <?php endif; ?>
 
             <?php if ($banner_content && !empty($banner_content['banner_slider_overlay'])) : ?>
-                <div class="banner-slider-overlay">
+                <div class="banner-slider-overlay swiper">
+                    <div class="swiper-wrapper">
                     <?php foreach ($banner_content['banner_slider_overlay'] as $slide) :
                         $img    = $slide['img'];
                         $label  = $slide['label'];
@@ -102,7 +103,7 @@ if (is_front_page()) {
                         $target = !empty($button['target']) ? $button['target'] : '_self';
                     ?>
                         <a href="<?php echo esc_url($link); ?>"
-                            class="banner-slide"
+                            class="banner-slide swiper-slide"
                             target="<?php echo esc_attr($target); ?>">
 
                             <?php if (!empty($img)): ?>
@@ -128,6 +129,10 @@ if (is_front_page()) {
                             </div>
                         </a>
                     <?php endforeach; ?>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
                 </div>
             <?php endif; ?>
 

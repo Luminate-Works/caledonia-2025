@@ -292,9 +292,7 @@
   }
 }
 .research-filter .load-more {
-  display: flex;
-  justify-content: center;
-  margin: 0;
+  margin-top: 4rem;
 }
 .research-filter .load-more:before, .research-filter .load-more:after {
   transform: rotate(90deg);

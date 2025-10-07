@@ -296,9 +296,7 @@
   }
 }
 .posts-filter .load-more {
-  display: flex;
-  justify-content: center;
-  margin: 0;
+  margin-top: 4rem;
 }
 .posts-filter .load-more:before, .posts-filter .load-more:after {
   transform: rotate(90deg);

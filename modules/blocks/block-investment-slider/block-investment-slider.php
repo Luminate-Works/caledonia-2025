@@ -13,7 +13,7 @@ $investments = get_field('investments');
 
 
 <?php if ($investments): ?>
-    <div class="<?= esc_attr($className); ?>">
+    <div class="<?= esc_attr($className); ?> fade">
 
         <div class="swiper-wrapper">
 
@@ -54,7 +54,6 @@ $investments = get_field('investments');
                         <?php the_content(); ?>
 
                         <div class="controls">
-                            <div class="swiper-pagination"></div>
 
                             <div class="swiper-controls">
                                 <div class="swiper-button-next swiper-nav">
@@ -106,10 +105,11 @@ $investments = get_field('investments');
                         </div>
                     </div>
                 </div>
+
             <?php endforeach;
             wp_reset_postdata(); ?>
-            
 
+            <div class="swiper-pagination"></div>
 
         </div>
 

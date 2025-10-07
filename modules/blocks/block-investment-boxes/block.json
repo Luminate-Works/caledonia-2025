@@ -1,0 +1,15 @@
+{
+	"name": "lmn/investment-boxes",
+	"title": "Investment Boxes",
+	"category": "luminate",
+	"icon": {
+		"src": "chart-bar",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["investment", "boxes"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-investment-boxes.php"
+	}
+}

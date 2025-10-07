@@ -27,12 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   subToggles.forEach(function (toggle) {
     toggle.addEventListener("click", function () {
-      var subMenu = this.nextElementSibling;
+      var parentLi = this.closest("li");
+
       this.classList.toggle("open");
-      if (subMenu.style.maxHeight) {
-        subMenu.style.maxHeight = null;
-      } else {
-        subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+
+      if (parentLi && parentLi.classList.contains("menu-item-has-children")) {
+        parentLi.classList.toggle("open");
+      }
+
+      var subMenu = this.nextElementSibling;
+      if (subMenu) {
+        if (subMenu.style.maxHeight) {
+          subMenu.style.maxHeight = null;
+        } else {
+          subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+        }
       }
     });
   });
@@ -95,21 +104,26 @@ if (backToTopButton) {
 // Open Mega Menu on click & align child pages
 // ========================
 document.addEventListener("DOMContentLoaded", function () {
-  const menuItems = document.querySelectorAll(".menu > li.menu-item-has-children");
+  const menuItems = document.querySelectorAll(
+    ".menu > li.menu-item-has-children"
+  );
   const MQ = window.matchMedia("(min-width: 1024px)");
 
   function alignSubMenu(item) {
     if (!MQ.matches) return; // ✅ only on desktop
 
     const childMenu = item.querySelector(".child-menu");
-    const wrap      = childMenu && childMenu.querySelector(".wrap");
-    const subCol    = childMenu && childMenu.querySelector(".sub-menu");
-    const link      = item.querySelector(":scope > a");
+    const wrap = childMenu && childMenu.querySelector(".wrap");
+    const subCol = childMenu && childMenu.querySelector(".sub-menu");
+    const link = item.querySelector(":scope > a");
     if (!childMenu || !wrap || !subCol || !link) return;
 
     // Temporarily reveal if hidden to measure
     let restore = false;
-    if (window.getComputedStyle(childMenu).display === "none" || childMenu.offsetParent === null) {
+    if (
+      window.getComputedStyle(childMenu).display === "none" ||
+      childMenu.offsetParent === null
+    ) {
       restore = true;
       childMenu.style.visibility = "hidden";
       childMenu.style.display = "block";
@@ -118,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const linkRect = link.getBoundingClientRect();
     const wrapRect = wrap.getBoundingClientRect();
-    const subW     = subCol.getBoundingClientRect().width;
+    const subW = subCol.getBoundingClientRect().width;
 
     let offset = Math.round(linkRect.left - wrapRect.left);
     const maxOffset = Math.max(0, Math.round(wrapRect.width - subW));
@@ -167,15 +181,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Re-align on resize if a menu is open and still desktop
   window.addEventListener("resize", function () {
     if (!MQ.matches) {
-      document.querySelectorAll(".sub-menu.col2").forEach(el => el.style.transform = "");
+      document
+        .querySelectorAll(".sub-menu.col2")
+        .forEach((el) => (el.style.transform = ""));
       return;
     }
-    const openItem = document.querySelector(".menu > li.menu-item-has-children.open");
+    const openItem = document.querySelector(
+      ".menu > li.menu-item-has-children.open"
+    );
     if (openItem) alignSubMenu(openItem);
   });
 });
-
-
 
 // event listener for scroll
 // ------------------------------

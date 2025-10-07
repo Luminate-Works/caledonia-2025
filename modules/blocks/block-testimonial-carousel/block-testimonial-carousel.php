@@ -16,12 +16,12 @@ if ($total === 1) {
 ?>
 
 <?php if ($testimonials): ?>
-    <div class="swiper <?= esc_attr($className); ?>">
+    <div class="swiper <?= esc_attr($className); ?> fade">
         <div class="swiper-wrapper">
             <?php foreach ($testimonials as $post): 
                 setup_postdata($post);
 
-                $title    = esc_html(get_the_title());
+                $title    = esc_html(get_the_title($post->ID));
                 $position = esc_html(get_field('subtitle', $post->ID));
                 $keyword  = esc_html(get_field('keyword', $post->ID));
                 $image_id = get_post_thumbnail_id($post->ID);

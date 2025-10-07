@@ -15,7 +15,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 
     <div class="meta-fields">
         <p aria-label="Published date: <?= get_the_date('F Y'); ?>"><?= get_the_date('F Y'); ?></p>
-        <p class="meta">Reading time <?php echo $reading_time; ?> mins</p>
+        <p class="meta">Reading time: <?php echo $reading_time; ?> mins</p>
 
 
         <?php

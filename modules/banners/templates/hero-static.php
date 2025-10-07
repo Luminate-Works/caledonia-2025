@@ -58,7 +58,7 @@ if ($override_text_opacity !== null && $override_text_opacity !== '') {
 if ($image_id) {
     $body_classes = get_body_class();
 
-    $hero_classes = 'hero-static__image';
+    $hero_classes = 'hero-static__image fade';
     if (in_array('page-child', $body_classes)) {
         $hero_classes .= ' is-child';
     }

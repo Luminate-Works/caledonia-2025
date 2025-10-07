@@ -24,7 +24,6 @@
             <?php if($icon) : ?>
             <div class="icon-wrapper">
                 <img class="icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($text); ?>">
-                <p class="company-hover"><?php echo esc_html($company); ?></p>
             </div>
            <?php endif; ?>
                  

@@ -37,6 +37,20 @@
   }
 }
 
+@keyframes progress {
+  0% {
+    stroke-dashoffset: 125.664px;
+  }
+
+  90% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -125.664px;
+  }
+}
+
 // fade in
 @keyframes fadeIn {
 	from {

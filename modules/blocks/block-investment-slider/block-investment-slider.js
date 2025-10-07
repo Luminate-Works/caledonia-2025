@@ -7,10 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     slidesPerView: "auto",
     spaceBetween: 30,
-    pagination: { el: ".swiper-pagination", clickable: true },
+    pagination: {
+      el: ".investment-slider .swiper-pagination",
+      clickable: true,
+    },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".investment-slider .swiper-button-next",
+      prevEl: ".investment-slider .swiper-button-prev",
     },
     on: {
       slideChange: function () {

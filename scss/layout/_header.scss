@@ -12,7 +12,7 @@
 }
 
 header {
-  border-top: 4px solid $orange;
+  border-top: 2px solid $orange;
   padding: 1.5rem 0;
   background: $primary;
   position: fixed;
@@ -60,6 +60,7 @@ header {
     transition: width $speed $cb, padding $speed $ease;
 
     svg {
+      width: 100%;
       > path {
         transform: fill $speed $ease;
       }

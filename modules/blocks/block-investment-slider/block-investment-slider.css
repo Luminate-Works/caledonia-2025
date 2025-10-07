@@ -86,18 +86,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 7rem;
 }
-.investment-slider .investment-slide .investment-content .controls .swiper-pagination {
-  width: auto !important;
-  left: 0 !important;
-}
-.investment-slider .investment-slide .investment-content .controls .swiper-pagination-bullet {
-  background-color: white;
-}
-.investment-slider .investment-slide .investment-content .controls .swiper-pagination-bullet-active {
-  width: 34px;
-  background: white;
-  border-radius: 30px;
-}
 .investment-slider .investment-slide .investment-content .controls .swiper-nav {
   width: 41px;
   height: 41px;
@@ -184,4 +172,17 @@
   .investment-slider .investment-slide .investment-meta {
     width: 100%;
   }
+}
+.investment-slider .swiper-pagination {
+  width: auto !important;
+  bottom: 4rem !important;
+  left: 4rem !important;
+}
+.investment-slider .swiper-pagination-bullet {
+  background-color: white;
+}
+.investment-slider .swiper-pagination-bullet-active {
+  width: 34px;
+  background: white;
+  border-radius: 30px;
 }/*# sourceMappingURL=block-investment-slider.css.map */

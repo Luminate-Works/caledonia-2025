@@ -6,7 +6,8 @@
   padding-right: 6vw;
 
   &.is-style-blue-cta,
-  &.is-style-blue-cta-slim {
+  &.is-style-blue-cta-slim,
+  &.is-style-shiny-cta-slim {
     background-color: #cbd8ff;
     background-image: url(../assets/images/theme/blue-cta-mask.png);
     background-size: contain;
@@ -28,6 +29,30 @@
       p {
         color: #010035cc;
         font-size: $font-18;
+      }
+    }
+  }
+
+  &.is-style-shiny-cta-slim {
+    min-height: 350px;
+    padding: 4rem;
+    background-size: cover;
+    background-image: url(../assets/images/theme/shiny-cta-mask.png);
+
+    .wp-block-cover__inner-container {
+      h2 {
+        font-size: $font-32;
+        line-height: 130%;
+        color: white;
+      }
+      p {
+        margin-top: 1.6rem !important;
+        color: rgba(white, 0.6);
+        font-size: $font-20;
+      }
+
+      .wp-block-buttons {
+        margin-top: 5.6rem !important;
       }
     }
   }

@@ -2,7 +2,7 @@
   padding-left: 6vw;
   padding-right: 6vw;
 }
-.wp-block-cover.is-style-blue-cta, .wp-block-cover.is-style-blue-cta-slim {
+.wp-block-cover.is-style-blue-cta, .wp-block-cover.is-style-blue-cta-slim, .wp-block-cover.is-style-shiny-cta-slim {
   background-color: #cbd8ff;
   background-image: url(../assets/images/theme/blue-cta-mask.png);
   background-size: contain;
@@ -12,18 +12,37 @@
   border-radius: 8px;
   padding: 5.6rem;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__background, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__background {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__background, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__background, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__background {
   background-color: transparent !important;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container {
   max-width: 580px;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2 {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2 {
   color: #010035;
 }
-.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p {
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container p {
   color: rgba(1, 0, 53, 0.8);
   font-size: var(--wp--preset--font-size--font-18);
+}
+.wp-block-cover.is-style-shiny-cta-slim {
+  min-height: 350px;
+  padding: 4rem;
+  background-size: cover;
+  background-image: url(../assets/images/theme/shiny-cta-mask.png);
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2 {
+  font-size: var(--wp--preset--font-size--font-32);
+  line-height: 130%;
+  color: white;
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container p {
+  margin-top: 1.6rem !important;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--wp--preset--font-size--font-20);
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-buttons {
+  margin-top: 5.6rem !important;
 }
 .wp-block-cover.is-style-blue-cta-slim {
   min-height: 280px;

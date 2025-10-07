@@ -1,0 +1,67 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.news-slider {
+  .listing-wrapper {
+    .swiper-wrapper {
+      .excerpt {
+        width: 100%;
+        background: rgba(203, 216, 255, 0.5);
+        padding: 3.2rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .meta-fields {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          gap: 1.6rem;
+          margin-bottom: 1.6rem;
+
+          p {
+            font-size: $font-14;
+            margin: 0 !important;
+            border-left: 1px solid rgba($primary, 0.1);
+            padding-left: 1.6rem;
+            color: $primary;
+            line-height: 110%;
+
+            &.meta {
+              color: rgba($primary, 0.5);
+            }
+
+            &:first-child {
+              padding-left: 0;
+              border-left: 0;
+            }
+          }
+
+          .icon {
+            border-left: 1px solid rgba($primary, 0.1);
+            padding-left: 1.6rem;
+          }
+        }
+
+        h3 {
+          font-size: $font-24;
+          line-height: 130%;
+        }
+
+        .wp-block-buttons {
+          margin-top: auto !important;
+          padding-top: 2rem;
+
+          .wp-block-button .wp-block-button__link {
+            font-size: $font-14;
+          }
+        }
+
+        &:hover {
+
+        }
+      }
+    }
+  }
+}

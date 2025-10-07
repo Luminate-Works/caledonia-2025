@@ -219,8 +219,6 @@ if (is_admin()) {
 
 </div>
 
-</div>
-
 
 <script>
     function figpieModal() {

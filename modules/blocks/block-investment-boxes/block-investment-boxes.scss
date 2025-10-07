@@ -1,0 +1,98 @@
+@import "../../../scss/abstracts/vars";
+@import "../../../scss/abstracts/mixins";
+
+.lmn-investment-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+
+  .box {
+    padding: 4rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    transition: background $ease $speed;
+
+    &:nth-child(1) {
+      border-top: 4px solid $jade;
+    }
+    &:nth-child(2) {
+      border-top: 4px solid $purple;
+    }
+    &:nth-child(3) {
+      border-top: 4px solid $light-blue;
+    }
+
+    .icon {
+      margin-bottom: 4rem;
+    }
+
+    h4 {
+      margin: 0;
+      color: white;
+    }
+
+    .content {
+      color: rgba(white, 0.6);
+      margin-top: 8px !important;
+      font-size: $font-18;
+    }
+
+    .bottom {
+      margin-top: auto;
+      padding-top: 2rem;
+
+      .statistics {
+        padding-left: 2.4rem;
+        border-left: 1px solid rgba(white, 0.1);
+        .value {
+          color: white;
+          font-size: $font-56;
+          font-family: $ff-title;
+        }
+
+        .title {
+          color: white;
+          font-size: $font-16;
+          margin-top: 0 !important;
+        }
+
+        .sub-title {
+          color: rgba(white, 0.6);
+          font-size: $font-14;
+          margin-top: 0 !important;
+        }
+      }
+    }
+
+    &:hover {
+      &:nth-child(1) {
+        background: rgba(117, 198, 155, 0.3);
+      }
+      &:nth-child(2) {
+        background: rgba(133, 89, 215, 0.3);
+      }
+      &:nth-child(3) {
+        background: rgba(95, 175, 208, 0.3);
+      }
+
+      .wp-block-button .wp-block-button__link {
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      width: calc(33% - 3rem);
+    }
+  }
+}

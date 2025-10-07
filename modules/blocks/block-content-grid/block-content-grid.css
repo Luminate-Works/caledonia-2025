@@ -14,6 +14,8 @@
   width: 100%;
   aspect-ratio: 1.5/1;
   border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .lmn-content-grid .content-grid-wrapper .content-grid-item h3 {
   margin-top: 3rem;

@@ -5,6 +5,7 @@
 }
 
 header {
+  border-top: 4px solid $orange;
   padding: 2.5rem 0 0 0;
 
   &.sticky {
@@ -79,14 +80,14 @@ header {
       &.current-menu-item,
       &.current-menu-ancestor {
         > a {
-          // &:after {
-          //   content: "";
-          //   border-bottom: 1px solid $orange;
-          //   display: block;
-          //   bottom: -5px;
-          //   position: absolute;
-          //   width: 100%;
-          // }
+          &:after {
+            content: "";
+            border-bottom: 1px solid $orange;
+            display: block;
+            bottom: -5px;
+            position: absolute;
+            width: 100%;
+          }
         }
       }
 

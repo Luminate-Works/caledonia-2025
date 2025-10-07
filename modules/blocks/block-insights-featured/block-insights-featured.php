@@ -50,7 +50,7 @@ $wrapper_attributes = 'class="' . esc_attr($className) . '"';
                     <p aria-label="Published date: <?= get_the_date('F Y', $post); ?>">
                         <?= get_the_date('F Y', $post); ?>
                     </p>
-                    <p class="meta">Reading time <?= esc_html($reading_time); ?> mins</p>
+                    <p class="meta">Reading time: <?= esc_html($reading_time); ?> mins</p>
 
                     <?php if (!$hide_icons): ?>
                         <?php if ($term_name === 'Podcast') : ?>

@@ -23,6 +23,10 @@ wp.blocks.registerBlockStyle('core/cover', {
 	label: 'Blue CTA Slim',
 });
 wp.blocks.registerBlockStyle('core/cover', {
+	name: 'shiny-cta-slim',
+	label: 'Shiny CTA Slim',
+});
+wp.blocks.registerBlockStyle('core/cover', {
 	name: 'blur',
 	label: 'Blur Bg',
 });
