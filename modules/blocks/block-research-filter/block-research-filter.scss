@@ -68,10 +68,11 @@
       background-repeat: no-repeat;
       border: 1px solid rgba($primary, 0.1);
       border-radius: 52rem;
+      transition: all $speed $cb;
 
       &:focus,
       &:active {
-        border: 1px solid $secondary;
+        border: 1px solid $primary;
         outline: none;
       }
     }
@@ -469,6 +470,10 @@
           .wp-block-button .wp-block-button__link {
             font-size: $font-14;
             color: white;
+            &:before,
+            &:after {
+              transform: rotate(320deg);
+            }
           }
         }
 

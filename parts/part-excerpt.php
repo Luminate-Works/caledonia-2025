@@ -3,7 +3,7 @@
 $categories = get_the_category();
 $reading_time = get_field('est_reading_time');
 
-if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
+if (! empty($categories) && ! is_wp_error($categories)) {
     $term = $categories[0];
     $term_name = $term->name;
     $term_slug = $term->slug;
@@ -40,7 +40,23 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
             </div>
         <?php
         } elseif ($term_name === 'Article') {
-            // Do nothing (no SVG)
+        ?>
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" version="1.1" viewBox="0 0 25 25">
+                    <defs>
+                        <style>
+                            .st1 {
+                                fill: none;
+                                stroke: #010035;
+                                stroke-linecap: round
+                            }
+                        </style>
+                    </defs>
+                    <circle cx="12.3" cy="12.3" r="11.5" style="fill:none;stroke:#010035;stroke-opacity:.1" />
+                    <path d="M8.3 8.3h8M8.3 12.3h8M8.3 16.2h8" class="st1" />
+                </svg>
+            </div>
+        <?php
         }
         ?>
 

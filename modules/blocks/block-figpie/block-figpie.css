@@ -116,6 +116,9 @@
 }
 #figpie__modal .modal-content {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 @media (min-width: 1024px) {
   #figpie__modal .modal-content {
@@ -164,6 +167,12 @@
   transition-delay: 0.2s;
   opacity: 1;
 }
+#figpie__modal .modal-controls {
+  width: 100%;
+  border-top: 1px solid rgba(1, 0, 53, 0.1);
+  padding-top: 2.4rem;
+  margin-top: auto;
+}
 #figpie__modal #close {
   display: block;
   width: 40px;
@@ -185,49 +194,78 @@
   border-color: #FF8A45;
   background-color: #FF8A45;
 }
+#figpie__modal .modal-nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+#figpie__modal .next {
+  float: right;
+  justify-content: right;
+}
+#figpie__modal .prev {
+  float: left;
+  justify-content: left;
+}
+#figpie__modal .prev:after {
+  content: "";
+  border-right: 1px solid rgba(1, 0, 53, 0.1);
+  opacity: 1;
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 #figpie__modal .next,
 #figpie__modal .prev {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 50%;
   margin: 0;
   cursor: pointer;
+  gap: 1.6rem;
+  position: relative;
+}
+#figpie__modal .next span,
+#figpie__modal .prev span {
+  font-size: var(--wp--preset--font-size--font-16);
+  color: rgba(1, 0, 53, 0.6);
 }
 #figpie__modal .next.disabled,
 #figpie__modal .prev.disabled {
   opacity: 0.3;
   cursor: text;
 }
+#figpie__modal .next svg,
+#figpie__modal .prev svg {
+  width: 42px;
+  height: 42px;
+}
 #figpie__modal .next svg circle,
 #figpie__modal .next svg path,
 #figpie__modal .prev svg circle,
 #figpie__modal .prev svg path {
-  transition: stroke 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
-#figpie__modal .next:hover svg circle,
-#figpie__modal .prev:hover svg circle {
-  stroke: #010035;
+#figpie__modal .next:not(:disabled):hover svg path:first-of-type,
+#figpie__modal .prev:not(:disabled):hover svg path:first-of-type {
+  fill: #010035;
+  opacity: 1;
 }
-#figpie__modal .next:hover svg path,
-#figpie__modal .prev:hover svg path {
-  stroke: black;
+#figpie__modal .next:not(:disabled):hover svg path:not(:first-of-type),
+#figpie__modal .prev:not(:disabled):hover svg path:not(:first-of-type) {
+  stroke: white;
 }
-#figpie__modal .next[disabled=disabled],
-#figpie__modal .prev[disabled=disabled] {
+#figpie__modal .next[disabled=disabled] svg,
+#figpie__modal .next[disabled=disabled] span,
+#figpie__modal .prev[disabled=disabled] svg,
+#figpie__modal .prev[disabled=disabled] span {
   opacity: 0.2;
   pointer-events: none;
-}
-#figpie__modal .next {
-  top: 49px;
-  right: 0;
-  margin: 10px 0;
-}
-#figpie__modal .prev {
-  top: 98px;
-  left: 0;
 }
 
 html.menu-opened #figpie__modal {

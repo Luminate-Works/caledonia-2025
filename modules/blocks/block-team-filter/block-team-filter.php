@@ -163,7 +163,8 @@ if (is_admin()) {
                 }
 
                 if (this.roleFilter) items = items.filter(i => i.position === this.roleFilter);
-                if (this.typeFilter) items = items.filter(i => i.team_type === this.typeFilter);
+                if (this.typeFilter)
+                    items = items.filter(i => Array.isArray(i.team_type) && i.team_type.includes(this.typeFilter));
 
                 if (this.sortOption === 'first_name') items.sort((a, b) => a.first_name.localeCompare(b.first_name));
                 else if (this.sortOption === 'last_name') items.sort((a, b) => a.last_name.localeCompare(b.last_name));
@@ -196,7 +197,8 @@ if (is_admin()) {
                 return [...new Set(this.allMembers.map(m => m.position).filter(Boolean))].sort();
             },
             get uniqueTypes() {
-                return [...new Set(this.allMembers.map(m => m.team_type).filter(Boolean))].sort();
+                const all = this.allMembers.flatMap(m => m.team_type || []);
+                return [...new Set(all)].sort();
             },
 
             openModal(i) {

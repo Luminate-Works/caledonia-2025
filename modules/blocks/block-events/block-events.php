@@ -89,7 +89,7 @@ global $post;
     <?php if ($calendar !== 'upcoming'): ?>
         <div class="load-more-wrapper wp-block-button is-style-plus" x-show="!allLoaded" x-cloak>
             <button @click="loadMore"
-                    x-text="loading ? 'Loading…' : 'View All'"
+                    x-text="loading ? 'Loading…' : 'Load more'"
                     class="btn-view-all wp-block-button__link">
             </button>
         </div>

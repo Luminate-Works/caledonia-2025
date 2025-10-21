@@ -310,3 +310,60 @@ function add_underline() {
     );
 }
 add_action( 'enqueue_block_editor_assets', 'add_underline' );
+
+// ------------------------------------------
+// Get meta data from S3 URL
+// ------------------------------------------
+function get_offloaded_file_info($attachment_id) {
+    if (empty($attachment_id)) {
+        return ['ext' => 'N/A', 'size' => 'N/A'];
+    }
+
+    $file_url  = wp_get_attachment_url($attachment_id);
+    $file_type = wp_check_filetype($file_url);
+    $file_ext  = $file_type['ext'] ?? 'Unknown';
+
+    // Try metadata first
+    $meta = wp_get_attachment_metadata($attachment_id);
+    $size_bytes = $meta['filesize'] ?? null;
+
+    // Try WP Offload Media Pro helper if available
+    if (!$size_bytes && function_exists('as3cf_get_attachment_filesize')) {
+        $size_bytes = as3cf_get_attachment_filesize($attachment_id);
+    }
+
+    // Convert to MB with 2 decimal places
+    if ($size_bytes) {
+        $size_mb = round($size_bytes / (1024 * 1024), 2);
+    } else {
+        $size_mb = 'N/A';
+    }
+
+    return [
+        'ext'  => $file_ext,
+        'size' => is_numeric($size_mb) ? "{$size_mb} mb" : $size_mb,
+    ];
+}
+
+
+// ------------------------------------------
+// Get image meta data image
+// ------------------------------------------
+function add_custom_image_field($form_fields, $post) {
+    $form_fields['custom_url'] = array(
+        'label' => 'Custom URL',
+        'input' => 'text',
+        'value' => get_post_meta($post->ID, '_custom_url', true),
+        'helps' => 'Add a URL associated with this image.'
+    );
+    return $form_fields;
+}
+add_filter('attachment_fields_to_edit', 'add_custom_image_field', 10, 2);
+
+function save_custom_image_field($post, $attachment) {
+    if (isset($attachment['custom_url'])) {
+        update_post_meta($post['ID'], '_custom_url', esc_url($attachment['custom_url']));
+    }
+    return $post;
+}
+add_filter('attachment_fields_to_save', 'save_custom_image_field', 10, 2);

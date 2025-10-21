@@ -68,10 +68,11 @@
       background-repeat: no-repeat;
       border: 1px solid rgba($primary, 0.1);
       border-radius: 52rem;
+      transition: all $speed $cb;
 
       &:focus,
       &:active {
-        border: 1px solid $secondary;
+        border: 1px solid $primary;
         outline: none;
       }
     }

@@ -48,6 +48,10 @@
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
+.hover-boxes .box .box-content h3.clone {
+  display: none;
+  color: white;
+}
 .hover-boxes .box .box-content p {
   display: none;
   color: rgba(255, 255, 255, 0.8);
@@ -68,7 +72,4 @@
 }
 .hover-boxes .box:hover .box-bg:after {
   background: rgba(24, 18, 105, 0.8);
-}
-.hover-boxes .box:hover .box-content h3 {
-  color: white;
 }/*# sourceMappingURL=block-hover-boxes.css.map */

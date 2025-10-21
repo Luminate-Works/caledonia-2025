@@ -20,8 +20,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: padding $speed $ease, background $speed $ease,
-    box-shadow $speed $ease;
+  transition: all $speed $ease;
 
   @include admin-sticky-fix;
 
@@ -83,11 +82,10 @@ header {
   }
 
   .menu-item-search {
-
     @media (min-width: 1024px) {
-        padding-top: 0.5rem;
-        display: flex;
-        justify-self: flex-end;
+      padding-top: 0.5rem;
+      display: flex;
+      justify-self: flex-end;
     }
 
     .search-toggle {

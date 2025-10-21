@@ -1,4 +1,5 @@
 <?php
+global $post;
 
 // Set block ID and classes
 $id = !empty($block['anchor']) ? $block['anchor'] : 'lmn-' . $block['id'];
@@ -29,13 +30,15 @@ $latest_query = new WP_Query($args);
 
             <div class="swiper-pagination"></div>
 
+            <span class="title">Latest</span>
+
             <div class="swiper-wrapper">
 
                 <?php
                 while ($latest_query->have_posts()) : $latest_query->the_post();
 
                     $categories = get_the_category();
-                    $reading_time = get_field('est_reading_time');
+                    $reading_time = get_field('est_reading_time', $post->ID);
 
                     if (! empty($categories) && ! is_wp_error($categories)) {
                         $term = $categories[0];

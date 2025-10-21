@@ -31,19 +31,53 @@
       align-items: center;
       text-decoration: none !important;
 
-      &::before {
+      &:before {
         content: "";
-        background-image: url(../../../assets/images/theme/icon-download.svg);
         opacity: 1;
         z-index: 1;
         width: 32px;
         height: 32px;
         display: inline-block;
         transition: all $ease $speed;
+        background-size: contain;
+        background-repeat: no-repeat;
       }
+    }
 
-      &:hover::before {
-        background-image: url(../../../assets/images/theme/icon-download-fill.svg);
+    &.document-item--file {
+      a {
+        &::before {
+          background-image: url(../../../assets/images/theme/icon-download.svg);
+        }
+
+        &:hover::before {
+          background-image: url(../../../assets/images/theme/icon-download-fill.svg);
+        }
+      }
+    }
+
+    &.document-item--external {
+      a {
+        &::before {
+          transform: rotate(320deg);
+          background-image: url(../../../assets/images/theme/icon-arrow-right.svg);
+        }
+
+        &:hover::before {
+          background-image: url(../../../assets/images/theme/icon-arrow-right-fill.svg);
+        }
+      }
+    }
+
+    &.document-item--video {
+      a {
+        &::before {
+          background-image: url(../../../assets/images/theme/icon-video.svg);
+        }
+
+        &:hover::before {
+          background-image: url(../../../assets/images/theme/icon-video-fill.svg);
+        }
       }
     }
   }

@@ -28,7 +28,11 @@ $className = 'hover-boxes' .
 
                 <div class="box-content">
                     <?php if ($title): ?>
-                        <h3><?= esc_html($title) ?></h3>
+                        <h3 class="og"><?= esc_html($title) ?></h3>
+                    <?php endif; ?>
+
+                    <?php if ($title): ?>
+                        <h3 class="clone"><?= esc_html($title) ?></h3>
                     <?php endif; ?>
 
                     <?php if ($sub_heading): ?>

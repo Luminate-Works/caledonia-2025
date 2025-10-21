@@ -12,6 +12,8 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        aspect-ratio: 1.2 / 1;
+        justify-content: flex-end;
 
         .meta-fields {
           display: flex;
@@ -59,8 +61,30 @@
         }
 
         &:hover {
-
         }
+      }
+    }
+
+    .title {
+      position: absolute;
+      padding: 2.4rem;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: $primary;
+      z-index: 99;
+    }
+
+    .swiper-pagination {
+      width: auto !important;
+      top: 24px !important;
+      left: auto;
+      right: 24px !important;
+      text-align: right;
+
+      &-bullet-active {
+        width: 24px;
+        background: $primary;
+        border-radius: 30px;
       }
     }
   }

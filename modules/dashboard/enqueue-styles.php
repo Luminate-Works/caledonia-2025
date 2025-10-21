@@ -15,7 +15,7 @@ function enqueue_scripts_and_styles() {
     wp_enqueue_script('jquery');
 
     // alpinejs
-    wp_enqueue_script( 'alpinejs', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true );
+    wp_enqueue_script( 'alpinejs', get_template_directory_uri() . '/assets/packages/alpine/alpine.js', array(), null, true);
 
     // gsap + animation.js - oprional
     wp_enqueue_script('gsap', get_template_directory_uri() . '/assets/packages/gsap/gsap.min.js', array(), '', false);

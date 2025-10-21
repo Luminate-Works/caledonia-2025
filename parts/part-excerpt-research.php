@@ -25,7 +25,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
     <?php } */ ?>
 
     <div class="wp-block-buttons">
-        <div class="wp-block-button is-style-plain is-style-download"><span class="wp-block-button__link">Download</span></div>
+        <div class="wp-block-button is-style-plain"><span class="wp-block-button__link">Read more</span></div>
     </div>
 
 </a>

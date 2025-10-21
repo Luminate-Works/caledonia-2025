@@ -140,6 +140,9 @@
 
   .modal-content {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     @media (min-width: 1024px) {
       padding: 4rem;
@@ -199,6 +202,13 @@
     }
   } // active
 
+  .modal-controls {
+    width: 100%;
+    border-top: 1px solid rgba($primary, 0.1);
+    padding-top: 2.4rem;
+    margin-top: auto;
+  } // modal-controls
+
   #close {
     display: block;
     width: 40px;
@@ -222,16 +232,49 @@
     }
   }
 
+  .modal-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .next {
+    float: right;
+    justify-content: right;
+  }
+
+  .prev {
+    float: left;
+    justify-content: left;
+    &:after {
+      content: "";
+      border-right: 1px solid rgba($primary, 0.1);
+      opacity: 1;
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
   .next,
   .prev {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 50%;
     margin: 0;
     cursor: pointer;
+    gap: 1.6rem;
+    position: relative;
+
+    span {
+      font-size: $font-16;
+      color: rgba($primary, 0.6);
+    }
 
     &.disabled {
       opacity: 0.3;
@@ -239,39 +282,34 @@
     }
 
     svg {
+      width: 42px;
+      height: 42px;
+
       circle,
       path {
-        transition: stroke $speed $ease;
+        transition: all $speed $ease;
       }
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       svg {
-        circle {
-          stroke: $primary;
+        path:first-of-type {
+          fill: $primary;
+          opacity: 1;
         }
 
-        path {
-          stroke: black;
+        path:not(:first-of-type) {
+          stroke: white;
         }
       }
     }
-
     &[disabled="disabled"] {
-      opacity: 0.2;
-      pointer-events: none;
+      svg,
+      span {
+        opacity: 0.2;
+        pointer-events: none;
+      }
     }
-  }
-
-  .next {
-    top: 49px;
-    right: 0;
-    margin: 10px 0;
-  }
-
-  .prev {
-    top: 98px;
-    left: 0;
   }
 }
 

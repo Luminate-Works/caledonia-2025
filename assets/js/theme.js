@@ -50,13 +50,40 @@ document.addEventListener("DOMContentLoaded", function () {
 // Sticky header
 // ------------------------------
 const headerElement = document.querySelector(".header");
-const stickyHeader = () => {
-  headerElement.classList.toggle(
-    "sticky",
-    document.documentElement.scrollTop > 0
-  );
+let lastScrollTop = 0;
+const delta = 10; 
+const topBuffer = 300; // Scroll threshold to add 'sticky' class
+
+const handleScroll = () => {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Ignore tiny scrolls
+  if (Math.abs(currentScroll - lastScrollTop) <= delta) {
+    return;
+  }
+
+  // Add or remove 'sticky' based on topBuffer
+  if (currentScroll > topBuffer) {
+    headerElement.classList.add("sticky");
+  } else {
+    headerElement.classList.remove("sticky");
+  }
+
+  // Show/hide header on scroll direction
+  if (currentScroll > lastScrollTop) {
+    // Scrolling down
+    headerElement.style.transform = "translateY(-100%)";
+  } else {
+    // Scrolling up
+    headerElement.style.transform = "translateY(0)";
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 };
-document.addEventListener("scroll", stickyHeader);
+
+document.addEventListener("scroll", handleScroll);
+
+
 
 // Scroll to top button
 // ------------------------------

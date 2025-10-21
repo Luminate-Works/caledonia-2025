@@ -46,10 +46,11 @@
     background-repeat: no-repeat;
     border: 1px solid $primary;
     border-radius: 30rem;
+    transition: all $speed $cb;
 
     &:focus,
     &:active {
-      border: 1px solid $secondary;
+      border: 1px solid $primary;
       outline: none;
     }
   }
@@ -328,8 +329,12 @@
 
         .icon {
           padding: 0 4rem;
-          border-right: 1px solid rgba(1, 0, 53, 0.1);
           color: $primary;
+          font-size: $font-18;
+
+          &:last-child {
+            border-right: 1px solid rgba(1, 0, 53, 0.1);
+          }
         }
       }
     }
@@ -367,7 +372,6 @@
 
       &.name {
         color: $primary;
-        cursor: pointer;
         transition: color $speed $cb;
         font-size: $font-18;
 
@@ -388,29 +392,36 @@
         background: rgba(41, 41, 39, 0.1);
         border-radius: 3rem;
       }
+    } // span
 
-      &.icon {
-        display: flex;
-        align-items: center;
-        font-size: $font-14;
-        color: rgba($primary, 0.6);
+    a.icon {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: $primary;
+      font-size: $font-18;
 
+      svg {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+
+        circle, path {
+          transition: all $speed $cb;
+        }
+      }
+
+      &:hover {
         svg {
-          width: 32px;
-          height: 32px;
-          min-width: 32px;
-
-          .rect {
-            transition: fill $speed $ease;
+          circle {
+            fill: $orange;
           }
-
-          .icon *,
-          .icon {
-            transition: $speed $ease 0.005s;
+          path {
+            stroke: white;
           }
         }
       }
-    } // span
+    }
 
     &:hover,
     &:active,
@@ -460,7 +471,7 @@
         flex: 1;
 
         &.date {
-          flex: 2;
+          flex: 0 0 240px;
           font-size: 1.4rem;
           padding-top: 0.2rem;
         }

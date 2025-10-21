@@ -55,6 +55,12 @@
         transition: color $speed $cb;
         position: relative;
       }
+
+      h3.clone {
+        display: none;
+        color: white;
+      }
+
       p {
         display: none;
         color: rgba(white, 0.8);
@@ -79,9 +85,10 @@
         }
       }
       .box-content {
-        h3 {
-          color: white;
-        }
+        // h3.og {
+        //   visibility: none;
+        //   opacity: 0 !important;
+        // }
         p {
         }
       }

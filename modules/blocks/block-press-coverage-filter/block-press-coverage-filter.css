@@ -57,9 +57,10 @@
   background-repeat: no-repeat;
   border: 1px solid rgba(1, 0, 53, 0.1);
   border-radius: 52rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .press-coverage-filter .press-coverage-filter-controls input:focus, .press-coverage-filter .press-coverage-filter-controls input:active {
-  border: 1px solid #F0D8B2;
+  border: 1px solid #010035;
   outline: none;
 }
 .press-coverage-filter .press-coverage-filter-controls .tabs {

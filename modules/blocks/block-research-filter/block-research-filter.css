@@ -57,9 +57,10 @@
   background-repeat: no-repeat;
   border: 1px solid rgba(1, 0, 53, 0.1);
   border-radius: 52rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .research-filter .research-filter-controls input:focus, .research-filter .research-filter-controls input:active {
-  border: 1px solid #F0D8B2;
+  border: 1px solid #010035;
   outline: none;
 }
 .research-filter .research-filter-controls .tabs {
@@ -372,6 +373,9 @@
 .research-filter .research-listing > .post-item .excerpt .wp-block-buttons .wp-block-button .wp-block-button__link {
   font-size: var(--wp--preset--font-size--font-14);
   color: white;
+}
+.research-filter .research-listing > .post-item .excerpt .wp-block-buttons .wp-block-button .wp-block-button__link:before, .research-filter .research-listing > .post-item .excerpt .wp-block-buttons .wp-block-button .wp-block-button__link:after {
+  transform: rotate(320deg);
 }
 .research-filter .research-listing > .post-item .excerpt:hover .wp-block-button .wp-block-button__link:before {
   opacity: 0;

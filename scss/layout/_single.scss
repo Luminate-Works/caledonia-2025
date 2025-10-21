@@ -3,6 +3,7 @@ body.single {
     .narrow {
       padding-top: 4rem;
       border-top: 1px solid rgba($primary, 0.1);
+      margin-bottom: 16rem;
     }
 
     .social-share {
@@ -37,6 +38,103 @@ body.single {
               opacity: 1;
             }
           }
+        }
+      }
+    }
+  }
+
+  &.single-post {
+    // posts only
+    .related-posts--list {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 4rem;
+      border-top: 1px solid rgba($primary, 0.1);
+      border-bottom: 1px solid rgba($primary, 0.1);
+      margin: 4rem 0 12rem 0;
+      padding: 4rem 0;
+
+      .excerpt {
+        width: 100%;
+        background: #f2f5ff;
+        padding: 3.2rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .meta-fields {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          gap: 1.6rem;
+          margin-bottom: 1.6rem;
+
+          p {
+            font-size: $font-14;
+            margin: 0 !important;
+            border-left: 1px solid rgba($primary, 0.1);
+            padding-left: 1.6rem;
+            color: $primary;
+            line-height: 110%;
+
+            &.meta {
+              color: rgba($primary, 0.5);
+            }
+
+            &:first-child {
+              padding-left: 0;
+              border-left: 0;
+            }
+          }
+
+          .icon {
+            border-left: 1px solid rgba($primary, 0.1);
+            padding-left: 1.6rem;
+          }
+        }
+
+        h3 {
+          font-size: $font-32;
+          line-height: 130%;
+        }
+
+        .wp-block-buttons {
+          margin-top: auto !important;
+          padding-top: 2rem;
+
+          .wp-block-button .wp-block-button__link {
+            font-size: $font-14;
+          }
+        }
+
+        &:hover {
+          .wp-block-button {
+            .wp-block-button__link {
+              &:before {
+                opacity: 0;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+
+        .excerpt {
+          width: calc(50% - 2rem);
+          flex-grow: 1;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .excerpt {
+          width: calc(33% - 3rem);
         }
       }
     }

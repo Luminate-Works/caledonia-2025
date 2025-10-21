@@ -5,11 +5,11 @@
 }
 
 header {
-  border-top: 4px solid $orange;
   padding: 2.5rem 0 0 0;
 
   &.sticky {
     padding: 1.8rem 0 0 0;
+    transform: translateY(-100%);
 
     #sitenav {
       .menu {
@@ -82,7 +82,7 @@ header {
         > a {
           &:after {
             content: "";
-            border-bottom: 1px solid $orange;
+            border-bottom: 2px solid $orange;
             display: block;
             bottom: -5px;
             position: absolute;
@@ -159,7 +159,7 @@ header {
       &.current-menu-item {
         a {
           //font-weight: 500 !important;
-          color: $orange;
+          color: $orange !important;
         }
       }
 

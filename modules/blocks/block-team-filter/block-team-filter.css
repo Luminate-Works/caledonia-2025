@@ -417,8 +417,7 @@
   transform: translateX(100%);
   transition: 0.5s ease;
   pointer-events: all;
-  overflow: auto;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 .modal .modal-inner::-webkit-scrollbar {
   width: 10px;
@@ -461,6 +460,7 @@
   height: calc(100% - 405px);
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 .modal .modal-content .text #title {
   padding: 2rem 0 0 0;
@@ -478,8 +478,23 @@
   color: #010035;
   margin-bottom: 2.4rem;
 }
-.modal .modal-content .text #bio p {
+.modal .modal-content .text #bio {
+  padding-bottom: 8rem;
+}
+.modal .modal-content .text #bio p,
+.modal .modal-content .text #bio ul {
   font-size: var(--wp--preset--font-size--font-16);
+  margin-bottom: 5px;
+}
+.modal .modal-content .text #bio h6 {
+  font-family: var(--wp--preset--font-family--primary);
+  margin-bottom: 1rem;
+}
+.modal .modal-content .text #bio ul {
+  margin-top: 0;
+}
+.modal .modal-content .text #bio ul li {
+  margin-bottom: 0;
 }
 .modal .modal-content .text #bio .is-style-small-title {
   display: inline-flex;
@@ -500,8 +515,12 @@
 .modal .modal-controls {
   width: 100%;
   border-top: 1px solid rgba(1, 0, 53, 0.1);
-  padding-top: 2.4rem;
+  padding: 2.4rem 4rem 2.4rem 4rem;
   margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
 }
 .modal #close {
   display: block;

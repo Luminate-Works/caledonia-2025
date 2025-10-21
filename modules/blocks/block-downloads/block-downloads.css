@@ -26,18 +26,35 @@
   align-items: center;
   text-decoration: none !important;
 }
-.lmn-docuement-downloads .document-item a::before {
+.lmn-docuement-downloads .document-item a:before {
   content: "";
-  background-image: url(../../../assets/images/theme/icon-download.svg);
   opacity: 1;
   z-index: 1;
   width: 32px;
   height: 32px;
   display: inline-block;
   transition: all ease-in-out 0.25s;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.lmn-docuement-downloads .document-item a:hover::before {
+.lmn-docuement-downloads .document-item.document-item--file a::before {
+  background-image: url(../../../assets/images/theme/icon-download.svg);
+}
+.lmn-docuement-downloads .document-item.document-item--file a:hover::before {
   background-image: url(../../../assets/images/theme/icon-download-fill.svg);
+}
+.lmn-docuement-downloads .document-item.document-item--external a::before {
+  transform: rotate(320deg);
+  background-image: url(../../../assets/images/theme/icon-arrow-right.svg);
+}
+.lmn-docuement-downloads .document-item.document-item--external a:hover::before {
+  background-image: url(../../../assets/images/theme/icon-arrow-right-fill.svg);
+}
+.lmn-docuement-downloads .document-item.document-item--video a::before {
+  background-image: url(../../../assets/images/theme/icon-video.svg);
+}
+.lmn-docuement-downloads .document-item.document-item--video a:hover::before {
+  background-image: url(../../../assets/images/theme/icon-video-fill.svg);
 }
 .lmn-docuement-downloads.left_border {
   gap: 1.6rem;

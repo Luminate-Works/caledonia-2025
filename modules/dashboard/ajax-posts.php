@@ -599,7 +599,11 @@ function load_team_members_callback()
         $last_name  = trim(substr($title, strlen($first_name)));
 
         $team_type_terms = get_the_terms(get_the_ID(), 'team-type');
-        $team_type = $team_type_terms && !is_wp_error($team_type_terms) ? $team_type_terms[0]->name : '';
+        $team_types = [];
+
+        if ($team_type_terms && !is_wp_error($team_type_terms)) {
+            $team_types = wp_list_pluck($team_type_terms, 'name');
+        }
 
         ob_start(); ?>
         <div class="team__member">
@@ -650,7 +654,7 @@ function load_team_members_callback()
             'first_name' => $first_name,
             'last_name'  => $last_name,
             'position'   => get_field('position'),
-            'team_type'  => $team_type,
+            'team_type'  => $team_types,
             'html'       => $html,
         ];
     }
@@ -833,18 +837,51 @@ function load_documents_callback()
             }
 
             ob_start(); ?>
-            <a class="file document-card <?= esc_attr($term_class); ?>" href="<?= esc_url(get_permalink()); ?>" target="_blank" title="<?= esc_attr(get_the_title()); ?>">
+            <div class="file document-card <?= esc_attr($term_class); ?>">
                 <span class="date"><?= esc_html($post_date); ?></span>
                 <span class="title">
                     <span class="name"><?= esc_html(get_the_title()); ?></span>
                 </span>
-                <span class="icon">
+
+                <!-- Webcast link -->
+                <?php
+                $webcast_url = get_field('webcast');
+                if ($webcast_url): ?>
+                    <a class="icon glightbox" href="<?= esc_url($webcast_url); ?>" title="Watch Video">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-video.svg'); ?>
+                        Watch Video
+                    </a>
+                <?php endif; ?>
+
+                <!-- Presentation link -->
+                <?php
+                $presentation_url = get_field('presentation');
+                if ($presentation_url): ?>
+                    <a class="icon" href="<?= esc_url($presentation_url); ?>" target="_blank" title="View Presentation">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-esef.svg'); ?>
+                        View Presentation
+                    </a>
+                <?php endif; ?>
+
+                <!-- PDF link -->
+                <a class="icon" href="<?= esc_url(get_permalink()); ?>" target="_blank" title="<?= esc_attr(get_the_title()); ?>">
                     <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-announcement.svg'); ?>
-                    Download PDF
-                </span>
-                <span class="format"><?= esc_html($file_format); ?></span>
+                    View PDF
+                </a>
+
+                <!-- ESEF link -->
+                <?php
+                $esef_url = get_field('esef');
+                if ($esef_url): ?>
+                    <a class="icon" href="<?= esc_url($esef_url['url']); ?>" target="_blank" title="View ESEF">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-esef.svg'); ?>
+                        View ESEF
+                    </a>
+                <?php endif; ?>
+
+                <?php /*<span class="format"><?= esc_html($file_format); ?></span>*/ ?>
                 <?php /*<span class="size"><?= esc_html($file_size); ?></span>*/ ?>
-            </a>
+            </div>
 <?php
             $html = ob_get_clean();
             $posts[] = [

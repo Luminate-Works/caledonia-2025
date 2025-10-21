@@ -39,7 +39,7 @@ if (is_admin()) {
 
 	<div
 		class="team-list <?= (get_field('grid_view')) ? 'grid-view' : ''; ?>"
-		x-data="{ displayed: teamMembers }">
+		>
 		<template x-for="(member, i) in displayed" :key="member.id">
 			<div class="team__member team__member__outter" x-html="member.html"
 				@click="

@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // General fade-in-up page animations
   createScrollTriggerAnimation(
     document.querySelectorAll(
-      ".fade-in-up, #content blockquote, #content h2, #content h3, #content h4, #content h5, #content h6, #content p, #content ul, #content .wp-block-buttons"
+      ".fade-in-up, #content blockquote, #content h2, #content h3, #content h4, #content h5, #content h6, #content p, #content ul:not(.calendar-links), #content .wp-block-buttons"
     ),
     {
       initial: { opacity: 0, y: 10 }, // start 30px below

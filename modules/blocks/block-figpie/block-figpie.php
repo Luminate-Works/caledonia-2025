@@ -194,6 +194,28 @@ if (is_admin()) {
                         </template>
                     </div>
 
+                    <div class="modal-controls">
+                        <div class="modal-nav">
+                            <button class="next" :disabled="modalIndex === projects.length - 1" @click="next()">
+                                <span>Next</span>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.1" d="M20 0.5C30.7696 0.5 39.5 9.23045 39.5 20C39.5 30.7696 30.7696 39.5 20 39.5C9.23045 39.5 0.5 30.7696 0.5 20C0.5 9.23045 9.23045 0.5 20 0.5Z" fill="white" stroke="#010035" />
+                                    <path d="M15.332 20.2227H24.6654" stroke="#010035" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M20 15.556L24.6667 20.2227L20 24.8894" stroke="#010035" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </button>
+                            <button class="prev" :disabled="modalIndex === 0" @click="prev()">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.1" d="M20 0.5C9.23045 0.5 0.5 9.23045 0.5 20C0.5 30.7696 9.23045 39.5 20 39.5C30.7696 39.5 39.5 30.7696 39.5 20C39.5 9.23045 30.7696 0.5 20 0.5Z" fill="white" stroke="#010035" />
+                                    <path d="M24.668 20.2227H15.3346" stroke="#010035" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M20 15.556L15.3333 20.2227L20 24.8894" stroke="#010035" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Prev</span>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

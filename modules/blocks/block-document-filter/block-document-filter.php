@@ -111,11 +111,13 @@ if (is_admin()) {
 
 	<div x-show="noResults && !loading">No documents found.</div>
 
-	<div class="wp-block-button">
-		<button class="wp-block-button__link"
-			@click="loadMore()"
-			x-text="loading ? 'Loading...' : 'Load more'"></button>
-	</div>
+	<template x-if="!allLoaded">
+		<div class="wp-block-button">
+			<button class="wp-block-button__link"
+				@click="loadMore()"
+				x-text="loading ? 'Loading...' : 'Load more'"></button>
+		</div>
+	</template>
 </div>
 
 <script>
@@ -189,6 +191,14 @@ if (is_admin()) {
 							this.allLoaded = true;
 						}
 						this.loading = false;
+
+						this.$nextTick(() => {
+							if (typeof GLightbox !== 'undefined') {
+								GLightbox({
+									selector: '.glightbox'
+								});
+							}
+						});
 					})
 					.catch(error => {
 						console.error('Error:', error);

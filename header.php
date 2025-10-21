@@ -147,6 +147,9 @@ if (class_exists('ACF')) {
                     case 'static':
                         $banner_template = 'modules/banners/templates/hero-static.php';
                         break;
+                    case 'plain':
+                        $banner_template = 'modules/banners/templates/hero-plain.php';
+                        break;
                     case 'video':
                         $banner_template = 'modules/banners/templates/hero-video.php';
                         break;
