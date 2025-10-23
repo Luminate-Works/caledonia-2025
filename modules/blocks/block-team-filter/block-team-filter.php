@@ -13,6 +13,22 @@ if ($team_category) {
     }
 }
 
+$filter_team_types = get_field('team_type') ?: [];
+$filter_types = [];
+
+if (!empty($filter_team_types)) {
+    foreach ($filter_team_types as $term) {
+        if (is_object($term)) {
+            $filter_types[] = $term->name;
+        } else {
+            $term_obj = get_term($term, 'team-type');
+            if (!is_wp_error($term_obj)) {
+                $filter_types[] = $term_obj->name;
+            }
+        }
+    }
+}
+
 $className = 'team'
     . (!empty($block['className']) ? " {$block['className']}" : '')
     . (!empty($block['align']) ? " align{$block['align']}" : '')
@@ -27,7 +43,11 @@ if (is_admin()) {
 <div
     id="<?= esc_attr($id) ?>"
     class="<?= esc_attr($className) ?>"
-    x-data="teamApp({ category: <?= json_encode($team_category) ?>, appId: '<?= $id ?>' })"
+    x-data='teamApp({
+    category: <?= json_encode($team_category) ?>,
+    appId: <?= json_encode($id) ?>,
+    filterTypes: <?= json_encode($filter_types ?? []) ?>
+})'
     x-init="init()"
     x-cloak>
     <?php if ($filter) { ?>
@@ -103,10 +123,12 @@ if (is_admin()) {
     document.addEventListener('alpine:init', () => {
         Alpine.data('teamApp', ({
             category = null,
-            appId = ''
+            appId = '',
+            filterTypes = []
         }) => ({
             category,
             appId,
+            filterTypes,
             allMembers: [],
             displayed: [],
             searchQuery: '',
@@ -141,7 +163,18 @@ if (is_admin()) {
                     })
                     .then(r => r.json())
                     .then(json => {
+                        
                         this.allMembers = json.members;
+
+                        this.allMembers = this.allMembers.map(m => ({
+                            ...m,
+                            team_type: (m.team_type || []).map(t => {
+                                const txt = document.createElement('textarea');
+                                txt.innerHTML = t;
+                                return txt.value;
+                            })
+                        }));
+
                         this.applyFilters();
                         this.loading = false;
                         applyEqualHeights();
@@ -155,6 +188,14 @@ if (is_admin()) {
                 let items = [...this.allMembers];
                 const q = this.searchQuery.trim().toLowerCase();
 
+                // NEW: Limit to allowed team types even in "All"
+                if (this.filterTypes.length) {
+                    items = items.filter(i =>
+                        Array.isArray(i.team_type) &&
+                        i.team_type.some(t => this.filterTypes.includes(t))
+                    );
+                }
+
                 if (q) {
                     items = items.filter(i =>
                         i.title.toLowerCase().includes(q) ||
@@ -162,15 +203,19 @@ if (is_admin()) {
                     );
                 }
 
-                if (this.roleFilter) items = items.filter(i => i.position === this.roleFilter);
+                if (this.roleFilter)
+                    items = items.filter(i => i.position === this.roleFilter);
+
                 if (this.typeFilter)
-                    items = items.filter(i => Array.isArray(i.team_type) && i.team_type.includes(this.typeFilter));
+                    items = items.filter(i =>
+                        Array.isArray(i.team_type) &&
+                        i.team_type.includes(this.typeFilter)
+                    );
 
-                if (this.sortOption === 'first_name') items.sort((a, b) => a.first_name.localeCompare(b.first_name));
-                else if (this.sortOption === 'last_name') items.sort((a, b) => a.last_name.localeCompare(b.last_name));
-
+                    
                 this.displayed = items;
             },
+
 
             resetFilters() {
                 this.searchQuery = '';
@@ -198,7 +243,9 @@ if (is_admin()) {
             },
             get uniqueTypes() {
                 const all = this.allMembers.flatMap(m => m.team_type || []);
-                return [...new Set(all)].sort();
+                const unique = [...new Set(all)].sort();
+
+                return this.filterTypes.length ? this.filterTypes : unique;
             },
 
             openModal(i) {

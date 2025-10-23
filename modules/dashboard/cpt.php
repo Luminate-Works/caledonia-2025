@@ -110,7 +110,7 @@ foreach ($modules as $module => $enabled) {
                 break;
             case 'team':
                 add_action('init', function () {
-                    register_custom_post_type('team', 'Team', 'Person', 10, 'dashicons-groups', ['title', 'editor', 'thumbnail'], false, false, false, false);
+                    register_custom_post_type('team', 'Team', 'Person', 10, 'dashicons-groups', ['title', 'editor', 'thumbnail', 'page-attributes'], false, false, false, false);
                     register_custom_taxonomy('team-category', 'Team Categories', ['team']);
                     register_custom_taxonomy('team-type', 'Team', ['team']);
                 });
