@@ -890,7 +890,7 @@ function load_documents_callback()
 
                 <!-- PDF link -->
                 <?php
-                $report_url = get_field('report');
+                $report_url = get_field('announcement');
                 $link_url = $file_url ?: $report_url;
 
                 if ($link_url): ?>

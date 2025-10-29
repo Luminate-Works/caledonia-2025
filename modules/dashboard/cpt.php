@@ -128,7 +128,7 @@ foreach ($modules as $module => $enabled) {
                 break;
             case 'insights':
                 add_action('init', function () {
-                    register_custom_post_type('insights', 'Insights', 'Insight', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail'], true, true, false, true);
+                    register_custom_post_type('insights', 'Insights', 'Insight', 5, 'dashicons-admin-post', ['title', 'editor', 'thumbnail', 'excerpt'], true, true, false, true);
                     register_custom_taxonomy('insights-category', 'Insights Categories', ['insights']);
                     register_custom_taxonomy('insights-authors', 'Insights Authors', ['insights']);
                 });

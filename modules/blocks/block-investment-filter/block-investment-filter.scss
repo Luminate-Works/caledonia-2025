@@ -262,7 +262,7 @@
     }
 
     .modal-heading {
-      margin-bottom: 4rem;
+      margin-bottom: 3.2rem;
 
       h3 {
         font-size: $font-32;
@@ -271,6 +271,38 @@
         line-height: 130%;
         margin-bottom: 1.6rem;
       }
+    }
+
+    .wp-block-button {
+      display: inline;
+      margin-right: 4rem;
+    }
+
+    .modal-link {
+      &:before,
+      &:after {
+        transform: rotate(320deg);
+      }
+    }
+
+    .video-link {
+      &:before {
+        background-image: url("../../../assets/images/theme/icon-video.svg");
+      }
+      &:after {
+        background-image: url("../../../assets/images/theme/icon-video-fill.svg");
+      }
+    }
+
+    .description {
+      font-size: $font-16;
+      margin-bottom: 4rem;
+
+      h6 {
+        font-family: $ff-body;
+        margin-bottom: 1rem;
+        font-size: $font-20;
+      }
 
       p {
         font-size: $font-16;
@@ -278,7 +310,19 @@
         font-weight: 400;
         line-height: 160%;
         color: $off-off-primary;
-        margin: 0;
+        margin: 0 !important;
+        margin-bottom: 5px !important;
+
+        & + h6 {
+          margin-top: 3.2rem !important;
+        }
+      }
+
+      ul {
+        margin-top: 0;
+        li {
+          margin-bottom: 0;
+        }
       }
     }
 

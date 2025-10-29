@@ -14,59 +14,63 @@ if (is_admin()) {
 
 <div class="<?= esc_attr($className) ?>">
 	<?php
-		$args = [
-			'post_type'      => 'investment',
-			'posts_per_page' => -1,
-			'order'          => 'ASC',
-			'orderby'        => 'menu_order',
-		];
+	$args = [
+		'post_type'      => 'investment',
+		'posts_per_page' => -1,
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order',
+	];
 
-		if ($category) {
-			$args['tax_query'] = [[
-				'taxonomy' => 'investment-type',
-				'field'    => 'term_id',
-				'terms'    => $category,
-			]];
-		}
+	if ($category) {
+		$args['tax_query'] = [[
+			'taxonomy' => 'investment-type',
+			'field'    => 'term_id',
+			'terms'    => $category,
+		]];
+	}
 
-		$query = new WP_Query($args);
-		
-		// Initialize posts data array
-		$posts_data = array();
+	$query = new WP_Query($args);
+
+	// Initialize posts data array
+	$posts_data = array();
 	?>
 	<div class="investment-list investment-slider" x-data="projectModal()">
 		<div class="swiper-wrapper">
 			<?php if ($query->have_posts()) : ?>
 				<?php $index = 0; ?>
 				<?php while ($query->have_posts()) : $query->the_post(); ?>
-					<?php 
+					<?php
 					// Store post data for Alpine.js
 					$post_data = array(
 						'title' => get_the_title(),
 						'content' => get_the_content(),
 						'image' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
-						
+
 					);
 					//custom fields
 					$caledonian_equity = get_field('caledonian_equity', get_the_ID());
-					if($caledonian_equity) {
+					if ($caledonian_equity) {
 						$post_data['caledonian_equity'] = $caledonian_equity;
 					}
 					$investment_date = get_field('investment_date', get_the_ID());
-					if($investment_date) {
+					if ($investment_date) {
 						$post_data['investment_date'] = $investment_date;
-					}	
+					}
 					$investment_type = get_field('investment_type', get_the_ID());
-					if($investment_type) {
+					if ($investment_type) {
 						$post_data['investment_type'] = $investment_type;
 					}
 					$realised_status = get_field('realised_status', get_the_ID());
-					if($realised_status) {
+					if ($realised_status) {
 						$post_data['realised_status'] = $realised_status;
 					}
 					$url = get_field('url', get_the_ID());
-					if($url) {
+					if ($url) {
 						$post_data['url'] = $url;
+					}
+					$video_url = get_field('video_url', get_the_ID());
+					if ($video_url) {
+						$post_data['video_url'] = $video_url;
 					}
 					$posts_data[] = $post_data;
 					?>
@@ -77,7 +81,7 @@ if (is_admin()) {
 									<?php the_post_thumbnail('full'); ?>
 								</div>
 							<?php endif; ?>
-							
+
 							<div class="slide-text">
 								<h4><?php the_title(); ?></h4>
 								<div class="slide-excerpt">
@@ -98,18 +102,18 @@ if (is_admin()) {
 				</div>
 			<?php endif; ?>
 		</div>
-	
-		
-		
+
+
+
 		<!-- Modal -->
-		<div id="investment__modal" 
-			 class="modal" 
-			 x-transition
-			 x-ref="modal" 
-			 :class="{ 'active': isModalOpen }"
-			 @keydown.escape.window="closeModal()" 
-			 @keydown.window="handleKeyNavigation"
-			 @click.self="closeModal()">
+		<div id="investment__modal"
+			class="modal"
+			x-transition
+			x-ref="modal"
+			:class="{ 'active': isModalOpen }"
+			@keydown.escape.window="closeModal()"
+			@keydown.window="handleKeyNavigation"
+			@click.self="closeModal()">
 			<div class="modal-inner">
 
 				<!-- <div class="investment-controls">
@@ -136,40 +140,51 @@ if (is_admin()) {
 					<img id="investment-modal-img" :src="currentProject.image" :alt="currentProject.title" />
 				</template>
 				<div class="modal-content">
-				
+
 					<div class="modal-heading">
 						<h3 x-text="currentProject.title"></h3>
-						<p x-html="currentProject.content"></p>
 					</div>
 
-					<div class="investment-details"  x-show="currentProject.caledonian_equity || currentProject.investment_date || currentProject.investment_type || currentProject.realised_status">
+					<div class="investment-details" x-show="currentProject.caledonian_equity || currentProject.investment_date || currentProject.investment_type || currentProject.realised_status">
 						<!-- Show p tags only if the data exists -->
-						<div class="wrapper top"> 
+						<div class="wrapper top">
 							<p x-show="currentProject.caledonian_equity">
 								<span class="heading">Caledonia equity</span>
 								<span class="data equity" x-text="currentProject.caledonian_equity"></span>
 							</p>
 							<p :class="{ 'no-border': !currentProject.caledonian_equity }" x-show="currentProject.investment_date">
 								<span class="heading">Investment date</span>
-								<span  class="data" x-text="currentProject.investment_date"></span>
+								<span class="data" x-text="currentProject.investment_date"></span>
 							</p>
 						</div>
 						<div class="wrapper bottom">
 							<p x-show="currentProject.investment_type">
-								<span class="heading">Investment type</span>				
-								<span  class="data" x-text="currentProject.investment_type"></span>
+								<span class="heading">Investment type</span>
+								<span class="data" x-text="currentProject.investment_type"></span>
 							</p>
-							<p  :class="{ 'no-border': !currentProject.investment_type }"  x-show="currentProject.realised_status">
-								<span class="heading">Realised Status</span>				
-								<span  class="data" x-text="currentProject.realised_status"></span>
+							<p :class="{ 'no-border': !currentProject.investment_type }" x-show="currentProject.realised_status">
+								<span class="heading">Realised Status</span>
+								<span class="data" x-text="currentProject.realised_status"></span>
 							</p>
 						</div>
-						
+
 					</div>
 
-					<div x-show="currentProject.url"  class="wp-block-button">
-						<a :href="currentProject.url"  target="_blank" class="modal-link wp-block-button__link wp-element-button">Visit Site</a>
+					<p class="description" x-html="currentProject.content"></p>
+
+					<div x-show="currentProject.video_url" class="wp-block-button">
+						<a
+							href="#"
+							@click.prevent="openVideoLightbox(currentProject.video_url)"
+							class="video-link wp-block-button__link wp-element-button">
+							Watch video
+						</a>
 					</div>
+
+					<div x-show="currentProject.url" class="wp-block-button">
+						<a :href="currentProject.url" class="modal-link wp-block-button__link wp-element-button">Visit Site</a>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -179,118 +194,142 @@ if (is_admin()) {
 		<div id="investment-pagination" class="swiper-pagination"></div>
 		<div class="investment-slider-arrows">
 			<div id="investment-slider-prev" class="swiper-button-prev"></div>
-			<div id="investment-slider-next"  class="swiper-button-next"></div>
+			<div id="investment-slider-next" class="swiper-button-next"></div>
 		</div>
 	</div>
-		
+
 
 
 
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-	var swiper = new Swiper(".investment-slider", {
-		slidesPerView: 3,
-		spaceBetween: 80,
-		loop: true,
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: true,
-		},
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
-		},
-		breakpoints: {
-			320: {
-				slidesPerView: 1,
-				spaceBetween: 20
+	document.addEventListener('DOMContentLoaded', function() {
+		var swiper = new Swiper(".investment-slider", {
+			slidesPerView: 3,
+			spaceBetween: 80,
+			loop: true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
 			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 25
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
 			},
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 80
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 25
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 80
+				}
+			}
+		});
+	});
+
+	function projectModal() {
+		const projects = <?php echo json_encode($posts_data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
+
+		return {
+			modalIndex: -1,
+			projects: projects,
+			hasMultipleProjects: false,
+
+			init() {
+				this.hasMultipleProjects = this.projects.length > 1;
+			},
+
+			get currentProject() {
+				return this.projects[this.modalIndex] || {};
+			},
+
+			get isModalOpen() {
+				return this.modalIndex >= 0;
+			},
+
+			openModal(index) {
+				// Validate the index exists
+				if (index < 0 || index >= this.projects.length || !this.projects[index]) {
+					return;
+				}
+
+				this.modalIndex = index;
+
+				// Add active class and prevent body scrolling
+				this.$nextTick(() => {
+					const modal = document.getElementById('investment__modal');
+					if (modal) {
+						modal.classList.add('active');
+					}
+					document.documentElement.classList.add('menu-opened');
+					document.body.style.overflow = 'hidden';
+				});
+			},
+
+			closeModal() {
+				this.modalIndex = -1;
+
+				// Remove active class and restore body scrolling
+				const modal = document.getElementById('investment__modal');
+				if (modal) {
+					modal.classList.remove('active');
+				}
+				document.documentElement.classList.remove('menu-opened');
+				document.body.style.overflow = '';
+			},
+
+			next() {
+				if (this.modalIndex < this.projects.length - 1) {
+					this.modalIndex++;
+				}
+			},
+
+			prev() {
+				if (this.modalIndex > 0) {
+					this.modalIndex--;
+				}
+			},
+
+			handleKeyNavigation(event) {
+				if (!this.isModalOpen) return;
+
+				if (event.key === 'ArrowRight') {
+					this.next();
+				} else if (event.key === 'ArrowLeft') {
+					this.prev();
+				}
+			},
+
+			openVideoLightbox(url) {
+				if (!url) return;
+
+
+				this.closeModal();
+
+				setTimeout(() => {
+
+					const lightbox = GLightbox({
+						elements: [{
+							href: url,
+							type: 'video',
+							source: 'youtube',
+						}, ],
+						openEffect: 'fade',
+						closeEffect: 'fade',
+						touchNavigation: true,
+						autoplayVideos: true,
+					});
+
+					lightbox.open();
+				}, 300);
 			}
 		}
-	});
-});
-
-function projectModal() {
-    const projects = <?php echo json_encode($posts_data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
-    
-    return {
-        modalIndex: -1,
-        projects: projects,
-        hasMultipleProjects: false,
-        
-        init() {
-            this.hasMultipleProjects = this.projects.length > 1;
-        },
-        
-        get currentProject() {
-            return this.projects[this.modalIndex] || {};
-        },
-        
-        get isModalOpen() {
-            return this.modalIndex >= 0;
-        },
-        
-        openModal(index) {
-            // Validate the index exists
-            if (index < 0 || index >= this.projects.length || !this.projects[index]) {
-                return;
-            }
-            
-            this.modalIndex = index;
-            
-            // Add active class and prevent body scrolling
-            this.$nextTick(() => {
-                const modal = document.getElementById('investment__modal');
-                if (modal) {
-                    modal.classList.add('active');
-                }
-                document.documentElement.classList.add('menu-opened');
-                document.body.style.overflow = 'hidden';
-            });
-        },
-        
-        closeModal() {
-            this.modalIndex = -1;
-            
-            // Remove active class and restore body scrolling
-            const modal = document.getElementById('investment__modal');
-            if (modal) {
-                modal.classList.remove('active');
-            }
-            document.documentElement.classList.remove('menu-opened');
-            document.body.style.overflow = '';
-        },
-        
-        next() {
-            if (this.modalIndex < this.projects.length - 1) {
-                this.modalIndex++;
-            }
-        },
-        
-        prev() {
-            if (this.modalIndex > 0) {
-                this.modalIndex--;
-            }
-        },
-        
-        handleKeyNavigation(event) {
-            if (!this.isModalOpen) return;
-            
-            if (event.key === 'ArrowRight') {
-                this.next();
-            } else if (event.key === 'ArrowLeft') {
-                this.prev();
-            }
-        }
-    }
-}
+	}
 </script>

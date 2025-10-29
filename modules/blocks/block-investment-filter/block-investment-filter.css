@@ -225,7 +225,7 @@
   }
 }
 #investment__modal .modal-content .modal-heading {
-  margin-bottom: 4rem;
+  margin-bottom: 3.2rem;
 }
 #investment__modal .modal-content .modal-heading h3 {
   font-size: var(--wp--preset--font-size--font-32);
@@ -234,13 +234,45 @@
   line-height: 130%;
   margin-bottom: 1.6rem;
 }
-#investment__modal .modal-content .modal-heading p {
+#investment__modal .modal-content .wp-block-button {
+  display: inline;
+  margin-right: 4rem;
+}
+#investment__modal .modal-content .modal-link:before, #investment__modal .modal-content .modal-link:after {
+  transform: rotate(320deg);
+}
+#investment__modal .modal-content .video-link:before {
+  background-image: url("../../../assets/images/theme/icon-video.svg");
+}
+#investment__modal .modal-content .video-link:after {
+  background-image: url("../../../assets/images/theme/icon-video-fill.svg");
+}
+#investment__modal .modal-content .description {
+  font-size: var(--wp--preset--font-size--font-16);
+  margin-bottom: 4rem;
+}
+#investment__modal .modal-content .description h6 {
+  font-family: var(--wp--preset--font-family--primary);
+  margin-bottom: 1rem;
+  font-size: var(--wp--preset--font-size--font-20);
+}
+#investment__modal .modal-content .description p {
   font-size: var(--wp--preset--font-size--font-16);
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
   color: rgba(1, 0, 53, 0.6);
-  margin: 0;
+  margin: 0 !important;
+  margin-bottom: 5px !important;
+}
+#investment__modal .modal-content .description p + h6 {
+  margin-top: 3.2rem !important;
+}
+#investment__modal .modal-content .description ul {
+  margin-top: 0;
+}
+#investment__modal .modal-content .description ul li {
+  margin-bottom: 0;
 }
 #investment__modal .modal-content .investment-details {
   display: flex;

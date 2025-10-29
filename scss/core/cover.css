@@ -1,1 +1,81 @@
-.wp-block-cover{padding-left:6vw;padding-right:6vw}.wp-block-cover.is-style-blue-cta,.wp-block-cover.is-style-blue-cta-slim,.wp-block-cover.is-style-shiny-cta-slim{background-color:#cbd8ff;background-image:url(../assets/images/theme/blue-cta-mask.png);background-size:contain;background-repeat:no-repeat;background-position:right center;justify-content:flex-start;border-radius:8px;padding:5.6rem}.wp-block-cover.is-style-blue-cta .wp-block-cover__background,.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__background,.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__background{background-color:rgba(0,0,0,0) !important}.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container,.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container,.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container{max-width:580px}.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2,.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2,.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2{color:#010035}.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p,.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p,.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container p{color:rgba(1,0,53,.8);font-size:var(--wp--preset--font-size--font-18)}.wp-block-cover.is-style-shiny-cta-slim{min-height:350px;padding:5rem 4rem;background-size:cover;background-image:url(../assets/images/theme/shiny-cta-mask.png)}.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container{max-width:none}.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-column.is-style-border-left-light{padding-left:6rem;border-left:1px solid rgba(255,255,255,.2)}.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2{font-size:var(--wp--preset--font-size--font-24);line-height:130%;color:#fff}.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container p{margin-top:1.6rem !important;color:rgba(255,255,255,.6);font-size:var(--wp--preset--font-size--font-16)}.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-buttons{margin-top:4rem !important}.wp-block-cover.is-style-blue-cta-slim{min-height:280px}.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2{font-size:var(--wp--preset--font-size--font-40);line-height:130%}.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p{margin-top:1.6rem !important}.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container .wp-block-buttons{margin-top:3.2rem !important}.wp-block-cover.is-style-blur>.wp-block-cover__image-background{filter:blur(50px) !important}.wp-block-cover.is-style-blur .wp-block-cover__background{opacity:.6 !important}.wp-block-cover.is-style-blur .wp-block-columns{margin:4rem;padding:8rem;background:rgba(255,255,255,.05);border-radius:4px}.wp-block-cover.is-style-blur p{color:rgba(255,255,255,.6)}
+.wp-block-cover {
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+.wp-block-cover.is-style-blue-cta, .wp-block-cover.is-style-blue-cta-slim, .wp-block-cover.is-style-shiny-cta-slim {
+  background-color: #cbd8ff;
+  background-image: url(../assets/images/theme/blue-cta-mask.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 5.6rem;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__background, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__background, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__background {
+  background-color: transparent !important;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container {
+  max-width: 580px;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container h2, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2 {
+  color: #010035;
+}
+.wp-block-cover.is-style-blue-cta .wp-block-cover__inner-container p, .wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p, .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container p {
+  color: rgba(1, 0, 53, 0.8);
+  font-size: var(--wp--preset--font-size--font-18);
+}
+.wp-block-cover.is-style-shiny-cta-slim {
+  min-height: 350px;
+  padding: 5rem 4rem;
+  background-size: cover;
+  background-image: url(../assets/images/theme/shiny-cta-mask.png);
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container {
+  max-width: none;
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-column.is-style-border-left-light {
+  padding-left: 6rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2 {
+  font-size: var(--wp--preset--font-size--font-24);
+  line-height: 130%;
+  color: white;
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container p {
+  margin-top: 1.6rem !important;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--wp--preset--font-size--font-16);
+}
+.wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-buttons {
+  margin-top: 4rem !important;
+}
+.wp-block-cover.is-style-blue-cta-slim {
+  min-height: 280px;
+}
+.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container h2 {
+  font-size: var(--wp--preset--font-size--font-40);
+  line-height: 130%;
+}
+.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container p {
+  margin-top: 1.6rem !important;
+}
+.wp-block-cover.is-style-blue-cta-slim .wp-block-cover__inner-container .wp-block-buttons {
+  margin-top: 3.2rem !important;
+}
+.wp-block-cover.is-style-blur > .wp-block-cover__image-background {
+  filter: blur(50px) !important;
+}
+.wp-block-cover.is-style-blur .wp-block-cover__background {
+  opacity: 0.6 !important;
+}
+.wp-block-cover.is-style-blur .wp-block-columns {
+  margin: 4rem;
+  padding: 8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.wp-block-cover.is-style-blur p {
+  color: rgba(255, 255, 255, 0.6);
+}/*# sourceMappingURL=cover.css.map */

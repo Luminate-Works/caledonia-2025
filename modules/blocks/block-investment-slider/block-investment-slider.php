@@ -51,7 +51,7 @@ $investments = get_field('investments');
                             <?php if ($logo) echo wp_get_attachment_image($logo['id'], 'medium'); ?>
                         </div>
                         <h3><?php the_title(); ?></h3>
-                        <?php the_content(); ?>
+                        <?php the_excerpt(); ?>
 
                         <div class="controls">
 
