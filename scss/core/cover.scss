@@ -35,24 +35,31 @@
 
   &.is-style-shiny-cta-slim {
     min-height: 350px;
-    padding: 4rem;
+    padding: 5rem 4rem;
     background-size: cover;
     background-image: url(../assets/images/theme/shiny-cta-mask.png);
 
     .wp-block-cover__inner-container {
+      max-width: none;
+
+      .wp-block-column.is-style-border-left-light {
+        padding-left: 6rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
       h2 {
-        font-size: $font-32;
+        font-size: $font-24;
         line-height: 130%;
         color: white;
       }
       p {
         margin-top: 1.6rem !important;
         color: rgba(white, 0.6);
-        font-size: $font-20;
+        font-size: $font-16;
       }
 
       .wp-block-buttons {
-        margin-top: 5.6rem !important;
+        margin-top: 4rem !important;
       }
     }
   }

@@ -456,14 +456,14 @@
   aspect-ratio: 1.5/1;
 }
 .modal .modal-content .text {
-  padding: 4rem;
+  padding: 3.5rem 4rem 4rem;
   height: calc(100% - 405px);
   display: flex;
   flex-direction: column;
   overflow: auto;
 }
 .modal .modal-content .text #title {
-  padding: 2rem 0 0 0;
+  padding: 0;
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);
   margin-bottom: 2.4rem;
 }

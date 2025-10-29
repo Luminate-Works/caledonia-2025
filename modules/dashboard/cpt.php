@@ -112,7 +112,7 @@ foreach ($modules as $module => $enabled) {
                 add_action('init', function () {
                     register_custom_post_type('team', 'Team', 'Person', 10, 'dashicons-groups', ['title', 'editor', 'thumbnail', 'page-attributes'], false, false, false, false);
                     register_custom_taxonomy('team-category', 'Team Categories', ['team']);
-                    register_custom_taxonomy('team-type', 'Team', ['team']);
+                    register_custom_taxonomy('team-type', 'Team Type', ['team']);
                 });
                 break;
             case 'careers':

@@ -4163,7 +4163,7 @@ body.page .hero-plain {
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: top right;
-  min-height: 530px;
+  min-height: 420px;
 }
 body.page .hero-plain.overlay-yellow {
   background-image: url(../assets/images/theme/inner-banner-mask-yellow.png);

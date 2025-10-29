@@ -163,7 +163,7 @@ if (is_admin()) {
                     })
                     .then(r => r.json())
                     .then(json => {
-                        
+
                         this.allMembers = json.members;
 
                         this.allMembers = this.allMembers.map(m => ({
@@ -188,14 +188,7 @@ if (is_admin()) {
                 let items = [...this.allMembers];
                 const q = this.searchQuery.trim().toLowerCase();
 
-                // NEW: Limit to allowed team types even in "All"
-                if (this.filterTypes.length) {
-                    items = items.filter(i =>
-                        Array.isArray(i.team_type) &&
-                        i.team_type.some(t => this.filterTypes.includes(t))
-                    );
-                }
-
+                // --- Search filter ---
                 if (q) {
                     items = items.filter(i =>
                         i.title.toLowerCase().includes(q) ||
@@ -203,16 +196,27 @@ if (is_admin()) {
                     );
                 }
 
-                if (this.roleFilter)
+                // --- Role filter ---
+                if (this.roleFilter) {
                     items = items.filter(i => i.position === this.roleFilter);
+                }
 
-                if (this.typeFilter)
+                // --- Type filter ---
+                if (this.typeFilter) {
+                    // A specific type is selected — only show members with that team-type
                     items = items.filter(i =>
                         Array.isArray(i.team_type) &&
                         i.team_type.includes(this.typeFilter)
                     );
+                } else {
+                    // “All” selected — show anyone in the category
+                    // regardless of whether they have team-type or not.
+                    // No restriction based on this.filterTypes.
+                    items = items.filter(i =>
+                        !Array.isArray(i.team_type) || i.team_type.length >= 0
+                    );
+                }
 
-                    
                 this.displayed = items;
             },
 
@@ -265,6 +269,9 @@ if (is_admin()) {
                 modal.querySelector('#title p').innerText = tmp.querySelector('.title p')?.innerText || '';
                 modal.querySelector(`#${this.appId}_img`).src = tmp.querySelector('.profile img')?.src || '';
                 modal.querySelector('#bio').innerHTML = tmp.querySelector('.bio')?.innerHTML || '';
+
+                const textEl = modal.querySelector('.modal-content .text');
+                if (textEl) textEl.scrollTop = 0;
 
                 requestAnimationFrame(() => {
                     modal?.classList.add('active');

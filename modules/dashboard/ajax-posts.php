@@ -572,6 +572,8 @@ function load_team_members_callback()
 {
 
     $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $type     = isset($_POST['type']) ? sanitize_text_field($_POST['type']) : '';
+
     $args = [
         'post_type'      => 'team',
         'posts_per_page' => -1,
@@ -579,16 +581,33 @@ function load_team_members_callback()
         'orderby'        => 'menu_order',
     ];
 
+    // --- Taxonomy filtering ---
+    $tax_query = [];
+
     if ($category) {
-        $args['tax_query'] = [[
+        $tax_query[] = [
             'taxonomy' => 'team-category',
             'field'    => 'term_id',
             'terms'    => intval($category),
-        ]];
+        ];
+    }
+
+    if ($type) {
+        $tax_query[] = [
+            'taxonomy' => 'team-type',
+            'field'    => 'name',
+            'terms'    => $type,
+        ];
+    }
+
+    if ($tax_query) {
+        $args['tax_query'] = [
+            'relation' => 'AND',
+            ...$tax_query
+        ];
     }
 
     $query = new WP_Query($args);
-
     $members = [];
 
     while ($query->have_posts()) {
@@ -599,11 +618,9 @@ function load_team_members_callback()
         $last_name  = trim(substr($title, strlen($first_name)));
 
         $team_type_terms = get_the_terms(get_the_ID(), 'team-type');
-        $team_types = [];
-
-        if ($team_type_terms && !is_wp_error($team_type_terms)) {
-            $team_types = wp_list_pluck($team_type_terms, 'name');
-        }
+        $team_types = $team_type_terms && !is_wp_error($team_type_terms)
+            ? wp_list_pluck($team_type_terms, 'name')
+            : [];
 
         ob_start(); ?>
         <div class="team__member">
@@ -626,18 +643,14 @@ function load_team_members_callback()
                     <?php
                     $phone = get_field('contact_number');
                     $linkedin = get_field('linkedin_profile');
-                    if ($phone || $linkedin):
-                    ?>
+                    if ($phone || $linkedin): ?>
                         <ul class="contact-details">
                             <?php if ($phone):
                                 $tel_link = preg_replace('/[^0-9+]/', '', $phone); ?>
-                                <li><a class="phone" href="tel:<?= esc_attr($tel_link) ?>"
-                                        rel="noopener noreferrer">Call <?= esc_html($phone) ?></a></li>
+                                <li><a class="phone" href="tel:<?= esc_attr($tel_link) ?>">Call <?= esc_html($phone) ?></a></li>
                             <?php endif; ?>
                             <?php if ($linkedin): ?>
-                                <?php $fn = sanitize_text_field($first_name); ?>
-                                <li><a class="li" href="<?= esc_url($linkedin) ?>"
-                                        rel="noopener noreferrer">View <?= esc_html($fn) ?> on LinkedIn</a></li>
+                                <li><a class="li" href="<?= esc_url($linkedin) ?>">View <?= esc_html($first_name) ?> on LinkedIn</a></li>
                             <?php endif; ?>
                         </ul>
                     <?php endif; ?>
@@ -658,10 +671,12 @@ function load_team_members_callback()
             'html'       => $html,
         ];
     }
+
     wp_reset_postdata();
 
     wp_send_json(['members' => $members]);
 }
+
 
 // ------------------------------------------
 // AJAX callback: load all team members, with first_name + last_name + HTML
@@ -847,9 +862,19 @@ function load_documents_callback()
                 <?php
                 $webcast_url = get_field('webcast');
                 if ($webcast_url): ?>
-                    <a class="icon glightbox" href="<?= esc_url($webcast_url); ?>" title="Watch Video">
+                    <a class="icon glightbox" href="<?= esc_url($webcast_url['url']); ?>">
                         <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-video.svg'); ?>
-                        Watch Video
+                        <?= $webcast_url['title'] ? esc_html($webcast_url['title']) : 'Video'; ?>
+                    </a>
+                <?php endif; ?>
+
+                <!-- Webcast link -->
+                <?php
+                $webcast_url2 = get_field('webcast_2');
+                if ($webcast_url2): ?>
+                    <a class="icon glightbox" href="<?= esc_url($webcast_url2['url']); ?>">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-video.svg'); ?>
+                        <?= $webcast_url2['title'] ? esc_html($webcast_url2['title']) : 'Video'; ?>
                     </a>
                 <?php endif; ?>
 
@@ -859,15 +884,21 @@ function load_documents_callback()
                 if ($presentation_url): ?>
                     <a class="icon" href="<?= esc_url($presentation_url); ?>" target="_blank" title="View Presentation">
                         <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-esef.svg'); ?>
-                        View Presentation
+                        Presentation slides
                     </a>
                 <?php endif; ?>
 
                 <!-- PDF link -->
-                <a class="icon" href="<?= esc_url(get_permalink()); ?>" target="_blank" title="<?= esc_attr(get_the_title()); ?>">
-                    <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-announcement.svg'); ?>
-                    View PDF
-                </a>
+                <?php
+                $report_url = get_field('report');
+                $link_url = $file_url ?: $report_url;
+
+                if ($link_url): ?>
+                    <a class="icon" href="<?= esc_url($link_url); ?>" target="_blank" title="<?= esc_attr(get_the_title()); ?>">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-announcement.svg'); ?>
+                        PDF
+                    </a>
+                <?php endif; ?>
 
                 <!-- ESEF link -->
                 <?php
@@ -875,7 +906,7 @@ function load_documents_callback()
                 if ($esef_url): ?>
                     <a class="icon" href="<?= esc_url($esef_url['url']); ?>" target="_blank" title="View ESEF">
                         <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-esef.svg'); ?>
-                        View ESEF
+                        ESEF
                     </a>
                 <?php endif; ?>
 

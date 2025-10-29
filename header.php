@@ -129,15 +129,12 @@ if (class_exists('ACF')) {
         <?php
         // Determine the banner type and template
         if (is_404() || is_search() || is_archive()) {
-            // 404, search, and archive pages
             $banner_type     = 'static';
             $banner_template = 'modules/banners/templates/hero-static.php';
         } elseif (is_single()) {
-            // Single post/page has its own template
             $banner_type     = 'single';
             $banner_template = 'modules/banners/templates/hero-single.php';
         } else {
-            // Only attempt to get the banner type if ACF is available
             if (class_exists('ACF')) {
                 $banner_type = get_field('banner_type', get_the_ID());
             }
@@ -170,15 +167,23 @@ if (class_exists('ACF')) {
                 $hero_class .= ' home';
             }
 
-            // Get override background options from static_content
-            $override_bg_colour = null;
+            // ------------------------------------------
+            // 🔧 Detect correct field group for overrides
+            // ------------------------------------------
+            $override_bg_colour   = null;
             $override_overlay_size = null;
-            $override_overlay = null;
+            $override_overlay     = null;
+
             if (class_exists('ACF')) {
-                $banner_content = get_field('static_content', get_the_ID());
-                $override_bg_colour = $banner_content['override_bg_colour'] ?? null;
-                $override_overlay_size = $banner_content['override_overlay_size'] ?? null;
-                $override_overlay = $banner_content['override_overlay'] ?? null;
+                // Determine which field to read from
+                $field_group = ($banner_type === 'plain') ? 'plain_banner' : 'static_content';
+
+                $banner_content = get_field($field_group, get_the_ID());
+                if (is_array($banner_content)) {
+                    $override_bg_colour   = $banner_content['override_bg_colour'] ?? null;
+                    $override_overlay_size = $banner_content['override_overlay_size'] ?? null;
+                    $override_overlay     = $banner_content['override_overlay'] ?? null;
+                }
             }
 
             if ($override_overlay) {
@@ -202,5 +207,4 @@ if (class_exists('ACF')) {
         } else {
             echo '<!-- Banner template not found or no banner displayed -->';
         }
-
         ?>

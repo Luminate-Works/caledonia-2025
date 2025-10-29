@@ -48,7 +48,7 @@
 .posts-filter .posts-filter-controls input {
   height: 5.5rem;
   width: 100%;
-  font-size: var(--wp--preset--font-size--font-16);
+  font-size: var(--wp--preset--font-size--font-14);
   padding: 0 40px 0 2rem;
   color: #010035;
   background-color: transparent;

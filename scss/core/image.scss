@@ -10,11 +10,20 @@
   }
 
   &.is-style-large-square-image {
-
     img {
       object-fit: cover;
       aspect-ratio: 1 / 1;
       width: 660px;
+    }
+  }
+
+  &.alignwide {
+    @media (min-width: 1024px) {
+      position: relative;
+      width: calc(100% + 300px);
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 8rem 0;
     }
   }
 }
