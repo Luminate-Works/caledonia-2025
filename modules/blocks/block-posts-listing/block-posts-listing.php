@@ -294,7 +294,7 @@ if (is_admin()) {
                 };
             },
 
-            loadPosts(reset = false, customLimit = null) {
+            loadPosts(reset = false) {
                 if (this.loading) return;
                 this.loading = true;
                 const fd = new FormData();
@@ -305,7 +305,7 @@ if (is_admin()) {
                     fd.append('posts_per_page', this.limitNumber);
                     fd.append('limit_number', this.limitNumber); // 🔑 so backend knows to ignore offset
                 } else {
-                    fd.append('posts_per_page', customLimit ?? this.postsPerPage);
+                    fd.append('posts_per_page', this.postsPerPage);
                 }
 
                 fd.append('category', this.filter.category);
@@ -330,7 +330,7 @@ if (is_admin()) {
 
                         this.noResults = this.posts.length === 0;
 
-                        if (data.posts.length < (customLimit ?? data.total)) {
+                        if (this.posts.length >= data.total) {
                             this.allLoaded = true;
                         }
 
