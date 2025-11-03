@@ -400,11 +400,13 @@
       gap: 16px;
       color: $primary;
       font-size: $font-18;
+      transition: all $speed $cb;
 
       svg {
         width: 32px;
         height: 32px;
         min-width: 32px;
+        transition: all $speed $cb;
 
         circle, path {
           transition: all $speed $cb;

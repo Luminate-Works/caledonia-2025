@@ -38,8 +38,7 @@ if (is_admin()) {
 	<?php endif; ?>
 
 	<div
-		class="team-list <?= (get_field('grid_view')) ? 'grid-view' : ''; ?>"
-		>
+		class="team-list <?= (get_field('grid_view')) ? 'grid-view' : ''; ?>">
 		<template x-for="(member, i) in displayed" :key="member.id">
 			<div class="team__member team__member__outter" x-html="member.html"
 				@click="
@@ -114,9 +113,15 @@ if (is_admin()) {
 					);
 				}
 
-				// Apply category filter if set
 				if (this.categoryFilter) {
-					items = items.filter(i => i.member_category_id == this.categoryFilter);
+					items = items.filter(i => {
+						// Check if member has multiple categories
+						if (Array.isArray(i.member_categories)) {
+							return i.member_categories.some(cat => String(cat.id) === String(this.categoryFilter));
+						}
+						// Fallback: single category fields
+						return String(i.member_category_id) === String(this.categoryFilter);
+					});
 				}
 
 				this.displayed = items;
@@ -129,16 +134,38 @@ if (is_admin()) {
 
 			get uniqueCategories() {
 				const map = new Map();
+
 				this.allMembers.forEach(m => {
-					if (m.member_category_id && m.member_category_name) {
+					// Case 1: member has multiple categories
+					if (Array.isArray(m.member_categories)) {
+						m.member_categories.forEach(cat => {
+							if (cat.id && cat.name) {
+								map.set(cat.id, cat.name);
+							}
+						});
+					}
+					// Case 2: legacy support for single category fields
+					else if (m.member_category_id && m.member_category_name) {
 						map.set(m.member_category_id, m.member_category_name);
 					}
 				});
-				return [...map.entries()].map(([id, name]) => ({
+
+				let categories = [...map.entries()].map(([id, name]) => ({
 					id,
 					name
 				}));
+
+				// Put the initial category first, if defined
+				if (this.initialCategory) {
+					categories.sort((a, b) =>
+						a.id == this.initialCategory ? -1 : b.id == this.initialCategory ? 1 : 0
+					);
+				}
+
+				return categories;
 			}
+
+
 
 		}));
 	});

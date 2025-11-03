@@ -622,11 +622,25 @@ function load_team_members_callback()
             ? wp_list_pluck($team_type_terms, 'name')
             : [];
 
+        $is_leadership_category = false;
+        if ($category) {
+            $term = get_term($category, 'team-category');
+            if ($term && !is_wp_error($term) && $term->slug === 'leadership-team') {
+                $is_leadership_category = true;
+            }
+        }
+
         ob_start(); ?>
         <div class="team__member">
             <div class="profile">
                 <div class="image">
-                    <?php if (has_post_thumbnail()): ?>
+                    <?php
+                    $image_2 = get_field('image_2');
+
+                    if ($is_leadership_category && $image_2): ?>
+                        <img src="<?= esc_url($image_2['url']); ?>"
+                            alt="<?= esc_attr($image_2['alt'] ?: $title); ?>">
+                    <?php elseif (has_post_thumbnail()): ?>
                         <?php the_post_thumbnail('team-member'); ?>
                     <?php else: ?>
                         <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/theme/profile.jpg'); ?>"
@@ -694,7 +708,6 @@ function load_team_media_callback()
     ];
 
     $query = new WP_Query($args);
-
     $members = [];
 
     while ($query->have_posts()) {
@@ -704,9 +717,19 @@ function load_team_media_callback()
         $first_name = strtok($title, ' ');
         $last_name  = trim(substr($title, strlen($first_name)));
 
+        // Get all category terms
         $cat_terms = get_the_terms(get_the_ID(), 'team-category');
-        $team_category_id   = $cat_terms && !is_wp_error($cat_terms) ? $cat_terms[0]->term_id : '';
-        $team_category_name = $cat_terms && !is_wp_error($cat_terms) ? $cat_terms[0]->name    : '';
+        $category_data = [];
+
+        if ($cat_terms && !is_wp_error($cat_terms)) {
+            foreach ($cat_terms as $term) {
+                $category_data[] = [
+                    'id'   => $term->term_id,
+                    'name' => $term->name,
+                ];
+            }
+        }
+
         ob_start(); ?>
         <div class="team__member">
             <div class="profile">
@@ -747,18 +770,21 @@ function load_team_media_callback()
         $html = ob_get_clean();
 
         $members[] = [
-            'id'              => get_the_ID(),
-            'title'           => $title,
-            'first_name'      => $first_name,
-            'last_name'       => $last_name,
-            'position'        => get_field('position'),
-            'member_category_id'   => $team_category_id,
-            'member_category_name' => $team_category_name,
-            'html'            => $html,
+            'id'                   => get_the_ID(),
+            'title'                => $title,
+            'first_name'           => $first_name,
+            'last_name'            => $last_name,
+            'position'             => get_field('position'),
+            // backward compatibility (first category)
+            'member_category_id'   => !empty($category_data) ? $category_data[0]['id'] : '',
+            'member_category_name' => !empty($category_data) ? $category_data[0]['name'] : '',
+            // full list of categories
+            'member_categories'    => $category_data,
+            'html'                 => $html,
         ];
     }
-    wp_reset_postdata();
 
+    wp_reset_postdata();
     wp_send_json(['members' => $members]);
 }
 
@@ -772,7 +798,7 @@ function load_documents_callback()
     $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
     $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 9;
     $filter = isset($_POST['filter']) ? sanitize_text_field($_POST['filter']) : '';
-    $year = isset($_POST['year']) ? intval($_POST['year']) : '';
+    $year = isset($_POST['year']) ? sanitize_text_field($_POST['year']) : '';
     $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
     $allowed_terms = isset($_POST['allowed_terms']) ? json_decode(stripslashes($_POST['allowed_terms']), true) : [];
 
@@ -810,7 +836,7 @@ function load_documents_callback()
     if (!empty($year)) {
         $args['date_query'] = [
             [
-                'year' => $year,
+                'year' => intval($year),
             ]
         ];
     }
@@ -883,7 +909,7 @@ function load_documents_callback()
                 $presentation_url = get_field('presentation');
                 if ($presentation_url): ?>
                     <a class="icon" href="<?= esc_url($presentation_url); ?>" target="_blank" title="View Presentation">
-                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-esef.svg'); ?>
+                        <?= file_get_contents(get_template_directory() . '/assets/images/theme/icon-presentation.svg'); ?>
                         Presentation slides
                     </a>
                 <?php endif; ?>
@@ -973,4 +999,40 @@ function load_more_events()
     endif;
 
     wp_die();
+}
+
+
+// ------------------------------------------
+// AJAX callback: Ajax Search
+// ------------------------------------------
+add_action('wp_ajax_ajax_search', 'handle_ajax_search');
+add_action('wp_ajax_nopriv_ajax_search', 'handle_ajax_search');
+
+function handle_ajax_search()
+{
+    $term = sanitize_text_field($_GET['term'] ?? '');
+    $results = [];
+
+    if (strlen($term) < 2) {
+        wp_send_json($results);
+    }
+
+    $query = new WP_Query([
+        'post_type' => ['post', 'page', 'your_cpt_slug'],
+        'posts_per_page' => 5,
+        's' => $term,
+    ]);
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $results[] = [
+                'title' => get_the_title(),
+                'url'   => get_permalink(),
+            ];
+        }
+    }
+    wp_reset_postdata();
+
+    wp_send_json($results);
 }

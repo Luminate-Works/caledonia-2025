@@ -305,11 +305,13 @@
   gap: 16px;
   color: #010035;
   font-size: var(--wp--preset--font-size--font-18);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .documents-list .file a.icon svg {
   width: 32px;
   height: 32px;
   min-width: 32px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .documents-list .file a.icon svg circle, .documents-list .file a.icon svg path {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);

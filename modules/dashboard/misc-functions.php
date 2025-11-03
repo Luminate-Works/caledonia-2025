@@ -367,3 +367,20 @@ function save_custom_image_field($post, $attachment) {
     return $post;
 }
 add_filter('attachment_fields_to_save', 'save_custom_image_field', 10, 2);
+
+
+// ------------------------------------------
+// Allow xhtml
+// ------------------------------------------
+add_filter('wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+    if (preg_match('/\.xhtml$/i', $filename)) {
+        $data['ext']  = 'xhtml';
+        $data['type'] = 'application/xhtml+xml';
+    }
+    return $data;
+}, 10, 4);
+
+add_filter('upload_mimes', function($mimes) {
+    $mimes['xhtml'] = 'application/xhtml+xml';
+    return $mimes;
+});

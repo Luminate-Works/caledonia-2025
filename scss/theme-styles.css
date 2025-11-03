@@ -561,6 +561,10 @@ iframe.map {
   filter: sepia(18%) hue-rotate(300deg) saturate(20%);
 }
 
+:root {
+  --plyr-color-main: #010035;
+}
+
 html {
   min-height: 100%;
   font-size: 62.5%;
@@ -1660,6 +1664,64 @@ header.sticky:not(.menu-open) svg .icon > path {
   display: block;
   fill: #010035;
 }
+header .search-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #010035;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+header .search-popup.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+header .search-popup .wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+}
+header .search-popup .search-popup-inner {
+  background: #010035;
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+}
+header .search-popup .search-popup-inner svg {
+  width: 24px;
+  height: 24px;
+}
+header .search-popup .search-popup-inner form {
+  width: 100%;
+}
+header .search-popup .search-popup-inner form input {
+  padding: 5px 2rem 0 2rem;
+  background: transparent;
+  color: white;
+  border: none;
+  text-transform: none;
+  font-size: var(--wp--preset--font-size--font-16);
+}
+header .search-popup .search-popup-inner form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+header .search-popup .search-popup-inner form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+header .search-popup .search-popup-inner .ajax-search-results ul li a {
+  color: white;
+}
 header ul {
   list-style: none;
   margin: 0;
@@ -1696,7 +1758,7 @@ header .menu-item-search .search-toggle {
   height: 4rem;
   line-height: 40px;
   border-radius: 30px;
-  border: 1px solid white;
+  border: 1.5px solid white;
   cursor: pointer;
 }
 header .menu-item-search .search-toggle svg {
@@ -4008,7 +4070,7 @@ body.page-child.parent-pageid-2556:not(.page-id-2585) .hero-static__content .pag
 body.single .hero-single {
   display: flex;
   flex-direction: column-reverse;
-  background: #eae6f4;
+  background: #CEDCF1;
   min-height: 530px;
 }
 body.single .hero-single .hero-single__image {

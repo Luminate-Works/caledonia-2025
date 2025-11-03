@@ -47,15 +47,81 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Search
+document.addEventListener("DOMContentLoaded", function () {
+  const searchToggle = document.querySelector(".search-toggle");
+  const searchPopup = document.querySelector("#header-search-popup");
+  const searchClose = document.querySelector(".search-close");
+
+  if (searchToggle && searchPopup && searchClose) {
+    searchToggle.addEventListener("click", () => {
+      searchPopup.classList.add("active");
+    });
+
+    searchClose.addEventListener("click", () => {
+      searchPopup.classList.remove("active");
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") searchPopup.classList.remove("active");
+    });
+  }
+});
+
+// Ajax Search
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.querySelector("#ajax-search-input");
+  const resultsBox = document.querySelector("#ajax-search-results");
+  let typingTimer;
+
+  if (!input) return;
+
+  input.addEventListener("keyup", function () {
+    clearTimeout(typingTimer);
+    const query = this.value.trim();
+
+    if (query.length < 2) {
+      resultsBox.innerHTML = "";
+      return;
+    }
+
+    typingTimer = setTimeout(() => {
+      fetch(
+        `${ajax_search.ajax_url}?action=ajax_search&term=${encodeURIComponent(
+          query
+        )}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data || data.length === 0) {
+            resultsBox.innerHTML = "<p>No results found</p>";
+            return;
+          }
+
+          let html = "<ul>";
+          data.forEach((item) => {
+            html += `<li><a href="${item.url}">${item.title}</a></li>`;
+          });
+          html += `</ul><a href="/?s=${encodeURIComponent(
+            query
+          )}" class="view-all">View all results</a>`;
+          resultsBox.innerHTML = html;
+        })
+        .catch(() => (resultsBox.innerHTML = "<p>Error fetching results</p>"));
+    }, 300);
+  });
+});
+
 // Sticky header
 // ------------------------------
 const headerElement = document.querySelector(".header");
 let lastScrollTop = 0;
-const delta = 10; 
+const delta = 10;
 const topBuffer = 300; // Scroll threshold to add 'sticky' class
 
 const handleScroll = () => {
-  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  const currentScroll =
+    window.pageYOffset || document.documentElement.scrollTop;
 
   // Ignore tiny scrolls
   if (Math.abs(currentScroll - lastScrollTop) <= delta) {
@@ -82,8 +148,6 @@ const handleScroll = () => {
 };
 
 document.addEventListener("scroll", handleScroll);
-
-
 
 // Scroll to top button
 // ------------------------------

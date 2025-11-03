@@ -182,7 +182,7 @@ if (is_admin()) {
 					</div>
 
 					<div x-show="currentProject.url" class="wp-block-button">
-						<a :href="currentProject.url" class="modal-link wp-block-button__link wp-element-button">Visit Site</a>
+						<a :href="currentProject.url" target="_blank" class="modal-link wp-block-button__link wp-element-button">Visit site</a>
 					</div>
 
 				</div>
