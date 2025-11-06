@@ -84,6 +84,9 @@ if (is_admin()) {
 				this.loading = true;
 				const fd = new FormData();
 				fd.append('action', 'load_team_media');
+				if (this.categoryFilter) {
+					fd.append('category', this.categoryFilter);
+				}
 
 				fetch("<?= admin_url('admin-ajax.php') ?>", {
 						method: 'POST',
@@ -93,11 +96,7 @@ if (is_admin()) {
 					.then(r => r.json())
 					.then(json => {
 						this.allMembers = json.members;
-						// Apply filters immediately after loading members
 						this.applyFilters();
-						this.loading = false;
-					})
-					.catch(() => {
 						this.loading = false;
 					});
 			},
@@ -129,7 +128,9 @@ if (is_admin()) {
 
 			selectCategory(cat) {
 				this.categoryFilter = cat;
-				this.applyFilters();
+				this.displayed = [];
+				this.loading = true;
+				this.fetchMembers();
 			},
 
 			get uniqueCategories() {

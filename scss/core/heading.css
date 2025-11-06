@@ -1,5 +1,7 @@
-.wp-block-heading + p {
-  margin-top: 4rem !important;
+@media (min-width: 1024px) {
+  .wp-block-heading + p {
+    margin-top: 4rem !important;
+  }
 }
 .wp-block-heading + p.is-style-no-margin {
   margin: 0rem !important;

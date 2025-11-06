@@ -32,14 +32,16 @@ header {
     border-top: 4px solid $secondary-2;
 
     &:not(.menu-open) {
-      svg {
-        path {
-          display: none;
-        }
-        .icon {
-          > path {
-            display: block;
-            fill: $primary;
+      .branding a > {
+        svg {
+          path {
+            display: none;
+          }
+          .icon {
+            > path {
+              display: block;
+              fill: $primary;
+            }
           }
         }
       }
@@ -62,6 +64,8 @@ header {
     transition: transform 0.4s ease, opacity 0.4s ease;
     pointer-events: none;
 
+    @include admin-sticky-fix;
+
     &.active {
       transform: translateY(0);
       opacity: 1;
@@ -71,43 +75,90 @@ header {
     .wrap {
       width: 100%;
       display: flex;
-      align-items: center;
-      padding: 3rem 0;
+      align-items: flex-start;
     }
 
     .search-popup-inner {
       background: $primary;
-      width: calc(100% - 40px);
+      width: 100%;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
 
-      svg {
-        width: 24px;
-        height: 24px;
-      }
-
-      form {
+      .search-form-wrapper {
+        display: flex;
+        align-items: center;
         width: 100%;
-        input {
-          padding: 5px 2rem 0 2rem;
-          background: transparent;
-          color: white;
-          border: none;
-          text-transform: none;
-          font-size: $font-16;
 
-          &::placeholder {
-            color: rgba(white, 0.5);
+        .search-icon {
+          width: 28px;
+          height: 28px;
+          padding-bottom: 5px;
+        }
+
+        .search-close {
+          cursor: pointer;
+
+          circle {
+            transition: fill $cb $speed;
+          }
+
+          &:hover {
+            circle {
+              fill: $orange;
+            }
+          }
+        }
+
+        form {
+          width: 100%;
+          input {
+            padding: 4rem 2rem 4rem 2rem;
+            background: transparent;
+            color: white;
+            border: none;
+            text-transform: none;
+            font-size: $font-16;
+
+            &::placeholder {
+              color: rgba(white, 0.5);
+            }
           }
         }
       }
 
       .ajax-search-results {
+        border-top: 1px solid rgba(white, 0.1);
+        padding: 4rem 0;
+        width: 100%;
+        display: none;
         ul {
           li {
+            margin-bottom: 16px;
+            line-height: 1.1;
             a {
-              color: white;
+              font-size: $font-16;
+              color: rgba(white, 0.4);
+
+              .highlight {
+                color: white;
+              }
+
+              &:hover {
+                color: $orange;
+
+                .highlight {
+                  color: $orange;
+                }
+              }
             }
+          }
+        }
+
+        .wp-block-button {
+          margin-top: 3.2rem;
+          .wp-block-button__link {
+            color: white;
           }
         }
       }

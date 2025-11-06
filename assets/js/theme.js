@@ -74,7 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultsBox = document.querySelector("#ajax-search-results");
   let typingTimer;
 
-  if (!input) return;
+  if (!input || !resultsBox) return;
+
+  // Hide results box by default
+  resultsBox.style.display = "none";
 
   input.addEventListener("keyup", function () {
     clearTimeout(typingTimer);
@@ -82,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (query.length < 2) {
       resultsBox.innerHTML = "";
+      resultsBox.style.display = "none"; // hide if query too short
       return;
     }
 
@@ -95,19 +99,42 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           if (!data || data.length === 0) {
             resultsBox.innerHTML = "<p>No results found</p>";
+            resultsBox.style.display = "block"; // show "no results"
             return;
           }
 
           let html = "<ul>";
           data.forEach((item) => {
-            html += `<li><a href="${item.url}">${item.title}</a></li>`;
+            const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            const regex = new RegExp(`(${safeQuery})`, "i"); // partial match highlight
+            const highlightedTitle = item.title.replace(
+              regex,
+              `<span class="highlight">$1</span>`
+            );
+
+            const newTabTypes = [
+              "press-coverage",
+              "external-research",
+              "documents",
+            ];
+            const targetAttr = newTabTypes.includes(item.post_type)
+              ? ' target="_blank"'
+              : "";
+
+            html += `<li><a href="${item.url}"${targetAttr}>${highlightedTitle}</a></li>`;
           });
-          html += `</ul><a href="/?s=${encodeURIComponent(
+
+          html += `</ul><div class="wp-block-button is-style-plain"><a href="/?s=${encodeURIComponent(
             query
-          )}" class="view-all">View all results</a>`;
+          )}" class="wp-block-button__link view-all">View all</a></div>`;
+
           resultsBox.innerHTML = html;
+          resultsBox.style.display = "block"; // show only when results exist
         })
-        .catch(() => (resultsBox.innerHTML = "<p>Error fetching results</p>"));
+        .catch(() => {
+          resultsBox.innerHTML = "<p>Error fetching results</p>";
+          resultsBox.style.display = "block";
+        });
     }, 300);
   });
 });

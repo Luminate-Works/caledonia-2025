@@ -700,12 +700,26 @@ add_action('wp_ajax_nopriv_load_team_media', 'load_team_media_callback');
 
 function load_team_media_callback()
 {
+
+    $category_id = isset($_POST['category']) ? intval($_POST['category']) : 0;
+
     $args = [
         'post_type'      => 'team',
         'posts_per_page' => -1,
-        'order'          => 'ASC',
-        'orderby'        => 'menu_order',
+        'suppress_filters' => false,
+        // 'order'          => 'ASC',
+        // 'orderby'        => 'menu_order'
     ];
+
+    if ($category_id) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'team-category',
+                'field'    => 'term_id',
+                'terms'    => $category_id,
+            ]
+        ];
+    }
 
     $query = new WP_Query($args);
     $members = [];
@@ -730,14 +744,29 @@ function load_team_media_callback()
             }
         }
 
+        $is_leadership_category = false;
+        if ($category_id) {
+            $term = get_term($category_id, 'team-category');
+            if ($term && !is_wp_error($term) && $term->slug === 'leadership-team') {
+                $is_leadership_category = true;
+            }
+        }
+
         ob_start(); ?>
         <div class="team__member">
             <div class="profile">
                 <div class="image">
-                    <?php if (has_post_thumbnail()): ?>
+                    <?php
+                    $image_2 = get_field('image_2');
+
+                    if ($is_leadership_category && $image_2): ?>
+                        <img src="<?= esc_url($image_2['url']); ?>"
+                            alt="<?= esc_attr($image_2['alt'] ?: $title); ?>">
+                    <?php elseif (has_post_thumbnail()): ?>
                         <?php the_post_thumbnail('team-member'); ?>
                     <?php else: ?>
-                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/theme/profile.jpg'); ?>" alt="<?= esc_attr($title); ?>">
+                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/theme/profile.jpg'); ?>"
+                            alt="<?= esc_attr($title); ?>">
                     <?php endif; ?>
                 </div>
                 <div class="title">
@@ -795,7 +824,7 @@ add_action('wp_ajax_nopriv_load_documents', 'load_documents_callback');
 // ------------------------------------------
 function load_documents_callback()
 {
-    $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 9;
     $filter = isset($_POST['filter']) ? sanitize_text_field($_POST['filter']) : '';
     $year = isset($_POST['year']) ? sanitize_text_field($_POST['year']) : '';
@@ -809,7 +838,7 @@ function load_documents_callback()
     $args = [
         'post_type'      => 'documents',
         'posts_per_page' => $posts_per_page,
-        'offset'         => $offset,
+        'paged'          => $page,
         'order'          => 'DESC',
         'orderby'        => 'date',
         's'              => $search,
@@ -1018,20 +1047,36 @@ function handle_ajax_search()
     }
 
     $query = new WP_Query([
-        'post_type' => ['post', 'page', 'your_cpt_slug'],
-        'posts_per_page' => 5,
-        's' => $term,
+        'post_type'      => ['post', 'page', 'press-coverage', 'external-research', 'documents'],
+        'posts_per_page' => 4,
+        's'              => $term,
+        'post_status'    => 'publish',
     ]);
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
+
+            $post_type = get_post_type();
+            $url = get_permalink(); // default
+
+            // Override URL for specific post types
+            if ($post_type === 'external-research') {
+                $custom_url = get_field('dowload_link');
+                if ($custom_url) $url = $custom_url;
+            } elseif ($post_type === 'press-coverage') {
+                $custom_url = get_field('external_link');
+                if ($custom_url) $url = $custom_url;
+            }
+
             $results[] = [
-                'title' => get_the_title(),
-                'url'   => get_permalink(),
+                'title'     => get_the_title(),
+                'url'       => $url,
+                'post_type' => $post_type,
             ];
         }
     }
+
     wp_reset_postdata();
 
     wp_send_json($results);

@@ -11,9 +11,14 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-evenly;
-  padding: 12rem 0;
+  padding: 6rem 0;
   position: relative;
   z-index: 2;
+}
+@media (min-width: 1024px) {
+  .large-cta .wrap {
+    padding: 12rem 0;
+  }
 }
 .large-cta__video-wrapper {
   position: absolute;

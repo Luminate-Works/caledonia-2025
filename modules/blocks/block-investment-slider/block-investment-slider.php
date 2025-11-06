@@ -81,6 +81,8 @@ $investments = get_field('investments');
                     </div>
 
                     <div class="investment-meta" style="background-image: url('<?php echo esc_url($hero); ?>')">
+                                        <?php /* ?>
+
                         <div class="meta-box">
                             <div class="meta-box-group">
                                 <div class="stat">
@@ -102,7 +104,10 @@ $investments = get_field('investments');
                                     <p><?php echo esc_html($status); ?></p>
                                 </div>
                             </div>
-                        </div>
+                        </div>.
+
+                                            */ ?>
+
                     </div>
                 </div>
 

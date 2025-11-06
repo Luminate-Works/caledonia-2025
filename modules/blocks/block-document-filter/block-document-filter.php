@@ -60,6 +60,7 @@ if (is_admin()) {
 	x-init="init()"
 	x-cloak>
 
+
 	<div class="documents-filter-controls">
 		<div class="inner">
 
@@ -151,7 +152,7 @@ if (is_admin()) {
 				this.$watch('searchQuery', value => {
 					clearTimeout(this.debounceTimeout);
 					this.debounceTimeout = setTimeout(() => {
-						this.offset = 0;
+						this.page = 1;
 						this.allLoaded = false;
 						this.loadPosts(true);
 					}, 500);
@@ -162,14 +163,24 @@ if (is_admin()) {
 				if (this.loading) return;
 				this.loading = true;
 
+				let yearToUse = this.year || this.lastUsedYear;
+				if (this.year) this.lastUsedYear = this.year;
+
 				let formData = new FormData();
 				formData.append('action', 'load_documents');
-				formData.append('offset', reset ? 0 : this.offset);
+				formData.append('page', reset ? 1 : this.page);
 				formData.append('posts_per_page', this.postsPerPage);
 				formData.append('filter', this.filter);
-				formData.append('year', this.year);
+				formData.append('year', yearToUse);
 				formData.append('search', this.searchQuery);
 				formData.append('allowed_terms', JSON.stringify(this.allowedTerms));
+
+				console.log('Sending:', {
+					page: reset ? 1 : this.page,
+					filter: this.filter,
+					year: yearToUse,
+					allowed_terms: this.allowedTerms
+				});
 
 				fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
 						method: 'POST',
@@ -180,12 +191,11 @@ if (is_admin()) {
 					.then(data => {
 						if (reset) {
 							this.posts = data.posts;
-							this.offset = data.posts.length;
+							this.page = 2;
 							this.noResults = (data.posts.length === 0);
 						} else {
 							this.posts = this.posts.concat(data.posts);
-							this.offset += data.posts.length;
-							this.noResults = false;
+							this.page += 1;
 						}
 						if (data.posts.length < this.postsPerPage) {
 							this.allLoaded = true;
@@ -209,7 +219,7 @@ if (is_admin()) {
 			selectFilter(slug) {
 				this.filter = slug;
 				this.dropdownOpen = false;
-				this.offset = 0;
+				this.page = 1;
 				this.allLoaded = false;
 				this.loadPosts(true);
 			},
@@ -218,8 +228,13 @@ if (is_admin()) {
 				this.year = year;
 				this.yearDropdownText = year && year !== '' ? year : 'All';
 				this.yearDropdownOpen = false;
-				this.offset = 0;
+				this.page = 1;
 				this.allLoaded = false;
+
+				if (year === '' || year === null) {
+					this.lastUsedYear = '';
+				}
+
 				this.loadPosts(true);
 			},
 
@@ -229,7 +244,7 @@ if (is_admin()) {
 				this.searchQuery = '';
 				this.dropdownOpen = false;
 				this.yearDropdownOpen = false;
-				this.offset = 0;
+				this.page = 1;
 				this.allLoaded = false;
 				this.loadPosts(true);
 			},

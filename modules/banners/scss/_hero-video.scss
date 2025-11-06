@@ -112,12 +112,16 @@
         .banner-slider-overlay {
           position: absolute;
           bottom: 4rem;
-          left: 0;
+          left: auto;
           width: auto;
           max-width: 370px;
           display: flex;
           align-items: center;
           overflow: visible;
+
+          @media (min-width: 1024px) {
+            left: 0;
+          }
 
           .swiper-wrapper {
             width: 100%;

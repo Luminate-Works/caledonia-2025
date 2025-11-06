@@ -4,7 +4,7 @@ $video_url = get_field('video_url');
 
 // Set block ID and classes
 $id = $block['anchor'] ?? 'lmn-' . $block['id'];
-$className = 'large-cta' .
+$className = 'large-cta has-global-padding' .
     (!empty($block['className']) ? ' ' . $block['className'] : '') .
     (!empty($block['align']) ? ' align' . $block['align'] : '') .
     (!empty($video_url) ? ' has-video' : '');

@@ -115,7 +115,7 @@
           z-index: 10;
 
           @media (min-width: 1024px) {
-              min-width: 330px;
+            min-width: 330px;
           }
 
           p.video-title {
@@ -187,15 +187,23 @@
       }
 
       .page-title {
-        font-size: 12rem;
+        font-size: 5.6rem;
         line-height: 110%;
+
+        @media (min-width: 1024px) {
+          font-size: 12rem;
+
+          span.sub {
+            padding-left: 20rem;
+          }
+        }
 
         span {
           opacity: 0.4;
         }
 
         span.sub {
-          padding-left: 20rem;
+          //padding-left: 2rem;
           display: block;
           opacity: 1;
         }

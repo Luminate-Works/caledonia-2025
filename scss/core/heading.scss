@@ -2,8 +2,10 @@
 @import "../abstracts/mixins";
 
 .wp-block-heading {
-  + p {
-    margin-top: 4rem !important;
+  @media (min-width: 1024px) {
+    + p {
+      margin-top: 4rem !important;
+    }
   }
 
   + p.is-style-no-margin {
@@ -33,7 +35,7 @@
     }
   }
 
-    &.is-style-xlarge-heading {
+  &.is-style-xlarge-heading {
     font-size: $font-100;
     line-height: 110%;
 
@@ -48,5 +50,4 @@
     padding-bottom: 4rem;
     border-bottom: 1px solid rgba($primary, 0.1);
   }
-
 }

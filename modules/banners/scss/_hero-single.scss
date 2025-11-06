@@ -92,9 +92,13 @@
       }
 
       .page-title {
-        font-size: $font-56;
+        font-size: $font-40;
         line-height: 120%;
         color: $primary;
+
+        @media (min-width: 1024px) {
+          font-size: $font-56;
+        }
       }
     }
   }

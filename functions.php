@@ -27,4 +27,3 @@ require get_template_directory() . '/modules/dashboard/megamenu.php';
 // optional
 require get_template_directory() . '/modules/dashboard/ajax-posts.php';
 //require get_template_directory() . '/modules/dashboard/facets.php';
-

@@ -95,7 +95,7 @@ if ($image_id) {
 
 // Display banner content
 if ($banner_title && !is_front_page()) {
-    echo '<div class="hero-static__content ' . ($image_id ? '' : 'no-image') . '">';
+    echo '<div class="has-global-padding hero-static__content ' . ($image_id ? '' : 'no-image') . '">';
     echo '<div class="wrap">';
     echo '<h1 class="page-title" style="' . esc_attr($text_style) . '">';
     echo '<span class="' . ((!$title_pt2) ? 'no-sub' : '') . '" style="' . esc_attr($span_style) . '">' . esc_html($title_pt1 ?: $page_title) . '</span>';
@@ -109,7 +109,7 @@ if ($banner_title && !is_front_page()) {
 
 // Display front page banner content
 if (is_front_page()) {
-    echo '<div class="hero-static__content front">';
+    echo '<div class="has-global-padding hero-static__content front">';
     echo '<div class="wrap">';
     echo '<h2 class="hero-image__title" style="' . esc_attr($text_style) . '">' . esc_html($title) . '</h2>';
     if ($subtitle) {

@@ -1,7 +1,19 @@
 :root {
   --plyr-color-main: #010035;
+  :where(.wp-block-group) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
+@media (min-width: 1024px) {
+  :root {
+    :where(.wp-block-group) {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
+  }
+}
 html {
   min-height: 100%;
   font-size: 62.5%;
