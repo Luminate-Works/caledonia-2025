@@ -94,7 +94,7 @@ if ($table && !empty($table['body'])) {
 
         const data = JSON.parse(raw);
 
-                console.log(data)
+        console.log(data)
 
         const chartOptions = {
             simple_labels: <?= $simple_labels ? 'true' : 'false' ?>,
@@ -132,7 +132,8 @@ if ($table && !empty($table['body'])) {
                         if (i === 0 || i === len - 1 || i % 10 === 0) positions.push(i);
                     }
                     return positions;
-                })() : undefined
+                })() : undefined,
+                lineColor: '#0100351a'
             },
 
             yAxis: {
