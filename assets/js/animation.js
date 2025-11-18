@@ -97,10 +97,23 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Fade in from left page animations
-  createScrollTriggerAnimation(document.querySelectorAll(".fade-in-left"), {
-    initial: { opacity: 0, x: -10 },
-    onEnter: { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" },
-  });
+  function createScrollTriggerAnimation(targets, options) {
+    targets.forEach((el) => {
+      // Set initial state
+      gsap.set(el, options.initial);
+
+      // If element is already visible in viewport, show immediately
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        gsap.to(el, options.onEnter);
+      } else {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 90%",
+          onEnter: () => gsap.to(el, options.onEnter),
+        });
+      }
+    });
+  }
 
   // Fade in and up for #scrolldown button
   const scrollDownButton = document.getElementById("scrolldown");

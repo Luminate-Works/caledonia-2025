@@ -5,10 +5,15 @@
   margin: 0 !important;
 
   & > .acf-innerblocks-container {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    column-gap: 10rem;
-    row-gap: 12rem;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      column-gap: 10rem;
+      row-gap: 12rem;
+    }
 
     a:not(.wp-block-button__link) {
       color: rgba($primary, 0.6);
@@ -17,6 +22,26 @@
       &:hover {
         color: $primary;
       }
+    }
+  }
+
+  .mobile-dropdown {
+    display: none;
+    margin-bottom: 2rem;
+
+    select {
+      width: 100%;
+      padding: 1.3rem 1.6rem;
+      font-size: $font-14;
+      color: $primary;
+      border: 1px solid rgba($primary, 0.1);
+      border-radius: 4px;
+      background-color: $white;
+      appearance: none;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%238F8A72" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+      background-repeat: no-repeat;
+      background-position: calc(100% - 1.3rem) center;
+      background-size: 18px;
     }
   }
 
@@ -86,7 +111,6 @@
         background: $secondary-3;
         color: $primary;
 
-
         &:after {
           border-left-color: $orange;
         }
@@ -95,11 +119,13 @@
   } // contents
 
   // content > accordion on mobile
-  @media (max-width: 749px) {
-    .acc {
-      ul.contents {
-        display: none;
-      }
+  @media (max-width: 1023px) {
+    ul.contents {
+      display: none;
+    }
+
+    .mobile-dropdown {
+      display: block;
     }
   }
 }

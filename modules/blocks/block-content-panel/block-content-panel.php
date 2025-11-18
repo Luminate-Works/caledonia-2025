@@ -4,10 +4,6 @@
                                                                 echo 'disabled';
                                                             } ?> />
 
-    <label for="p-<?php the_field('id'); ?>" class="acc-title">
-        <span><?php the_field('title'); ?></span>
-    </label>
-
     <div class="acc-panel">
         <InnerBlocks />
     </div>
