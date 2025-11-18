@@ -180,18 +180,22 @@ if (is_admin()) {
 
                 <div class="modal-content">
 
-                    <div class="modal-heading">
-                        <h3 x-text="currentProject.title"></h3>
-                        <p x-html="currentProject.content"></p>
-                    </div>
+                    <div class="title">
 
-                    <div class="modal-stats" x-show="currentProject.stats && currentProject.stats.length">
-                        <template x-for="item in currentProject.stats" :key="item.label">
-                            <div class="stat">
-                                <h3 x-text="item.value"></h3>
-                                <span x-text="item.label"></span>
-                            </div>
-                        </template>
+                        <div class="modal-heading">
+                            <h3 x-text="currentProject.title"></h3>
+                            <p x-html="currentProject.content"></p>
+                        </div>
+
+                        <div class="modal-stats" x-show="currentProject.stats && currentProject.stats.length">
+                            <template x-for="item in currentProject.stats" :key="item.label">
+                                <div class="stat">
+                                    <h3 x-text="item.value"></h3>
+                                    <span x-text="item.label"></span>
+                                </div>
+                            </template>
+                        </div>
+
                     </div>
 
                     <div class="modal-controls">

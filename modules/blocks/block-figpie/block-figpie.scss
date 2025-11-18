@@ -6,46 +6,34 @@
     display: flex;
     justify-content: center;
     gap: 6rem;
-    padding-top: 10rem;
+    padding-top: 0;
     margin-top: 8rem;
     position: relative;
+    flex-direction: column;
 
-    &:before {
-      content: "";
-      border-top: 1px solid rgba(white, 0.3);
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 70%;
-      top: 0;
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      padding-top: 10rem;
+
+      &:before {
+        content: "";
+        border-top: 1px solid rgba(white, 0.3);
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 70%;
+        top: 0;
+      }
     }
   }
 
   .col {
-    width: 33.3%;
+    width: 100%;
     position: relative;
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -25%;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      height: 40%;
-      width: 1px;
-      background: rgba(white, 0.3);
-    }
-
-    &:nth-child(2) {
-      &:before {
-        height: 50%;
-        top: -35%;
-      }
-    }
 
     svg {
+      width: 100%;
       margin: auto;
 
       .button {
@@ -58,6 +46,34 @@
         &:hover {
           cursor: pointer;
         }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      width: 33.3%;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -25%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 40%;
+        width: 1px;
+        background: rgba(white, 0.3);
+      }
+
+      &:nth-child(2) {
+        &:before {
+          height: 50%;
+          top: -35%;
+        }
+      }
+
+      svg {
+        width: auto;
       }
     }
   }
@@ -85,8 +101,7 @@
   pointer-events: all;
 
   .modal-inner {
-    max-width: 60rem;
-    width: 520px;
+    max-width: 600px;
     height: 100%;
     padding: 0;
     background: rgba(227, 242, 234, 1);
@@ -95,8 +110,7 @@
     transform: translateX(100%);
     transition: 0.5s ease;
     pointer-events: all;
-    overflow: auto;
-    overflow-y: scroll;
+    overflow: hidden;
 
     &::-webkit-scrollbar {
       width: 10px;
@@ -136,16 +150,25 @@
     position: absolute;
     top: 2rem;
     right: 4rem;
+    z-index: 2;
   }
 
   .modal-content {
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     height: 100%;
 
     @media (min-width: 1024px) {
       padding: 4rem;
+    }
+
+    .title {
+      padding: 3rem 2rem;
+      overflow: scroll;
+
+      @media (min-width: 1024px) {
+        padding: 4rem;
+      }
     }
 
     .modal-heading {
@@ -205,7 +228,7 @@
   .modal-controls {
     width: 100%;
     border-top: 1px solid rgba($primary, 0.1);
-    padding-top: 2.4rem;
+    padding: 2.4rem 4rem 2.4rem 4rem;
     margin-top: auto;
   } // modal-controls
 

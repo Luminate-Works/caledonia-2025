@@ -105,7 +105,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(50% - 8px);
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .lmn-icon-list.grid_boxes .list-item {
+    width: calc(50% - 8px);
+  }
+}
+@media (min-width: 1024px) {
+  .lmn-icon-list.grid_boxes .list-item {
+    aspect-ratio: 2/1.25;
+  }
 }
 .lmn-icon-list.grid_boxes .list-item img {
   width: 24px;

@@ -74,6 +74,15 @@ if (is_admin()) {
 							x-text="term.name"></li>
 					</template>
 				</ul>
+
+				<!-- Mobile Select -->
+				<select class="tab-select" x-model="filter" @change="selectFilter($event.target.value)">
+					<option value="">All</option>
+					<template x-for="term in terms" :key="term.slug">
+						<option :value="term.slug" x-text="term.name"></option>
+					</template>
+				</select>
+
 			</div>
 
 			<div class="dropdown year">

@@ -1,7 +1,7 @@
 <?php
 // Set block ID and classes
 $id = $block['anchor'] ?? 'lmn-' . $block['id'];
-$className = 'history-timeline' .
+$className = 'alignfull history-timeline' .
     (!empty($block['className']) ? ' ' . $block['className'] : '') .
     (!empty($block['align']) ? ' align' . $block['align'] : '');
 

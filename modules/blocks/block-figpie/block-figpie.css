@@ -2,41 +2,33 @@
   display: flex;
   justify-content: center;
   gap: 6rem;
-  padding-top: 10rem;
+  padding-top: 0;
   margin-top: 8rem;
   position: relative;
+  flex-direction: column;
 }
-.lmn-figpie .figpie-wrapper:before {
-  content: "";
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 70%;
-  top: 0;
+@media (min-width: 1024px) {
+  .lmn-figpie .figpie-wrapper {
+    flex-direction: row;
+    padding-top: 10rem;
+  }
+  .lmn-figpie .figpie-wrapper:before {
+    content: "";
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 70%;
+    top: 0;
+  }
 }
 .lmn-figpie .col {
-  width: 33.3%;
+  width: 100%;
   position: relative;
 }
-.lmn-figpie .col:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -25%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  height: 40%;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.3);
-}
-.lmn-figpie .col:nth-child(2):before {
-  height: 50%;
-  top: -35%;
-}
 .lmn-figpie .col svg {
+  width: 100%;
   margin: auto;
 }
 .lmn-figpie .col svg .button .circle {
@@ -46,6 +38,30 @@
 }
 .lmn-figpie .col svg .button:hover {
   cursor: pointer;
+}
+@media (min-width: 1024px) {
+  .lmn-figpie .col {
+    width: 33.3%;
+  }
+  .lmn-figpie .col:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -25%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 40%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .lmn-figpie .col:nth-child(2):before {
+    height: 50%;
+    top: -35%;
+  }
+  .lmn-figpie .col svg {
+    width: auto;
+  }
 }
 .lmn-figpie .legend {
   margin-top: 4rem;
@@ -68,8 +84,7 @@
   pointer-events: all;
 }
 #figpie__modal .modal-inner {
-  max-width: 60rem;
-  width: 520px;
+  max-width: 600px;
   height: 100%;
   padding: 0;
   background: rgb(227, 242, 234);
@@ -78,8 +93,7 @@
   transform: translateX(100%);
   transition: 0.5s ease;
   pointer-events: all;
-  overflow: auto;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 #figpie__modal .modal-inner::-webkit-scrollbar {
   width: 10px;
@@ -113,15 +127,24 @@
   position: absolute;
   top: 2rem;
   right: 4rem;
+  z-index: 2;
 }
 #figpie__modal .modal-content {
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 @media (min-width: 1024px) {
   #figpie__modal .modal-content {
+    padding: 4rem;
+  }
+}
+#figpie__modal .modal-content .title {
+  padding: 3rem 2rem;
+  overflow: scroll;
+}
+@media (min-width: 1024px) {
+  #figpie__modal .modal-content .title {
     padding: 4rem;
   }
 }
@@ -170,7 +193,7 @@
 #figpie__modal .modal-controls {
   width: 100%;
   border-top: 1px solid rgba(1, 0, 53, 0.1);
-  padding-top: 2.4rem;
+  padding: 2.4rem 4rem 2.4rem 4rem;
   margin-top: auto;
 }
 #figpie__modal #close {

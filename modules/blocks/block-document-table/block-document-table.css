@@ -141,7 +141,7 @@
   color: #8559D7 !important;
   cursor: pointer;
 }
-@media (min-width: 750px) {
+@media (min-width: 768px) {
   .tab-group .vert .tab-panel {
     width: 65%;
   }
@@ -154,8 +154,8 @@
     width: calc(100% - 215px);
   }
 }
-@media (max-width: 749px) {
-  .tab-group .acc ul.tabs {
+@media (max-width: 767px) {
+  .tab-group.acc ul.tabs {
     display: none;
   }
 }
@@ -168,6 +168,9 @@
 }
 .tab-panel .acc-panel .wp-block-heading + p:not(.is-style-mt40) {
   margin-top: 2.4rem !important;
+}
+.tab-panel .acc-panel .wp-block-heading + p.mt1 {
+  margin-top: 1rem !important;
 }
 
 .filter-style .tab-panel {
@@ -186,6 +189,8 @@
     display: block !important;
     width: 100%;
     padding: 0;
+    margin-bottom: 1rem;
+    border-radius: 4px;
   }
   .tab-group.acc .tab-panel > input {
     display: none;
@@ -194,10 +199,9 @@
     display: block;
     font-weight: 500;
     line-height: 1.25;
-    padding: 0.9ch 40px 0.9ch 1.4rem;
+    padding: 2.4rem 4rem 2.4rem 2.4rem;
     margin: 0;
-    color: #8559D7;
-    border: 1px solid #8559D7;
+    color: #010035;
     border-radius: 4px;
     position: relative;
     transition: color 0.25s ease-in-out;
@@ -207,15 +211,18 @@
     display: block;
     width: 15px;
     height: 15px;
-    background-color: #8559D7;
-    -webkit-mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
-            mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat center/contain;
+    background-color: #010035;
+    -webkit-mask-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23010035" stroke-opacity="0.5" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23010035" stroke-opacity="0.5" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
     position: absolute;
     top: calc(50% - 8px);
-    right: 1ch;
+    right: 2.4rem;
   }
   .tab-group.acc .tab-panel > input + .acc-title:hover {
-    color: #8559D7;
     cursor: pointer;
   }
   .tab-group.acc .tab-panel > input + .acc-title span {
@@ -240,17 +247,15 @@
     margin-bottom: 0;
   }
   .tab-group.acc .tab-panel > input:checked + .acc-title {
-    color: #8559D7;
+    color: #010035;
   }
   .tab-group.acc .tab-panel > input:checked + .acc-title:after {
-    background-color: #8559D7;
-    -webkit-mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
-            mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center/contain;
+    transform: rotate(180deg);
   }
   .tab-group.acc .tab-panel > input:checked + .acc-title + .acc-panel {
     height: auto;
     visibility: visible;
-    padding: 20px 0;
+    padding: 2.4rem;
   }
   .tab-group.acc .tab-panel > input:checked + .acc-title + .acc-panel > * {
     opacity: 1;
