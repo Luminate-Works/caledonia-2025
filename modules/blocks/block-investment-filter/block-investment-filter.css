@@ -43,15 +43,17 @@
   margin-bottom: 4rem;
   position: relative;
 }
-.investment .investment-list .swiper-wrapper .swiper-slide::before {
-  content: "";
-  display: block;
-  height: calc(100% - 4rem);
-  width: 1px;
-  background: rgba(255, 255, 255, 0.2);
-  position: absolute;
-  left: -4rem;
-  top: 0;
+@media (min-width: 768px) {
+  .investment .investment-list .swiper-wrapper .swiper-slide::before {
+    content: "";
+    display: block;
+    height: calc(100% - 4rem);
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    left: -4rem;
+    top: 0;
+  }
 }
 .investment .investment-list .slide-content .slide-image {
   margin-bottom: 2.4rem;

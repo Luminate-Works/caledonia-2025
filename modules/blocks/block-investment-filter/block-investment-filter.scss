@@ -46,15 +46,17 @@
         margin-bottom: 4rem;
         position: relative;
 
-        &::before {
-          content: "";
-          display: block;
-          height: calc(100% - 4rem);
-          width: 1px;
-          background: $border;
-          position: absolute;
-          left: -4rem;
-          top: 0;
+        @media (min-width: 768px) {
+          &::before {
+            content: "";
+            display: block;
+            height: calc(100% - 4rem);
+            width: 1px;
+            background: $border;
+            position: absolute;
+            left: -4rem;
+            top: 0;
+          }
         }
       }
     }

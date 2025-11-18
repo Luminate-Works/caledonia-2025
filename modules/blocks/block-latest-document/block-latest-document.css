@@ -29,8 +29,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  aspect-ratio: 11/6;
+  aspect-ratio: 1/1;
   transition: transform 0.25s ease-in-out;
+}
+@media (min-width: 1024px) {
+  .latest-document a .cover {
+    aspect-ratio: 11/6;
+  }
 }
 .latest-document a:hover, .latest-document a:active, .latest-document a:focus {
   text-decoration: none;

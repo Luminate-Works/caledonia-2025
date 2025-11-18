@@ -37,8 +37,12 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      aspect-ratio: 11/6;
+      aspect-ratio: 1/1;
       transition: transform $speed $ease;
+
+      @media (min-width: 1024px) {
+        aspect-ratio: 11/6;
+      }
     }
 
     &:hover,
