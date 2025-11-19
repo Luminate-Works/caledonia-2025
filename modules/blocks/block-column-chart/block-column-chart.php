@@ -91,7 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         yAxis: {
             title: { text: "" },
-            labels: { style: { fontSize: "13px" } },
+            labels: {
+                style: { fontSize: "13px" },
+                formatter: function() { return this.value.toFixed(1) + "p"; }
+            },
             tickInterval: <?= $show_every_datapoint ? '1' : 'undefined' ?>
         },
         annotations: [{
@@ -110,7 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }],
         series: data.series,
         legend: { enabled: false },
-        tooltip: { style: { fontSize: "14px" } },
+        tooltip: {
+            style: { fontSize: "14px" },
+            shared: true,
+            crosshairs: true,
+            pointFormat:
+              '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:.1f}p</b><br/>'
+        },
         credits: { enabled: false }
     });
 });
