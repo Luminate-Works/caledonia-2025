@@ -5,7 +5,7 @@
   margin-top: 4rem !important;
 }
 .testimonial-card.is-style-overlay .testimonial-image {
-  aspect-ratio: 8/4;
+  aspect-ratio: auto;
 }
 .testimonial-card.is-style-overlay .testimonial-image:after {
   content: none;
@@ -28,9 +28,13 @@
 .testimonial-card.is-style-overlay .testimonial-image .quote-wrapper .quote-mark {
   display: none;
 }
+@media (min-width: 1100px) {
+  .testimonial-card.is-style-overlay .testimonial-image {
+    aspect-ratio: 8/4;
+  }
+}
 .testimonial-card .testimonial-image {
   width: 100%;
-  padding: 4rem;
   aspect-ratio: 3/2;
   background-size: cover;
   background-repeat: no-repeat;
@@ -75,4 +79,9 @@
 }
 .testimonial-card .testimonial-image .quote-wrapper cite .role {
   color: rgba(255, 255, 255, 0.6);
+}
+@media (min-width: 1024px) {
+  .testimonial-card .testimonial-image {
+    padding: 4rem;
+  }
 }/*# sourceMappingURL=block-testimonial-card.css.map */

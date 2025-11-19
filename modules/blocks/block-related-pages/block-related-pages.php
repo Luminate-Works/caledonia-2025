@@ -14,7 +14,7 @@ if ($featured_posts):
 ?>
     <div class="<?= esc_attr($className); ?>">
 
-        <div class="wrap">
+        <div class="wrap has-global-padding">
 
             <?php if (!empty($bg_image)): ?>
                 <div class="bg" style="background-image: url('<?php echo esc_url($bg_image['url']); ?>');"></div>

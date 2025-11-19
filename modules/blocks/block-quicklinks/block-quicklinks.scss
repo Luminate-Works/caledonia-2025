@@ -55,7 +55,24 @@
     margin: 0;
     padding: 0;
     display: flex;
-    padding-left: 4rem;
+    padding-left: 0;
+
+    @media (max-width: 1023px) {
+      flex-wrap: wrap;
+
+      li {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      padding-left: 4rem;
+    }
   }
 
   &__item {

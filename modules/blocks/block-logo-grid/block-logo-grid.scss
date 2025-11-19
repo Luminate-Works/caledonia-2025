@@ -7,7 +7,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
 
     li {
@@ -23,6 +23,10 @@
         max-height: 75px;
         mix-blend-mode: multiply;
       }
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }

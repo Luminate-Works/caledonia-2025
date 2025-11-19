@@ -12,6 +12,10 @@
     .wp-block-heading + p:not(.is-style-mt40) {
       margin-top: 2.4rem !important;
     }
+
+    .wp-block-heading + p.mt1 {
+      margin-top: 1rem !important;
+    }
   }
 }
 
@@ -38,6 +42,8 @@
       display: block !important;
       width: 100%;
       padding: 0;
+      margin-bottom: 1rem;
+      border-radius: 4px;
 
       > input {
         display: none;
@@ -46,10 +52,9 @@
           display: block;
           font-weight: 500;
           line-height: 1.25;
-          padding: 0.9ch 40px 0.9ch 1.4rem;
+          padding: 2.4rem 4rem 2.4rem 2.4rem;
           margin: 0;
-          color: $purple;
-          border: 1px solid $purple;
+          color: $primary;
           border-radius: 4px;
           position: relative;
           transition: color $speed $ease;
@@ -59,17 +64,23 @@
             display: block;
             width: 15px;
             height: 15px;
-            background-color: $purple;
-            mask: url(../../../assets/images/theme/acc-plus.svg) no-repeat
-              center / contain;
+            background-color: $primary;
+            mask-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23010035" stroke-opacity="0.5" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            mask-position: center;
+            mask-size: contain;
             position: absolute;
             top: calc(50% - 8px);
-            right: 1ch;
+            right: 2.4rem;
           }
 
           &:hover {
-            color: $purple;
+            //color: $purple;
             cursor: pointer;
+
+            &:after {
+              //background-color: $primary;
+              //transform: rotate(180deg);
+            }
           }
 
           span {
@@ -105,18 +116,19 @@
 
         &:checked {
           + .acc-title {
-            color: $purple;
+            color: $primary;
 
             &:after {
-              background-color: $purple;
-              mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat
-                center / contain;
+              transform: rotate(180deg);
+              // background-color: $purple;
+              // mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat
+              //   center / contain;
             }
 
             + .acc-panel {
               height: auto;
               visibility: visible;
-              padding: 20px 0;
+              padding: 2.4rem;
 
               > * {
                 opacity: 1;

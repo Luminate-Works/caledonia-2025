@@ -1,7 +1,12 @@
 .related-pages {
   position: relative;
-  padding: 12rem 0;
+  padding: 6rem 0;
   overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .related-pages {
+    padding: 12rem 0;
+  }
 }
 .related-pages.is-style-darkmode .glass {
   -webkit-backdrop-filter: blur(150px);
@@ -55,7 +60,7 @@
 .related-pages ul {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 4rem;
+  row-gap: 2rem;
   list-style: none;
   position: relative;
   z-index: 3;
@@ -66,7 +71,7 @@
   margin: 0;
   width: 100%;
   border-top: 1px solid rgba(1, 0, 53, 0.1);
-  padding-top: 4rem;
+  padding-top: 2rem;
 }
 .related-pages ul li a {
   display: flex;
@@ -101,5 +106,13 @@
   .related-pages ul li:nth-child(even) a {
     border-left: 1px solid rgba(1, 0, 53, 0.1);
     padding-left: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .related-pages ul {
+    row-gap: 4rem;
+  }
+  .related-pages ul li {
+    padding-top: 4rem;
   }
 }/*# sourceMappingURL=block-related-pages.css.map */

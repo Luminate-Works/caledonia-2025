@@ -104,4 +104,14 @@
 }
 .testimonial-boxes .box .testimonial-image .quote-wrapper cite .role {
   color: rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 1023px) {
+  .testimonial-boxes .box {
+    flex-wrap: wrap;
+  }
+  .testimonial-boxes .box .testimonial-content,
+  .testimonial-boxes .box .testimonial-image {
+    width: 100%;
+    padding: 4rem;
+  }
 }/*# sourceMappingURL=block-testimonial-boxes.css.map */

@@ -89,15 +89,18 @@
   }
 }
 
-// Optional: Add some responsive adjustments
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .scrolling-text {
-    .half {
-      padding: 2rem;
+    .scrolling-image {
 
-      h3,
-      ul li {
-        font-size: calc(#{$font-56} * 0.7); // Smaller text on mobile
+      .half {
+        width: 100%;
+        padding: 2rem;
+
+        h3,
+        ul li {
+          font-size: calc(#{$font-56} * 0.7); // Smaller text on mobile
+        }
       }
     }
   }

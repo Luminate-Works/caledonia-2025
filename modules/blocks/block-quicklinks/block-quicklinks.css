@@ -43,7 +43,24 @@
   margin: 0;
   padding: 0;
   display: flex;
-  padding-left: 4rem;
+  padding-left: 0;
+}
+@media (max-width: 1023px) {
+  .link-group__list {
+    flex-wrap: wrap;
+  }
+  .link-group__list li {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .link-group__list li:last-child {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .link-group__list {
+    padding-left: 4rem;
+  }
 }
 .link-group__item {
   margin: 0;

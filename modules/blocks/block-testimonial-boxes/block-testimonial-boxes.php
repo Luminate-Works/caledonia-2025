@@ -20,6 +20,8 @@ $className = 'testimonial-boxes'
             $stats_one_label = get_sub_field('stats_one_label');
             $stats_two_value = get_sub_field('stats_two_value');
             $stats_two_label = get_sub_field('stats_two_label');
+            $stats_three_value = get_sub_field('stats_three_value');
+            $stats_three_label = get_sub_field('stats_three_label');
             $button          = get_sub_field('button');
             $bg_image        = get_sub_field('background_image');
             $quote           = get_sub_field('quote');
@@ -56,6 +58,12 @@ $className = 'testimonial-boxes'
                                     <div class="stat">
                                         <span class="value"><?= esc_html($stats_two_value); ?></span>
                                         <span class="label"><?= esc_html($stats_two_label); ?></span>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($stats_three_value) : ?>
+                                    <div class="stat">
+                                        <span class="value"><?= esc_html($stats_three_value); ?></span>
+                                        <span class="label"><?= esc_html($stats_three_label); ?></span>
                                     </div>
                                 <?php endif; ?>
                             </div>

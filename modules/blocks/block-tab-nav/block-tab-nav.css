@@ -109,7 +109,7 @@
   color: #8559D7 !important;
   cursor: pointer;
 }
-@media (min-width: 750px) {
+@media (min-width: 768px) {
   .tab-group .vert .tab-panel {
     width: 65%;
   }
@@ -122,8 +122,8 @@
     width: calc(100% - 215px);
   }
 }
-@media (max-width: 749px) {
-  .tab-group .acc ul.tabs {
+@media (max-width: 767px) {
+  .tab-group.acc ul.tabs {
     display: none;
   }
 }/*# sourceMappingURL=block-tab-nav.css.map */

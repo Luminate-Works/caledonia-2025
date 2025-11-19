@@ -142,7 +142,7 @@
       }
     }
 
-    @media (min-width: 750px) {
+    @media (min-width: 768px) {
       .tab-panel {
         width: 65%;
       }
@@ -159,8 +159,8 @@
   }
 
   // tab > accordion on mobile
-  @media (max-width: 749px) {
-    .acc {
+  @media (max-width: 767px) {
+    &.acc {
       ul.tabs {
         display: none;
       }

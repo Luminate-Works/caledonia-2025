@@ -130,5 +130,15 @@
         }
       }
     }
+
+    @media (max-width: 1023px) {
+      flex-wrap: wrap;
+
+      .testimonial-content,
+      .testimonial-image {
+        width: 100%;
+        padding: 4rem;
+      }
+    }
   }
 }

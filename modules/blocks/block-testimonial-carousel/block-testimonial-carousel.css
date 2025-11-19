@@ -96,8 +96,13 @@ h4 + .testimonial-carousel {
 }
 .testimonial-carousel .swiper-pagination {
   width: auto !important;
-  left: calc(50% + 2rem) !important;
+  left: 0 !important;
   bottom: 0 !important;
+}
+@media (min-width: 1024px) {
+  .testimonial-carousel .swiper-pagination {
+    left: calc(50% + 2rem) !important;
+  }
 }
 .testimonial-carousel .swiper-pagination-bullet-active {
   width: 34px;

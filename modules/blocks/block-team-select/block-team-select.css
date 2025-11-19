@@ -242,11 +242,17 @@
   aspect-ratio: 1.5/1;
 }
 .modal .modal-content .text {
-  padding: 3.5rem 4rem 4rem;
-  height: calc(100% - 405px);
+  padding: 1.5rem 2rem 2rem;
+  height: calc(100% - 250px);
   display: flex;
   flex-direction: column;
   overflow: auto;
+}
+@media (min-width: 1024px) {
+  .modal .modal-content .text {
+    padding: 3.5rem 4rem 4rem;
+    height: calc(100% - 405px);
+  }
 }
 .modal .modal-content .text #title {
   padding: 0;

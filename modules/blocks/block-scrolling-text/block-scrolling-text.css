@@ -75,12 +75,13 @@
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .scrolling-text .half {
+@media (max-width: 767px) {
+  .scrolling-text .scrolling-image .half {
+    width: 100%;
     padding: 2rem;
   }
-  .scrolling-text .half h3,
-  .scrolling-text .half ul li {
+  .scrolling-text .scrolling-image .half h3,
+  .scrolling-text .scrolling-image .half ul li {
     font-size: calc(var(--wp--preset--font-size--font-56) * 0.7);
   }
 }/*# sourceMappingURL=block-scrolling-text.css.map */

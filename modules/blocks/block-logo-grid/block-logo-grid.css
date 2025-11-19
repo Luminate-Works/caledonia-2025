@@ -3,7 +3,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 .lmn-logo-grid ul li {
@@ -18,4 +18,9 @@
 .lmn-logo-grid ul li img {
   max-height: 75px;
   mix-blend-mode: multiply;
+}
+@media (min-width: 1024px) {
+  .lmn-logo-grid ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }/*# sourceMappingURL=block-logo-grid.css.map */

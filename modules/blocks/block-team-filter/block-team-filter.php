@@ -53,12 +53,21 @@ if (is_admin()) {
     <?php if ($filter) { ?>
         <div class="team-controls">
             <div class="tabs type">
-                <ul>
+                <!-- Desktop Tabs -->
+                <ul class="tab-list">
                     <li :class="{ 'active': typeFilter === '' }" @click="selectType('')">All</li>
                     <template x-for="type in uniqueTypes" :key="type">
                         <li :class="{ 'active': typeFilter === type }" @click="selectType(type)" x-text="type"></li>
                     </template>
                 </ul>
+
+                <!-- Mobile Select -->
+                <select class="tab-select" x-model="typeFilter" @change="selectType($event.target.value)">
+                    <option value="">All</option>
+                    <template x-for="type in uniqueTypes" :key="type">
+                        <option :value="type" x-text="type"></option>
+                    </template>
+                </select>
             </div>
         </div>
     <?php } ?>
