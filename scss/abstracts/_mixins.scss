@@ -55,13 +55,14 @@
 // --- burger menu
 @mixin burger-menu {
 	#nav-expander {
-		width: 26px;
+		width: 22px;
 		padding: 12px 0;
 		background: none;
 		border: none;
 		outline: none;
 		position: absolute;
 		top: 0;
+		bottom: 0;
 		right: 0;
 		cursor: pointer;
 		z-index: 9999999;

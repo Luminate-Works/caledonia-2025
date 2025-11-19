@@ -86,14 +86,6 @@
   border-radius: 8px;
 }
 
-.wp-block-columns {
-  gap: 4rem !important;
-}
-@media (min-width: 1024px) {
-  .wp-block-columns {
-    gap: 10rem !important;
-  }
-}
 .wp-block-columns.is-style-border-bottom {
   border-bottom: 1px solid rgba(1, 0, 53, 0.1);
   padding-bottom: 5.5rem;
@@ -144,7 +136,12 @@
   gap: 4rem;
 }
 .wp-block-columns.is-style-xl-gap {
-  gap: 15.7rem;
+  gap: 6rem;
+}
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-xl-gap {
+    gap: 15.7rem;
+  }
 }
 .wp-block-columns.has-background {
   padding: var(--wp--preset--spacing--small);

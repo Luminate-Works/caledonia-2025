@@ -28,6 +28,11 @@ function enqueue_scripts_and_styles()
     wp_enqueue_script('animation', get_template_directory_uri() . '/assets/js/animation.js', array(), null, true);
     wp_enqueue_script('tabs', get_template_directory_uri() . '/assets/js/tabs.js', array(), '', true);
 
+    // high charts
+    wp_enqueue_script('highcharts', get_template_directory_uri() . '/assets/packages/highcharts/HighCharts.js', array(), '12.4.0', false);
+    wp_enqueue_script('highcharts-more', get_template_directory_uri() . '/assets/packages/highcharts/HighChartsMore.js', array(), '12.4.0', false);
+    wp_enqueue_script('highcharts-annotations', get_template_directory_uri() . '/assets/packages/highcharts/HighChartsAnnotations.js', array(), '12.4.0', false);
+
     // swiper
     wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/packages/swiper/swiper-bundle.min.js', array(), '9.2.4', false);
     wp_enqueue_style('swiper-css', get_template_directory_uri() . '/assets/packages/swiper/swiper-bundle.min.css');

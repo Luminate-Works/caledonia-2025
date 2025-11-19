@@ -15,13 +15,19 @@
     background-position: right center;
     justify-content: flex-start;
     border-radius: 8px;
-    padding: 5.6rem;
+    padding: 4rem;
+
+    @media (min-width: 1024px) {
+      padding: 5.6rem;
+    }
 
     .wp-block-cover__background {
       background-color: transparent !important;
     }
 
     .wp-block-cover__inner-container {
+      padding-left: 0;
+      padding-right: 0;
       max-width: 580px;
       h2 {
         color: $primary;
@@ -34,8 +40,8 @@
   }
 
   &.is-style-shiny-cta-slim {
-    min-height: 350px;
-    padding: 5rem 4rem;
+    min-height: 250px;
+    padding: 4rem;
     background-size: cover;
     background-image: url(../assets/images/theme/shiny-cta-mask.png);
 
@@ -62,6 +68,11 @@
         margin-top: 4rem !important;
       }
     }
+
+    @media (min-width: 768px) {
+      padding: 5rem 4rem;
+      min-height: 350px;
+    }
   }
 
   &.is-style-blue-cta-slim {
@@ -87,15 +98,24 @@
       filter: blur(50px) !important;
     }
 
+    .wp-block-cover__inner-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     .wp-block-cover__background {
       opacity: 0.6 !important;
     }
 
     .wp-block-columns {
       margin: 4rem;
-      padding: 8rem;
+      padding: 4rem;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 4px;
+
+      @media (min-width: 1024px) {
+        padding: 8rem;
+      }
     }
 
     p {

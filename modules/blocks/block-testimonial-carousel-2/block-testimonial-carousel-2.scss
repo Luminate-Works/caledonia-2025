@@ -23,20 +23,21 @@ h4 {
 
   .swiper-slide {
     display: flex;
+    flex-wrap: wrap;
     gap: 8rem;
 
     .image {
-      width: 50%;
+      width: 100%;
       img {
         border-radius: 8px;
-        min-height: 660px;
+        min-height: 360px;
         aspect-ratio: 1 / 1;
         object-fit: cover;
       }
     }
 
     .content {
-      width: 50%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -93,6 +94,20 @@ h4 {
             margin: 0;
             color: rgba($primary, 0.6);
           }
+        }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .content {
+        width: 50%;
+      }
+
+      .image {
+        width: calc(50% - 8rem);
+
+        img {
+          min-height: 660px;
         }
       }
     }

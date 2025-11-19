@@ -111,12 +111,6 @@
 
 // columns
 .wp-block-columns {
-  gap: 4rem !important;
-
-  @media (min-width: 1024px) {
-    gap: 10rem !important;
-  }
-
   &.is-style-border-bottom {
     border-bottom: 1px solid rgba($primary, 0.1);
     padding-bottom: 5.5rem;
@@ -181,7 +175,11 @@
   }
 
   &.is-style-xl-gap {
-    gap: 15.7rem;
+    gap: 6rem;
+
+    @media (min-width: 1024px) {
+      gap: 15.7rem;
+    }
   }
 
   &.has-background {

@@ -114,8 +114,12 @@ h4 {
 
   .swiper-pagination {
     width: auto !important;
-    left: calc(50% + 2rem) !important;
+    left:0 !important;
     bottom: 0 !important;
+
+    @media (min-width: 1024px) {
+      left: calc(50% + 2rem) !important;
+    }
 
     &-bullet-active {
       width: 34px;

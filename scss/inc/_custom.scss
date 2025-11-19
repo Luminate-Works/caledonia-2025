@@ -103,9 +103,14 @@
   }
 
   .wp-block-columns:last-of-type {
-    padding: 11.5rem 3rem 4.5rem 3rem;
+    padding: 4.5rem 3rem 4.5rem 3rem;
     .wp-block-column:first-child {
       border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+
+    @media (min-width: 1024px) {
+      padding: 11.5rem 3rem 4.5rem 3rem;
     }
   }
 }

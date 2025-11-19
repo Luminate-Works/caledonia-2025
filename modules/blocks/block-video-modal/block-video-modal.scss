@@ -3,6 +3,7 @@
 
 .video-modal {
   position: relative;
+  margin-top: 0;
 
   a {
     display: block;
@@ -28,9 +29,6 @@
   }
 
   .video-overlay {
-    position: absolute;
-    bottom: 4rem;
-    left: 4rem;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(50px);
     padding: 2.4rem;
@@ -86,6 +84,17 @@
           transition: transform 0.4s;
         }
       }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 2.4rem;
+    margin-top: 2.4rem;
+
+    .video-overlay {
+      position: absolute;
+      bottom: 4rem;
+      left: 4rem;
     }
   }
 }

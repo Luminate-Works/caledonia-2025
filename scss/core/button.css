@@ -77,6 +77,21 @@
 .wp-block-button.is-style-plain-white .wp-block-button__link:after {
   background-image: url(../assets/images/theme/icon-arrow-right-white-fill.svg);
 }
+.wp-block-button.is-style-external .wp-block-button__link:before {
+  transform: rotate(320deg);
+}
+.wp-block-button.is-style-external .wp-block-button__link:after {
+  transform: rotate(320deg);
+}
+.wp-block-button.is-style-external-white .wp-block-button__link {
+  background: white;
+}
+.wp-block-button.is-style-external-white .wp-block-button__link:before {
+  transform: rotate(320deg);
+}
+.wp-block-button.is-style-external-white .wp-block-button__link:after {
+  transform: rotate(320deg);
+}
 .wp-block-button.is-style-download .wp-block-button__link:before {
   background-image: url(../assets/images/theme/icon-download.svg);
 }
@@ -91,6 +106,23 @@
 }
 .wp-block-button.is-style-download-white .wp-block-button__link:after {
   background-image: url(../assets/images/theme/icon-download-fill.svg);
+}
+.wp-block-button.is-style-download-plain-white .wp-block-button__link {
+  color: white;
+  background: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+  padding-left: 50px;
+}
+.wp-block-button.is-style-download-plain-white .wp-block-button__link:before, .wp-block-button.is-style-download-plain-white .wp-block-button__link:after {
+  left: 0;
+}
+.wp-block-button.is-style-download-plain-white .wp-block-button__link:before {
+  background-image: url(../assets/images/theme/icon-download-white.svg);
+}
+.wp-block-button.is-style-download-plain-white .wp-block-button__link:after {
+  background-image: url(../assets/images/theme/icon-download-white-fill.svg);
 }
 .wp-block-button.is-style-plus .wp-block-button__link:before {
   background-image: url(../assets/images/theme/acc-plus.svg);

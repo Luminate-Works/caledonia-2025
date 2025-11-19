@@ -214,9 +214,33 @@ wp.blocks.registerBlockStyle('core/button', {
 	label: 'Download White',
 });
 wp.blocks.registerBlockStyle('core/button', {
+	name: 'download-plain-white',
+	label: 'Download Plain White',
+});
+wp.blocks.registerBlockStyle('core/button', {
 	name: 'plus',
 	label: 'Plus',
 });
+wp.blocks.registerBlockStyle('core/button', {
+	name: 'external',
+	label: 'External',
+});
+wp.blocks.registerBlockStyle('core/button', {
+	name: 'external-white',
+	label: 'External White',
+});
+// wp.blocks.registerBlockStyle('core/button', {
+// 	name: 'down-arrow',
+// 	label: 'Down Arrow',
+// });
+// wp.blocks.registerBlockStyle('core/button', {
+// 	name: 'down-arrow-white',
+// 	label: 'Down Arrow White',
+// });
+// wp.blocks.registerBlockStyle('core/button', {
+// 	name: 'down-arrow-plain-white',
+// 	label: 'Down Arrow Plain White',
+// });
 
 
 // quicklinks

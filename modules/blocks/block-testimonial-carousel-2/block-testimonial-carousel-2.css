@@ -17,20 +17,21 @@ h4 + .testimonial-carousel-2 {
 }
 .testimonial-carousel-2 .swiper-slide {
   display: flex;
+  flex-wrap: wrap;
   gap: 8rem;
 }
 .testimonial-carousel-2 .swiper-slide .image {
-  width: 50%;
+  width: 100%;
 }
 .testimonial-carousel-2 .swiper-slide .image img {
   border-radius: 8px;
-  min-height: 660px;
+  min-height: 360px;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .testimonial-carousel-2 .swiper-slide .content {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -72,6 +73,17 @@ h4 + .testimonial-carousel-2 {
   font-size: var(--wp--preset--font-size--font-18);
   margin: 0;
   color: rgba(1, 0, 53, 0.6);
+}
+@media (min-width: 1024px) {
+  .testimonial-carousel-2 .swiper-slide .content {
+    width: 50%;
+  }
+  .testimonial-carousel-2 .swiper-slide .image {
+    width: calc(50% - 8rem);
+  }
+  .testimonial-carousel-2 .swiper-slide .image img {
+    min-height: 660px;
+  }
 }
 .testimonial-carousel-2 .swiper-pagination {
   width: auto !important;
