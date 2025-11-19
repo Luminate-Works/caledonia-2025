@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (data.area_series && data.area_series.length > 0) {
         seriesList.unshift({
-            name: "RPI +3% to RPI 6%",
+            name: "CPIH +3%",
             type: "arearange",
             data: data.area_series,
             color: "#CBD8FF",
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const len = formattedCategories.length;
                 const positions = [];
                 for (let i = 0; i < len; i++) {
-                    if (i === 0 || i === len - 1 || i % 10 === 0) positions.push(i);
+                    if (i === 0 || i === len - 1 || i % 20 === 0) positions.push(i);
                 }
                 return positions;
             })() : undefined,
