@@ -139,6 +139,12 @@
         width: 100%;
         padding: 4rem;
       }
+
+      .stats-wrapper {
+        .stats {
+          flex-direction: column;
+        }
+      }
     }
   }
 }

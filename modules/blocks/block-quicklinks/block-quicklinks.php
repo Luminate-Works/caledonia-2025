@@ -42,7 +42,7 @@ $arrow = get_field('arrow_right');
                                 </svg>
                             <?php endif; ?>
                         </span>
-                        <span><?= esc_html($link['title'] ?? 'Read More') ?></span>
+                        <span><?= esc_html($link['title'] ?? 'Read more') ?></span>
 
                     </a>
                 </li>

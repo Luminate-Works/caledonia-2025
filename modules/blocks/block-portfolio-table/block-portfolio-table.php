@@ -23,7 +23,7 @@
             
             <?php if($icon) : ?>
             <div class="icon-wrapper">
-                <img class="icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($text); ?>">
+                <img class="icon" src="<?php echo esc_url($icon); ?>">
             </div>
            <?php endif; ?>
                  

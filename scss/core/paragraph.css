@@ -29,8 +29,13 @@ p.is-style-intro.has-text-align-center, p.is-style-introborder.has-text-align-ce
   max-width: 96rem;
 }
 p.is-style-introborder {
-  padding-left: 4rem;
+  padding-left: 2rem;
   border-left: 1px solid rgba(1, 0, 53, 0.1);
+}
+@media (min-width: 1024px) {
+  p.is-style-introborder {
+    padding-left: 4rem;
+  }
 }
 p.is-style-transparent {
   opacity: 0.6;

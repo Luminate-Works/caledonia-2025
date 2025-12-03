@@ -42,8 +42,12 @@ p {
   }
 
   &.is-style-introborder {
-    padding-left: 4rem;
+    padding-left: 2rem;
     border-left: 1px solid rgba($primary, 0.1);
+
+    @media (min-width: 1024px) {
+       padding-left: 4rem;
+    }
   }
 
   &.is-style-transparent {

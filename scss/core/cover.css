@@ -42,7 +42,7 @@
   max-width: none;
 }
 .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-column.is-style-border-left-light {
-  padding-left: 6rem;
+  padding-left: 2rem;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container h2 {
@@ -62,6 +62,9 @@
   .wp-block-cover.is-style-shiny-cta-slim {
     padding: 5rem 4rem;
     min-height: 350px;
+  }
+  .wp-block-cover.is-style-shiny-cta-slim .wp-block-cover__inner-container .wp-block-column.is-style-border-left-light {
+    padding-left: 6rem;
   }
 }
 .wp-block-cover.is-style-blue-cta-slim {

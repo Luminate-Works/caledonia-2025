@@ -62,7 +62,7 @@ $wrapper_attributes = $link
                 <div class="wp-block-button is-style-bg-white">
                     <a href="<?= esc_url($link_url) ?>" target="<?= esc_attr($link_target); ?>">
                         <span class="wp-block-button__link">
-                            <?= esc_html($link['title'] ?? 'Read More') ?>
+                            <?= esc_html($link['title'] ?? 'Read more') ?>
                         </span>
                     </a>
 

@@ -144,7 +144,9 @@
 }
 .wp-block-buttons.is-style-border-top {
   border-top: 1px solid rgba(1, 0, 53, 0.1);
+  padding-top: 2rem;
 }
 .wp-block-buttons.is-style-border-top-light {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
 }/*# sourceMappingURL=button.css.map */

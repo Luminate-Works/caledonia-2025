@@ -384,3 +384,24 @@ add_filter('upload_mimes', function($mimes) {
     $mimes['xhtml'] = 'application/xhtml+xml';
     return $mimes;
 });
+
+
+// ------------------------------------------
+// Change permalink for post
+// ------------------------------------------
+function rv_post_type_news_permalink( $permalink, $post ) {
+    if ( $post->post_type === 'post' ) {
+        return home_url( '/news/' . $post->post_name . '/' );
+    }
+    return $permalink;
+}
+add_filter( 'post_type_link', 'rv_post_type_news_permalink', 10, 2 );
+
+function rv_rewrite_rules() {
+    add_rewrite_rule(
+        '^news/([^/]+)/?$',
+        'index.php?name=$matches[1]',
+        'top'
+    );
+}
+add_action( 'init', 'rv_rewrite_rules' );

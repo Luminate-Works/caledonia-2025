@@ -9,7 +9,11 @@
 
 .narrow {
   max-width: 770px;
-  margin: 12rem auto;
+  margin: 6rem auto;
+
+  @media (min-width: 1024px) {
+      margin: 12rem auto;
+  }
 }
 
 .parallax-up {

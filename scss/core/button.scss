@@ -156,9 +156,11 @@
 
   &.is-style-border-top {
     border-top: 1px solid rgba($primary, 0.1);
+    padding-top: 2rem;
   }
 
   &.is-style-border-top-light {
     border-top: 1px solid rgba(white, 0.1);
+    padding-top: 2rem;
   }
 }
