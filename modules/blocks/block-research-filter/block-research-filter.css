@@ -302,7 +302,12 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .research-filter .research-listing {
+    gap: 4rem;
+  }
 }
 .research-filter .research-listing > .post-item:nth-of-type(6n + 1) .excerpt {
   background-image: url("../../../assets/images/theme/research-1.png");
@@ -330,10 +335,14 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  aspect-ratio: 4/3;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+}
+@media (min-width: 1024px) {
+  .research-filter .research-listing > .post-item .excerpt {
+    aspect-ratio: 4/3;
+  }
 }
 .research-filter .research-listing > .post-item .excerpt .meta-fields {
   display: flex;

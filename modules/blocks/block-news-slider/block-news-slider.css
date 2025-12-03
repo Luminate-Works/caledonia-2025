@@ -1,16 +1,16 @@
 .news-slider .listing-wrapper .swiper-wrapper .excerpt {
   width: 100%;
   background: rgba(203, 216, 255, 0.5);
-  padding: 3.2rem;
+  padding: 2rem;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   height: 100%;
-  aspect-ratio: 1.2/1;
   justify-content: flex-end;
+  min-height: 200px;
 }
 .news-slider .listing-wrapper .swiper-wrapper .excerpt .meta-fields {
-  display: flex;
+  display: none;
   align-items: center;
   width: 100%;
   gap: 1.6rem;
@@ -38,6 +38,7 @@
 .news-slider .listing-wrapper .swiper-wrapper .excerpt h3 {
   font-size: var(--wp--preset--font-size--font-24);
   line-height: 130%;
+  margin-bottom: 0;
 }
 .news-slider .listing-wrapper .swiper-wrapper .excerpt .wp-block-buttons {
   margin-top: auto !important;
@@ -45,6 +46,15 @@
 }
 .news-slider .listing-wrapper .swiper-wrapper .excerpt .wp-block-buttons .wp-block-button .wp-block-button__link {
   font-size: var(--wp--preset--font-size--font-14);
+}
+@media (min-width: 1024px) {
+  .news-slider .listing-wrapper .swiper-wrapper .excerpt {
+    aspect-ratio: 1.2/1;
+    padding: 3.2rem;
+  }
+  .news-slider .listing-wrapper .swiper-wrapper .excerpt .meta-fields {
+    display: flex;
+  }
 }
 .news-slider .listing-wrapper .title {
   position: absolute;

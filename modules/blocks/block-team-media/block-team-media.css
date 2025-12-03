@@ -343,5 +343,5 @@
   background-image: url(../../../assets/images/theme/icon-download.svg);
   top: 4rem;
   right: 0rem;
-  transition: all ease-in-out 0.25s;
+  transition: background-image ease-in-out 0.25s;
 }/*# sourceMappingURL=block-team-media.css.map */

@@ -4,37 +4,73 @@ document.addEventListener("DOMContentLoaded", function () {
   var navExpander = document.getElementById("nav-expander");
   var body = document.body;
   var header = document.querySelector("header");
-  var sitenavLinks = document.querySelectorAll(".sitenav a");
+  var sitenav = document.getElementById("sitenav"); // wrapper
   var subToggles = document.querySelectorAll(
     ".sitenav .menu-item-has-children > .sub-toggle"
   );
 
-  navExpander.style.cursor = "pointer";
-  navExpander.addEventListener("click", function (e) {
-    e.preventDefault();
-    body.classList.toggle("nav-expanded");
-    navExpander.classList.toggle("is-active");
-    header.classList.toggle("menu-open");
-  });
+  function isMobile() {
+    return window.matchMedia("(max-width:1023px)").matches;
+  }
 
-  sitenavLinks.forEach(function (link) {
-    link.addEventListener("click", function () {
-      body.classList.remove("nav-expanded");
-      navExpander.classList.remove("is-active");
-      header.classList.remove("menu-open");
+  // nav expander
+  if (navExpander) {
+    navExpander.style.cursor = "pointer";
+    navExpander.addEventListener("click", function (e) {
+      e.preventDefault();
+      body.classList.toggle("nav-expanded");
+      navExpander.classList.toggle("is-active");
+      header.classList.toggle("menu-open");
+    });
+  }
+
+  // --- 1) Parent <a> handlers FIRST (they will stop propagation on mobile) ----
+  var parentLinks = document.querySelectorAll(
+    ".sitenav .menu-item-has-children > a"
+  );
+  parentLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      // Desktop: do nothing here (allow normal navigation)
+      if (!isMobile()) return;
+
+      // Mobile: intercept the click, toggle submenu, prevent other handlers
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      var parentLi = this.parentElement;
+      if (!parentLi) return;
+
+      var toggle = parentLi.querySelector(".sub-toggle");
+      // choose the actual big submenu wrapper (your markup uses .megamenu.child-menu)
+      var subMenu =
+        parentLi.querySelector(".megamenu.child-menu") ||
+        (toggle && toggle.nextElementSibling) ||
+        parentLi.querySelector(".sub-menu");
+
+      // Mirror sub-toggle behaviour
+      if (toggle) toggle.classList.toggle("open");
+      parentLi.classList.toggle("open");
+
+      if (subMenu) {
+        if (subMenu.style.maxHeight) {
+          subMenu.style.maxHeight = null;
+        } else {
+          subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+        }
+      }
     });
   });
 
+  // --- 2) Existing sub-toggle behaviour (span clicks) ---
   subToggles.forEach(function (toggle) {
-    toggle.addEventListener("click", function () {
+    toggle.addEventListener("click", function (e) {
       var parentLi = this.closest("li");
-
       this.classList.toggle("open");
-
       if (parentLi && parentLi.classList.contains("menu-item-has-children")) {
         parentLi.classList.toggle("open");
       }
 
+      // Because markup is a megamenu, nextElementSibling is the wrapper DIV
       var subMenu = this.nextElementSibling;
       if (subMenu) {
         if (subMenu.style.maxHeight) {
@@ -44,6 +80,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
+  });
+
+  // --- 3) sitenavLinks LAST: close menu for normal links, skip parents on mobile ---
+  var sitenavLinks = document.querySelectorAll(".sitenav a");
+  sitenavLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var parentLi = this.parentElement;
+      var isParentLink =
+        parentLi &&
+        parentLi.classList &&
+        parentLi.classList.contains("menu-item-has-children");
+
+      // If this is a parent link on mobile, do not close the nav here.
+      // We DO NOT call stopImmediatePropagation here because the parent handler must run first.
+      if (isMobile() && isParentLink) {
+        // Prevent navigation (parent handler already prevented default and toggled)
+        e.preventDefault();
+        return;
+      }
+
+      // Default: close the mobile nav for normal links (and on desktop keep behavior)
+      body.classList.remove("nav-expanded");
+      if (navExpander) navExpander.classList.remove("is-active");
+      if (header) header.classList.remove("menu-open");
+    });
+  });
+
+  // --- Optional: cleanup on resize (remove inline heights when switching to desktop) ---
+  window.addEventListener("resize", function () {
+    if (!isMobile()) {
+      document
+        .querySelectorAll(".sitenav .megamenu.child-menu, .sitenav .sub-menu")
+        .forEach(function (m) {
+          m.style.maxHeight = null;
+        });
+    }
   });
 });
 
@@ -217,6 +289,24 @@ if (backToTopButton) {
     }
   });
 })();
+
+// -----------------------------------------------------------------------------
+// IFRAME RESIZE VANILLA JS
+// -----------------------------------------------------------------------------
+window.addEventListener("message", function (event) {
+  var frames = document.getElementsByTagName("iframe");
+  for (var i = 0; i < frames.length; i++) {
+    if (frames[i].contentWindow === event.source) {
+      var style = frames[i].currentStyle || window.getComputedStyle(frames[i]);
+      var paddingTop = style.paddingTop;
+      var paddingBottom = style.paddingBottom;
+      var padding = parseInt(paddingTop) + parseInt(paddingBottom);
+      frames[i].style.height = event.data + padding + "px";
+
+      break;
+    }
+  }
+});
 
 // ========================
 // Open Mega Menu on click & align child pages

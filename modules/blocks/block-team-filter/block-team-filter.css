@@ -305,8 +305,8 @@
   .team .team-list .team__member__outter:nth-of-type(3n):before {
     width: 100%;
   }
-  .team .team-list .team__member__outter:nth-last-of-type(-n + 3)::before {
-    content: none;
+  .team .team-list .team__member__outter:last-child:before {
+    width: calc(100% + 4rem);
   }
 }
 .team .team-list .team__member {
@@ -422,7 +422,7 @@
   background-image: url(../../../assets/images/theme/acc-plus.svg);
   top: 4rem;
   right: 0rem;
-  transition: all ease-in-out 0.25s;
+  transition: background-image ease-in-out 0.25s;
   background-size: cover;
 }
 

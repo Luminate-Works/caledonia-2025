@@ -8,12 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const heroStaticImage = heroElement.querySelector(
         ".hero-static__image, .hero-video__image"
       );
-      const iframe = heroElement.querySelector(
+      const iframes = heroElement.querySelectorAll(
         ".hero-video__image .video-player, .hero-static__image .video-player"
       );
 
-      if (heroStaticImage && iframe) {
+      iframes.forEach((iframe) => {
         const updateIframeSize = () => {
+          if (iframe.classList.contains("mobile-video")) {
+            return;
+          }
+
+          // desktop video logic
           const containerWidth = heroStaticImage.offsetWidth;
           const containerHeight = heroStaticImage.offsetHeight;
           const videoAspectRatio = 16 / 9;
@@ -32,12 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
           iframe.style.transform = "translate(-50%, -50%)";
         };
 
-        // Initial size set
         updateIframeSize();
-
-        // Adjust the size on window resize
         window.addEventListener("resize", updateIframeSize);
-      }
+      });
     });
 
     const swiper = new Swiper(".banner-slider-overlay", {

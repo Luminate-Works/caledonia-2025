@@ -76,6 +76,9 @@
 }
 
 @media (max-width: 767px) {
+  .scrolling-text {
+    display: none;
+  }
   .scrolling-text .scrolling-image .half {
     width: 100%;
     padding: 2rem;

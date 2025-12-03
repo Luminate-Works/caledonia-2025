@@ -408,6 +408,25 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
+    // --- Reset function ---
+    function resetCurtains() {
+      curtainOverlay.classList.add("curtain-hidden");
+      curtainOverlay.style.zIndex = -1;
+
+      gsap.set(curtainOverlay, { opacity: 0 });
+      gsap.set([curtain1, curtain2], { y: "100%" });
+    }
+
+    // Reset on browser back/forward navigation
+    window.addEventListener("popstate", resetCurtains);
+
+    // Reset after BFCache restore
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        resetCurtains();
+      }
+    });
+
     // Reset curtains on back/forward navigation
     window.addEventListener("popstate", () => {
       curtainOverlay.classList.add("curtain-hidden");

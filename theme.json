@@ -300,7 +300,7 @@
                     "name": "Font 72"
                 },
                 {
-                    "size": "clamp(4.8rem, 3.8rem + 3.6vw, 10rem)",
+                    "size": "clamp(4.2rem, 3rem + 3.6vw, 10rem)",
                     "slug": "font-100",
                     "name": "Font 100"
                 },
@@ -319,7 +319,7 @@
 					"slug": "system"
 				  },
 				  {
-					"fontFamily": "'Diatype', sans-serif",
+					"fontFamily": "'Caledonia Diatype', sans-serif",
 					"name": "Primary",
 					"slug": "primary"
 				  },

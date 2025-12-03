@@ -238,7 +238,7 @@ if (is_admin()) {
             </defs>
         </svg>
 
-        <span>6% cash etc</span>
+        <span><?php the_field('cash_value'); ?></span>
 
     </div>
 
