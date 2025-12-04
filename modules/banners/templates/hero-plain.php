@@ -4,6 +4,9 @@ $page_id = get_the_ID();
 $banner_content = get_field('static_content', $page_id);
 $banner_title = get_field('titles_in_banner', 'option') ?? null;
 
+if (is_search()) {
+    $page_id = null;
+}
 
 // Get override fields
 $override_text_colour = $banner_content['override_text_colour'] ?? null;
@@ -12,7 +15,7 @@ $override_text_opacity = $banner_content['override_text_opacity'] ?? null;
 // Determine page title based on context
 $page_title = match (true) {
     is_404() => 'Page Not Found',
-    is_search() => 'Search Results for: ' . get_search_query(),
+    is_search() => 'Search results',
     is_archive() => get_the_archive_title(),
     is_singular('team') => 'Team',
     is_singular('post') => 'News & Insights',
@@ -38,7 +41,7 @@ $custom_css = $banner_content['banner_custom_css'] ?? null;
 $title = $banner_content['title'] ?? '';
 $subtitle = $banner_content['subtitle'] ?? '';
 
-if (!is_front_page()) {
+if (!is_front_page() && !is_search()) {
     $title_pt1 = $banner_content['title_pt1'] ?? '';
     $title_pt2 = $banner_content['title_pt2'] ?? '';
 }
@@ -57,7 +60,7 @@ if ($override_text_opacity !== null && $override_text_opacity !== '') {
 
 // Display banner content
 if ($banner_title && !is_front_page()) {
-    echo '<div class="hero-plain__content ' . ($image_id ? '' : 'no-image') . '">';
+    echo '<div class="has-global-padding hero-plain__content ' . ($image_id ? '' : 'no-image') . '">';
     echo '<div class="wrap">';
     echo '<h1 class="page-title" style="' . esc_attr($text_style) . '">';
     echo '<span class="' . ((!$title_pt2) ? 'no-sub' : '') . '" style="' . esc_attr($span_style) . '">' . esc_html($title_pt1 ?: $page_title) . '</span>';

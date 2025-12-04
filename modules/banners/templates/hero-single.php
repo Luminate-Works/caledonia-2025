@@ -72,7 +72,7 @@ if ($image_id) {
 
 // Display banner content
 if ($banner_title && !is_front_page()) {
-    echo '<div class="hero-single__content ' . ($image_id ? '' : 'no-image') . '">';
+    echo '<div class="has-global-padding hero-single__content ' . ($image_id ? '' : 'no-image') . '">';
     echo '<div class="wrap">';
 
     echo '<div class="meta-fields">';

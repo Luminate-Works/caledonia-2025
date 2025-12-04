@@ -35,7 +35,7 @@
         content: "";
         opacity: 1;
         z-index: 1;
-        width: 32px;
+        min-width: 32px;
         height: 32px;
         display: inline-block;
         transition: all $ease $speed;

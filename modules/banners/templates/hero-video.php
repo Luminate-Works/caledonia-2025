@@ -25,6 +25,7 @@ if (!$image_id) {
 }
 
 $banner_type = $banner_content['video_type'] ?? '';
+$video_url_mobile = $banner_content['video_link_mobile'] ?? '';
 
 if ($banner_type === 'external') {
     $video_url = $banner_content['video_link'] ?? '';
@@ -54,8 +55,31 @@ if (is_front_page()) {
         <?php if ($banner_type == 'external'): ?>
 
             <?= wp_get_attachment_image($image_id, 'full', false, ['class' => 'banner-image']); ?>
-            <iframe title="banner" class="video-player" data-type="<?php echo $video_type; ?>" src="<?php echo $video_src; ?>" allowfullscreen></iframe>
 
+            <!-- Desktop Video -->
+            <iframe
+                title="banner"
+                class="video-player desktop-video"
+                data-type="<?php echo $video_type; ?>"
+                src="<?php echo $video_src; ?>"
+                allowfullscreen>
+            </iframe>
+
+            <!-- Mobile Video -->
+            <?php if (!empty($video_url_mobile)) : ?>
+                <?php
+                $mobile_info = get_video_info($video_url_mobile);
+                ?>
+                <div class="mobile-video-wrapper">
+                    <iframe
+                        title="banner-mobile"
+                        class="mobile-video video-player"
+                        data-type="<?php echo $mobile_info['video_type']; ?>"
+                        src="<?php echo $mobile_info['video_src']; ?>"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            <?php endif; ?>
         <?php elseif ($banner_type == 'hosted') : ?>
             <?= wp_get_attachment_image($image_id, 'full', false, ['class' => 'banner-image']); ?>
 
@@ -94,41 +118,41 @@ if (is_front_page()) {
             <?php if ($banner_content && !empty($banner_content['banner_slider_overlay'])) : ?>
                 <div class="banner-slider-overlay swiper">
                     <div class="swiper-wrapper">
-                    <?php foreach ($banner_content['banner_slider_overlay'] as $slide) :
-                        $img    = $slide['img'];
-                        $label  = $slide['label'];
-                        $title  = $slide['title'];
-                        $button = $slide['button']; // Link field
-                        $link   = !empty($button['url']) ? $button['url'] : '#';
-                        $target = !empty($button['target']) ? $button['target'] : '_self';
-                    ?>
-                        <a href="<?php echo esc_url($link); ?>"
-                            class="banner-slide swiper-slide"
-                            target="<?php echo esc_attr($target); ?>">
+                        <?php foreach ($banner_content['banner_slider_overlay'] as $slide) :
+                            $img    = $slide['img'];
+                            $label  = $slide['label'];
+                            $title  = $slide['title'];
+                            $button = $slide['button']; // Link field
+                            $link   = !empty($button['url']) ? $button['url'] : '#';
+                            $target = !empty($button['target']) ? $button['target'] : '_self';
+                        ?>
+                            <a href="<?php echo esc_url($link); ?>"
+                                class="banner-slide swiper-slide"
+                                target="<?php echo esc_attr($target); ?>">
 
-                            <?php if (!empty($img)): ?>
-                                <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
-                            <?php endif; ?>
-
-                            <div class="content">
-                                <?php if ($label): ?>
-                                    <div class="label"><?php echo esc_html($label); ?></div>
+                                <?php if (!empty($img)): ?>
+                                    <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
                                 <?php endif; ?>
 
-                                <?php if ($title): ?>
-                                    <div class="title"><?php echo esc_html($title); ?></div>
-                                <?php endif; ?>
+                                <div class="content">
+                                    <?php if ($label): ?>
+                                        <div class="label"><?php echo esc_html($label); ?></div>
+                                    <?php endif; ?>
 
-                                <?php if ($button): ?>
-                                    <div class="wp-block-button is-style-plain-white">
-                                        <div class="wp-block-button__link">
-                                            <?php echo esc_html($button['title']); ?>
+                                    <?php if ($title): ?>
+                                        <div class="title"><?php echo esc_html($title); ?></div>
+                                    <?php endif; ?>
+
+                                    <?php if ($button): ?>
+                                        <div class="wp-block-button is-style-plain-white">
+                                            <div class="wp-block-button__link">
+                                                <?php echo esc_html($button['title']); ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </a>
-                    <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
 
                     <div class="swiper-pagination"></div>

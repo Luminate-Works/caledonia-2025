@@ -113,7 +113,8 @@
   }
 }
 
-body.page {
+body.page,
+body.search {
   .hero-plain {
     display: flex;
     flex-direction: column-reverse;
@@ -122,8 +123,16 @@ body.page {
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: top right;
-    min-height: 420px;
+    min-height: 300px;
 
+    @media (max-width: 1023px) {
+      background-size: cover !important;
+    }
+
+    @media (min-width: 1024px) {
+      min-height: 530px;
+    }
+    
     &.overlay-yellow {
       background-image: url(../assets/images/theme/inner-banner-mask-yellow.png);
     }
@@ -133,6 +142,7 @@ body.page {
 
       @media (min-width: 1024px) {
         min-height: 600px;
+        height: 45vh;
       }
 
       &::before {
@@ -140,7 +150,12 @@ body.page {
       }
 
       .wrap {
-        min-height: 600px;
+        min-height: 300px;
+
+        @media (min-width: 1024px) {
+          min-height: 600px;
+          height: 45vh;
+        }
 
         img {
           border-radius: 4px;
@@ -156,14 +171,21 @@ body.page {
       position: relative;
 
       .page-title {
-        font-size: 10rem;
-        span.sub {
-          padding-left: 8rem;
-        }
+        font-size: $font-100;
       }
 
       &.no-image {
         margin-bottom: 8rem;
+      }
+
+      @media (min-width: 1024px) {
+        .page-title {
+          font-size: 10rem;
+
+          span.sub {
+            padding-left: 8rem;
+          }
+        }
       }
     }
   }

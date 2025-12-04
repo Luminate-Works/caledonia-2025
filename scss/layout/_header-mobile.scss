@@ -5,19 +5,45 @@ header {
     &:not(.menu-open) {
       #nav-expander {
         .bar {
-          background: $purple;
+          background: $primary;
 
           &:before,
           &:after {
-            background: $purple;
+            background: $primary;
           }
         }
       }
+    }
+
+    &.menu-open {
+      #nav-expander {
+        .bar {
+
+          &:before,
+          &:after {
+            background: $primary;
+          }
+        }
+      }
+    }
+
+    .search-toggle path {
+      stroke: $primary;
     }
   }
 
   .wrap {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-item-search {
+    margin-right: 4rem;
+    .search-toggle {
+      border: none;
+    }
   }
 
   #sitenav {
@@ -38,7 +64,7 @@ header {
     z-index: -1;
 
     .mega-menu-footer {
-        display: none;
+      display: none;
     }
 
     .menu {
@@ -57,7 +83,8 @@ header {
 
         &.current-menu-item,
         &.current-menu-parent {
-          a {
+
+         > a {
             color: $orange;
           }
         }
@@ -72,7 +99,7 @@ header {
         border-bottom: 1px solid rgba(black, 0.1);
 
         &.open {
-            background: $secondary-3;
+          background: $secondary-3;
         }
 
         > a {
@@ -109,12 +136,11 @@ header {
 
               &.current-menu-item {
                 a {
-                  color: $secondary;
+                  color: $orange;
                 }
               }
 
               a {
-
                 &:before {
                   content: "- ";
                   color: rgba(255, 255, 255, 0.15);
@@ -172,7 +198,8 @@ header {
     // }
 
     #sitenav {
-      padding-top: 70px;
+      margin-top: 70px;
+      padding-top: 0;
       visibility: visible;
       opacity: 1;
       pointer-events: all;

@@ -32,7 +32,7 @@ $wrapper_attributes = $link
 
         <?php if ($link): ?>
             <span class="btn">
-                <?= esc_html($link['title'] ?? 'Read More') ?>
+                <?= esc_html($link['title'] ?? 'Read more') ?>
             </span>
         <?php endif; ?>
     </div>

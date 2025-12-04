@@ -24,8 +24,6 @@ if (class_exists('ACF')) {
 
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 
-    <a href="#content" class="skip-link">Skip to content</a>
-
     <?php
     // Enable top bar and set up widgets if enabled
     if ($enable_topbar):
@@ -109,7 +107,7 @@ if (class_exists('ACF')) {
     <?php if ($enable_header_search):
     ?>
         <div id="header-search-popup" class="search-popup">
-            <div class="wrap">
+            <div class="wrap has-global-padding alignfull">
                 <div class="search-popup-inner">
 
                     <div class="search-form-wrapper">
@@ -152,9 +150,12 @@ if (class_exists('ACF')) {
     <main>
         <?php
         // Determine the banner type and template
-        if (is_404() || is_search() || is_archive()) {
+        if (is_404() || is_archive()) {
             $banner_type     = 'static';
             $banner_template = 'modules/banners/templates/hero-static.php';
+        } elseif (is_search()) {
+            $banner_type     = 'plain';
+            $banner_template = 'modules/banners/templates/hero-plain.php';
         } elseif (is_single()) {
             $banner_type     = 'single';
             $banner_template = 'modules/banners/templates/hero-single.php';
