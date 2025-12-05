@@ -134,6 +134,7 @@ if (is_admin()) {
 	function documentsApp(data = {}) {
 		return {
 			posts: [],
+			page: 1,
 			offset: 0,
 			postsPerPage: 9,
 			filter: '',
@@ -183,13 +184,6 @@ if (is_admin()) {
 				formData.append('year', yearToUse);
 				formData.append('search', this.searchQuery);
 				formData.append('allowed_terms', JSON.stringify(this.allowedTerms));
-
-				console.log('Sending:', {
-					page: reset ? 1 : this.page,
-					filter: this.filter,
-					year: yearToUse,
-					allowed_terms: this.allowedTerms
-				});
 
 				fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
 						method: 'POST',

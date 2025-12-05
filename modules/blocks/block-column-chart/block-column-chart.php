@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     y: -Math.max(30, (yValue || 0) * 10)
                 };
             }),
-            labelOptions: { shape: "callout", align: "center", justify: false, distance: 30, allowOverlap: false }
+            labelOptions: { shape: "callout", align: "center", justify: false, distance: 30, allowOverlap: true }
         }],
         series: data.series,
         legend: { enabled: false },

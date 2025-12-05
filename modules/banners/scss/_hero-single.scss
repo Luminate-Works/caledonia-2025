@@ -108,8 +108,12 @@ body.single {
   .hero-single {
     display: flex;
     flex-direction: column-reverse;
-    background: #CEDCF1;
-    min-height: 530px;
+    background: #cedcf1;
+    min-height: 300px;
+
+    @media (min-width: 1024px) {
+      min-height: 530px;
+    }
 
     .hero-single__image {
       min-height: 300px;

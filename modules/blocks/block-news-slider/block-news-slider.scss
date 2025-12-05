@@ -7,16 +7,16 @@
       .excerpt {
         width: 100%;
         background: rgba(203, 216, 255, 0.5);
-        padding: 3.2rem;
+        padding: 2rem;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
         height: 100%;
-        aspect-ratio: 1.2 / 1;
         justify-content: flex-end;
+        min-height: 200px;
 
         .meta-fields {
-          display: flex;
+          display: none;
           align-items: center;
           width: 100%;
           gap: 1.6rem;
@@ -49,6 +49,7 @@
         h3 {
           font-size: $font-24;
           line-height: 130%;
+          margin-bottom: 0;
         }
 
         .wp-block-buttons {
@@ -61,6 +62,15 @@
         }
 
         &:hover {
+        }
+
+        @media (min-width: 1024px) {
+          aspect-ratio: 1.2 / 1;
+          padding: 3.2rem;
+
+          .meta-fields {
+            display: flex;
+          }
         }
       }
     }

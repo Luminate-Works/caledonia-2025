@@ -39,17 +39,15 @@
 }
 
 .home-stats {
-
-    .statistics {
+  .statistics {
     .statistics__number {
       font-size: $font-56;
     }
 
     p.statistics__title {
-      margin-top: .75rem !important;
+      margin-top: 0.75rem !important;
     }
   }
-
 }
 
 .home-boxes-wrapper {
@@ -108,7 +106,6 @@
       border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
-
     @media (min-width: 1024px) {
       padding: 11.5rem 3rem 4.5rem 3rem;
     }
@@ -147,7 +144,6 @@
 }
 
 .contact-box {
-
   .wp-block-button__link {
     color: rgba(white, 0.8);
 
@@ -169,5 +165,112 @@
       display: block;
       float: left;
     }
+  }
+}
+
+.page-id-1710 .list-item .icon-wrapper {
+  display: none;
+}
+
+/* row : board */
+@media (max-width: 1023px) {
+  .wp-block-columns.is-style-gap-40.cg-board {
+    gap: 1.4rem;
+  }
+
+  .cg-board .wp-block-column {
+    padding: 1.5rem 2.2rem !important;
+  }
+}
+
+/* row : board committees */
+@media (max-width: 1549px) {
+  .wp-block-columns.is-style-gap-40.cg-board-comm {
+    gap: 2rem;
+  }
+  .cg-board-comm .wp-block-column {
+    padding: 1.5rem 2.2rem !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  .wp-block-columns.is-style-gap-40.cg-board-comm {
+    gap: 1.4rem;
+    flex-wrap: wrap !important;
+  }
+
+  .wp-block-columns.is-style-gap-40.cg-board-comm .wp-block-column {
+    flex-basis: auto;
+    min-width: calc(50% - 0.7rem);
+  }
+
+  .wp-block-columns.is-style-gap-40.cg-board-comm .wp-block-column br {
+    display: none;
+  }
+}
+
+/* row : management committees */
+@media (max-width: 1549px) {
+  .wp-block-columns.is-style-gap-40.cg-management-comm {
+    gap: 2rem;
+  }
+  .cg-management-comm > .wp-block-column {
+    padding: 1.5rem 2.2rem !important;
+  }
+  .cg-management-comm > .wp-block-column:nth-child(2) {
+    padding: 0 !important;
+  }
+  .cg-management-comm > .wp-block-column:nth-child(2) .wp-block-columns {
+    margin-bottom: 2rem !important;
+    padding: 2rem !important;
+  }
+  .cg-management-comm
+    > .wp-block-column:nth-child(2)
+    .wp-block-columns:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .cg-management-comm .wp-block-column.is-style-text-center p {
+    left: 2.2rem;
+  }
+}
+
+@media (max-width: 1299px) {
+  .wp-block-columns.is-style-gap-40.cg-management-comm {
+    flex-wrap: wrap !important;
+  }
+
+  .wp-block-columns.is-style-gap-40.cg-management-comm > .wp-block-column {
+    flex-basis: auto;
+    min-width: calc(33.33% - 3rem);
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 1004px) {
+  .wp-block-columns.is-style-gap-40.cg-management-comm {
+    gap: 1.4rem;
+  }
+  .wp-block-columns.is-style-gap-40.cg-management-comm > .wp-block-column {
+    min-width: 100%;
+  }
+  .cg-management-comm
+    > .wp-block-column:nth-child(2)
+    .wp-block-columns:not(:last-child) {
+    margin-bottom: 1.4rem !important;
+    margin-top: 0;
+  }
+  .wp-block-columns.is-style-gap-40.cg-management-comm > .wp-block-column {
+    min-height: auto;
+  }
+  .cg-management-comm .wp-block-column.is-style-text-center p {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: unset !important;
+  }
+
+  .wp-block-columns.is-style-gap-40.cg-management-comm .wp-block-column br {
+    display: none;
   }
 }

@@ -22,26 +22,31 @@ header {
   z-index: 1000;
   transition: all $speed $ease;
 
+  @media (min-width: 1200px) {
+    > .wrap {
+      grid-template-columns: 220px auto 220px !important;
+    }
+  }
+
   @include admin-sticky-fix;
 
   &.sticky {
-    padding: 1rem 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     background: $secondary-2;
     box-shadow: 0 2px 2px 0 rgba(#000, 0.05), 0 3px 1px -2px rgba(#000, 0.05),
       0 1px 5px 0 rgba(#000, 0.1);
     border-top: 4px solid $secondary-2;
 
-    &:not(.menu-open) {
-      .branding a > {
-        svg {
-          path {
-            display: none;
-          }
-          .icon {
-            > path {
-              display: block;
-              fill: $primary;
-            }
+    .branding a > {
+      svg {
+        path {
+          display: none;
+        }
+        .icon {
+          > path {
+            display: block;
+            fill: $primary;
           }
         }
       }
@@ -56,7 +61,7 @@ header {
     bottom: 0;
     background: $primary;
     height: fit-content;
-    z-index: 9;
+    z-index: 9999999;
     display: flex;
     align-items: center;
     transform: translateY(-100%);
@@ -113,7 +118,7 @@ header {
         form {
           width: 100%;
           input {
-            padding: 4rem 2rem 4rem 2rem;
+            padding: 2rem;
             background: transparent;
             color: white;
             border: none;
@@ -122,6 +127,10 @@ header {
 
             &::placeholder {
               color: rgba(white, 0.5);
+            }
+
+            @media (min-width: 1024px) {
+              padding: 3rem 2rem 3rem 2rem;
             }
           }
         }
@@ -201,6 +210,9 @@ header {
   }
 
   .menu-item-search {
+    width: 4rem;
+    height: 4rem;
+
     @media (min-width: 1024px) {
       padding-top: 0.5rem;
       display: flex;

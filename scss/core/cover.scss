@@ -49,7 +49,7 @@
       max-width: none;
 
       .wp-block-column.is-style-border-left-light {
-        padding-left: 6rem;
+        padding-left: 2rem;
         border-left: 1px solid rgba(255, 255, 255, 0.2);
       }
 
@@ -72,6 +72,12 @@
     @media (min-width: 768px) {
       padding: 5rem 4rem;
       min-height: 350px;
+
+      .wp-block-cover__inner-container {
+        .wp-block-column.is-style-border-left-light {
+        padding-left: 6rem;
+        }
+      }
     }
   }
 

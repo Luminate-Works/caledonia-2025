@@ -17,15 +17,16 @@
         font-size: 1.6rem;
         font-weight: 500;
         margin: 0 4px 0 0;
-        padding: 5px 12px;
-        background: rgba(0,0,0, .1);
+        padding: 8px 15px;
+        background: $secondary-2;
+        color: $primary;
         transition: color $speed $ease, background $speed $ease;
 
         &.current,
         &:hover,
         &:active,
         &:focus {
-            background: rgba(0,0,0, .35);
+            background: $primary;
             color: #fff;
         }
     }

@@ -88,7 +88,7 @@ if (is_admin()) {
 									<?php the_excerpt(); ?>
 								</div>
 								<button class="slide-button" @click.stop="openModal(<?= $index; ?>)">
-									Read More
+									Read more
 								</button>
 							</div>
 						</div>

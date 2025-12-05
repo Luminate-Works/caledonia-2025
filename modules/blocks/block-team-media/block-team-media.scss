@@ -426,7 +426,7 @@
         background-image: url(../../../assets/images/theme/icon-download.svg);
         top: 4rem;
         right: 0rem;
-        transition: all $ease $speed;
+        transition: background-image $ease $speed;
       }
     }
   } // profile

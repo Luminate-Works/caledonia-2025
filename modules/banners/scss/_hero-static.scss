@@ -91,6 +91,11 @@
 
       &.is-child {
         margin-bottom: 4rem;
+
+        @media (max-width: 1023px) {
+          margin-left: 2rem;
+          margin-right: 2rem;
+        }
       }
 
       .wrap {
@@ -235,10 +240,14 @@ body.page-child {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
-    min-height: 530px;
+    min-height: 300px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1023px) {
       background-size: cover !important;
+    }
+
+    @media (min-width: 1024px) {
+      min-height: 530px;
     }
 
     &.overlay-yellow {
@@ -306,7 +315,11 @@ body.page-child {
       .page-title {
         span.sub {
           display: inline-block;
-          padding-left: 3rem;
+          padding-left: 1.5rem;
+
+          @media (min-width: 1024px) {
+            padding-left: 3rem;
+          }
         }
       }
     }

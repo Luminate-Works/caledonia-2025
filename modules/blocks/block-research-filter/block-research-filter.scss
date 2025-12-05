@@ -374,7 +374,11 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
+
+    @media (min-width: 1024px) {
+      gap: 4rem;
+    }
 
     > .post-item {
       &:nth-of-type(6n + 1) {
@@ -421,10 +425,13 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        aspect-ratio: 4 / 3;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
+
+        @media (min-width: 1024px) {
+           aspect-ratio: 4 / 3;
+        }
 
         .meta-fields {
           display: flex;
