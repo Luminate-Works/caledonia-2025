@@ -49,16 +49,16 @@ add_filter('auto_update_theme', '__return_false');
 // ------------------------------------------
 // DISABLE RSS FEEDS
 // ------------------------------------------
-function lmn_disable_feed() {
-    wp_die(__('No feed available, please visit our <a href="' . esc_url(get_bloginfo('url')) . '">homepage</a>!'));
-}
-add_action('do_feed', 'lmn_disable_feed', 1);
-add_action('do_feed_rdf', 'lmn_disable_feed', 1);
-add_action('do_feed_rss', 'lmn_disable_feed', 1);
-add_action('do_feed_rss2', 'lmn_disable_feed', 1);
-add_action('do_feed_atom', 'lmn_disable_feed', 1);
-add_action('do_feed_rss2_comments', 'lmn_disable_feed', 1);
-add_action('do_feed_atom_comments', 'lmn_disable_feed', 1);
+// function lmn_disable_feed() {
+//     wp_die(__('No feed available, please visit our <a href="' . esc_url(get_bloginfo('url')) . '">homepage</a>!'));
+// }
+// add_action('do_feed', 'lmn_disable_feed', 1);
+// add_action('do_feed_rdf', 'lmn_disable_feed', 1);
+// add_action('do_feed_rss', 'lmn_disable_feed', 1);
+// add_action('do_feed_rss2', 'lmn_disable_feed', 1);
+// add_action('do_feed_atom', 'lmn_disable_feed', 1);
+// add_action('do_feed_rss2_comments', 'lmn_disable_feed', 1);
+// add_action('do_feed_atom_comments', 'lmn_disable_feed', 1);
 
 // ------------------------------------------
 // DISABLE JSON REST API
